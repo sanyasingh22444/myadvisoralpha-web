@@ -397,11 +397,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#calculator" className="hover:text-white transition-colors">
-                  SIP Wealth Calculator
-                </Link>
-              </li>
-              <li>
                 <a
                   href="https://web.advisoralpha.in/#/login"
                   target="_blank"

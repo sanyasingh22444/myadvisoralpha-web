@@ -146,14 +146,14 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
 
               {/* Sub-Headline / Value Proposition */}
               <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl font-normal leading-relaxed">
-                Research from a SEBI Registered Research Analyst team. Led by{" "}
-                <span className="text-white font-medium">{BRAND_INFO.founder.name}</span> (Former CIO, Axis AMC, 30+ years of investment experience)
+                Curated by an experienced research team led by{" "}
+                <span className="text-white font-medium">{BRAND_INFO.founder.name}</span>.
               </p>
 
               {/* Free Lead Capture Form matching Artifact */}
               <div className="mt-8 w-full max-w-md">
                 <p className="text-sm font-semibold text-white/90 mb-2.5">
-                  Get 2 research ideas free on WhatsApp
+                  Get 2 free trade ideas
                 </p>
 
                 <form onSubmit={handleLeadSubmit} className="space-y-3">

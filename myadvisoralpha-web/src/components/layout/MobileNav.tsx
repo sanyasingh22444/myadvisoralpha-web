@@ -10,8 +10,7 @@ import {
   TrendingUp, 
   Briefcase, 
   Layers, 
-  PieChart, 
-  Calculator, 
+  PieChart,
   BookOpen, 
   HelpCircle, 
   PhoneCall,
@@ -225,16 +224,6 @@ export default function MobileNav({
             >
               <UserCheck className="w-3.5 h-3.5 text-neutral-400" />
               <span>About Us</span>
-            </Link>
-
-            {/* SIP Calculator */}
-            <Link
-              href="/#calculator"
-              onClick={onClose}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              <Calculator className="w-3.5 h-3.5 text-[#3AA17E]" />
-              <span>SIP &amp; Wealth Calculator</span>
             </Link>
 
             {/* Contact Us */}

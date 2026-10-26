@@ -36,8 +36,8 @@
 |---|------|-------|-------------|--------|
 | M1 | Brand Isolation, Theme & Asset Styling | Clean all Univest references, apply Royal Blue `#0066f5` & high-contrast badges, eliminate cheap emojis with Lucide/SVGs | none | DONE |
 | M2 | Services Taxonomy, Navigation & Showcase System | Create `src/data/services.ts`, implement Custom Navbar & Mobile Drawer with Advisory hierarchy, align `StackedShowcase.tsx` | M1 | DONE |
-| M3 | Hero Dynamic Rotating Headline & Promotional Ad Card | Implement Framer Motion text rotation ("Advisory in [Stock \| Futures \| Portfolio]") and promo ad card above phone mockup | M2 | IN_PROGRESS |
-| M4 | E2E Verification Suite & Final Build Validation | Modernize `scripts/verify-e2e.mjs`, run complete test suite, verify `npm.cmd run build`, test live server on port 3000 | M3 | PLANNED |
+| M3 | Hero Dynamic Rotating Headline & Promotional Ad Card | Implement Framer Motion text rotation ("Advisory in [Stock \| Futures \| Portfolio]") and promo ad card above phone mockup | M2 | DONE |
+| M4 | E2E Verification Suite & Final Build Validation | Modernize `scripts/verify-e2e.mjs`, run complete test suite, verify `npm.cmd run build`, test live server on port 3000 | M3 | DONE |
 
 ## Interface Contracts
 ### `src/data/services.ts` Contract

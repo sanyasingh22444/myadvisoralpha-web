@@ -130,15 +130,15 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
 
 export default function StackedShowcase() {
   return (
-    <section id="offerings" className="relative bg-[#010101] py-20 lg:py-28 px-4 sm:px-6 lg:px-12 overflow-visible">
+    <section id="offerings" className="relative bg-[#081026] py-20 lg:py-28 px-4 sm:px-6 lg:px-12 overflow-visible">
       {/* Section Header */}
       <div className="max-w-4xl mx-auto text-center mb-16 lg:mb-24">
-        <span className="text-xs font-bold tracking-widest text-[#0066f5] uppercase bg-[#0066f5]/10 border border-[#0066f5]/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
+        <span className="text-xs font-bold tracking-widest text-[#F5BA31] uppercase bg-[#F5BA31]/10 border border-[#F5BA31]/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
           Our Advisory Solutions
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mt-2">
           Institutional Intelligence. <br className="hidden sm:inline" />
-          <span className="text-[#0066f5]">Tailored For Every Investor.</span>
+          <span className="text-[#F5BA31]">Tailored For Every Investor.</span>
         </h2>
         <p className="mt-4 text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
           From high-conviction single stock picks and futures momentum to comprehensive model portfolios and mutual funds — engineered by veterans with 30+ years of institutional pedigree.
@@ -176,11 +176,11 @@ export default function StackedShowcase() {
                 <div id="mutual-funds" className="relative -top-28 pointer-events-none" />
               )}
 
-              <div className="w-full rounded-[32px] border border-white/10 hover:border-[#0066f5]/40 bg-[#0B0E14] shadow-[0_12px_48px_rgba(0,0,0,0.85)] overflow-hidden transition-all duration-300">
+              <div className="w-full rounded-[32px] border border-white/10 hover:border-[#F5BA31]/40 bg-[#0B1528] shadow-[0_12px_48px_rgba(0,0,0,0.85)] overflow-hidden transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[480px] lg:min-h-[520px]">
                   
                   {/* Visual Preview Left Panel (5 Cols) */}
-                  <div className="lg:col-span-5 bg-gradient-to-br from-[#111622] via-[#0B0E14] to-[#010101] p-6 lg:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden">
+                  <div className="lg:col-span-5 bg-gradient-to-br from-[#101D38] via-[#0B1528] to-[#081026] p-6 lg:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden">
                     {renderVisualGraphic(card.visualType)}
                   </div>
 
@@ -190,10 +190,10 @@ export default function StackedShowcase() {
                       {/* Top Meta Bar */}
                       <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold uppercase tracking-wider text-[#0066f5] bg-[#0066f5]/10 px-3 py-1 rounded-full border border-[#0066f5]/20">
+                          <span className="text-xs font-bold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 px-3 py-1 rounded-full border border-[#F5BA31]/20">
                             {card.category}
                           </span>
-                          <span className="text-[11px] font-semibold text-[#166534] bg-[#dcfce7] px-2.5 py-0.5 rounded-full border border-[#bbf7d0]">
+                          <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
                             {card.badge}
                           </span>
                         </div>
@@ -219,7 +219,7 @@ export default function StackedShowcase() {
                       <ul className="space-y-2.5 mb-8">
                         {card.features.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80">
-                            <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -233,7 +233,7 @@ export default function StackedShowcase() {
                           href={card.ctaUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0066f5] hover:bg-[#0052cc] active:scale-95 text-white font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#0066f5]/20"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg"
                         >
                           <span>{card.ctaLabel}</span>
                           <ExternalLink className="w-4 h-4" />
@@ -241,7 +241,7 @@ export default function StackedShowcase() {
                       ) : (
                         <Link
                           href={card.ctaUrl}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0066f5] hover:bg-[#0052cc] active:scale-95 text-white font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#0066f5]/20"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg"
                         >
                           <span>{card.ctaLabel}</span>
                           <ArrowRight className="w-4 h-4" />

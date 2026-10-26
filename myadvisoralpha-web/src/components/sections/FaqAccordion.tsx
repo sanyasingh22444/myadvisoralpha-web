@@ -49,12 +49,12 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
   return (
     <section 
       id="faq" 
-      className="relative bg-[#010101] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background ambient light */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#237FFB]/10 rounded-full blur-[140px] pointer-events-none -z-0"
+        className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none -z-0"
       />
       <div 
         aria-hidden="true" 

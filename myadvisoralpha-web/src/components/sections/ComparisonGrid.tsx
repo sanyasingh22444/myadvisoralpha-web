@@ -198,16 +198,16 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
   return (
     <section 
       id="comparison" 
-      className="relative bg-[#010101] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Ambient background glows */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#237FFB]/10 rounded-full blur-[140px] pointer-events-none -z-0"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none -z-0"
       />
       <div 
         aria-hidden="true" 
-        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#3AA17E]/10 rounded-full blur-[120px] pointer-events-none -z-0"
+        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#0066f5]/10 rounded-full blur-[120px] pointer-events-none -z-0"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -215,15 +215,15 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#237FFB]" />
-            <span className="text-xs font-bold tracking-widest uppercase text-[#237FFB]">
+            <Sparkles className="w-3.5 h-3.5 text-[#F5BA31]" />
+            <span className="text-xs font-bold tracking-widest uppercase text-[#F5BA31]">
               PRO MEMBERSHIPS · WHY US
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Stop Guessing.{' '}
-            <span className="text-[#237FFB] inline-block">
+            <span className="text-[#F5BA31] inline-block">
               Start Growing.
             </span>
           </h2>

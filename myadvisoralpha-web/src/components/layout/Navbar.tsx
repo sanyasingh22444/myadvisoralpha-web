@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { 
   ChevronDown, 
@@ -26,15 +26,36 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [advisoryOpen, setAdvisoryOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleCtaClick = onOpenConsultation || onOpenLeadModal;
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setAdvisoryOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setAdvisoryOpen(false);
+    }, 220); // 220ms grace period prevents abrupt dropdown closure
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   return (
@@ -45,35 +66,34 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Floating Pill Container */}
+          {/* Floating Pill Container matching Artifact */}
           <nav
             aria-label="Main Navigation"
-            className="bg-[#0B0E14]/95 backdrop-blur-md rounded-full border border-white/10 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0px_8px_32px_0px_rgba(0,0,0,0.36)]"
+            className="bg-[#0B1528]/95 backdrop-blur-md rounded-full border border-white/10 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0px_8px_32px_0px_rgba(0,0,0,0.4)]"
           >
-            {/* Logo Section */}
+            {/* Logo Section matching Artifact: Warm Gold square + MyAdvisorAlpha */}
             <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0066f5] to-[#3AA17E] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-                  <TrendingUp className="w-4 h-4 text-white" />
+              <Link href="/" className="flex items-center gap-2.5 group">
+                <div className="w-8 h-8 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-md group-hover:scale-105 transition-transform font-black">
+                  {/* Clean diagonal trend indicator */}
+                  <svg className="w-4 h-4 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
+                  </svg>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-lg font-extrabold tracking-tight text-white leading-none">
-                    Advisor<span className="text-[#0066f5]">Alpha</span>
-                  </span>
-                  <span className="text-[9px] uppercase tracking-wider text-[#3AA17E] font-semibold mt-0.5">
-                    SEBI RA INH000021818
-                  </span>
+                <div className="flex items-center text-lg font-extrabold tracking-tight text-white">
+                  <span>MyAdvisor</span>
+                  <span className="text-[#F5BA31]">Alpha</span>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium text-white/90">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-sm font-medium text-white/90">
               {/* 1. Advisory Dropdown Menu */}
               <div 
                 className="relative"
-                onMouseEnter={() => setAdvisoryOpen(true)}
-                onMouseLeave={() => setAdvisoryOpen(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <button
                   type="button"
@@ -90,11 +110,15 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 </button>
 
                 {advisoryOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0B0E14]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200 space-y-3">
+                  <div 
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0B1528] border border-white/20 rounded-2xl p-4 shadow-[0_24px_60px_rgba(0,0,0,0.95)] z-[100] animate-in fade-in slide-in-from-top-2 duration-200 space-y-3 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                  >
                     {/* Section 1: Single Stocks */}
                     <div>
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-[#0066f5]">
-                        <TrendingUp className="w-3.5 h-3.5 text-[#0066f5]" />
+                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-[#F5BA31]">
+                        <TrendingUp className="w-3.5 h-3.5 text-[#F5BA31]" />
                         <span>Single Stocks</span>
                       </div>
                       <div className="space-y-1">
@@ -104,13 +128,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                           onClick={() => setAdvisoryOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#0066f5]/20 text-[#0066f5] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#0066f5] group-hover:text-white transition-colors">
+                          <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
                             <TrendingUp className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-semibold text-white">Futures</span>
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#dbeafe] text-[#1e40af]">
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
                                 Derivatives
                               </span>
                             </div>
@@ -126,13 +150,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                           onClick={() => setAdvisoryOpen(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#0066f5]/20 text-[#0066f5] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#0066f5] group-hover:text-white transition-colors">
+                          <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
                             <Layers className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-semibold text-white">MTF Basket</span>
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#dbeafe] text-[#1e40af]">
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
                                 Margin Trading
                               </span>
                             </div>
@@ -146,8 +170,8 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
 
                     {/* Section 2: Portfolio */}
                     <div className="pt-2 border-t border-white/10">
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-[#3AA17E]">
-                        <Briefcase className="w-3.5 h-3.5 text-[#3AA17E]" />
+                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                        <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Portfolio</span>
                       </div>
                       <Link
@@ -155,13 +179,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                         onClick={() => setAdvisoryOpen(false)}
                         className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#3AA17E]/20 text-[#3AA17E] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#3AA17E] group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                           <Briefcase className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-semibold text-white">Portfolio Advisory</span>
-                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#dcfce7] text-[#166534]">
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                               Full Advisory
                             </span>
                           </div>
@@ -179,7 +203,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                         <Link
                           href="/about"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-[#0066f5] hover:underline font-medium"
+                          className="text-[#F5BA31] hover:underline font-medium"
                         >
                           About Us
                         </Link>
@@ -213,63 +237,42 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 Blog
               </Link>
 
-              {/* 4. FAQ Link */}
+              {/* 4. FAQs Link */}
               <Link
                 href="/#faq"
                 className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
               >
-                FAQ
+                FAQs
               </Link>
             </div>
 
-            {/* Right Action Trigger & Buttons */}
+            {/* Right Action Trigger & Buttons matching Artifact */}
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Quick Search Pill (Desktop XL) */}
-              <div
-                className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white/40 text-xs transition-colors cursor-pointer bg-white/5"
-                title="Search offerings & research"
-                onClick={() => {
-                  const searchElement = document.getElementById("search-input");
-                  if (searchElement) searchElement.focus();
-                }}
-              >
-                <Search className="w-3.5 h-3.5" />
-                <span>Search advisory...</span>
-                <kbd className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/60 font-mono">⌘K</kbd>
-              </div>
-
-              {/* Web Login Button */}
+              {/* Web Login Button - Outlined style from Artifact */}
               <a
                 href="https://web.advisoralpha.in/#/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
+                className="inline-flex items-center justify-center text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
               >
-                <LogIn className="w-3.5 h-3.5 text-[#0066f5]" />
-                <span>Login</span>
+                <span>Log in</span>
               </a>
 
-              {/* Get Started Shimmer CTA Button */}
+              {/* "Get 2 free ideas" - Solid Warm Gold Pill/Button from Artifact */}
               {handleCtaClick ? (
                 <button
                   type="button"
                   onClick={handleCtaClick}
-                  className="btn-shimmer relative inline-flex items-center gap-1.5 bg-[#0066f5] hover:bg-[#0052cc] text-white text-xs lg:text-sm font-bold px-4 py-2 rounded-full shadow-lg active:scale-95 transition-all"
+                  className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
                 >
-                  <span>Get Started</span>
-                  <div className="w-4 h-4 rounded-full bg-white text-[#0066f5] flex items-center justify-center shrink-0">
-                    <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
-                  </div>
+                  <span>Get 2 free ideas</span>
                 </button>
               ) : (
                 <Link
                   href="/contact"
-                  className="btn-shimmer relative inline-flex items-center gap-1.5 bg-[#0066f5] hover:bg-[#0052cc] text-white text-xs lg:text-sm font-bold px-4 py-2 rounded-full shadow-lg active:scale-95 transition-all"
+                  className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
                 >
-                  <span>Get Started</span>
-                  <div className="w-4 h-4 rounded-full bg-white text-[#0066f5] flex items-center justify-center shrink-0">
-                    <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
-                  </div>
+                  <span>Get 2 free ideas</span>
                 </Link>
               )}
 

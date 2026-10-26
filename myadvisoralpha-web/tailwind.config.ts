@@ -11,11 +11,31 @@ const config: Config = {
     extend: {
       colors: {
         // Institutional Design Tokens
+        navy: {
+          DEFAULT: '#081026',
+          deep: '#050B1B',
+          surface: '#0B1528',
+          card: '#0F1D38',
+          border: 'rgba(255, 255, 255, 0.08)',
+        },
+        gold: {
+          DEFAULT: '#F5BA31',
+          hover: '#E5AB28',
+          dark: '#D49B1F',
+          light: '#FFF5DC',
+          muted: 'rgba(245, 186, 49, 0.15)',
+        },
+        cream: {
+          DEFAULT: '#FAF7EE',
+          surface: '#F4EFE0',
+          dark: '#E8E1CE',
+        },
         institutional: {
-          dark: '#010101',         // Canvas base, primary dark background
-          card: '#0B0E14',         // Dark card containers, surface panels
-          pill: '#383B42',         // Floating header pill, dark input surfaces
-          blue: '#0066f5',         // Royal Blue primary accent
+          dark: '#081026',         // Canvas base, primary dark background
+          card: '#0B1528',         // Dark card containers, surface panels
+          pill: '#16233B',         // Floating header pill, dark input surfaces
+          blue: '#0066f5',         // Secondary accent
+          gold: '#F5BA31',         // Primary Gold accent
           blueHover: '#0052cc',
           green: '#166534',        // High-contrast trust green
           greenLight: '#dcfce7',

@@ -31,16 +31,16 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
   return (
     <section 
       id="testimonials" 
-      className="relative bg-[#010101] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background radial gradient accent */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#237FFB]/10 rounded-full blur-[140px] pointer-events-none -z-0"
+        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none -z-0"
       />
       <div 
         aria-hidden="true" 
-        className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#3AA17E]/10 rounded-full blur-[120px] pointer-events-none -z-0"
+        className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#0066f5]/10 rounded-full blur-[120px] pointer-events-none -z-0"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">

@@ -40,7 +40,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col w-full bg-[#010101]">
+    <div className="flex-1 flex flex-col w-full bg-[#081026]">
       {/* 1. High-Converting Hero Section */}
       <HeroSection onOpenConsultation={(phone) => handleOpenConsultation(phone)} />
 

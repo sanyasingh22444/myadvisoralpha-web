@@ -170,29 +170,29 @@ export default function SipCalculator({
   ];
 
   return (
-    <section id="calculator" className={`w-full py-16 lg:py-24 bg-[#010101] text-white ${className}`}>
+    <section id="calculator" className={`w-full py-16 lg:py-24 bg-[#081026] text-white ${className}`}>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-semibold tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-semibold tracking-widest uppercase mb-4">
             <TrendingUp className="w-4 h-4" />
             <span>Interactive Wealth Projection</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-            Compound Your Wealth with <span className="text-[#237FFB]">Proven Alpha</span>
+            Compound Your Wealth with <span className="text-[#F5BA31]">Proven Alpha</span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-gray-400 leading-relaxed">
             Simulate your investment growth and discover the compounding difference when your portfolio is guided by SEBI-registered Research Analysts.
           </p>
 
           {/* Mode Switcher Tabs */}
-          <div className="mt-8 inline-flex p-1.5 bg-[#0B0E14] border border-[#2A2A2A] rounded-full shadow-inner">
+          <div className="mt-8 inline-flex p-1.5 bg-[#0B1528] border border-white/10 rounded-full shadow-inner">
             <button
               type="button"
               onClick={() => setMode('sip')}
               className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
                 mode === 'sip'
-                  ? 'bg-[#237FFB] text-white shadow-[0_0_20px_rgba(35,127,251,0.4)]'
+                  ? 'bg-[#F5BA31] text-[#081026] shadow-[0_0_20px_rgba(245,186,49,0.4)]'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -203,7 +203,7 @@ export default function SipCalculator({
               onClick={() => setMode('lumpsum')}
               className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
                 mode === 'lumpsum'
-                  ? 'bg-[#237FFB] text-white shadow-[0_0_20px_rgba(35,127,251,0.4)]'
+                  ? 'bg-[#F5BA31] text-[#081026] shadow-[0_0_20px_rgba(245,186,49,0.4)]'
                   : 'text-gray-400 hover:text-white'
               }`}
             >

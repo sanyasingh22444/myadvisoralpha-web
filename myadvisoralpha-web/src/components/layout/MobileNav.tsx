@@ -48,16 +48,18 @@ export default function MobileNav({
       />
 
       {/* Slide-over Drawer Panel */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-xs sm:max-w-sm bg-[#0B0E14] border-l border-white/10 p-6 flex flex-col justify-between shadow-2xl z-[70] overflow-y-auto animate-in slide-in-from-right duration-300">
+      <div className="fixed inset-y-0 right-0 w-full max-w-xs sm:max-w-sm bg-[#0B1528] border-l border-white/10 p-6 flex flex-col justify-between shadow-2xl z-[70] overflow-y-auto animate-in slide-in-from-right duration-300">
         <div>
           {/* Header row: Logo & Close Button */}
           <div className="flex items-center justify-between pb-5 border-b border-white/10">
-            <Link href="/" onClick={onClose} className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#0066f5] to-[#3AA17E] flex items-center justify-center text-white">
-                <TrendingUp className="w-3.5 h-3.5 text-white" />
+            <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-sm">
+                <svg className="w-3.5 h-3.5 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
+                </svg>
               </div>
               <span className="text-base font-extrabold text-white tracking-tight">
-                Advisor<span className="text-[#0066f5]">Alpha</span>
+                MyAdvisor<span className="text-[#F5BA31]">Alpha</span>
               </span>
             </Link>
             <button
@@ -294,11 +296,11 @@ export default function MobileNav({
             onClick={onClose}
             className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-colors"
           >
-            <LogIn className="w-4 h-4 text-[#0066f5]" />
+            <LogIn className="w-4 h-4 text-[#F5BA31]" />
             <span>Login to Web App</span>
           </a>
 
-          {/* Shimmer CTA Button */}
+          {/* CTA Button */}
           {handleCtaClick ? (
             <button
               type="button"
@@ -306,25 +308,25 @@ export default function MobileNav({
                 onClose();
                 handleCtaClick();
               }}
-              className="btn-shimmer w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0066f5] hover:bg-[#0052cc] text-white font-bold text-sm shadow-lg active:scale-95 transition-all"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] font-bold text-sm shadow-lg active:scale-95 transition-all"
             >
-              <span>Get Started</span>
+              <span>Get 2 free ideas</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           ) : (
             <Link
               href="/contact"
               onClick={onClose}
-              className="btn-shimmer w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0066f5] hover:bg-[#0052cc] text-white font-bold text-sm shadow-lg active:scale-95 transition-all"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] font-bold text-sm shadow-lg active:scale-95 transition-all"
             >
-              <span>Get Started</span>
+              <span>Get 2 free ideas</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           )}
 
           {/* Regulatory Trust Badge in Drawer */}
           <div className="text-center pt-2">
-            <span className="text-[10px] text-neutral-500 font-medium block">
+            <span className="text-[10px] text-neutral-400 font-medium block">
               SEBI RA INH000021818 · BSE 6793 · AMFI ARN-350887
             </span>
           </div>

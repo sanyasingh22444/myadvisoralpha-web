@@ -32,12 +32,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#010101] text-neutral-300 pt-16 pb-12 border-t border-[#2A2A2A]">
+    <footer className="bg-[#081026] text-neutral-300 pt-16 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SECTION 1: App Download Banner with QR Card */}
-        <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-bold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Download Advisor Alpha</span>
             </div>

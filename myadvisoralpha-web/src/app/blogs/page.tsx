@@ -70,20 +70,20 @@ export default function BlogsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full selection:bg-[#237FFB] selection:text-white">
+    <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[#2A2A2A]">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#237FFB]/15 blur-[120px] rounded-full pointer-events-none" />
+      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B0E14] border border-[#237FFB]/40 text-[#237FFB] text-xs font-bold tracking-wider uppercase mb-5">
-            <BookOpen className="w-4 h-4 text-[#237FFB]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1528] border border-[#F5BA31]/40 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-5">
+            <BookOpen className="w-4 h-4 text-[#F5BA31]" />
             <span>Alpha Research Publications & Market Memos</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto">
             Alpha Blogs &{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#237FFB] via-[#3DA2F1] to-[#3AA17E]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5BA31] via-[#3DA2F1] to-[#3AA17E]">
               Market Insights
             </span>
           </h1>
@@ -103,7 +103,7 @@ export default function BlogsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search 11 real research articles by ticker, sector, or keyword (e.g. Power, OMC, Tata Steel, Small Cap)..."
-                className="w-full bg-[#0B0E14] border border-white/10 focus:border-[#237FFB] rounded-full py-3.5 pl-12 pr-12 text-sm text-white placeholder-neutral-500 outline-none transition-colors shadow-lg"
+                className="w-full bg-[#0B1528] border border-white/10 focus:border-[#F5BA31] rounded-full py-3.5 pl-12 pr-12 text-sm text-white placeholder-neutral-500 outline-none transition-colors shadow-lg"
               />
               {searchQuery && (
                 <button
@@ -127,8 +127,8 @@ export default function BlogsPage() {
                     onClick={() => setSelectedCategory(cat)}
                     className={`text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'bg-[#237FFB] text-white shadow-[0px_4px_16px_0px_rgba(35,127,251,0.35)] scale-105'
-                        : 'bg-[#0B0E14] text-neutral-400 border border-white/10 hover:border-white/20 hover:text-white'
+                        ? 'bg-[#F5BA31] text-white shadow-[0px_4px_16px_0px_rgba(35,127,251,0.35)] scale-105'
+                        : 'bg-[#0B1528] text-neutral-400 border border-white/10 hover:border-white/20 hover:text-white'
                     }`}
                   >
                     {cat} {cat === 'All' && `(${BLOG_POSTS.length})`}
@@ -142,15 +142,15 @@ export default function BlogsPage() {
 
       {/* FEATURED ARTICLE SPOTLIGHT */}
       {selectedCategory === 'All' && !searchQuery && (
-        <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2A2A2A]">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-[#0B0E14] border border-[#237FFB]/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-[#237FFB]/10 blur-[90px] rounded-full pointer-events-none" />
+            <div className="bg-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-[#F5BA31]/10 blur-[90px] rounded-full pointer-events-none" />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="bg-[#237FFB] text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                    <span className="bg-[#F5BA31] text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
                       Featured Research Report
                     </span>
                     <span className="bg-white/10 text-neutral-300 text-xs px-3 py-1 rounded-full">
@@ -172,7 +172,7 @@ export default function BlogsPage() {
 
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs border border-[#237FFB]/40">
+                      <div className="w-8 h-8 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs border border-[#F5BA31]/40">
                         PM
                       </div>
                       <div>
@@ -205,10 +205,10 @@ export default function BlogsPage() {
                   <button
                     type="button"
                     onClick={() => setActiveModalPost(featuredPost)}
-                    className="btn-shimmer inline-flex items-center gap-2 bg-[#1C6FE6] hover:bg-[#1a6de0] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-full shadow-lg transition-all active:scale-95 w-full sm:w-auto justify-center"
+                    className="btn-shimmer inline-flex items-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs sm:text-sm font-extrabold px-6 py-3 rounded-full shadow-lg transition-all active:scale-95 w-full sm:w-auto justify-center"
                   >
                     <span>Read Full Research Rationale</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4 text-[#081026]" />
                   </button>
                 </div>
               </div>
@@ -221,10 +221,10 @@ export default function BlogsPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header / Results Count */}
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#2A2A2A]">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[rgba(255,255,255,0.1)]">
             <div className="text-sm font-medium text-neutral-400">
               Showing <strong className="text-white">{filteredPosts.length}</strong> research publications{' '}
-              {selectedCategory !== 'All' && <span>in <span className="text-[#237FFB]">{selectedCategory}</span></span>}
+              {selectedCategory !== 'All' && <span>in <span className="text-[#F5BA31]">{selectedCategory}</span></span>}
               {searchQuery && <span> matching &ldquo;{searchQuery}&rdquo;</span>}
             </div>
 
@@ -232,7 +232,7 @@ export default function BlogsPage() {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="text-xs text-[#237FFB] hover:underline"
+                className="text-xs text-[#F5BA31] hover:underline"
               >
                 Clear search
               </button>
@@ -241,7 +241,7 @@ export default function BlogsPage() {
 
           {/* Empty State */}
           {filteredPosts.length === 0 ? (
-            <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-12 text-center max-w-md mx-auto my-12">
+            <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-12 text-center max-w-md mx-auto my-12">
               <BookOpen className="w-12 h-12 text-neutral-500 mx-auto mb-4" />
               <h3 className="text-lg font-bold text-white">No articles matched your criteria</h3>
               <p className="text-xs text-neutral-400 mt-2">
@@ -266,12 +266,12 @@ export default function BlogsPage() {
                 return (
                   <article
                     key={post.slug}
-                    className="bg-[#0B0E14] border border-white/10 hover:border-[#237FFB]/50 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group relative shadow-lg"
+                    className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/50 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group relative shadow-lg"
                   >
                     <div>
                       {/* Top Metadata Strip */}
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#237FFB]/15 text-[#237FFB] border border-[#237FFB]/30">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F5BA31]/15 text-[#F5BA31] border border-[#F5BA31]/30">
                           {post.category}
                         </span>
                         <span className="inline-flex items-center gap-1 text-[11px] text-neutral-400">
@@ -281,7 +281,7 @@ export default function BlogsPage() {
                       </div>
 
                       {/* Article Title */}
-                      <h2 className="text-lg font-bold text-white group-hover:text-[#237FFB] transition-colors leading-snug line-clamp-2">
+                      <h2 className="text-lg font-bold text-white group-hover:text-[#F5BA31] transition-colors leading-snug line-clamp-2">
                         {post.title}
                       </h2>
 
@@ -309,7 +309,7 @@ export default function BlogsPage() {
                         <div
                           className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10px] ${
                             isCIO
-                              ? 'bg-[#237FFB]/20 text-[#237FFB] border border-[#237FFB]/40'
+                              ? 'bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/40'
                               : 'bg-[#3AA17E]/20 text-[#3AA17E] border border-[#3AA17E]/40'
                           }`}
                         >
@@ -324,7 +324,7 @@ export default function BlogsPage() {
                       <button
                         type="button"
                         onClick={() => setActiveModalPost(post)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#237FFB] group-hover:text-white group-hover:translate-x-1 transition-all"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#F5BA31] group-hover:text-white group-hover:translate-x-1 transition-all"
                       >
                         <span>Read</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -345,7 +345,7 @@ export default function BlogsPage() {
           onClick={() => setActiveModalPost(null)}
         >
           <div
-            className="bg-[#0B0E14] border border-white/20 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+            className="bg-[#0B1528] border border-white/20 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -360,7 +360,7 @@ export default function BlogsPage() {
 
             {/* Modal Metadata */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#237FFB]/20 text-[#237FFB] border border-[#237FFB]/30">
+              <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
                 {activeModalPost.category}
               </span>
               <span className="text-xs text-neutral-400 font-medium">
@@ -375,7 +375,7 @@ export default function BlogsPage() {
 
             {/* Author Banner */}
             <div className="flex items-center gap-3 my-6 p-4 rounded-xl bg-white/5 border border-white/10">
-              <div className="w-10 h-10 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-sm">
                 {activeModalPost.author === 'Pankaj Murarka' ? 'PM' : 'RD'}
               </div>
               <div>
@@ -389,7 +389,7 @@ export default function BlogsPage() {
             </div>
 
             {/* Excerpt Callout */}
-            <div className="text-sm sm:text-base text-neutral-300 italic border-l-4 border-[#237FFB] pl-4 my-6 leading-relaxed bg-[#237FFB]/5 py-2 pr-2">
+            <div className="text-sm sm:text-base text-neutral-300 italic border-l-4 border-[#F5BA31] pl-4 my-6 leading-relaxed bg-[#F5BA31]/5 py-2 pr-2">
               &ldquo;{activeModalPost.excerpt}&rdquo;
             </div>
 
@@ -448,8 +448,8 @@ export default function BlogsPage() {
 
       {/* NEWSLETTER & CIO MARKET MEMO SUBSCRIPTION CARD */}
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#0B0E14] via-[#111622] to-[#0B0E14] border border-white/10 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-bold tracking-wider uppercase mb-4">
+        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Free Institutional Research</span>
           </div>
@@ -476,7 +476,7 @@ export default function BlogsPage() {
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Enter your email address..."
-                className="flex-1 bg-[#010101] border border-white/20 focus:border-[#237FFB] rounded-full px-5 py-3 text-sm text-white placeholder-neutral-500 outline-none"
+                className="flex-1 bg-[#081026] border border-white/20 focus:border-[#F5BA31] rounded-full px-5 py-3 text-sm text-white placeholder-neutral-500 outline-none"
               />
               <button
                 type="submit"

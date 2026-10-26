@@ -34,7 +34,19 @@ export default function MobileNav({
   const [advisoryExpanded, setAdvisoryExpanded] = useState(true);
   const [legalExpanded, setLegalExpanded] = useState(false);
 
-  const handleCtaClick = onOpenConsultation || onOpenLeadModal;
+  const handleCtaClick = () => {
+    if (onOpenConsultation) {
+      onOpenConsultation();
+    } else if (onOpenLeadModal) {
+      onOpenLeadModal();
+    } else if (typeof window !== "undefined") {
+      if (window.location.pathname === "/") {
+        window.dispatchEvent(new CustomEvent("open-consultation-modal"));
+      } else {
+        window.location.href = "/contact";
+      }
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -93,10 +105,10 @@ export default function MobileNav({
               </button>
 
               {advisoryExpanded && (
-                <div className="pl-3 pr-1 py-1 space-y-2 mt-1 border-l-2 border-[#0066f5]/30 ml-3">
+                <div className="pl-3 pr-1 py-1 space-y-2 mt-1 border-l-2 border-[#F5BA31]/40 ml-3">
                   {/* Single Stocks Subsection */}
                   <div>
-                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0066f5]">
+                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-[#F5BA31]">
                       Single Stocks
                     </div>
                     <div className="space-y-1">
@@ -107,10 +119,10 @@ export default function MobileNav({
                         className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold text-white group-hover:text-[#0066f5] transition-colors">
+                          <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                             Futures
                           </span>
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#dbeafe] text-[#1e40af]">
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31] text-[#081026]">
                             Derivatives
                           </span>
                         </div>
@@ -126,10 +138,10 @@ export default function MobileNav({
                         className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold text-white group-hover:text-[#0066f5] transition-colors">
+                          <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                             MTF Basket
                           </span>
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#dbeafe] text-[#1e40af]">
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31] text-[#081026]">
                             Margin Trading
                           </span>
                         </div>
@@ -141,8 +153,8 @@ export default function MobileNav({
                   </div>
 
                   {/* Portfolio Subsection */}
-                  <div className="pt-1 border-t border-white/5">
-                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-[#3AA17E]">
+                  <div className="pt-1 border-t border-white/10">
+                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
                       Portfolio
                     </div>
                     <Link
@@ -151,10 +163,10 @@ export default function MobileNav({
                       className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-white group-hover:text-[#3AA17E] transition-colors">
+                        <span className="text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
                           Portfolio Advisory
                         </span>
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#dcfce7] text-[#166534]">
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-400 text-[#081026]">
                           Full Advisory
                         </span>
                       </div>
@@ -301,28 +313,17 @@ export default function MobileNav({
           </a>
 
           {/* CTA Button */}
-          {handleCtaClick ? (
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                handleCtaClick();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] font-bold text-sm shadow-lg active:scale-95 transition-all"
-            >
-              <span>Get 2 free ideas</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-          ) : (
-            <Link
-              href="/contact"
-              onClick={onClose}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] font-bold text-sm shadow-lg active:scale-95 transition-all"
-            >
-              <span>Get 2 free ideas</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          )}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              handleCtaClick();
+            }}
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] font-bold text-sm shadow-lg active:scale-95 transition-all"
+          >
+            <span>Get 2 free ideas</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
 
           {/* Regulatory Trust Badge in Drawer */}
           <div className="text-center pt-2">

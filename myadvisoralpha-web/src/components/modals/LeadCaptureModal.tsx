@@ -178,7 +178,7 @@ export default function LeadCaptureModal({
       const defaults = {
         origin: { y: 0.65 },
         zIndex: 9999,
-        colors: ['#237FFB', '#3AA17E', '#FF8415', '#FCF50F', '#FFFFFF'],
+        colors: ['#F5BA31', '#3AA17E', '#FF8415', '#FCF50F', '#FFFFFF'],
       };
 
       const fire = (particleRatio: number, opts: any) => {
@@ -278,12 +278,12 @@ export default function LeadCaptureModal({
       {/* Modal Surface Container */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-lg bg-[#0B0E14] border border-white/15 rounded-3xl p-6 sm:p-8 text-white shadow-[0px_8px_48px_0px_rgba(35,127,251,0.25)] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-lg bg-[#0B1528] border border-white/15 rounded-3xl p-6 sm:p-8 text-white shadow-[0px_8px_48px_0px_rgba(35,127,251,0.25)] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Subtle Radial Blue Top Ambient Glow */}
         <div
           aria-hidden="true"
-          className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-[#237FFB]/20 rounded-full blur-[70px] pointer-events-none"
+          className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-40 bg-[#F5BA31]/20 rounded-full blur-[70px] pointer-events-none"
         />
 
         {/* Close Button */}
@@ -292,7 +292,7 @@ export default function LeadCaptureModal({
           onClick={onClose}
           disabled={modalState === 'SUBMITTING'}
           aria-label="Close consultation modal"
-          className="absolute top-5 right-5 p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#237FFB] cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#F5BA31] cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -304,7 +304,7 @@ export default function LeadCaptureModal({
           <div>
             {/* Header / Credibility Badge */}
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/15 border border-[#237FFB]/30 text-[#237FFB] text-[11px] font-bold tracking-wide uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/15 border border-[#F5BA31]/30 text-[#F5BA31] text-[11px] font-bold tracking-wide uppercase">
                 <TrendingUp className="w-3.5 h-3.5" />
                 SEBI Registered Advisory · INH000021818
               </span>
@@ -337,7 +337,7 @@ export default function LeadCaptureModal({
                   htmlFor="lead-name" 
                   className="block text-xs font-semibold text-white/90 uppercase tracking-wider mb-1.5"
                 >
-                  Full Name <span className="text-[#237FFB]">*</span>
+                  Full Name <span className="text-[#F5BA31]">*</span>
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
@@ -356,7 +356,7 @@ export default function LeadCaptureModal({
                     }}
                     placeholder="e.g. Dr. Rahul Malhotra"
                     className={`w-full bg-[#141A26] border ${
-                      errors.name ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#237FFB] focus:ring-[#237FFB]'
+                      errors.name ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31] focus:ring-[#F5BA31]'
                     } rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all`}
                   />
                 </div>
@@ -374,11 +374,11 @@ export default function LeadCaptureModal({
                   htmlFor="lead-phone" 
                   className="block text-xs font-semibold text-white/90 uppercase tracking-wider mb-1.5"
                 >
-                  Mobile Number <span className="text-[#237FFB]">*</span>
+                  Mobile Number <span className="text-[#F5BA31]">*</span>
                 </label>
                 <div 
                   className={`flex items-center bg-[#141A26] border ${
-                    errors.phone ? 'border-[#DD5240] ring-1 ring-[#DD5240]' : 'border-white/15 focus-within:border-[#237FFB] focus-within:ring-1 focus-within:ring-[#237FFB]'
+                    errors.phone ? 'border-[#DD5240] ring-1 ring-[#DD5240]' : 'border-white/15 focus-within:border-[#F5BA31] focus-within:ring-1 focus-within:ring-[#F5BA31]'
                   } rounded-xl overflow-hidden transition-all`}
                 >
                   <div className="px-3.5 py-2.5 bg-white/5 border-r border-white/10 text-white font-semibold text-sm flex items-center gap-1.5 select-none shrink-0">
@@ -414,7 +414,7 @@ export default function LeadCaptureModal({
                   htmlFor="lead-email" 
                   className="block text-xs font-semibold text-white/90 uppercase tracking-wider mb-1.5"
                 >
-                  Email Address <span className="text-[#237FFB]">*</span>
+                  Email Address <span className="text-[#F5BA31]">*</span>
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-white/40">
@@ -432,7 +432,7 @@ export default function LeadCaptureModal({
                     }}
                     placeholder="e.g. rahul.malhotra@corporate.in"
                     className={`w-full bg-[#141A26] border ${
-                      errors.email ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#237FFB] focus:ring-[#237FFB]'
+                      errors.email ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31] focus:ring-[#F5BA31]'
                     } rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all`}
                   />
                 </div>
@@ -452,7 +452,7 @@ export default function LeadCaptureModal({
                     htmlFor="portfolioSize" 
                     className="block text-xs font-semibold text-white/90 uppercase tracking-wider mb-1.5"
                   >
-                    Portfolio Size <span className="text-[#237FFB]">*</span>
+                    Portfolio Size <span className="text-[#F5BA31]">*</span>
                   </label>
                   <select
                     id="portfolioSize"
@@ -464,12 +464,12 @@ export default function LeadCaptureModal({
                       if (errors.portfolioSize) setErrors((prev) => ({ ...prev, portfolioSize: undefined }));
                     }}
                     className={`w-full bg-[#141A26] border ${
-                      errors.portfolioSize ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#237FFB] focus:ring-[#237FFB]'
+                      errors.portfolioSize ? 'border-[#DD5240] focus:ring-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31] focus:ring-[#F5BA31]'
                     } rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:ring-1 transition-all cursor-pointer`}
                   >
-                    <option value="" disabled className="bg-[#0B0E14] text-white/40">Select Capital Range</option>
+                    <option value="" disabled className="bg-[#0B1528] text-white/40">Select Capital Range</option>
                     {PORTFOLIO_SIZE_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#0B0E14] text-white">
+                      <option key={opt.value} value={opt.value} className="bg-[#0B1528] text-white">
                         {opt.label}
                       </option>
                     ))}
@@ -496,10 +496,10 @@ export default function LeadCaptureModal({
                     value={investmentGoal}
                     disabled={modalState === 'SUBMITTING'}
                     onChange={(e) => setInvestmentGoal(e.target.value)}
-                    className="w-full bg-[#141A26] border border-white/15 focus:border-[#237FFB] focus:ring-1 focus:ring-[#237FFB] rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-all cursor-pointer"
+                    className="w-full bg-[#141A26] border border-white/15 focus:border-[#F5BA31] focus:ring-1 focus:ring-[#F5BA31] rounded-xl px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none transition-all cursor-pointer"
                   >
                     {INVESTMENT_GOAL_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#0B0E14] text-white">
+                      <option key={opt.value} value={opt.value} className="bg-[#0B1528] text-white">
                         {opt.label}
                       </option>
                     ))}
@@ -520,15 +520,15 @@ export default function LeadCaptureModal({
                       setConsent(e.target.checked);
                       if (errors.consent) setErrors((prev) => ({ ...prev, consent: undefined }));
                     }}
-                    className="mt-1 w-4 h-4 rounded border-white/20 bg-[#141A26] text-[#237FFB] focus:ring-[#237FFB] accent-[#237FFB] shrink-0"
+                    className="mt-1 w-4 h-4 rounded border-white/20 bg-[#141A26] text-[#F5BA31] focus:ring-[#F5BA31] accent-[#F5BA31] shrink-0"
                   />
                   <span className="text-[11px] sm:text-xs text-white/70 leading-relaxed">
                     I authorize AdvisorAlpha (SEBI RA INH000021818) to contact me via Call, SMS, or WhatsApp regarding this consultation, and agree to the{' '}
-                    <a href="/legal/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-[#237FFB] hover:underline">
+                    <a href="/legal/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-[#F5BA31] hover:underline">
                       Terms
                     </a>{' '}
                     &{' '}
-                    <a href="/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#237FFB] hover:underline">
+                    <a href="/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#F5BA31] hover:underline">
                       Privacy Policy
                     </a>.
                   </span>
@@ -545,17 +545,17 @@ export default function LeadCaptureModal({
               <button
                 type="submit"
                 disabled={modalState === 'SUBMITTING'}
-                className="btn-shimmer w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r from-[#1C6FE6] to-[#237FFB] hover:from-[#1A6DE0] hover:to-[#1C6FE6] active:scale-98 text-white shadow-lg shadow-[#237FFB]/30 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                className="btn-shimmer w-full py-3.5 px-6 rounded-xl font-extrabold text-sm bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-98 text-[#081026] shadow-lg shadow-[#F5BA31]/30 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
               >
                 {modalState === 'SUBMITTING' ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin text-white" />
+                    <Loader2 className="w-4 h-4 animate-spin text-[#081026]" />
                     <span>Scheduling Consultation...</span>
                   </>
                 ) : (
                   <>
                     <span>Confirm & Request Advisory Call</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-[#081026]" />
                   </>
                 )}
               </button>

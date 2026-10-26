@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 
 export default function GrievanceRedressalPage() {
   return (
-    <div className="flex-1 flex flex-col w-full selection:bg-[#237FFB] selection:text-white">
+    <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO / BREADCRUMB HEADER */}
-      <section className="relative pt-8 pb-12 border-b border-[#2A2A2A] bg-gradient-to-b from-[#0B0E14] to-[#010101] overflow-hidden">
+      <section className="relative pt-8 pb-12 border-b border-[rgba(255,255,255,0.1)] bg-gradient-to-b from-[#0B1528] to-[#081026] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-neutral-400 mb-6">
@@ -43,7 +43,7 @@ export default function GrievanceRedressalPage() {
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
             <span className="text-neutral-500">Legal</span>
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="text-[#237FFB] font-medium">Grievance Escalation Matrix</span>
+            <span className="text-[#F5BA31] font-medium">Grievance Escalation Matrix</span>
           </nav>
 
           {/* Badges */}
@@ -52,7 +52,7 @@ export default function GrievanceRedressalPage() {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>SEBI Mandated Escalation Matrix</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-semibold">
               <Clock className="w-3.5 h-3.5" />
               <span>21-Day Statutory Resolution Timeline</span>
             </div>
@@ -80,11 +80,11 @@ export default function GrievanceRedressalPage() {
       </section>
 
       {/* 4 STATS HIGHLIGHT CARDS */}
-      <section className="bg-[#0B0E14] border-b border-[#2A2A2A] py-6">
+      <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#237FFB]">5 Tiers</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">5 Tiers</div>
               <div className="text-xs text-neutral-400 mt-1">Structured Hierarchy</div>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
@@ -111,7 +111,7 @@ export default function GrievanceRedressalPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#237FFB] mb-1">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F5BA31] mb-1">
                   <Users className="w-3.5 h-3.5" />
                   <span>Statutory Grievance Hierarchy</span>
                 </div>
@@ -125,7 +125,7 @@ export default function GrievanceRedressalPage() {
             </div>
 
             {/* Responsive Table Container */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="bg-[#0B1528] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
@@ -148,7 +148,7 @@ export default function GrievanceRedressalPage() {
                         <td className="py-4 px-4 sm:px-6 text-center">
                           <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-xs ${
                             item.level === 1 
-                              ? 'bg-[#237FFB]/20 text-[#237FFB] border border-[#237FFB]/40'
+                              ? 'bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/40'
                               : item.level === 2
                               ? 'bg-[#3AA17E]/20 text-[#3AA17E] border border-[#3AA17E]/40'
                               : item.level === 3
@@ -186,7 +186,7 @@ export default function GrievanceRedressalPage() {
                         <td className="py-4 px-4">
                           <a 
                             href={`mailto:${item.email}`} 
-                            className="text-[#237FFB] hover:text-white underline font-mono flex items-center gap-1.5 break-all"
+                            className="text-[#F5BA31] hover:text-white underline font-mono flex items-center gap-1.5 break-all"
                           >
                             <Mail className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
                             <span>{item.email}</span>
@@ -209,7 +209,7 @@ export default function GrievanceRedressalPage() {
               {/* Common Office Address & Hours Strip */}
               <div className="p-4 sm:p-6 bg-black/40 border-t border-white/10 text-xs text-neutral-400 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-[#237FFB] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-neutral-300">Common Office Address for all Levels:</strong>
                     <p className="mt-0.5 text-neutral-400">
@@ -238,9 +238,9 @@ export default function GrievanceRedressalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#237FFB]/50 transition-all">
+              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#F5BA31]/50 transition-all">
                 <div className="space-y-2">
-                  <div className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">
+                  <div className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">
                     1
                   </div>
                   <div className="font-bold text-white text-sm">Customer Care Desk</div>
@@ -248,12 +248,12 @@ export default function GrievanceRedressalPage() {
                     First point of contact for service queries, billing, and login assistance.
                   </div>
                 </div>
-                <div className="pt-2 border-t border-white/5 text-[11px] text-[#237FFB] font-mono">
+                <div className="pt-2 border-t border-white/5 text-[11px] text-[#F5BA31] font-mono">
                   SLA: 2–3 Days
                 </div>
               </div>
 
-              <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#3AA17E]/50 transition-all">
+              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#3AA17E]/50 transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-[#3AA17E]/20 text-[#3AA17E] flex items-center justify-center font-bold text-xs">
                     2
@@ -268,7 +268,7 @@ export default function GrievanceRedressalPage() {
                 </div>
               </div>
 
-              <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#F59E0B]/50 transition-all">
+              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#F59E0B]/50 transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold text-xs">
                     3
@@ -283,7 +283,7 @@ export default function GrievanceRedressalPage() {
                 </div>
               </div>
 
-              <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#EC6446]/50 transition-all">
+              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#EC6446]/50 transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-[#EC6446]/20 text-[#EC6446] flex items-center justify-center font-bold text-xs">
                     4
@@ -298,7 +298,7 @@ export default function GrievanceRedressalPage() {
                 </div>
               </div>
 
-              <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-purple-500/50 transition-all">
+              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-purple-500/50 transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs">
                     5
@@ -316,9 +316,9 @@ export default function GrievanceRedressalPage() {
           </div>
 
           {/* SECTION 3: REGULATORY ESCALATION BEYOND 21 DAYS (SCORES & SMART ODR) */}
-          <div className="bg-[#0B0E14] border border-[#237FFB]/30 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
-              <Scale className="w-6 h-6 text-[#237FFB]" />
+              <Scale className="w-6 h-6 text-[#F5BA31]" />
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white">
                   Regulatory Escalation Beyond 21 Calendar Days
@@ -331,9 +331,9 @@ export default function GrievanceRedressalPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* SCORES CARD */}
-              <div className="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#237FFB] transition-colors">
+              <div className="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#F5BA31] transition-colors">
                 <div className="space-y-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/20 text-[#237FFB] text-xs font-bold uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] text-xs font-bold uppercase tracking-wider">
                     SEBI SCORES 2.0
                   </div>
                   <h3 className="text-lg font-bold text-white">SEBI Complaints Redress System</h3>
@@ -351,7 +351,7 @@ export default function GrievanceRedressalPage() {
                   href={REGULATORY_INFO.scoresPortalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-[#237FFB] hover:bg-[#1A6DE0] text-white font-bold text-xs transition-colors shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-[#F5BA31] hover:bg-[#1A6DE0] text-white font-bold text-xs transition-colors shadow-lg"
                 >
                   <span>Lodge Complaint on SEBI SCORES</span>
                   <ExternalLink className="w-4 h-4" />
@@ -403,9 +403,9 @@ export default function GrievanceRedressalPage() {
           </div>
 
           {/* SECTION 4: INSTRUCTIONS FOR FILING GRIEVANCES */}
-          <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
             <h3 className="text-xl font-bold text-white flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-[#237FFB]" />
+              <HelpCircle className="w-5 h-5 text-[#F5BA31]" />
               <span>Guidelines for Filing an Effective Grievance</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-neutral-300">
@@ -426,7 +426,7 @@ export default function GrievanceRedressalPage() {
                   <li>Allow the stipulated turnaround time before escalating to next level</li>
                   <li>Keep copies of all email correspondence</li>
                   <li>Access our monthly compliance disclosures at{' '}
-                    <Link href="/legal/customer-complaints-and-disclosures" className="text-[#237FFB] underline">
+                    <Link href="/legal/customer-complaints-and-disclosures" className="text-[#F5BA31] underline">
                       Complaints Table
                     </Link>
                   </li>

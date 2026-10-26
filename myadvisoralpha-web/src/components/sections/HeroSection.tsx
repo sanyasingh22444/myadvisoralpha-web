@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -12,8 +12,8 @@ import {
   Layers,
   Briefcase,
   Zap,
-  CheckCircle2,
-  Lock
+  Pause,
+  Play
 } from "lucide-react";
 import { BRAND_INFO } from "@/data/brand";
 
@@ -23,21 +23,61 @@ interface HeroSectionProps {
 }
 
 const ROTATING_WORDS = ["Mutual Funds", "Stock Ideas", "Futures", "Portfolio"];
+const TABS: Array<"stocks" | "portfolios" | "funds"> = ["stocks", "portfolios", "funds"];
 
 export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: HeroSectionProps) {
   const [wordIndex, setWordIndex] = useState(0);
   const [activeTab, setActiveTab] = useState<"stocks" | "portfolios" | "funds">("funds");
+  const [isPaused, setIsPaused] = useState(false);
   const [phone, setPhone] = useState("");
   const [agreed, setAgreed] = useState(true);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Rotating headline word timer
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
     }, 2800);
     return () => clearInterval(interval);
   }, []);
+
+  // Placard Tabs Slideshow Auto-advance Timer
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => {
+        const order: Array<"stocks" | "portfolios" | "funds"> = ["funds", "stocks", "portfolios"];
+        const nextIdx = (order.indexOf(prev) + 1) % order.length;
+        return order[nextIdx];
+      });
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Interaction handlers to pause & resume slideshow seamlessly
+  const handleMouseEnter = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 800); // 800ms buffer before resuming slideshow
+  };
+
+  const handleTabClick = (tab: "stocks" | "portfolios" | "funds") => {
+    setActiveTab(tab);
+    setIsPaused(true);
+    // Auto-resume after 6s of user inactivity on manual selection
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 6000);
+  };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.replace(/\D/g, "").slice(0, 10);
@@ -197,239 +237,283 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
 
             </div>
 
-            {/* Right Column: Interactive Card matching Artifact Screenshot */}
+            {/* Right Column: Fluid Interactive Slideshow Placard */}
             <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[480px] bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 shadow-2xl">
+              <div 
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleMouseEnter}
+                onTouchEnd={handleMouseLeave}
+                className="w-full max-w-[480px] bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 shadow-2xl relative transition-all"
+              >
                 
-                {/* 3 Top Tabs: Stock Ideas, Model Portfolios, Mutual Funds */}
-                <div className="grid grid-cols-3 gap-1.5 p-1 bg-black/40 rounded-xl border border-white/5 mb-5 text-xs font-semibold">
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("stocks")}
-                    className={`py-2 px-2 rounded-lg transition-all text-center ${
-                      activeTab === "stocks"
-                        ? "bg-[#16233B] text-white shadow-sm border border-white/10"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    Stock Ideas
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("portfolios")}
-                    className={`py-2 px-2 rounded-lg transition-all text-center ${
-                      activeTab === "portfolios"
-                        ? "bg-[#16233B] text-white shadow-sm border border-white/10"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    Model Portfolios
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("funds")}
-                    className={`py-2 px-2 rounded-lg transition-all text-center ${
-                      activeTab === "funds"
-                        ? "bg-[#16233B] text-[#F5BA31] shadow-sm border border-[#F5BA31]/30 font-bold"
-                        : "text-white/60 hover:text-white"
-                    }`}
-                  >
-                    Mutual Funds
-                  </button>
+                {/* 3 Top Tabs: Stock Ideas, Model Portfolios, Mutual Funds with Fluid Spring Pill */}
+                <div className="grid grid-cols-3 gap-1.5 p-1 bg-black/40 rounded-xl border border-white/5 mb-5 text-xs font-semibold relative">
+                  {[
+                    { key: "stocks", label: "Stock Ideas" },
+                    { key: "portfolios", label: "Model Portfolios" },
+                    { key: "funds", label: "Mutual Funds" },
+                  ].map((tab) => {
+                    const isActive = activeTab === tab.key;
+                    return (
+                      <button
+                        key={tab.key}
+                        type="button"
+                        onClick={() => handleTabClick(tab.key as any)}
+                        className={`relative py-2 px-1 sm:px-2 rounded-lg transition-all text-center select-none ${
+                          isActive
+                            ? "text-[#F5BA31] font-bold"
+                            : "text-white/60 hover:text-white"
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="activePlacardTab"
+                            className="absolute inset-0 bg-[#14233D] border border-[#F5BA31]/40 rounded-lg shadow-sm -z-0"
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          />
+                        )}
+                        <span className="relative z-10">{tab.label}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
-                {/* Tab 1: Mutual Funds (SIP Month by Month Bar Chart from Artifact) */}
-                {activeTab === "funds" && (
-                  <div>
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-base font-bold text-white leading-tight">A SIP, month by month</h4>
-                        <p className="text-xs text-white/60 mt-0.5">Small amounts, invested automatically</p>
-                      </div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-white/70 border border-white/10">
-                        Illustrative
-                      </span>
-                    </div>
+                {/* Status indicator bar showing live play vs pause */}
+                <div className="flex items-center justify-between text-[10px] text-white/40 mb-3 px-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className={`w-1.5 h-1.5 rounded-full ${isPaused ? "bg-amber-400" : "bg-emerald-400 animate-pulse"}`} />
+                    <span>{isPaused ? "Slideshow paused (interacting)" : "Live auto-cycle (tap to pause)"}</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-[9px] text-white/40">
+                    {["stocks", "portfolios", "funds"].map((t) => (
+                      <span 
+                        key={t}
+                        className={`inline-block h-1 rounded-full transition-all ${
+                          activeTab === t ? "w-4 bg-[#F5BA31]" : "w-1.5 bg-white/20"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
 
-                    {/* SIP Bar Chart Container */}
-                    <div className="relative pt-6 pb-2 border-b border-white/10 mb-5">
-                      {/* "Your goal" dashed guideline in yellow */}
-                      <div className="absolute top-4 left-0 right-0 flex items-center gap-2">
-                        <div className="flex-1 border-b border-dashed border-[#F5BA31]/60" />
-                        <span className="text-[10px] font-bold text-[#F5BA31] shrink-0">Your goal</span>
-                      </div>
-
-                      {/* 12 Ascending Monthly Bars */}
-                      <div className="flex items-end justify-between gap-1.5 h-36 pt-6 px-1">
-                        {[
-                          { m: "1", h: "18%" },
-                          { m: "2", h: "26%" },
-                          { m: "3", h: "34%" },
-                          { m: "4", h: "42%" },
-                          { m: "5", h: "50%" },
-                          { m: "6", h: "58%" },
-                          { m: "7", h: "66%" },
-                          { m: "8", h: "74%" },
-                          { m: "9", h: "82%" },
-                          { m: "10", h: "90%" },
-                          { m: "11", h: "98%" },
-                          { m: "12", h: "85%" },
-                        ].map((bar, idx) => (
-                          <div key={idx} className="flex-1 flex flex-col items-center gap-1 group">
-                            <div className="w-full h-28 flex items-end">
-                              <motion.div
-                                initial={{ height: 0 }}
-                                animate={{ height: bar.h }}
-                                transition={{ duration: 0.6, delay: idx * 0.04 }}
-                                className="w-full bg-[#F5BA31] rounded-t-sm group-hover:bg-[#ffc84a] transition-colors"
-                              />
-                            </div>
-                            <span className="text-[9px] text-white/50">{bar.m}</span>
+                {/* Slideshow Content Container with Fluid Fade & Slide Transition */}
+                <div className="min-h-[300px]">
+                  <AnimatePresence mode="wait">
+                    
+                    {/* Tab 1: Mutual Funds (SIP Month by Month Bar Chart from Artifact) */}
+                    {activeTab === "funds" && (
+                      <motion.div
+                        key="funds"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h4 className="text-base font-bold text-white leading-tight">A SIP, month by month</h4>
+                            <p className="text-xs text-white/60 mt-0.5">Small amounts, invested automatically</p>
                           </div>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center justify-between text-[10px] text-white/50 pt-1">
-                        <span>Month</span>
-                        {/* "Autopay every month" badge */}
-                        <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-[10px] text-white/80">
-                          <Zap className="w-3 h-3 text-[#F5BA31]" />
-                          <span>Autopay every month</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 3 Bottom Value Props */}
-                    <div className="grid grid-cols-3 gap-2 pt-1 text-left">
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Goal-based baskets</div>
-                        <div className="text-[10px] text-white/50 mt-0.5 leading-snug">From first salary to retirement</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Set up in 2 minutes</div>
-                        <div className="text-[10px] text-white/50 mt-0.5 leading-snug">100% digital via ONDC</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Direct to the AMC</div>
-                        <div className="text-[10px] text-white/50 mt-0.5 leading-snug">We never hold your money</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tab 2: Stock Ideas */}
-                {activeTab === "stocks" && (
-                  <div>
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-base font-bold text-white leading-tight">Single Stock Advisory</h4>
-                        <p className="text-xs text-white/60 mt-0.5">High-conviction equity signals with 1-tap execution</p>
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                        75% Strike Rate
-                      </span>
-                    </div>
-
-                    <div className="space-y-3 mb-5">
-                      <div className="bg-[#14223D] border border-white/10 rounded-xl p-3">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xs font-bold text-white">STARHEALTH</span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">
-                            +10.2% Gain
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-white/70 border border-white/10">
+                            Illustrative
                           </span>
                         </div>
-                        <div className="grid grid-cols-3 gap-1 text-[11px] text-white/60">
-                          <div>Entry: <span className="text-white font-medium">₹535</span></div>
-                          <div>Target: <span className="text-emerald-400 font-medium">₹589</span></div>
-                          <div>Stop: <span className="text-rose-400 font-medium">₹512</span></div>
-                        </div>
-                      </div>
 
-                      <div className="bg-[#14223D] border border-white/10 rounded-xl p-3">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xs font-bold text-white">PAYTM</span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">
-                            +15.5% Gain
+                        {/* SIP Bar Chart Container */}
+                        <div className="relative pt-6 pb-2 border-b border-white/10 mb-5">
+                          {/* "Your goal" dashed guideline in yellow */}
+                          <div className="absolute top-4 left-0 right-0 flex items-center gap-2">
+                            <div className="flex-1 border-b border-dashed border-[#F5BA31]/60" />
+                            <span className="text-[10px] font-bold text-[#F5BA31] shrink-0">Your goal</span>
+                          </div>
+
+                          {/* 12 Ascending Monthly Bars */}
+                          <div className="flex items-end justify-between gap-1.5 h-36 pt-6 px-1">
+                            {[
+                              { m: "1", h: "18%" },
+                              { m: "2", h: "26%" },
+                              { m: "3", h: "34%" },
+                              { m: "4", h: "42%" },
+                              { m: "5", h: "50%" },
+                              { m: "6", h: "58%" },
+                              { m: "7", h: "66%" },
+                              { m: "8", h: "74%" },
+                              { m: "9", h: "82%" },
+                              { m: "10", h: "90%" },
+                              { m: "11", h: "98%" },
+                              { m: "12", h: "85%" },
+                            ].map((bar, idx) => (
+                              <div key={idx} className="flex-1 flex flex-col items-center gap-1 group">
+                                <div className="w-full h-28 flex items-end">
+                                  <motion.div
+                                    initial={{ height: 0 }}
+                                    animate={{ height: bar.h }}
+                                    transition={{ duration: 0.5, delay: idx * 0.03 }}
+                                    className="w-full bg-[#F5BA31] rounded-t-sm group-hover:bg-[#ffc84a] transition-colors"
+                                  />
+                                </div>
+                                <span className="text-[9px] text-white/50">{bar.m}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex items-center justify-between text-[10px] text-white/50 pt-1">
+                            <span>Month</span>
+                            {/* "Autopay every month" badge */}
+                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 border border-white/15 text-[10px] text-white/80">
+                              <Zap className="w-3 h-3 text-[#F5BA31]" />
+                              <span>Autopay every month</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 3 Bottom Value Props */}
+                        <div className="grid grid-cols-3 gap-2 pt-1 text-left">
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Goal-based baskets</div>
+                            <div className="text-[10px] text-white/50 mt-0.5 leading-snug">From first salary to retirement</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Set up in 2 minutes</div>
+                            <div className="text-[10px] text-white/50 mt-0.5 leading-snug">100% digital via ONDC</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Direct to the AMC</div>
+                            <div className="text-[10px] text-white/50 mt-0.5 leading-snug">We never hold your money</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Tab 2: Stock Ideas */}
+                    {activeTab === "stocks" && (
+                      <motion.div
+                        key="stocks"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h4 className="text-base font-bold text-white leading-tight">Single Stock Advisory</h4>
+                            <p className="text-xs text-white/60 mt-0.5">High-conviction equity signals with 1-tap execution</p>
+                          </div>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                            75% Strike Rate
                           </span>
                         </div>
-                        <div className="grid grid-cols-3 gap-1 text-[11px] text-white/60">
-                          <div>Entry: <span className="text-white font-medium">₹1,162</span></div>
-                          <div>Target 2: <span className="text-emerald-400 font-medium">₹1,342</span></div>
-                          <div>Stop: <span className="text-rose-400 font-medium">₹1,110</span></div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-3 gap-2 pt-1 text-left">
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Derivatives &amp; Cash</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Futures + MTF Basket</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Strict Stop-Loss</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Capital preservation first</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">1-Tap Broker Sync</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Zerodha, Groww, Angel</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                        <div className="space-y-3 mb-5">
+                          <div className="bg-[#14223D] border border-white/10 rounded-xl p-3 hover:border-[#F5BA31]/40 transition-colors">
+                            <div className="flex items-center justify-between mb-1.5">
+                              <span className="text-xs font-bold text-white">STARHEALTH</span>
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">
+                                +10.2% Gain
+                              </span>
+                            </div>
+                            <div className="grid grid-cols-3 gap-1 text-[11px] text-white/60">
+                              <div>Entry: <span className="text-white font-medium">₹535</span></div>
+                              <div>Target: <span className="text-emerald-400 font-medium">₹589</span></div>
+                              <div>Stop: <span className="text-rose-400 font-medium">₹512</span></div>
+                            </div>
+                          </div>
 
-                {/* Tab 3: Model Portfolios */}
-                {activeTab === "portfolios" && (
-                  <div>
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-base font-bold text-white leading-tight">Curated Model Portfolios</h4>
-                        <p className="text-xs text-white/60 mt-0.5">Systematic asset allocation across market caps</p>
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
-                        +18.1% Alpha
-                      </span>
-                    </div>
+                          <div className="bg-[#14223D] border border-white/10 rounded-xl p-3 hover:border-[#F5BA31]/40 transition-colors">
+                            <div className="flex items-center justify-between mb-1.5">
+                              <span className="text-xs font-bold text-white">PAYTM</span>
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">
+                                +15.5% Gain
+                              </span>
+                            </div>
+                            <div className="grid grid-cols-3 gap-1 text-[11px] text-white/60">
+                              <div>Entry: <span className="text-white font-medium">₹1,162</span></div>
+                              <div>Target 2: <span className="text-emerald-400 font-medium">₹1,342</span></div>
+                              <div>Stop: <span className="text-rose-400 font-medium">₹1,110</span></div>
+                            </div>
+                          </div>
+                        </div>
 
-                    <div className="bg-[#14223D] border border-white/10 rounded-xl p-4 mb-5">
-                      <div className="flex items-center justify-between text-xs mb-3">
-                        <span className="font-bold text-white">Flexicap Alpha Basket</span>
-                        <span className="text-emerald-400 font-bold">24.2% CAGR (3Y)</span>
-                      </div>
-                      <div className="space-y-2 text-xs">
-                        <div className="flex items-center justify-between text-white/70">
-                          <span>Large Cap Leaders</span>
-                          <span className="text-white font-medium">55%</span>
+                        <div className="grid grid-cols-3 gap-2 pt-1 text-left">
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Derivatives &amp; Cash</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Futures + MTF Basket</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Strict Stop-Loss</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Capital preservation first</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">1-Tap Broker Sync</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Zerodha, Groww, Angel</div>
+                          </div>
                         </div>
-                        <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                          <div className="bg-[#F5BA31] h-full w-[55%]" />
-                        </div>
-                        <div className="flex items-center justify-between text-white/70 pt-1">
-                          <span>Mid &amp; Small Cap Compounders</span>
-                          <span className="text-white font-medium">45%</span>
-                        </div>
-                        <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                          <div className="bg-emerald-400 h-full w-[45%]" />
-                        </div>
-                      </div>
-                    </div>
+                      </motion.div>
+                    )}
 
-                    <div className="grid grid-cols-3 gap-2 pt-1 text-left">
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Quarterly Rebalance</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Automated weight check</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">SQGARP™ Screen</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Quality at fair price</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white leading-tight">Zero Lock-in</div>
-                        <div className="text-[10px] text-white/50 mt-0.5">Full capital control</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    {/* Tab 3: Model Portfolios */}
+                    {activeTab === "portfolios" && (
+                      <motion.div
+                        key="portfolios"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h4 className="text-base font-bold text-white leading-tight">Curated Model Portfolios</h4>
+                            <p className="text-xs text-white/60 mt-0.5">Systematic asset allocation across market caps</p>
+                          </div>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
+                            +18.1% Alpha
+                          </span>
+                        </div>
+
+                        <div className="bg-[#14223D] border border-white/10 rounded-xl p-4 mb-5">
+                          <div className="flex items-center justify-between text-xs mb-3">
+                            <span className="font-bold text-white">Flexicap Alpha Basket</span>
+                            <span className="text-emerald-400 font-bold">24.2% CAGR (3Y)</span>
+                          </div>
+                          <div className="space-y-2 text-xs">
+                            <div className="flex items-center justify-between text-white/70">
+                              <span>Large Cap Leaders</span>
+                              <span className="text-white font-medium">55%</span>
+                            </div>
+                            <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                              <div className="bg-[#F5BA31] h-full w-[55%]" />
+                            </div>
+                            <div className="flex items-center justify-between text-white/70 pt-1">
+                              <span>Mid &amp; Small Cap Compounders</span>
+                              <span className="text-white font-medium">45%</span>
+                            </div>
+                            <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                              <div className="bg-emerald-400 h-full w-[45%]" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-2 pt-1 text-left">
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Quarterly Rebalance</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Automated weight check</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">SQGARP™ Screen</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Quality at fair price</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white leading-tight">Zero Lock-in</div>
+                            <div className="text-[10px] text-white/50 mt-0.5">Full capital control</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                  </AnimatePresence>
+                </div>
 
               </div>
             </div>

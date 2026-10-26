@@ -112,7 +112,7 @@ export default function ContactPage() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#237FFB', '#3AA17E', '#FF8415', '#FFFFFF'],
+          colors: ['#F5BA31', '#3AA17E', '#FF8415', '#FFFFFF'],
         });
       } catch {
         // Safe fallback if confetti canvas not bound
@@ -136,20 +136,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full selection:bg-[#237FFB] selection:text-white">
+    <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[#2A2A2A]">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#237FFB]/15 blur-[120px] rounded-full pointer-events-none" />
+      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B0E14] border border-[#237FFB]/40 text-[#237FFB] text-xs font-bold tracking-wider uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1528] border border-[#F5BA31]/40 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-5">
             <ShieldCheck className="w-4 h-4 text-[#3AA17E]" />
             <span>Client Advisory Desk · SEBI RA INH000021818</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Connect With Our{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#237FFB] via-[#3DA2F1] to-[#3AA17E]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5BA31] via-[#3DA2F1] to-[#3AA17E]">
               Advisory Team
             </span>
           </h1>
@@ -162,13 +162,13 @@ export default function ContactPage() {
       </section>
 
       {/* 4 CONTACT CHANNELS SUMMARY CARDS */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2A2A2A]">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1: Registered Office Address */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-6 hover:border-[#237FFB]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#237FFB]/15 text-[#237FFB] flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center mb-4">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <h2 className="text-base font-bold text-white mb-2">Registered Office</h2>
@@ -186,7 +186,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Phone Helpline */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-6 hover:border-[#237FFB]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#3AA17E]/15 text-[#3AA17E] flex items-center justify-center mb-4">
                   <Phone className="w-5 h-5" />
@@ -195,7 +195,7 @@ export default function ContactPage() {
                 <p className="text-xs text-neutral-400 mb-2">Direct client advisory helpline:</p>
                 <a
                   href="tel:+918655387833"
-                  className="text-lg font-bold font-mono text-white hover:text-[#237FFB] transition-colors block"
+                  className="text-lg font-bold font-mono text-white hover:text-[#F5BA31] transition-colors block"
                 >
                   +91 8655387833
                 </a>
@@ -209,7 +209,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Email Contacts */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-6 hover:border-[#237FFB]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#FF8415]/15 text-[#FF8415] flex items-center justify-center mb-4">
                   <Mail className="w-5 h-5" />
@@ -218,13 +218,13 @@ export default function ContactPage() {
                 <div className="space-y-2 text-xs">
                   <div>
                     <span className="text-neutral-500 block">General & Support:</span>
-                    <a href="mailto:support@myadvisoralpha.com" className="text-white hover:text-[#237FFB] font-mono">
+                    <a href="mailto:support@myadvisoralpha.com" className="text-white hover:text-[#F5BA31] font-mono">
                       support@myadvisoralpha.com
                     </a>
                   </div>
                   <div>
                     <span className="text-neutral-500 block">Compliance & Grievance:</span>
-                    <a href="mailto:support@renaissanceadvisors.in" className="text-white hover:text-[#237FFB] font-mono">
+                    <a href="mailto:support@renaissanceadvisors.in" className="text-white hover:text-[#F5BA31] font-mono">
                       support@renaissanceadvisors.in
                     </a>
                   </div>
@@ -236,7 +236,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 4: Operating Hours */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-6 hover:border-[#237FFB]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#3DA2F1]/15 text-[#3DA2F1] flex items-center justify-center mb-4">
                   <Clock className="w-5 h-5" />
@@ -264,7 +264,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* LEFT COLUMN: INTERACTIVE CONSULTATION INQUIRY FORM */}
             <div className="lg:col-span-7">
-              <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
                 {isSuccess ? (
                   /* SUCCESS STATE */
                   <div className="text-center py-10 space-y-5 animate-in fade-in duration-300">
@@ -315,7 +315,7 @@ export default function ContactPage() {
                   /* INPUT FORM */
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#237FFB] mb-2">
+                      <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F5BA31] mb-2">
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>Schedule Free Advisory Review</span>
                       </div>
@@ -340,8 +340,8 @@ export default function ContactPage() {
                           if (errors.name) setErrors({ ...errors, name: undefined });
                         }}
                         placeholder="e.g. Rahul Sharma"
-                        className={`w-full bg-[#010101] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 outline-none transition-colors border ${
-                          errors.name ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#237FFB]'
+                        className={`w-full bg-[#081026] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 outline-none transition-colors border ${
+                          errors.name ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31]'
                         }`}
                       />
                       {errors.name && (
@@ -360,8 +360,8 @@ export default function ContactPage() {
                           Mobile Number <span className="text-[#DD5240]">*</span>
                         </label>
                         <div
-                          className={`flex items-center bg-[#010101] rounded-xl px-3 border transition-colors ${
-                            errors.phone ? 'border-[#DD5240]' : 'border-white/15 focus-within:border-[#237FFB]'
+                          className={`flex items-center bg-[#081026] rounded-xl px-3 border transition-colors ${
+                            errors.phone ? 'border-[#DD5240]' : 'border-white/15 focus-within:border-[#F5BA31]'
                           }`}
                         >
                           <span className="text-xs font-bold text-neutral-400 pr-2 border-r border-white/20">
@@ -401,8 +401,8 @@ export default function ContactPage() {
                             if (errors.email) setErrors({ ...errors, email: undefined });
                           }}
                           placeholder="rahul@example.com"
-                          className={`w-full bg-[#010101] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 outline-none transition-colors border ${
-                            errors.email ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#237FFB]'
+                          className={`w-full bg-[#081026] rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 outline-none transition-colors border ${
+                            errors.email ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31]'
                           }`}
                         />
                         {errors.email && (
@@ -424,7 +424,7 @@ export default function ContactPage() {
                         <select
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full bg-[#010101] border border-white/15 focus:border-[#237FFB] rounded-xl px-3 py-3 text-sm text-white outline-none"
+                          className="w-full bg-[#081026] border border-white/15 focus:border-[#F5BA31] rounded-xl px-3 py-3 text-sm text-white outline-none"
                         >
                           <option value="Single Stock Advisory">Single Stock Advisory (₹999/mo)</option>
                           <option value="Equity Model Portfolios">Equity Model Portfolios (₹299/mo)</option>
@@ -444,8 +444,8 @@ export default function ContactPage() {
                             setFormData({ ...formData, portfolioSize: e.target.value });
                             if (errors.portfolioSize) setErrors({ ...errors, portfolioSize: undefined });
                           }}
-                          className={`w-full bg-[#010101] rounded-xl px-3 py-3 text-sm text-white outline-none border ${
-                            errors.portfolioSize ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#237FFB]'
+                          className={`w-full bg-[#081026] rounded-xl px-3 py-3 text-sm text-white outline-none border ${
+                            errors.portfolioSize ? 'border-[#DD5240]' : 'border-white/15 focus:border-[#F5BA31]'
                           }`}
                         >
                           <option value="">Select Portfolio Range...</option>
@@ -473,7 +473,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Tell us about your investment horizon, existing demat holdings, or specific queries..."
-                        className="w-full bg-[#010101] border border-white/15 focus:border-[#237FFB] rounded-xl p-3.5 text-sm text-white placeholder-neutral-600 outline-none"
+                        className="w-full bg-[#081026] border border-white/15 focus:border-[#F5BA31] rounded-xl p-3.5 text-sm text-white placeholder-neutral-600 outline-none"
                       />
                     </div>
 
@@ -487,11 +487,11 @@ export default function ContactPage() {
                             setFormData({ ...formData, consent: e.target.checked });
                             if (errors.consent) setErrors({ ...errors, consent: undefined });
                           }}
-                          className="mt-0.5 w-4 h-4 rounded border-white/30 text-[#237FFB] focus:ring-0 focus:ring-offset-0 bg-[#010101]"
+                          className="mt-0.5 w-4 h-4 rounded border-white/30 text-[#F5BA31] focus:ring-0 focus:ring-offset-0 bg-[#081026]"
                         />
                         <span className="text-xs text-neutral-400 leading-relaxed">
                           I agree to the{' '}
-                          <Link href="/legal/terms-and-conditions" className="text-[#237FFB] underline hover:text-white">
+                          <Link href="/legal/terms-and-conditions" className="text-[#F5BA31] underline hover:text-white">
                             Terms & Conditions
                           </Link>{' '}
                           and authorise MyAdvisorAlpha to contact me regarding research advisory alerts via Phone,
@@ -511,17 +511,17 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn-shimmer w-full bg-[#1C6FE6] hover:bg-[#1a6de0] disabled:bg-neutral-700 text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
+                        className="btn-shimmer w-full bg-[#F5BA31] hover:bg-[#e5ab28] disabled:bg-neutral-700 text-[#081026] font-extrabold text-sm py-3.5 px-6 rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
                       >
                         {isSubmitting ? (
                           <>
-                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <div className="w-4 h-4 border-2 border-[#081026]/30 border-t-[#081026] rounded-full animate-spin" />
                             <span>Routing to Advisor Desk...</span>
                           </>
                         ) : (
                           <>
                             <span>Submit Request for Callback</span>
-                            <Send className="w-4 h-4" />
+                            <Send className="w-4 h-4 text-[#081026]" />
                           </>
                         )}
                       </button>
@@ -539,7 +539,7 @@ export default function ContactPage() {
             {/* RIGHT COLUMN: WHY CONSULT MYADVISORALPHA & LOCATION CARD */}
             <div className="lg:col-span-5 space-y-6">
               {/* Trust Highlights */}
-              <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5">
+              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5">
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <ShieldCheck className="w-5 h-5 text-[#3AA17E]" />
                   <span>Why Consult MyAdvisorAlpha?</span>
@@ -578,10 +578,10 @@ export default function ContactPage() {
               </div>
 
               {/* Transit & Office Directions Card */}
-              <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <Building className="w-4 h-4 text-[#237FFB]" />
+                    <Building className="w-4 h-4 text-[#F5BA31]" />
                     <span>Visiting Our Mumbai Office</span>
                   </h3>
                   <span className="text-[10px] text-[#3AA17E] font-semibold bg-[#3AA17E]/10 px-2 py-0.5 rounded border border-[#3AA17E]/30">
@@ -595,7 +595,7 @@ export default function ContactPage() {
 
                 <div className="bg-white/5 rounded-xl p-3.5 text-xs text-neutral-300 space-y-1.5 border border-white/5">
                   <div className="flex items-center gap-2 text-white font-semibold">
-                    <MapPin className="w-3.5 h-3.5 text-[#237FFB]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#F5BA31]" />
                     <span>Mittal Commercial Premises CHS Ltd</span>
                   </div>
                   <div className="text-[11px] text-neutral-400">
@@ -613,7 +613,7 @@ export default function ContactPage() {
                     href="https://maps.google.com/?q=Mittal+Commercial+Marol+Andheri+East+Mumbai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-[#237FFB] hover:text-white"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-[#F5BA31] hover:text-white"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -629,7 +629,7 @@ export default function ContactPage() {
                 </p>
                 <Link
                   href="/legal/grievance-redressal-escalation-matrix"
-                  className="inline-flex items-center gap-1 text-[#237FFB] hover:underline font-semibold"
+                  className="inline-flex items-center gap-1 text-[#F5BA31] hover:underline font-semibold"
                 >
                   <span>View Grievance Escalation Matrix</span>
                   <ArrowRight className="w-3.5 h-3.5" />

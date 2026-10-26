@@ -35,9 +35,9 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="flex-1 flex flex-col w-full selection:bg-[#237FFB] selection:text-white">
+    <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO / BREADCRUMB HEADER */}
-      <section className="relative pt-8 pb-12 border-b border-[#2A2A2A] bg-gradient-to-b from-[#0B0E14] to-[#010101] overflow-hidden">
+      <section className="relative pt-8 pb-12 border-b border-[rgba(255,255,255,0.1)] bg-gradient-to-b from-[#0B1528] to-[#081026] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-neutral-400 mb-6">
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
             <span className="text-neutral-500">Legal</span>
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="text-[#237FFB] font-medium">Privacy Policy</span>
+            <span className="text-[#F5BA31] font-medium">Privacy Policy</span>
           </nav>
 
           {/* Badges */}
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>DPDP Act 2023 Compliant</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-semibold">
               <Lock className="w-3.5 h-3.5" />
               <span>256-Bit SSL/TLS Encryption</span>
             </div>
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* 4 CORE PRIVACY COMMITMENTS BANNER */}
-      <section className="bg-[#0B0E14] border-b border-[#2A2A2A] py-8">
+      <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold">
                 <Server className="w-4 h-4" />
               </div>
               <div className="font-bold text-white text-sm">Domestic Indian Hosting</div>
@@ -134,21 +134,21 @@ export default function PrivacyPolicyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* STICKY TOC */}
             <aside className="lg:col-span-1 hidden lg:block">
-              <div className="sticky top-28 bg-[#0B0E14] border border-white/10 rounded-2xl p-4 shadow-lg text-xs space-y-2">
+              <div className="sticky top-28 bg-[#0B1528] border border-white/10 rounded-2xl p-4 shadow-lg text-xs space-y-2">
                 <div className="font-bold text-white text-xs uppercase tracking-wider pb-2 border-b border-white/10 flex items-center gap-1.5">
-                  <FileText className="w-3.5 h-3.5 text-[#237FFB]" />
+                  <FileText className="w-3.5 h-3.5 text-[#F5BA31]" />
                   <span>Policy Sections</span>
                 </div>
                 <nav className="space-y-1 text-neutral-400 font-medium">
-                  <a href="#privacy-1" className="block py-1 hover:text-[#237FFB] transition-colors truncate">1. Scope & Controller</a>
-                  <a href="#privacy-2" className="block py-1 hover:text-[#237FFB] transition-colors truncate">2. Personal Data Collected</a>
-                  <a href="#privacy-3" className="block py-1 hover:text-[#237FFB] transition-colors truncate">3. Purpose of Processing</a>
-                  <a href="#privacy-4" className="block py-1 hover:text-[#237FFB] transition-colors truncate">4. KRA & CKYC Sharing</a>
-                  <a href="#privacy-5" className="block py-1 hover:text-[#237FFB] transition-colors truncate">5. Cookies & Telemetry</a>
-                  <a href="#privacy-6" className="block py-1 hover:text-[#237FFB] transition-colors truncate">6. Security Measures</a>
-                  <a href="#privacy-7" className="block py-1 hover:text-[#237FFB] transition-colors truncate">7. Data Retention (5 Yrs)</a>
-                  <a href="#privacy-8" className="block py-1 hover:text-[#237FFB] transition-colors truncate">8. DPDP Principal Rights</a>
-                  <a href="#privacy-9" className="block py-1 hover:text-[#237FFB] transition-colors truncate">9. Grievance Redressal</a>
+                  <a href="#privacy-1" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">1. Scope & Controller</a>
+                  <a href="#privacy-2" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">2. Personal Data Collected</a>
+                  <a href="#privacy-3" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">3. Purpose of Processing</a>
+                  <a href="#privacy-4" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">4. KRA & CKYC Sharing</a>
+                  <a href="#privacy-5" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">5. Cookies & Telemetry</a>
+                  <a href="#privacy-6" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">6. Security Measures</a>
+                  <a href="#privacy-7" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">7. Data Retention (5 Yrs)</a>
+                  <a href="#privacy-8" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">8. DPDP Principal Rights</a>
+                  <a href="#privacy-9" className="block py-1 hover:text-[#F5BA31] transition-colors truncate">9. Grievance Redressal</a>
                 </nav>
 
                 <div className="pt-3 border-t border-white/10">
@@ -167,15 +167,15 @@ export default function PrivacyPolicyPage() {
             <div className="lg:col-span-3 space-y-10 text-neutral-300 text-sm sm:text-base leading-relaxed">
               
               {/* SECTION 1 */}
-              <article id="privacy-1" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-1" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">1</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">1</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Scope & Data Fiduciary Details
                   </h2>
                 </div>
                 <p>
-                  Under the Digital Personal Data Protection Act, 2023 (DPDP Act), <strong className="text-white">{BRAND_INFO.legalEntity}</strong> serves as the <strong className="text-white">Data Fiduciary</strong> responsible for determining the purpose and means of processing personal data collected across our web portal (<span className="font-mono text-[#237FFB]">myadvisoralpha.com</span>, <span className="font-mono text-[#237FFB]">web.advisoralpha.in</span>), mobile applications (iOS and Android), and associated communication channels.
+                  Under the Digital Personal Data Protection Act, 2023 (DPDP Act), <strong className="text-white">{BRAND_INFO.legalEntity}</strong> serves as the <strong className="text-white">Data Fiduciary</strong> responsible for determining the purpose and means of processing personal data collected across our web portal (<span className="font-mono text-[#F5BA31]">myadvisoralpha.com</span>, <span className="font-mono text-[#F5BA31]">web.advisoralpha.in</span>), mobile applications (iOS and Android), and associated communication channels.
                 </p>
                 <p className="text-xs sm:text-sm text-neutral-400">
                   This policy applies to all prospective visitors, registered users, and active subscribers. By accessing our services or submitting any information, you acknowledge that you have reviewed and consented to the collection and processing described herein.
@@ -183,9 +183,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 2 */}
-              <article id="privacy-2" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-2" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">2</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">2</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Categories of Personal Data Collected
                   </h2>
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
                 <div className="space-y-3 text-xs sm:text-sm">
                   <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
                     <h3 className="font-bold text-white flex items-center gap-2">
-                      <UserCheck className="w-4 h-4 text-[#237FFB]" />
+                      <UserCheck className="w-4 h-4 text-[#F5BA31]" />
                       <span>A. Mandatory Regulatory Identity & KYC Data</span>
                     </h3>
                     <p className="text-neutral-300">
@@ -237,9 +237,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 3 */}
-              <article id="privacy-3" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-3" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">3</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">3</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Legal Basis & Purpose of Data Processing
                   </h2>
@@ -268,9 +268,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 4 */}
-              <article id="privacy-4" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-4" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">4</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">4</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     KRA, CKYC & Authorized Regulatory Disclosures
                   </h2>
@@ -292,9 +292,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 5 */}
-              <article id="privacy-5" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-5" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">5</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">5</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Cookies, Web Telemetry & Tracking Technologies
                   </h2>
@@ -313,9 +313,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 6 */}
-              <article id="privacy-6" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-6" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">6</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">6</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Security Safeguards & Architecture
                   </h2>
@@ -326,7 +326,7 @@ export default function PrivacyPolicyPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
                   <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
-                      <Lock className="w-4 h-4 text-[#237FFB]" />
+                      <Lock className="w-4 h-4 text-[#F5BA31]" />
                       <span>Data in Transit</span>
                     </div>
                     <p className="text-neutral-400">
@@ -367,9 +367,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 7 */}
-              <article id="privacy-7" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-7" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">7</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">7</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Statutory Data Retention (SEBI 5-Year Requirement)
                   </h2>
@@ -383,9 +383,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 8 */}
-              <article id="privacy-8" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-8" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">8</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">8</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Your Rights as a Data Principal under DPDP Act, 2023
                   </h2>
@@ -413,9 +413,9 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 9 */}
-              <article id="privacy-9" className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-9" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#237FFB]/20 text-[#237FFB] flex items-center justify-center font-bold text-xs">9</span>
+                  <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">9</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Grievance Redressal Officer & Data Protection Contact
                   </h2>
@@ -424,13 +424,13 @@ export default function PrivacyPolicyPage() {
                   If you have any questions, wish to exercise your statutory rights as a Data Principal under the DPDP Act, or have a grievance concerning data privacy, please contact our designated Grievance & Compliance Officer:
                 </p>
                 
-                <div className="bg-gradient-to-r from-black/60 to-black/30 border border-[#237FFB]/30 rounded-2xl p-6 space-y-4 text-xs sm:text-sm">
+                <div className="bg-gradient-to-r from-black/60 to-black/30 border border-[#F5BA31]/30 rounded-2xl p-6 space-y-4 text-xs sm:text-sm">
                   <div className="flex items-center justify-between pb-3 border-b border-white/10">
                     <div>
                       <div className="text-base font-bold text-white">Ms. Nidhi Kamani</div>
                       <div className="text-neutral-400">Compliance & Grievance Redressal Officer</div>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full bg-[#237FFB]/20 text-[#237FFB] text-xs font-semibold">
+                    <span className="px-2.5 py-1 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] text-xs font-semibold">
                       Level 3 Escalation
                     </span>
                   </div>
@@ -438,7 +438,7 @@ export default function PrivacyPolicyPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Mail className="w-4 h-4 text-[#237FFB] shrink-0" />
+                        <Mail className="w-4 h-4 text-[#F5BA31] shrink-0" />
                         <span>Email: <a href={`mailto:${BRAND_INFO.contact.supportEmail}`} className="text-white underline">{BRAND_INFO.contact.supportEmail}</a></span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -468,7 +468,7 @@ export default function PrivacyPolicyPage() {
 
                 <p className="text-xs text-neutral-400">
                   We acknowledge all privacy inquiries within 48 business hours and resolve complaints within a maximum of 21 business days in accordance with SEBI guidelines and our{' '}
-                  <Link href="/legal/grievance-redressal-escalation-matrix" className="text-[#237FFB] underline">
+                  <Link href="/legal/grievance-redressal-escalation-matrix" className="text-[#F5BA31] underline">
                     Escalation Matrix
                   </Link>.
                 </p>

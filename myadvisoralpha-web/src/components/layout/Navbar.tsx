@@ -10,9 +10,6 @@ import {
   TrendingUp, 
   Briefcase, 
   Layers, 
-  PieChart, 
-  BookOpen, 
-  HelpCircle, 
   LogIn
 } from "lucide-react";
 import MobileNav from "./MobileNav";
@@ -28,7 +25,19 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
   const [isScrolled, setIsScrolled] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleCtaClick = onOpenConsultation || onOpenLeadModal;
+  const handleCtaClick = () => {
+    if (onOpenConsultation) {
+      onOpenConsultation();
+    } else if (onOpenLeadModal) {
+      onOpenLeadModal();
+    } else if (typeof window !== "undefined") {
+      if (window.location.pathname === "/") {
+        window.dispatchEvent(new CustomEvent("open-consultation-modal"));
+      } else {
+        window.location.href = "/contact";
+      }
+    }
+  };
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -44,7 +53,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
     }
     timeoutRef.current = setTimeout(() => {
       setAdvisoryOpen(false);
-    }, 220); // 220ms grace period prevents abrupt dropdown closure
+    }, 250); // 250ms grace period prevents abrupt dropdown closure
   };
 
   useEffect(() => {
@@ -75,7 +84,6 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2.5 group">
                 <div className="w-8 h-8 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-md group-hover:scale-105 transition-transform font-black">
-                  {/* Clean diagonal trend indicator */}
                   <svg className="w-4 h-4 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
                   </svg>
@@ -99,12 +107,14 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   type="button"
                   aria-expanded={advisoryOpen}
                   onClick={() => setAdvisoryOpen(!advisoryOpen)}
-                  className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5 focus:outline-none"
+                  className={`px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5 focus:outline-none ${
+                    advisoryOpen ? "bg-white/15 text-white" : "hover:text-white hover:bg-white/10"
+                  }`}
                 >
                   <span>Advisory</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-white/70 transition-transform duration-200 ${
-                      advisoryOpen ? "rotate-180 text-white" : ""
+                    className={`w-4 h-4 text-white/80 transition-transform duration-200 ${
+                      advisoryOpen ? "rotate-180 text-[#F5BA31]" : ""
                     }`}
                   />
                 </button>
@@ -113,11 +123,12 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   <div 
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0B1528] border border-white/20 rounded-2xl p-4 shadow-[0_24px_60px_rgba(0,0,0,0.95)] z-[100] animate-in fade-in slide-in-from-top-2 duration-200 space-y-3 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                    style={{ backgroundColor: "#0D1A33", opacity: 1 }}
+                    className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0D1A33] border border-white/20 rounded-2xl p-4 shadow-[0_25px_60px_rgba(0,0,0,0.95)] z-[100] animate-in fade-in slide-in-from-top-2 duration-200 space-y-3 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                   >
                     {/* Section 1: Single Stocks */}
                     <div>
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-[#F5BA31]">
+                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-[#F5BA31]">
                         <TrendingUp className="w-3.5 h-3.5 text-[#F5BA31]" />
                         <span>Single Stocks</span>
                       </div>
@@ -126,20 +137,22 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                         <Link
                           href="/#futures"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
+                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
                             <TrendingUp className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-semibold text-white">Futures</span>
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
+                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
+                                Futures
+                              </span>
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
                                 Derivatives
                               </span>
                             </div>
-                            <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
-                              Derivatives trading strategies and momentum signals
+                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
+                              Derivatives trading strategies and momentum signals with defined risk parameters
                             </div>
                           </div>
                         </Link>
@@ -148,20 +161,22 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                         <Link
                           href="/#mtf-basket"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
+                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
                             <Layers className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-semibold text-white">MTF Basket</span>
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31]/20 text-[#F5BA31] border border-[#F5BA31]/30">
+                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
+                                MTF Basket
+                              </span>
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
                                 Margin Trading
                               </span>
                             </div>
-                            <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
-                              Margin Trading Facility curated equity baskets with leverage and risk management
+                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
+                              Margin Trading Facility curated equity baskets with leverage and institutional downside risk management
                             </div>
                           </div>
                         </Link>
@@ -169,27 +184,29 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                     </div>
 
                     {/* Section 2: Portfolio */}
-                    <div className="pt-2 border-t border-white/10">
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                    <div className="pt-2.5 border-t border-white/15">
+                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
                         <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Portfolio</span>
                       </div>
                       <Link
                         href="/#portfolios"
                         onClick={() => setAdvisoryOpen(false)}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/10 transition-colors group"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                        <div className="w-9 h-9 rounded-lg bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-400 group-hover:text-[#081026] transition-colors shadow-sm">
                           <Briefcase className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-white">Portfolio Advisory</span>
-                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                              Portfolio Advisory
+                            </span>
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-400 text-[#081026] shadow-sm">
                               Full Advisory
                             </span>
                           </div>
-                          <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                          <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
                             Full portfolio advisory, risk profiling, and periodic rebalancing
                           </div>
                         </div>
@@ -197,21 +214,21 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                     </div>
 
                     {/* Dropdown Quick Pedigree & Route Links */}
-                    <div className="pt-2.5 border-t border-white/10 flex items-center justify-between px-2 text-[11px] text-white/50">
-                      <span>Pankaj Murarka · 30+ Yrs Equity Pedigree</span>
+                    <div className="pt-2.5 border-t border-white/15 flex items-center justify-between px-2 text-xs text-white/70">
+                      <span className="font-medium">Pankaj Murarka · 30+ Yrs Equity Pedigree</span>
                       <div className="flex items-center gap-2.5">
                         <Link
                           href="/about"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-[#F5BA31] hover:underline font-medium"
+                          className="text-[#F5BA31] hover:underline font-bold"
                         >
                           About Us
                         </Link>
-                        <span>·</span>
+                        <span className="text-white/40">·</span>
                         <Link
                           href="/contact"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="hover:text-white transition-colors"
+                          className="text-white hover:text-[#F5BA31] transition-colors font-medium"
                         >
                           Contact Desk
                         </Link>
@@ -259,22 +276,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               </a>
 
               {/* "Get 2 free ideas" - Solid Warm Gold Pill/Button from Artifact */}
-              {handleCtaClick ? (
-                <button
-                  type="button"
-                  onClick={handleCtaClick}
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
-                >
-                  <span>Get 2 free ideas</span>
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
-                >
-                  <span>Get 2 free ideas</span>
-                </Link>
-              )}
+              <button
+                type="button"
+                onClick={handleCtaClick}
+                className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+              >
+                <span>Get 2 free ideas</span>
+              </button>
 
               {/* Mobile Hamburger Toggle */}
               <button

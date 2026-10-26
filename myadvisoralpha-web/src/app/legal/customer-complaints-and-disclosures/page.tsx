@@ -51,9 +51,9 @@ const HISTORICAL_ANNUAL_DATA = [
 
 export default function CustomerComplaintsAndDisclosuresPage() {
   return (
-    <div className="flex-1 flex flex-col w-full selection:bg-[#237FFB] selection:text-white">
+    <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO / BREADCRUMB HEADER */}
-      <section className="relative pt-8 pb-12 border-b border-[#2A2A2A] bg-gradient-to-b from-[#0B0E14] to-[#010101] overflow-hidden">
+      <section className="relative pt-8 pb-12 border-b border-[rgba(255,255,255,0.1)] bg-gradient-to-b from-[#0B1528] to-[#081026] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-neutral-400 mb-6">
@@ -61,7 +61,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
             <span className="text-neutral-500">Legal</span>
             <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
-            <span className="text-[#237FFB] font-medium">Complaints & Disclosures</span>
+            <span className="text-[#F5BA31] font-medium">Complaints & Disclosures</span>
           </nav>
 
           {/* Badges */}
@@ -70,7 +70,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>SEBI Mandated Monthly Audit</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#237FFB]/10 border border-[#237FFB]/30 text-[#237FFB] text-xs font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-semibold">
               <Calendar className="w-3.5 h-3.5" />
               <span>Month Ending September 2026</span>
             </div>
@@ -98,7 +98,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
       </section>
 
       {/* 4 STATS CARDS */}
-      <section className="bg-[#0B0E14] border-b border-[#2A2A2A] py-6">
+      <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
@@ -106,7 +106,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               <div className="text-xs text-neutral-400 mt-1">Complaints Received (Sep 2026)</div>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#237FFB]">0</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">0</div>
               <div className="text-xs text-neutral-400 mt-1">Pending at Month End</div>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
@@ -129,7 +129,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#237FFB] mb-1">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#F5BA31] mb-1">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Statutory SEBI Format</span>
                 </div>
@@ -143,7 +143,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
             </div>
 
             {/* Responsive Table */}
-            <div className="bg-[#0B0E14] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="bg-[#0B1528] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
@@ -168,7 +168,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                           {row.receivedFrom}
                         </td>
                         <td className="py-4 px-3 sm:px-4 text-center">{row.pendingLastMonth}</td>
-                        <td className="py-4 px-3 sm:px-4 text-center text-[#237FFB] font-bold">{row.received}</td>
+                        <td className="py-4 px-3 sm:px-4 text-center text-[#F5BA31] font-bold">{row.received}</td>
                         <td className="py-4 px-3 sm:px-4 text-center text-[#3AA17E] font-bold">{row.resolved}</td>
                         <td className="py-4 px-3 sm:px-4 text-center">{row.totalPending}</td>
                         <td className="py-4 px-3 sm:px-4 text-center">{row.pendingOverThreeMonths}</td>
@@ -183,7 +183,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                         Grand Total
                       </td>
                       <td className="py-4 px-3 sm:px-4 text-center">0</td>
-                      <td className="py-4 px-3 sm:px-4 text-center text-[#237FFB]">0</td>
+                      <td className="py-4 px-3 sm:px-4 text-center text-[#F5BA31]">0</td>
                       <td className="py-4 px-3 sm:px-4 text-center text-[#3AA17E]">0</td>
                       <td className="py-4 px-3 sm:px-4 text-center">0</td>
                       <td className="py-4 px-3 sm:px-4 text-center">0</td>
@@ -225,7 +225,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* TABLE: Monthly Disposal Trend */}
-              <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
+              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h3 className="font-bold text-white text-base">
                     Monthly Disposal Trend (Last 6 Months)
@@ -251,7 +251,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                         <tr key={row.month} className="hover:bg-white/[0.02]">
                           <td className="py-2.5 px-3 font-sans font-medium text-white">{row.month}</td>
                           <td className="py-2.5 px-2 text-center">{row.carriedForward}</td>
-                          <td className="py-2.5 px-2 text-center text-[#237FFB]">{row.received}</td>
+                          <td className="py-2.5 px-2 text-center text-[#F5BA31]">{row.received}</td>
                           <td className="py-2.5 px-2 text-center text-[#3AA17E]">{row.resolved}</td>
                           <td className="py-2.5 px-2 text-center">{row.pending}</td>
                         </tr>
@@ -262,7 +262,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               </div>
 
               {/* TABLE: Annual Disposal Trend */}
-              <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
+              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h3 className="font-bold text-white text-base">
                     Annual Disposal Trend (Since Inception)
@@ -288,7 +288,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                         <tr key={row.financialYear} className="hover:bg-white/[0.02]">
                           <td className="py-2.5 px-3 font-sans font-medium text-white">{row.financialYear}</td>
                           <td className="py-2.5 px-2 text-center">{row.carriedForward}</td>
-                          <td className="py-2.5 px-2 text-center text-[#237FFB]">{row.received}</td>
+                          <td className="py-2.5 px-2 text-center text-[#F5BA31]">{row.received}</td>
                           <td className="py-2.5 px-2 text-center text-[#3AA17E]">{row.resolved}</td>
                           <td className="py-2.5 px-2 text-center">{row.pending}</td>
                         </tr>
@@ -329,7 +329,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               {DISCLOSURE_DOCS.map((doc, idx) => (
                 <div
                   key={doc.title}
-                  className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 flex flex-col justify-between space-y-4 hover:border-[#237FFB]/50 hover:bg-[#121620] transition-all group shadow-lg"
+                  className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 flex flex-col justify-between space-y-4 hover:border-[#F5BA31]/50 hover:bg-[#121620] transition-all group shadow-lg"
                 >
                   <div className="space-y-3">
                     {/* Category Badge & Doc Number */}
@@ -343,7 +343,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-bold text-white text-base group-hover:text-[#237FFB] transition-colors leading-snug">
+                    <h3 className="font-bold text-white text-base group-hover:text-[#F5BA31] transition-colors leading-snug">
                       {doc.title}
                     </h3>
 
@@ -359,10 +359,10 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                       href={doc.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/5 hover:bg-[#237FFB] text-neutral-300 hover:text-white text-xs font-semibold transition-all group/btn"
+                      className="inline-flex items-center justify-between w-full py-2 px-3.5 rounded-xl bg-white/5 hover:bg-[#F5BA31] text-neutral-300 hover:text-white text-xs font-semibold transition-all group/btn"
                     >
                       <span className="flex items-center gap-1.5">
-                        <FileText className="w-3.5 h-3.5 text-[#237FFB] group-hover/btn:text-white" />
+                        <FileText className="w-3.5 h-3.5 text-[#F5BA31] group-hover/btn:text-white" />
                         <span>View Official Filing</span>
                       </span>
                       <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover/btn:text-white" />
@@ -374,7 +374,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
           </div>
 
           {/* SECTION 4: INVESTOR CHARTER DO'S & DON'TS */}
-          <div className="bg-[#0B0E14] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
               <Scale className="w-6 h-6 text-[#3AA17E]" />
               <div>
@@ -397,7 +397,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                 <ul className="space-y-2 list-none text-neutral-300">
                   <li className="flex items-start gap-2">
                     <span className="text-[#3AA17E] font-bold">✓</span>
-                    <span>Always verify SEBI registration status on the official SEBI website (<a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-[#237FFB] underline">sebi.gov.in</a>) before subscribing.</span>
+                    <span>Always verify SEBI registration status on the official SEBI website (<a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-[#F5BA31] underline">sebi.gov.in</a>) before subscribing.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#3AA17E] font-bold">✓</span>
@@ -447,7 +447,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
                 href="https://drive.google.com/file/d/16OmU8JBDxyKjiHnTsdGvJQVSjZlFC0X_/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#237FFB] hover:underline inline-flex items-center gap-1 font-semibold"
+                className="text-[#F5BA31] hover:underline inline-flex items-center gap-1 font-semibold"
               >
                 <span>Download Full SEBI Investor Charter PDF</span>
                 <ExternalLink className="w-3.5 h-3.5" />

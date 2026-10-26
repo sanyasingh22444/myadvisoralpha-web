@@ -141,12 +141,12 @@ export default function Footer() {
               className="w-full flex items-center justify-between text-left group focus:outline-none"
               aria-expanded={openAccordions[0]}
             >
-              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#237FFB] transition-colors">
+              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                 1. About AdvisorAlpha & Regulatory Status
               </span>
               <ChevronDown
                 className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                  openAccordions[0] ? "rotate-180 text-[#237FFB]" : ""
+                  openAccordions[0] ? "rotate-180 text-[#F5BA31]" : ""
                 }`}
               />
             </button>
@@ -170,12 +170,12 @@ export default function Footer() {
               className="w-full flex items-center justify-between text-left group focus:outline-none"
               aria-expanded={openAccordions[1]}
             >
-              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#237FFB] transition-colors">
+              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                 2. Attention Investors: Exchange KYC & CAS Directives
               </span>
               <ChevronDown
                 className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                  openAccordions[1] ? "rotate-180 text-[#237FFB]" : ""
+                  openAccordions[1] ? "rotate-180 text-[#F5BA31]" : ""
                 }`}
               />
             </button>
@@ -202,12 +202,12 @@ export default function Footer() {
               className="w-full flex items-center justify-between text-left group focus:outline-none"
               aria-expanded={openAccordions[2]}
             >
-              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#237FFB] transition-colors">
+              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                 3. Disclaimers, Research Analyst Certifications & Conflicts
               </span>
               <ChevronDown
                 className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                  openAccordions[2] ? "rotate-180 text-[#237FFB]" : ""
+                  openAccordions[2] ? "rotate-180 text-[#F5BA31]" : ""
                 }`}
               />
             </button>
@@ -234,12 +234,12 @@ export default function Footer() {
               className="w-full flex items-center justify-between text-left group focus:outline-none"
               aria-expanded={openAccordions[3]}
             >
-              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#237FFB] transition-colors">
+              <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                 4. Grievance Redressal Mechanism, SCORES & Smart ODR
               </span>
               <ChevronDown
                 className={`w-5 h-5 text-neutral-400 transition-transform duration-200 ${
-                  openAccordions[3] ? "rotate-180 text-[#237FFB]" : ""
+                  openAccordions[3] ? "rotate-180 text-[#F5BA31]" : ""
                 }`}
               />
             </button>
@@ -254,7 +254,7 @@ export default function Footer() {
                     href="https://scores.sebi.gov.in/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#237FFB] underline hover:text-white"
+                    className="text-[#F5BA31] underline hover:text-white"
                   >
                     SEBI SCORES Portal
                   </a>{" "}
@@ -263,7 +263,7 @@ export default function Footer() {
                     href="https://smartodr.in/login"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#237FFB] underline hover:text-white"
+                    className="text-[#F5BA31] underline hover:text-white"
                   >
                     Smart ODR Portal
                   </a>
@@ -272,7 +272,7 @@ export default function Footer() {
                 <div className="pt-2">
                   <Link
                     href="/legal/grievance-redressal-escalation-matrix"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#237FFB] hover:text-white"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F5BA31] hover:text-white"
                   >
                     <span>View Official 5-Tier Escalation Matrix Table</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -285,7 +285,7 @@ export default function Footer() {
 
         {/* SECTION 4: 9 Official Google Drive Regulatory Disclosure Links */}
         <div className="mb-12 bg-[#0B0E14] border border-white/5 rounded-2xl p-6">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#237FFB] mb-3">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31] mb-3">
             Official Regulatory Filings & Mandated Document Disclosures
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
@@ -406,7 +406,7 @@ export default function Footer() {
                   href="https://web.advisoralpha.in/#/login"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1 text-[#237FFB]"
+                  className="hover:text-white transition-colors flex items-center gap-1 text-[#F5BA31]"
                 >
                   <span>Client Web Portal</span>
                   <ExternalLink className="w-3 h-3" />
@@ -439,6 +439,11 @@ export default function Footer() {
               <li>
                 <Link href="/blogs" className="hover:text-white transition-colors">
                   Market Insights & Blogs
+                </Link>
+              </li>
+              <li>
+                <Link href="/faqs" className="hover:text-white transition-colors">
+                  Frequently Asked Questions (FAQs)
                 </Link>
               </li>
               <li>
@@ -582,7 +587,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
             <div className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#237FFB] shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-neutral-300">Registered Office:</strong>
                 <p className="mt-0.5 leading-relaxed">
@@ -602,7 +607,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-start gap-2">
-              <Clock className="w-4 h-4 text-[#FF8415] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-neutral-300">Working Hours:</strong>
                 <p className="mt-0.5">Monday to Friday: 9:00 AM – 6:00 PM IST</p>
@@ -634,7 +639,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-neutral-400 hover:text-[#237FFB] transition-colors"
+              className="text-neutral-400 hover:text-[#F5BA31] transition-colors"
             >
               LinkedIn
             </a>

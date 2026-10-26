@@ -207,7 +207,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
       />
       <div 
         aria-hidden="true" 
-        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#0066f5]/10 rounded-full blur-[120px] pointer-events-none -z-0"
+        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-[#F5BA31]/10 rounded-full blur-[120px] pointer-events-none -z-0"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -236,13 +236,13 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
 
         {/* Mobile Tab Switcher (< lg screens) */}
         <div className="block lg:hidden mb-6">
-          <div className="bg-[#0B0E14] border border-white/10 p-1.5 rounded-xl flex items-center gap-1">
+          <div className="bg-[#0B1528] border border-white/10 p-1.5 rounded-xl flex items-center gap-1">
             <button
               type="button"
               onClick={() => setMobileTab('brokerages')}
               className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all text-center cursor-pointer ${
                 mobileTab === 'brokerages'
-                  ? 'bg-[#237FFB] text-white shadow-md'
+                  ? 'bg-[#F5BA31] text-[#081026] font-bold shadow-md'
                   : 'text-white/60 hover:text-white'
               }`}
             >
@@ -253,7 +253,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
               onClick={() => setMobileTab('unregulated')}
               className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all text-center cursor-pointer ${
                 mobileTab === 'unregulated'
-                  ? 'bg-[#237FFB] text-white shadow-md'
+                  ? 'bg-[#F5BA31] text-[#081026] font-bold shadow-md'
                   : 'text-white/60 hover:text-white'
               }`}
             >
@@ -266,7 +266,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
         {/* DESKTOP COMPARISON TABLE (lg:block) */}
         {/* ========================================================================= */}
         <div className="hidden lg:block">
-          <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0B0E14] shadow-[0px_4px_32px_0px_rgba(0,0,0,0.4)]">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0B1528] shadow-[0px_4px_32px_0px_rgba(0,0,0,0.4)]">
             
             {/* Table Header Row */}
             <div className="grid grid-cols-12 border-b border-white/10 bg-white/[0.02] text-left">
@@ -280,9 +280,9 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
               </div>
 
               {/* MyAdvisorAlpha Column (Highlighted) */}
-              <div className="col-span-3 p-6 bg-[#237FFB]/[0.08] border-x border-[#237FFB]/30 relative flex flex-col justify-end">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#237FFB]" />
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#237FFB] text-white text-[10px] font-extrabold tracking-wide uppercase self-start mb-2">
+              <div className="col-span-3 p-6 bg-[#F5BA31] text-[#081026]/[0.08] border-x border-[#F5BA31]/30 relative flex flex-col justify-end">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-[#F5BA31] text-[#081026]" />
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F5BA31] text-[#081026] text-[10px] font-extrabold tracking-wide uppercase self-start mb-2">
                   <ShieldCheck className="w-3 h-3" />
                   Recommended · SEBI RA
                 </div>
@@ -341,7 +341,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
                   </div>
 
                   {/* MyAdvisorAlpha Cell */}
-                  <div className="col-span-3 p-5 sm:p-6 bg-[#237FFB]/[0.05] border-x border-[#237FFB]/20 flex flex-col justify-center">
+                  <div className="col-span-3 p-5 sm:p-6 bg-[#F5BA31] text-[#081026]/[0.05] border-x border-[#F5BA31]/20 flex flex-col justify-center">
                     <div className="flex items-start gap-2.5">
                       <CheckCircle2 className="w-5 h-5 text-[#3AA17E] shrink-0 mt-0.5" />
                       <div>
@@ -395,7 +395,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
             </div>
 
             {/* Bottom Row CTA Strip */}
-            <div className="grid grid-cols-12 bg-gradient-to-r from-[#0B0E14] via-[#111622] to-[#0B0E14] border-t border-white/10 p-6 items-center">
+            <div className="grid grid-cols-12 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] border-t border-white/10 p-6 items-center">
               <div className="col-span-4">
                 <span className="text-sm font-bold text-white">
                   Ready to upgrade your investing?
@@ -410,7 +410,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
                   href="https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-shimmer w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#237FFB] hover:bg-[#1C6FE6] active:scale-95 text-white text-xs font-bold transition-all shadow-lg shadow-[#237FFB]/30"
+                  className="btn-shimmer w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] active:scale-95 text-xs font-bold transition-all shadow-lg shadow-black/40"
                 >
                   <span>Start for ₹999/mo</span>
                   <ArrowRight className="w-4 h-4" />
@@ -450,11 +450,11 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
           {COMPARISON_ROWS.map((row) => (
             <div
               key={row.id}
-              className="rounded-2xl border border-white/10 bg-[#0B0E14] p-5 shadow-lg space-y-4"
+              className="rounded-2xl border border-white/10 bg-[#0B1528] p-5 shadow-lg space-y-4"
             >
               {/* Row Title */}
               <div className="border-b border-white/10 pb-3">
-                <span className="text-xs uppercase font-bold tracking-wider text-[#237FFB]">
+                <span className="text-xs uppercase font-bold tracking-wider text-[#F5BA31]">
                   {row.category.toUpperCase()}
                 </span>
                 <h3 className="text-base font-bold text-white mt-0.5">
@@ -466,9 +466,9 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
               </div>
 
               {/* AdvisorAlpha Card Highlight */}
-              <div className="p-3.5 rounded-xl bg-[#237FFB]/10 border border-[#237FFB]/30 relative">
+              <div className="p-3.5 rounded-xl bg-[#F5BA31] text-[#081026]/10 border border-[#F5BA31]/30 relative">
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-[#237FFB] uppercase tracking-wide flex items-center gap-1">
+                  <span className="text-xs font-bold text-[#F5BA31] uppercase tracking-wide flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     MyAdvisorAlpha (SEBI RA)
                   </span>
@@ -526,7 +526,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
           ))}
 
           {/* Mobile Quick Action Card */}
-          <div className="rounded-2xl border border-[#237FFB]/30 bg-gradient-to-b from-[#0B0E14] to-[#111622] p-5 text-center shadow-lg mt-6">
+          <div className="rounded-2xl border border-[#F5BA31]/30 bg-gradient-to-b from-[#0B1528] to-[#0D1A33] p-5 text-center shadow-lg mt-6">
             <h4 className="text-base font-extrabold text-white">
               Stop Guessing with Your Hard-Earned Wealth
             </h4>
@@ -538,7 +538,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
                 href="https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-shimmer inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-[#237FFB] active:scale-95 text-white font-bold text-sm shadow-md"
+                className="btn-shimmer inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-[#F5BA31] text-[#081026] active:scale-95 font-bold text-sm shadow-md"
               >
                 <span>Subscribe for ₹999/mo</span>
                 <ArrowRight className="w-4 h-4" />

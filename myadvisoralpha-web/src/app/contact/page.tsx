@@ -604,8 +604,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-1.5 text-xs text-neutral-400">
-                  <div className="flex items-center gap-1.5"><Train className="w-4 h-4 text-[#0066f5]" /> <span><strong>By Metro:</strong> 5-minute walk from Marol Naka Metro Station (Line 1 & Line 3).</span></div>
-                  <div className="flex items-center gap-1.5"><Plane className="w-4 h-4 text-[#0066f5]" /> <span><strong>By Air:</strong> 15 minutes from Mumbai Chhatrapati Shivaji Maharaj International Airport (T2).</span></div>
+                  <div className="flex items-center gap-1.5"><Train className="w-4 h-4 text-[#F5BA31]" /> <span><strong>By Metro:</strong> 5-minute walk from Marol Naka Metro Station (Line 1 & Line 3).</span></div>
+                  <div className="flex items-center gap-1.5"><Plane className="w-4 h-4 text-[#F5BA31]" /> <span><strong>By Air:</strong> 15 minutes from Mumbai Chhatrapati Shivaji Maharaj International Airport (T2).</span></div>
                 </div>
 
                 <div className="pt-2">

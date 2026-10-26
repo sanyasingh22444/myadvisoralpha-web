@@ -217,13 +217,13 @@ export default function SipCalculator({
           {/* Left Column: Sliders & Parameter Controls (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Input 1: Investment Amount */}
-            <div className="bg-[#0B0E14] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-[#237FFB]" />
+                  <DollarSign className="w-4 h-4 text-[#F5BA31]" />
                   <span>{mode === 'sip' ? 'Monthly Investment' : 'Total Investment'}</span>
                 </label>
-                <div className="flex items-center bg-[#1A2230] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#237FFB] focus-within:ring-1 focus-within:ring-[#237FFB] transition-all">
+                <div className="flex items-center bg-[#0D1A33] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#F5BA31] focus-within:ring-1 focus-within:ring-[#F5BA31] transition-all">
                   <span className="text-gray-400 font-bold text-sm mr-1.5">₹</span>
                   <input
                     type="text"
@@ -245,7 +245,7 @@ export default function SipCalculator({
                   value={currentInvestment}
                   onChange={handleAmountSlider}
                   style={{
-                    background: `linear-gradient(to right, #237FFB 0%, #237FFB ${amountFillPct}%, #2A2A2A ${amountFillPct}%, #2A2A2A 100%)`,
+                    background: `linear-gradient(to right, #F5BA31 0%, #F5BA31 ${amountFillPct}%, #2A2A2A ${amountFillPct}%, #2A2A2A 100%)`,
                   }}
                   className="w-full cursor-pointer"
                   aria-label="Investment Amount Slider"
@@ -270,8 +270,8 @@ export default function SipCalculator({
                     }}
                     className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all ${
                       currentInvestment === chipVal
-                        ? 'bg-[#237FFB]/20 border-[#237FFB] text-[#237FFB]'
-                        : 'bg-[#111622] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
+                        ? 'bg-[#F5BA31] text-[#081026]/20 border-[#F5BA31] text-[#F5BA31]'
+                        : 'bg-[#0D1A33] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
                     }`}
                   >
                     {formatCompactINR(chipVal)}
@@ -281,13 +281,13 @@ export default function SipCalculator({
             </div>
 
             {/* Input 2: Expected Return Rate (CAGR) */}
-            <div className="bg-[#0B0E14] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-emerald-400" />
                   <span>Expected Return Rate (p.a.)</span>
                 </label>
-                <div className="flex items-center bg-[#1A2230] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#237FFB] focus-within:ring-1 focus-within:ring-[#237FFB] transition-all">
+                <div className="flex items-center bg-[#0D1A33] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#F5BA31] focus-within:ring-1 focus-within:ring-[#F5BA31] transition-all">
                   <input
                     type="number"
                     min={CALCULATOR_BOUNDS.rate.minRate}
@@ -312,7 +312,7 @@ export default function SipCalculator({
                   value={returnRate}
                   onChange={handleRateSlider}
                   style={{
-                    background: `linear-gradient(to right, #237FFB 0%, #237FFB ${rateFillPct}%, #2A2A2A ${rateFillPct}%, #2A2A2A 100%)`,
+                    background: `linear-gradient(to right, #F5BA31 0%, #F5BA31 ${rateFillPct}%, #2A2A2A ${rateFillPct}%, #2A2A2A 100%)`,
                   }}
                   className="w-full cursor-pointer"
                   aria-label="Return Rate Slider"
@@ -333,8 +333,8 @@ export default function SipCalculator({
                     onClick={() => setReturnRate(chip.val)}
                     className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all ${
                       returnRate === chip.val
-                        ? 'bg-[#237FFB]/20 border-[#237FFB] text-[#237FFB]'
-                        : 'bg-[#111622] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
+                        ? 'bg-[#F5BA31] text-[#081026]/20 border-[#F5BA31] text-[#F5BA31]'
+                        : 'bg-[#0D1A33] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
                     }`}
                   >
                     {chip.label}
@@ -344,13 +344,13 @@ export default function SipCalculator({
             </div>
 
             {/* Input 3: Investment Tenure (Years) */}
-            <div className="bg-[#0B0E14] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-purple-400" />
                   <span>Time Period (Tenure)</span>
                 </label>
-                <div className="flex items-center bg-[#1A2230] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#237FFB] focus-within:ring-1 focus-within:ring-[#237FFB] transition-all">
+                <div className="flex items-center bg-[#0D1A33] border border-[#2A2A2A] rounded-xl px-3 py-1.5 focus-within:border-[#F5BA31] focus-within:ring-1 focus-within:ring-[#F5BA31] transition-all">
                   <input
                     type="number"
                     min={CALCULATOR_BOUNDS.tenure.minYears}
@@ -374,7 +374,7 @@ export default function SipCalculator({
                   value={tenureYears}
                   onChange={handleTenureSlider}
                   style={{
-                    background: `linear-gradient(to right, #237FFB 0%, #237FFB ${tenureFillPct}%, #2A2A2A ${tenureFillPct}%, #2A2A2A 100%)`,
+                    background: `linear-gradient(to right, #F5BA31 0%, #F5BA31 ${tenureFillPct}%, #2A2A2A ${tenureFillPct}%, #2A2A2A 100%)`,
                   }}
                   className="w-full cursor-pointer"
                   aria-label="Tenure Slider"
@@ -395,8 +395,8 @@ export default function SipCalculator({
                     onClick={() => setTenureYears(chipYears)}
                     className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all ${
                       tenureYears === chipYears
-                        ? 'bg-[#237FFB]/20 border-[#237FFB] text-[#237FFB]'
-                        : 'bg-[#111622] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
+                        ? 'bg-[#F5BA31] text-[#081026]/20 border-[#F5BA31] text-[#F5BA31]'
+                        : 'bg-[#0D1A33] border-[#2A2A2A] text-gray-400 hover:text-white hover:border-gray-600'
                     }`}
                   >
                     {chipYears} Years
@@ -408,7 +408,7 @@ export default function SipCalculator({
 
           {/* Right Column: Visual Donut & Wealth Breakdown (5 Cols) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="bg-[#0B0E14] border border-[#2A2A2A] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+            <div className="bg-[#0B1528] border border-[#2A2A2A] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
               <div className="border-b border-white/10 pb-5">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   Total Wealth Projected in {tenureYears} Years
@@ -432,7 +432,7 @@ export default function SipCalculator({
                       cx="80"
                       cy="80"
                       r={donutMath.radius}
-                      stroke="#1A2230"
+                      stroke="#0D1A33"
                       strokeWidth="16"
                       fill="transparent"
                     />
@@ -453,7 +453,7 @@ export default function SipCalculator({
                       cx="80"
                       cy="80"
                       r={donutMath.radius}
-                      stroke="#237FFB"
+                      stroke="#F5BA31"
                       strokeWidth="16"
                       fill="transparent"
                       strokeDasharray={`${donutMath.returnsStrokeDash} ${donutMath.circumference}`}
@@ -486,9 +486,9 @@ export default function SipCalculator({
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="w-3.5 h-3.5 rounded-md bg-[#237FFB] shrink-0 shadow-[0_0_8px_rgba(35,127,251,0.6)]" />
+                    <span className="w-3.5 h-3.5 rounded-md bg-[#F5BA31] text-[#081026] shrink-0 shadow-[0_0_8px_rgba(245,186,49,0.6)]" />
                     <div>
-                      <div className="text-xs text-[#237FFB] font-medium">Estimated Gains</div>
+                      <div className="text-xs text-[#F5BA31] font-medium">Estimated Gains</div>
                       <div className="text-sm font-bold text-white tabular-nums">
                         {donutMath.returnsPct}%
                       </div>
@@ -499,13 +499,13 @@ export default function SipCalculator({
 
               {/* Breakdown Metric Tiles */}
               <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
-                <div className="bg-[#111622] border border-white/5 rounded-2xl p-3.5">
+                <div className="bg-[#0D1A33] border border-white/5 rounded-2xl p-3.5">
                   <span className="text-[11px] text-gray-400 block font-medium">Invested Capital</span>
                   <span className="text-base sm:text-lg font-extrabold text-gray-200 tabular-nums block mt-1">
                     {formatINR(calculation.investedAmount)}
                   </span>
                 </div>
-                <div className="bg-[#111622] border border-white/5 rounded-2xl p-3.5">
+                <div className="bg-[#0D1A33] border border-white/5 rounded-2xl p-3.5">
                   <span className="text-[11px] text-emerald-400 block font-medium">Est. Returns</span>
                   <span className="text-base sm:text-lg font-extrabold text-emerald-400 tabular-nums block mt-1">
                     +{formatINR(calculation.estimatedReturn)}
@@ -521,9 +521,9 @@ export default function SipCalculator({
                     const bucket = mapWealthToPortfolioBucket(calculation.totalValue);
                     triggerModal(bucket);
                   }}
-                  className="w-full py-3 px-4 rounded-xl bg-[#237FFB]/15 hover:bg-[#237FFB]/25 border border-[#237FFB]/40 text-[#237FFB] hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 px-4 rounded-xl bg-[#F5BA31]/15 hover:bg-[#F5BA31]/25 border border-[#F5BA31]/40 text-[#F5BA31] hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-[#237FFB]" />
+                  <Sparkles className="w-4 h-4 text-[#F5BA31]" />
                   <span>Review Portfolio For {formatCompactINR(calculation.totalValue)} Goal</span>
                 </button>
               </div>

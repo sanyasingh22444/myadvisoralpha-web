@@ -114,7 +114,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
         />
         <div 
           aria-hidden="true" 
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0066f5]/15 rounded-full blur-[130px] pointer-events-none -z-0"
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F5BA31]/15 rounded-full blur-[130px] pointer-events-none -z-0"
         />
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -279,13 +279,13 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                   })}
                 </div>
 
-                {/* Status indicator bar showing live play vs pause */}
-                <div className="flex items-center justify-between text-[10px] text-white/40 mb-3 px-1">
+                {/* Sleek Live Indicator Bar */}
+                <div className="flex items-center justify-between text-[10px] text-white/60 mb-3 px-1">
                   <div className="flex items-center gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full ${isPaused ? "bg-amber-400" : "bg-emerald-400 animate-pulse"}`} />
-                    <span>{isPaused ? "Slideshow paused (interacting)" : "Live auto-cycle (tap to pause)"}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="font-semibold text-white/70 uppercase tracking-wider text-[10px]">Institutional Advisory Feed</span>
                   </div>
-                  <div className="flex items-center gap-1 text-[9px] text-white/40">
+                  <div className="flex items-center gap-1 text-[9px]">
                     {["stocks", "portfolios", "funds"].map((t) => (
                       <span 
                         key={t}
@@ -316,8 +316,8 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                             <h4 className="text-base font-bold text-white leading-tight">A SIP, month by month</h4>
                             <p className="text-xs text-white/60 mt-0.5">Small amounts, invested automatically</p>
                           </div>
-                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-white/70 border border-white/10">
-                            Illustrative
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-[#F5BA31]/15 text-[#F5BA31] border border-[#F5BA31]/30">
+                            Direct Mutual Funds
                           </span>
                         </div>
 

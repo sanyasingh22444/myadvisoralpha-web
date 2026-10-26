@@ -94,7 +94,7 @@ export default function MobileNav({
                 className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-semibold text-white hover:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-[#0066f5]" />
+                  <TrendingUp className="w-4 h-4 text-[#F5BA31]" />
                   <span>Advisory</span>
                 </div>
                 <ChevronDown
@@ -198,17 +198,17 @@ export default function MobileNav({
               onClick={onClose}
               className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
-              <BookOpen className="w-4 h-4 text-[#0066f5]" />
+              <BookOpen className="w-4 h-4 text-[#F5BA31]" />
               <span>Blog</span>
             </Link>
 
             {/* FAQ */}
             <Link
-              href="/#faq"
+              href="/faqs"
               onClick={onClose}
               className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
-              <HelpCircle className="w-4 h-4 text-[#3AA17E]" />
+              <HelpCircle className="w-4 h-4 text-[#F5BA31]" />
               <span>FAQ</span>
             </Link>
 

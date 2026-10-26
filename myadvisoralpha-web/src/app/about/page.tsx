@@ -129,7 +129,7 @@ export default function AboutPage() {
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           {/* Regulatory Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1528] border border-[#F5BA31]/40 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-6 shadow-[0px_4px_20px_0px_rgba(35,127,251,0.2)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1528] border border-[#F5BA31]/40 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-6 shadow-[0px_4px_20px_0px_rgba(245,186,49,0.2)]">
             <span className="w-2 h-2 rounded-full bg-[#3AA17E] animate-pulse" />
             <ShieldCheck className="w-4 h-4 text-[#3AA17E]" />
             <span>SEBI Registered Research Analyst · {sebiRegNo}</span>
@@ -249,7 +249,7 @@ export default function AboutPage() {
                     href="https://web.advisoralpha.in/#/login"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-shimmer inline-flex items-center gap-2 bg-[#1C6FE6] hover:bg-[#1a6de0] text-white text-sm font-bold px-6 py-3 rounded-full shadow-lg transition-all active:scale-95"
+                    className="btn-shimmer inline-flex items-center gap-2 bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] text-sm font-bold px-6 py-3 rounded-full shadow-lg transition-all active:scale-95"
                   >
                     <span>Access CIO Stock Recommendations</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -513,7 +513,7 @@ export default function AboutPage() {
               href="https://web.advisoralpha.in/#/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-shimmer inline-flex items-center gap-2 bg-[#1C6FE6] hover:bg-[#1a6de0] text-white text-sm font-bold px-8 py-3.5 rounded-full shadow-lg transition-all active:scale-95"
+              className="btn-shimmer inline-flex items-center gap-2 bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] text-white text-sm font-bold px-8 py-3.5 rounded-full shadow-lg transition-all active:scale-95"
             >
               <span>Get Started Now</span>
               <ArrowUpRight className="w-4 h-4" />

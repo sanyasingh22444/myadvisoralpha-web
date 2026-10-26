@@ -6,7 +6,7 @@ export default function QrDownloadCard() {
     <div className="bg-white rounded-3xl p-5 text-black flex flex-col items-center justify-center shadow-2xl border border-neutral-200 w-full sm:w-[260px] mx-auto lg:mx-0">
       <div className="w-full flex items-center justify-between pb-3 mb-3 border-b border-neutral-100">
         <span className="text-xs font-bold uppercase tracking-wider text-neutral-800 flex items-center gap-1.5">
-          <Smartphone className="w-3.5 h-3.5 text-[#1C6FE6]" />
+          <Smartphone className="w-3.5 h-3.5 text-[#F5BA31]" />
           <span>Scan to Download</span>
         </span>
         <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">
@@ -80,7 +80,7 @@ export default function QrDownloadCard() {
           <rect x="135" y="135" width="8" height="8" rx="1.5" fill="#081026" />
 
           {/* Center Brand Badge */}
-          <circle cx="80" cy="80" r="16" fill="#1C6FE6" />
+          <circle cx="80" cy="80" r="16" fill="#F5BA31" />
           <path
             d="M74 83L78 75L82 83M76 81H80M85 76L87 83M83 80H88"
             stroke="#FFFFFF"

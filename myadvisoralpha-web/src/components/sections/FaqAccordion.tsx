@@ -66,15 +66,15 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 lg:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-[#237FFB]" />
-            <span className="text-xs font-bold tracking-widest uppercase text-[#237FFB]">
+            <HelpCircle className="w-3.5 h-3.5 text-[#F5BA31]" />
+            <span className="text-xs font-bold tracking-widest uppercase text-[#F5BA31]">
               FREQUENTLY ASKED QUESTIONS
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Got Questions?{' '}
-            <span className="text-[#237FFB] inline-block">
+            <span className="text-[#F5BA31] inline-block">
               We Have Clear Answers.
             </span>
           </h2>
@@ -98,7 +98,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search questions (e.g., SEBI, Demat, refund, minimum capital)..."
-              className="w-full pl-11 pr-10 py-3 bg-[#0B0E14] border border-white/15 focus:border-[#237FFB] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-lg shadow-black/40"
+              className="w-full pl-11 pr-10 py-3 bg-[#0B1528] border border-white/15 focus:border-[#F5BA31] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-lg shadow-black/40"
             />
             {searchQuery && (
               <button
@@ -121,8 +121,8 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                 onClick={() => setSelectedCategory(cat.key)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   selectedCategory === cat.key
-                    ? 'bg-[#237FFB] text-white shadow-md'
-                    : 'bg-[#0B0E14] text-white/60 hover:text-white border border-white/10'
+                    ? 'bg-[#F5BA31] text-[#081026] shadow-md font-bold'
+                    : 'bg-[#0B1528] text-white/60 hover:text-white border border-white/10'
                 }`}
               >
                 {cat.label}
@@ -138,7 +138,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
         {/* Accordion List */}
         <div className="space-y-3">
           {filteredFaqs.length === 0 ? (
-            <div className="text-center py-12 px-4 rounded-2xl bg-[#0B0E14] border border-white/10">
+            <div className="text-center py-12 px-4 rounded-2xl bg-[#0B1528] border border-white/10">
               <HelpCircle className="w-8 h-8 text-white/30 mx-auto mb-3" />
               <p className="text-sm font-semibold text-white/80">
                 No matching questions found for &ldquo;{searchQuery}&rdquo;
@@ -149,7 +149,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                   setSearchQuery('');
                   setSelectedCategory('all');
                 }}
-                className="mt-3 text-xs text-[#237FFB] hover:underline font-semibold cursor-pointer"
+                className="mt-3 text-xs text-[#F5BA31] hover:underline font-semibold cursor-pointer"
               >
                 Reset search filters
               </button>
@@ -162,8 +162,8 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                   key={faq.id}
                   className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? 'border-[#237FFB]/40 bg-[#0B0E14] shadow-[0px_4px_24px_0px_rgba(35,127,251,0.08)]'
-                      : 'border-white/10 bg-[#0B0E14]/80 hover:border-white/20'
+                      ? 'border-[#F5BA31]/40 bg-[#0D1A33] shadow-[0px_4px_24px_0px_rgba(245,186,49,0.1)]'
+                      : 'border-white/10 bg-[#0B1528]/90 hover:border-white/20'
                   }`}
                 >
                   <button
@@ -175,7 +175,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                     className="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 text-left group focus:outline-none cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#237FFB] transition-colors leading-snug">
+                      <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#F5BA31] transition-colors leading-snug">
                         {faq.question}
                       </span>
                     </div>
@@ -184,8 +184,8 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                       <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider text-white/40 bg-white/5 px-2 py-0.5 rounded">
                         {faq.category}
                       </span>
-                      <div className={`w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-white/60 group-hover:text-white group-hover:bg-[#237FFB]/20 transition-all ${
-                        isOpen ? 'bg-[#237FFB] text-white rotate-180' : ''
+                      <div className={`w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-white/60 group-hover:text-[#081026] group-hover:bg-[#F5BA31] transition-all ${
+                        isOpen ? 'bg-[#F5BA31] text-[#081026] rotate-180' : ''
                       }`}>
                         <ChevronDown className="w-4 h-4 stroke-[2.2]" />
                       </div>
@@ -211,11 +211,22 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
           )}
         </div>
 
+        {/* View All FAQs Link Pill */}
+        <div className="mt-6 text-center">
+          <Link
+            href="/faqs"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0B1528] border border-white/15 hover:border-[#F5BA31]/50 text-xs sm:text-sm font-bold text-white hover:text-[#F5BA31] transition-all shadow-md group"
+          >
+            <span>Explore all questions on our dedicated FAQ page</span>
+            <span className="text-[#F5BA31] group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </div>
+
         {/* Still Have Questions Box */}
-        <div className="mt-12 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B0E14] via-[#111622] to-[#0B0E14] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="text-left">
-            <span className="text-xs uppercase font-bold tracking-wider text-[#237FFB] flex items-center gap-1.5 mb-1">
-              <HelpCircle className="w-4 h-4" />
+            <span className="text-xs uppercase font-bold tracking-wider text-[#F5BA31] flex items-center gap-1.5 mb-1">
+              <HelpCircle className="w-4 h-4 text-[#F5BA31]" />
               Need Personal Guidance?
             </span>
             <h3 className="text-lg sm:text-xl font-bold text-white">
@@ -231,7 +242,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               href="tel:+918655387833"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/5 text-xs font-semibold text-white transition-all"
             >
-              <Phone className="w-3.5 h-3.5 text-[#3AA17E]" />
+              <Phone className="w-3.5 h-3.5 text-emerald-400" />
               <span>+91 8655387833</span>
             </a>
 
@@ -239,7 +250,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               href="mailto:support@myadvisoralpha.com"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/5 text-xs font-semibold text-white transition-all"
             >
-              <Mail className="w-3.5 h-3.5 text-[#237FFB]" />
+              <Mail className="w-3.5 h-3.5 text-[#F5BA31]" />
               <span>Email Support</span>
             </a>
 
@@ -247,14 +258,14 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#237FFB] hover:bg-[#1C6FE6] active:scale-95 text-xs font-bold text-white shadow-md transition-all cursor-pointer"
+                className="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-xs font-bold text-[#081026] shadow-md transition-all cursor-pointer"
               >
                 <span>Request Call</span>
               </button>
             ) : (
               <Link
                 href="/contact"
-                className="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#237FFB] hover:bg-[#1C6FE6] active:scale-95 text-xs font-bold text-white shadow-md transition-all"
+                className="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-xs font-bold text-[#081026] shadow-md transition-all"
               >
                 <span>Request Call</span>
               </Link>

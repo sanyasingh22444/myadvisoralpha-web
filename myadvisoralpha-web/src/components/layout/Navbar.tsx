@@ -256,7 +256,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
 
               {/* 4. FAQs Link */}
               <Link
-                href="/#faq"
+                href="/faqs"
                 className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
               >
                 FAQs

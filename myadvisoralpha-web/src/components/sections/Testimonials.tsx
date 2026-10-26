@@ -40,7 +40,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
       />
       <div 
         aria-hidden="true" 
-        className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#0066f5]/10 rounded-full blur-[120px] pointer-events-none -z-0"
+        className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#F5BA31]/10 rounded-full blur-[120px] pointer-events-none -z-0"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -48,15 +48,15 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-4">
-            <Users className="w-3.5 h-3.5 text-[#237FFB]" />
-            <span className="text-xs font-bold tracking-widest uppercase text-[#237FFB]">
+            <Users className="w-3.5 h-3.5 text-[#F5BA31]" />
+            <span className="text-xs font-bold tracking-widest uppercase text-[#F5BA31]">
               TESTIMONIALS & INVESTOR PROOF
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Hear from our{' '}
-            <span className="text-[#237FFB] inline-block">
+            <span className="text-[#F5BA31] inline-block">
               Verified Investors
             </span>
           </h2>
@@ -67,7 +67,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           </p>
 
           {/* AdvisorAlpha 4.9 Rating Proof Pill */}
-          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-[#0B0E14] border border-white/10 shadow-lg">
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-[#0B1528] border border-white/10 shadow-lg">
             
             {/* Stars Cluster */}
             <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
 
             {/* App Store Rating */}
             <div className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
-              <TrendingUp className="w-3.5 h-3.5 text-[#237FFB]" />
+              <TrendingUp className="w-3.5 h-3.5 text-[#F5BA31]" />
               <span>{TESTIMONIALS_RATING_PROOF.appStoreRating}</span>
             </div>
           </div>
@@ -108,8 +108,8 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#237FFB] text-white shadow-md shadow-[#237FFB]/30'
-                  : 'bg-[#0B0E14] text-white/70 hover:text-white border border-white/10 hover:border-white/20'
+                  ? 'bg-[#F5BA31] text-[#081026] font-bold shadow-md shadow-black/40'
+                  : 'bg-[#0B1528] text-white/70 hover:text-white border border-white/10 hover:border-white/20'
               }`}
             >
               {cat === 'All' ? 'All Reviews' : cat}
@@ -125,10 +125,10 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           {filteredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="group relative rounded-2xl border border-white/10 bg-[#0B0E14] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#237FFB]/40 hover:-translate-y-1 hover:shadow-[0px_8px_32px_0px_rgba(35,127,251,0.12)]"
+              className="group relative rounded-2xl border border-white/10 bg-[#0B1528] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#F5BA31]/40 hover:-translate-y-1 hover:shadow-[0px_8px_32px_0px_rgba(245,186,49,0.12)]"
             >
               {/* Watermark Quote Icon */}
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-white/[0.04] group-hover:text-[#237FFB]/10 transition-colors pointer-events-none" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-white/[0.04] group-hover:text-[#F5BA31]/10 transition-colors pointer-events-none" />
 
               <div>
                 {/* Meta Top: Stars + Category + Verified Badge */}
@@ -154,7 +154,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
                 </div>
 
                 {/* Review Headline */}
-                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#237FFB] transition-colors leading-snug">
+                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F5BA31] transition-colors leading-snug">
                   “{testimonial.headline}”
                 </h3>
 
@@ -168,7 +168,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
               <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   {/* Avatar with fallback */}
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gradient-to-tr from-[#237FFB] to-[#3AA17E] flex items-center justify-center text-white font-bold text-xs shrink-0 border border-white/20">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gradient-to-tr from-[#F5BA31] to-[#3AA17E] flex items-center justify-center text-white font-bold text-xs shrink-0 border border-white/20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={testimonial.avatarUrl}
@@ -196,7 +196,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
                 {/* Location & Date */}
                 <div className="text-right">
                   <div className="inline-flex items-center gap-1 text-[11px] text-white/40">
-                    <MapPin className="w-3 h-3 text-[#237FFB]" />
+                    <MapPin className="w-3 h-3 text-[#F5BA31]" />
                     <span>{testimonial.location}</span>
                   </div>
                   <div className="text-[10px] text-white/30 mt-0.5">
@@ -210,7 +210,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
         </div>
 
         {/* Bottom Social Proof & CTA Banner */}
-        <div className="mt-14 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B0E14] via-[#111622] to-[#0B0E14] p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-14 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="text-left max-w-xl">
             <span className="text-xs uppercase font-bold tracking-wider text-[#3AA17E] flex items-center gap-1.5 mb-1.5">
               <ShieldCheck className="w-4 h-4" />
@@ -230,7 +230,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
               href="https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#237FFB] hover:bg-[#1C6FE6] active:scale-95 text-white font-bold text-sm transition-all shadow-lg shadow-[#237FFB]/30"
+              className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] active:scale-95 font-bold text-sm transition-all shadow-lg shadow-black/40"
             >
               <span>Subscribe for ₹999/mo</span>
               <ArrowRight className="w-4 h-4" />

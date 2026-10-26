@@ -436,7 +436,7 @@ export default function BlogsPage() {
                   href="https://web.advisoralpha.in/#/login"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-shimmer text-xs font-bold text-white bg-[#1C6FE6] px-5 py-2.5 rounded-full"
+                  className="btn-shimmer text-xs font-bold text-[#081026] bg-[#F5BA31] hover:bg-[#e5ab28] px-5 py-2.5 rounded-full shadow-md"
                 >
                   Get Real-Time Trade Signals →
                 </a>
@@ -480,7 +480,7 @@ export default function BlogsPage() {
               />
               <button
                 type="submit"
-                className="btn-shimmer inline-flex items-center justify-center gap-2 bg-[#1C6FE6] hover:bg-[#1a6de0] text-white text-sm font-bold px-6 py-3 rounded-full transition-all active:scale-95 whitespace-nowrap"
+                className="btn-shimmer inline-flex items-center justify-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-sm font-bold px-6 py-3 rounded-full transition-all active:scale-95 whitespace-nowrap shadow-md"
               >
                 <span>Subscribe</span>
                 <ArrowUpRight className="w-4 h-4" />

@@ -315,7 +315,7 @@ function renderVisualGraphic(type: ShowcaseCardData['visualType']) {
           <div className="bg-[#161C28] border border-white/10 rounded-2xl p-4 shadow-lg">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-bold text-white">Flexicap Alpha Basket</span>
-              <span className="text-xs font-black text-[#0066f5]">18.1% Target CAGR</span>
+              <span className="text-xs font-black text-[#F5BA31]">18.1% Target CAGR</span>
             </div>
             <div className="space-y-2 text-xs">
               <div>
@@ -325,7 +325,7 @@ function renderVisualGraphic(type: ShowcaseCardData['visualType']) {
                   <span>Small Cap (20%)</span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-white/10 flex overflow-hidden">
-                  <div className="bg-[#0066f5] h-full w-[45%]" />
+                  <div className="bg-[#F5BA31] h-full w-[45%]" />
                   <div className="bg-[#3AA17E] h-full w-[35%]" />
                   <div className="bg-[#EC6446] h-full w-[20%]" />
                 </div>
@@ -336,7 +336,7 @@ function renderVisualGraphic(type: ShowcaseCardData['visualType']) {
             </div>
           </div>
           <div className="bg-white/[0.04] rounded-xl p-3 border border-white/5 text-[11px] text-white/60 text-center flex items-center justify-center gap-1.5">
-            <Layers className="w-3.5 h-3.5 text-[#0066f5]" />
+            <Layers className="w-3.5 h-3.5 text-[#F5BA31]" />
             <span>Automatic Quarterly Rebalancing &amp; MTF Leverage Alerts</span>
           </div>
         </div>
@@ -413,12 +413,12 @@ function renderVisualGraphic(type: ShowcaseCardData['visualType']) {
         <div className="space-y-3">
           <div className="bg-[#161C28] border border-white/10 rounded-2xl p-4 shadow-lg">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#0066f5] to-[#3AA17E] flex items-center justify-center text-white font-extrabold text-lg shadow-md">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#F5BA31] to-[#3AA17E] flex items-center justify-center text-white font-extrabold text-lg shadow-md">
                 PM
               </div>
               <div>
                 <h4 className="text-sm font-bold text-white">Pankaj Murarka</h4>
-                <p className="text-xs text-[#0066f5] font-medium">Founder &amp; Chief Investment Officer</p>
+                <p className="text-xs text-[#F5BA31] font-medium">Founder &amp; Chief Investment Officer</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2 text-center text-xs pt-2 border-t border-white/10">

@@ -2,15 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { 
-  ChevronDown, 
-  ArrowUpRight, 
-  Search, 
-  Menu, 
-  TrendingUp, 
-  Briefcase, 
-  Layers, 
-  LogIn
+import {
+  ChevronDown,
+  Menu,
+  TrendingUp,
+  Briefcase,
+  Layers
 } from "lucide-react";
 import MobileNav from "./MobileNav";
 
@@ -56,6 +53,16 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
     }, 250); // 250ms grace period prevents abrupt dropdown closure
   };
 
+  // Close the Advisory dropdown on Escape
+  useEffect(() => {
+    if (!advisoryOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setAdvisoryOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [advisoryOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -70,7 +77,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 px-4 sm:px-6 lg:px-8 ${
+        className={`sticky top-0 z-50 w-full transition-all duration-300 px-3 sm:px-6 lg:px-8 ${
           isScrolled ? "pt-2 pb-2" : "pt-4 pb-2"
         }`}
       >
@@ -78,17 +85,17 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
           {/* Floating Pill Container matching Artifact */}
           <nav
             aria-label="Main Navigation"
-            className="bg-[#0B1528]/95 backdrop-blur-md rounded-full border border-white/10 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0px_8px_32px_0px_rgba(0,0,0,0.4)]"
+            className="bg-[#0B1528]/95 backdrop-blur-md rounded-full border border-white/10 pl-3 pr-2 sm:px-6 py-2.5 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.4)]"
           >
             {/* Logo Section matching Artifact: Warm Gold square + MyAdvisorAlpha */}
-            <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="flex items-center gap-3 min-w-0">
+              <Link href="/" aria-label="MyAdvisorAlpha home" className="flex items-center gap-2 sm:gap-2.5 group">
                 <div className="w-8 h-8 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-md group-hover:scale-105 transition-transform font-black">
                   <svg className="w-4 h-4 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
                   </svg>
                 </div>
-                <div className="flex items-center text-lg font-extrabold tracking-tight text-white">
+                <div className="flex items-center text-base sm:text-lg font-extrabold tracking-tight text-white">
                   <span>MyAdvisor</span>
                   <span className="text-[#F5BA31]">Alpha</span>
                 </div>
@@ -264,13 +271,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
             </div>
 
             {/* Right Action Trigger & Buttons matching Artifact */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Web Login Button - Outlined style from Artifact */}
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+              {/* Web Login Button - Outlined style from Artifact (in the mobile drawer below sm) */}
               <a
                 href="https://web.advisoralpha.in/#/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
+                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
               >
                 <span>Log in</span>
               </a>
@@ -279,9 +286,10 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
               >
-                <span>Get 2 free ideas</span>
+                <span className="sm:hidden">Free ideas</span>
+                <span className="hidden sm:inline">Get 2 free ideas</span>
               </button>
 
               {/* Mobile Hamburger Toggle */}

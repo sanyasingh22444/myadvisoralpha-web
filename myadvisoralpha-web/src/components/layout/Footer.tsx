@@ -382,7 +382,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-neutral-400">
               <li>
-                <Link href="/#stock-advisory" className="hover:text-white transition-colors">
+                <Link href="/#single-stocks" className="hover:text-white transition-colors">
                   Single Stock Advisory
                 </Link>
               </li>

@@ -11,9 +11,7 @@ import {
   Target, 
   Layers,
   Briefcase,
-  Zap,
-  Pause,
-  Play
+  Zap
 } from "lucide-react";
 import { BRAND_INFO } from "@/data/brand";
 
@@ -23,7 +21,6 @@ interface HeroSectionProps {
 }
 
 const ROTATING_WORDS = ["Mutual Funds", "Stock Ideas", "Futures", "Portfolio"];
-const TABS: Array<"stocks" | "portfolios" | "funds"> = ["stocks", "portfolios", "funds"];
 
 export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: HeroSectionProps) {
   const [wordIndex, setWordIndex] = useState(0);
@@ -190,19 +187,21 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
 
                   {submitted && !error && (
                     <p className="text-xs text-emerald-400 font-medium pl-1 flex items-center gap-1">
-                      <Check className="w-3.5 h-3.5" /> 2 free ideas sent to your WhatsApp!
+                      <Check className="w-3.5 h-3.5" /> Almost done. Complete the short form to get your 2 free ideas.
                     </p>
                   )}
 
                   {/* Consent Checkbox */}
-                  <label className="flex items-start gap-2.5 text-xs text-white/60 cursor-pointer select-none pt-1">
+                  <label htmlFor="hero-consent" className="flex items-start gap-2.5 text-xs text-white/60 cursor-pointer select-none pt-1">
                     <input
+                      id="hero-consent"
                       type="checkbox"
+                      aria-labelledby="hero-consent-text"
                       checked={agreed}
                       onChange={(e) => setAgreed(e.target.checked)}
                       className="mt-0.5 w-4 h-4 rounded border-white/30 bg-[#0B1528] text-[#F5BA31] focus:ring-[#F5BA31] focus:ring-offset-0 cursor-pointer"
                     />
-                    <span className="leading-tight">
+                    <span id="hero-consent-text" className="leading-tight">
                       I agree to the{" "}
                       <Link href="/legal/terms-and-conditions" className="text-white underline hover:text-[#F5BA31]">
                         Terms

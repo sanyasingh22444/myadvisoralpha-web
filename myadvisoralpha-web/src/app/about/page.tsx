@@ -38,7 +38,7 @@ export default function AboutPage() {
       num: '02',
       title: 'No Secrets, Total Transparency',
       description:
-        'Every stock recommendation and portfolio change is accompanied by an exhaustive investment thesis, entry price range, target stages (T1–T3), and strict stop-loss.',
+        'Every stock recommendation and portfolio change is accompanied by an exhaustive investment thesis, entry price range, up to 2 targets (T1–T2), and strict stop-loss.',
       icon: Layers,
       badge: 'Full Disclosure',
     },

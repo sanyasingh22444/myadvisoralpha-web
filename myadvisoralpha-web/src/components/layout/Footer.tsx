@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-300">
                 <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0" />
-                <span>Real-time Entry, Target (T1-T3) & Stop-Loss</span>
+                <span>Real-time Entry, Targets (T1-T2) & Stop-Loss</span>
               </div>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-300">
                 <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0" />

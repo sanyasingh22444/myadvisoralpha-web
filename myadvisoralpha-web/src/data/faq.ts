@@ -10,7 +10,7 @@ export const FAQS: FaqItem[] = [
     id: 'faq-1',
     category: 'offerings',
     question: 'What services does MyAdvisorAlpha offer?',
-    answer: 'MyAdvisorAlpha offers three primary regulated solutions: (1) Single Stock Advisory featuring high-conviction ideas across short, mid, and long horizons with explicit entry, stop-loss, and multi-tier profit targets; (2) Curated Model Portfolios aligned to conservative, balanced, all-weather, and aggressive goals; and (3) Goal-based Mutual Fund Baskets distributed via our registered AMFI MFD license (ARN-350887).',
+    answer: 'MyAdvisorAlpha offers three primary regulated solutions: (1) Single Stock Advisory featuring high-conviction ideas across short, mid, and long horizons with explicit entry, stop-loss, and up to 2 profit targets; (2) Curated Model Portfolios aligned to conservative, balanced, all-weather, and aggressive goals; and (3) Goal-based Mutual Fund Baskets distributed via our registered AMFI MFD license (ARN-350887).',
   },
   {
     id: 'faq-2',
@@ -40,7 +40,7 @@ export const FAQS: FaqItem[] = [
     id: 'faq-6',
     category: 'offerings',
     question: 'How are stock ideas delivered to subscribers?',
-    answer: 'Stock recommendations are published directly to the web portal (web.advisoralpha.in) and mobile apps with instant push alerts and WhatsApp notifications. Each recommendation details the exact entry price range, Target 1, Target 2, Target 3, strict Stop-Loss, and full institutional rationale.',
+    answer: 'Stock recommendations are published directly to the web portal (web.advisoralpha.in) and mobile apps with instant push alerts and WhatsApp notifications. Each recommendation details the exact entry price range, up to 2 targets (Target 1 and Target 2), strict Stop-Loss, and full institutional rationale.',
   },
   {
     id: 'faq-7',

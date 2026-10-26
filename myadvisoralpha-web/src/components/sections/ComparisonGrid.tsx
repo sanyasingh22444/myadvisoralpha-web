@@ -67,10 +67,10 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-            Stop Guessing. <span className="text-[#C99512] whitespace-nowrap">Start Growing.</span>
+            Research, <span className="text-[#C99512] whitespace-nowrap">not guesswork.</span>
           </h2>
           <p className="mt-3 text-base text-neutral-600">
-            How we compare with brokers and unverified tips.
+            See how MyAdvisorAlpha compares with brokers and unverified tips.
           </p>
         </div>
 

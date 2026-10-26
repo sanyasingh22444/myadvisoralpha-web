@@ -222,7 +222,7 @@ export default function TermsAndConditionsPage() {
                   {BRAND_INFO.brandDisplayName} provides independent, non-exclusive research reports, equity ideas, and curated model portfolios strictly under its SEBI Research Analyst registration. Advisory recommendations are formulated utilizing the proprietary <strong className="text-white">SQGARP™</strong> (Sustainable Quality Growth at Reasonable Price) screening framework:
                 </p>
                 <ul className="space-y-2 list-disc list-inside text-xs sm:text-sm pl-2">
-                  <li><strong className="text-white">Single Stock Advisory:</strong> Research recommendations with defined entry price ranges, progressive multi-targets (T1, T2, T3), risk-defined stop-loss levels, and comprehensive institutional rationale.</li>
+                  <li><strong className="text-white">Single Stock Advisory:</strong> Research recommendations with defined entry price ranges, up to 2 progressive targets (T1, T2), risk-defined stop-loss levels, and comprehensive institutional rationale.</li>
                   <li><strong className="text-white">Equity Model Portfolios:</strong> Curated thematic baskets of 5 to 30 equities rebalanced periodically according to risk-adjusted criteria.</li>
                   <li><strong className="text-white">Curated Mutual Funds:</strong> Goal-based mutual fund portfolios distributed pursuant to AMFI ARN-{BRAND_INFO.amfiArn}.</li>
                 </ul>

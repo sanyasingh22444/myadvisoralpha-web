@@ -50,20 +50,19 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-4">
             <Users className="w-3.5 h-3.5 text-[#F5BA31]" />
             <span className="text-xs font-bold tracking-widest uppercase text-[#F5BA31]">
-              TESTIMONIALS & INVESTOR PROOF
+              INVESTOR REVIEWS
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Hear from our{' '}
+            What our{' '}
             <span className="text-[#F5BA31] inline-block">
-              Verified Investors
+              investors say
             </span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed">
-            Real performance feedback from Indian retail investors, finance professionals, 
-            and defense veterans navigating the markets with MyAdvisorAlpha.
+            Feedback from investors who use MyAdvisorAlpha for stock ideas, portfolios and mutual funds.
           </p>
 
           {/* AdvisorAlpha 4.9 Rating Proof Pill */}
@@ -214,14 +213,14 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           <div className="text-left max-w-xl">
             <span className="text-xs uppercase font-bold tracking-wider text-[#3AA17E] flex items-center gap-1.5 mb-1.5">
               <ShieldCheck className="w-4 h-4" />
-              Trusted by 1 Lakh+ Indian Investors
+              Trusted by 1 Lakh+ Investors
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-              Experience the clarity of institutional trade research
+              Your wealth-building journey starts today.
             </h3>
             <p className="text-xs sm:text-sm text-white/60 mt-1">
-              Join thousands of smart investors using disciplined entries, multi-tier targets, 
-              and hard stop losses. Zero profit sharing. Zero hidden fees.
+              SEBI-registered research with a clear entry, target and stop-loss on every idea.
+              Flat fee. No profit sharing.
             </p>
           </div>
 

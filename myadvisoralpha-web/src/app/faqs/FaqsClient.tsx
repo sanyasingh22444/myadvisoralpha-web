@@ -35,7 +35,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'What products does MyAdvisorAlpha offer?',
     answer:
-      'MyAdvisorAlpha offers three core regulated products: (1) Single Stock Picks — high-conviction, research-backed ideas from a research team with 75+ years of combined market experience, featuring explicit entry range, strict stop-loss, and multi-tier profit targets (T1, T2, T3) with derivatives & MTF support. (2) Equity Model Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
+      'MyAdvisorAlpha offers three core regulated products: (1) Single Stock Picks — high-conviction, research-backed ideas from a research team with 75+ years of combined market experience, featuring explicit entry range, strict stop-loss, and up to 2 profit targets (T1, T2) with derivatives & MTF support. (2) Equity Model Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
   },
   {
     id: 'faq-2',
@@ -99,7 +99,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'How are stock ideas and alerts delivered to subscribers?',
     answer:
-      'Every research call is published instantly to the web portal (web.advisoralpha.in) and mobile app (iOS & Android) with real-time push notifications and WhatsApp alerts. Each alert includes the company overview, investment thesis, SQGARP™ rating, exact buying range, Target 1, Target 2, Target 3, and strict trailing stop-loss guidelines.',
+      'Every research call is published instantly to the web portal (web.advisoralpha.in) and mobile app (iOS & Android) with real-time push notifications and WhatsApp alerts. Each alert includes the company overview, investment thesis, SQGARP™ rating, exact buying range, up to 2 targets (Target 1 and Target 2), and strict trailing stop-loss guidelines.',
   },
   {
     id: 'faq-10',

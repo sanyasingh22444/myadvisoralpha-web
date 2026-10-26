@@ -53,7 +53,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
     features: [
       '20+ research-backed stock ideas per month',
       'Short-term (1–4 wks), Mid-term (1–6 mos) & Long-term compounders',
-      'Progressive profit booking targets (Target 1, Target 2, Target 3)',
+      'Up to 2 profit booking targets (Target 1, Target 2)',
       'Strict stop-loss levels on every recommendation',
       'Instant entry, trail stop-loss & exit alerts via App & WhatsApp',
       'Institutional research reports & SQGARP™ valuation thesis',

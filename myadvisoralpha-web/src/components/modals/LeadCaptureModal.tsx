@@ -61,10 +61,6 @@ export function validateLeadForm(formData: Partial<LeadFormData>): ValidationRes
     errors.email = 'Please enter a valid email address.';
   }
 
-  if (!formData.portfolioSize) {
-    errors.portfolioSize = 'Please select your portfolio size.';
-  }
-
   if (formData.consent !== true) {
     errors.consent = 'You must agree to terms and communication consent.';
   }
@@ -452,7 +448,7 @@ export default function LeadCaptureModal({
                     htmlFor="portfolioSize" 
                     className="block text-xs font-semibold text-white/90 uppercase tracking-wider mb-1.5"
                   >
-                    Portfolio Size <span className="text-[#F5BA31]">*</span>
+                    Portfolio Size
                   </label>
                   <select
                     id="portfolioSize"

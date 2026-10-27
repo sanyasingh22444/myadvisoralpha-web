@@ -23,9 +23,9 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   {
     id: 'research',
     feature: 'Research',
-    advisorAlpha: 'Led by Pankaj Murarka',
+    advisorAlpha: 'Detailed research report',
     brokers: 'Generic reports',
-    tips: 'Hype & rumours',
+    tips: 'No real research',
   },
   {
     id: 'framework',
@@ -38,8 +38,8 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     id: 'trade-plan',
     feature: 'Entry, target & stop-loss',
     advisorAlpha: 'On every call',
-    brokers: 'Unclear rating',
-    tips: 'No exit plan',
+    brokers: 'Unclear',
+    tips: 'Hype & rumours',
   },
   {
     id: 'rationale',
@@ -59,15 +59,15 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     id: 'exit-alerts',
     feature: 'After you buy',
     advisorAlpha: 'Timely stop-loss & exit alerts',
-    brokers: 'Little follow-up',
+    brokers: 'Little to no alerts',
     tips: 'Left to you',
   },
   {
     id: 'horizon',
     feature: 'Investing style',
-    advisorAlpha: 'Quality businesses for 3–5 years',
-    brokers: 'Frequent trading',
-    tips: 'Quick-profit calls',
+    advisorAlpha: 'Fundamentals first',
+    brokers: 'Only technical',
+    tips: 'No defined investing style',
   },
   {
     id: 'fees',
@@ -194,7 +194,11 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-sm font-bold transition-all active:scale-95 shadow-md"
           >
-            Start for ₹999/mo
+            <span>Start for</span>
+            <span className="sr-only">₹1199 per month, down from ₹2123</span>
+            <s aria-hidden="true" className="text-xs font-semibold text-[#081026]/55">₹2123</s>
+            <span aria-hidden="true" className="text-base font-extrabold">₹1199</span>
+            <span aria-hidden="true" className="-ml-1.5">/mo</span>
             <ArrowRight className="w-4 h-4" />
           </a>
           {onOpenConsultation ? (

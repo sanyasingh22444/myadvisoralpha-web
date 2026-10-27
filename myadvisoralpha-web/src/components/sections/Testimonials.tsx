@@ -231,7 +231,11 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
               rel="noopener noreferrer"
               className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] active:scale-95 font-bold text-sm transition-all shadow-lg shadow-black/40"
             >
-              <span>Subscribe for ₹999/mo</span>
+              <span>Subscribe for</span>
+              <span className="sr-only">₹1199 per month, down from ₹2123</span>
+              <s aria-hidden="true" className="text-xs font-semibold text-[#081026]/55">₹2123</s>
+              <span aria-hidden="true" className="text-base font-extrabold">₹1199</span>
+              <span aria-hidden="true" className="-ml-1.5">/mo</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 

@@ -426,7 +426,7 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                           className="w-full bg-[#081026] border border-white/15 focus:border-[#F5BA31] rounded-xl px-3 py-3 text-sm text-white outline-none"
                         >
-                          <option value="Single Stock Advisory">Single Stock Advisory (₹999/mo)</option>
+                          <option value="Single Stock Advisory">Single Stock Advisory (₹1199/mo, was ₹2123)</option>
                           <option value="Equity Model Portfolios">Equity Model Portfolios (₹299/mo)</option>
                           <option value="Curated Mutual Funds">Curated Mutual Funds (Zero Fee)</option>
                           <option value="Comprehensive Portfolio Review">Comprehensive Portfolio Review</option>

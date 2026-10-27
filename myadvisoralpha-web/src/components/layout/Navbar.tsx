@@ -35,12 +35,14 @@ const ADVISORY_ITEMS = [
     label: "MTF Baskets",
     description: "Short-term stock baskets using margin",
     icon: Layers,
+    comingSoon: true,
   },
   {
     href: "/#futures",
     label: "Futures",
     description: "Futures trades with defined risk",
     icon: BarChart3,
+    comingSoon: true,
   },
   {
     href: "/#portfolios",
@@ -194,6 +196,11 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                               {item.description}
                             </div>
                           </div>
+                          {item.comingSoon && (
+                            <span className="shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#8A6D10] border border-[#F5BA31]/50">
+                              Coming soon
+                            </span>
+                          )}
                         </Link>
                       );
                     })}

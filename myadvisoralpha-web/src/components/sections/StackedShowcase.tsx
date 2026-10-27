@@ -160,7 +160,7 @@ export default function StackedShowcase() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[410px]">
 
                   {/* Copy, anchored to the top-left so the label shows while stacked */}
-                  <div className="px-6 sm:px-8 lg:px-12 pt-3 pb-8 lg:pb-10 flex flex-col justify-start">
+                  <div className="px-6 sm:px-8 lg:px-12 pt-3 pb-12 lg:pb-16 flex flex-col justify-start">
                     <div className="flex items-center justify-between gap-3 h-[34px]">
                       <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 px-4 py-0.5 rounded-full border border-[#F5BA31]/30">
                         {card.label}

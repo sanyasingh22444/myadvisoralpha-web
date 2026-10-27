@@ -104,7 +104,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                   <>Research led by <span className="text-white font-medium">{BRAND_INFO.founder.name}</span></>,
                   "Former CIO, Axis AMC",
                   "30+ years’ investing experience",
-                  "$5 billion managed",
+                  "$5 billion+ managed",
                 ].map((item, i, all) => (
                   <li key={i} className="flex items-center gap-3 whitespace-nowrap">
                     <span>{item}</span>

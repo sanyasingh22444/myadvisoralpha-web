@@ -108,8 +108,8 @@ export default function MobileNav({
                   {/* Same order as the desktop Advisory menu */}
                   {[
                     { href: "/#single-stocks", label: "Single Stocks", description: "Stock ideas with entry, target & stop-loss" },
-                    { href: "/#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin" },
-                    { href: "/#futures", label: "Futures", description: "Futures trades with defined risk" },
+                    { href: "/#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin", comingSoon: true },
+                    { href: "/#futures", label: "Futures", description: "Futures trades with defined risk", comingSoon: true },
                     { href: "/#portfolios", label: "Portfolios", description: "Ready-made portfolios matched to your risk" },
                   ].map((item) => (
                     <Link
@@ -118,8 +118,15 @@ export default function MobileNav({
                       onClick={onClose}
                       className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                     >
-                      <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
-                        {item.label}
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
+                          {item.label}
+                        </span>
+                        {"comingSoon" in item && item.comingSoon && (
+                          <span className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#F5BA31]/15 text-[#F5BA31] border border-[#F5BA31]/40">
+                            Coming soon
+                          </span>
+                        )}
                       </span>
                       <p className="text-[11px] text-neutral-400 mt-0.5 leading-tight">{item.description}</p>
                     </Link>

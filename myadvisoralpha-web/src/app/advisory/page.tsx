@@ -26,19 +26,15 @@ import { REGULATORY_INFO } from '@/data/legal';
 const STOCKS_PLAN_URL = 'https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe';
 const PORTFOLIO_PLAN_URL = 'https://link.advisoralpha.in/nav?page=payment&plan_id=0b6dbbe5-226a-4222-80fe-08f88532774b&plan_type=portfolio&action=subscribe';
 
-const HERO_PRODUCTS = ['Single Stocks', 'Model Portfolios', 'MTF Baskets', 'Futures'];
+const HERO_PRODUCTS = ['Stocks', 'Portfolios', 'MTF Baskets', 'Futures'];
 
-const HERO_POINTS = [
-  'Led by Pankaj Murarka, ex-CIO Axis Mutual Fund',
-  'Entry, target & stop-loss on every idea',
-  'Flat fee, no profit sharing',
-];
+const HERO_POINTS = ['Entry, target & stop-loss on every idea'];
 
 const STATS = [
   { value: '30+ yrs', label: 'Pankaj Murarka in Indian equities' },
   { value: '$5B', label: 'Managed as CIO of Axis Mutual Fund' },
-  { value: '75+ yrs', label: 'Combined research team experience' },
-  { value: '1 lakh+', label: 'Investors across India' },
+  { value: '₹2,000 Cr', label: 'Assets guided' },
+  { value: '1 Lakh+', label: 'Users Across India' },
 ];
 
 const PRODUCTS = [
@@ -49,9 +45,9 @@ const PRODUCTS = [
     brief: 'High-conviction stock ideas with a clear plan.',
     points: [
       'Entry range, up to 2 targets and a stop-loss on every idea',
-      'Short-term (1–4 weeks), mid-term (1–6 months) and long-term ideas',
+      'Short-term (0–3 months), mid-term (3–6 months) and long-term (6+ months) ideas',
       'Full research rationale and SQGARP™ screening behind each pick',
-      'Entry, stop-loss and exit alerts on the app and WhatsApp',
+      'Entry, stop-loss and exit alerts on the app, WhatsApp and email',
     ],
     cta: { label: 'Explore Single Stocks', href: STOCKS_PLAN_URL },
   },
@@ -61,8 +57,8 @@ const PRODUCTS = [
     name: 'Model Portfolios',
     brief: 'Ready-made stock portfolios matched to your risk.',
     points: [
-      'Beginner, Balanced, Flexicap and Aggressive portfolios',
-      '5 to 30 SQGARP™ screened stocks, with stock-level rationale',
+      'Large cap, mid cap and small cap portfolios',
+      '15 to 30 SQGARP™ screened stocks, with stock-level rationale',
       'Rebalancing alerts with the reason for every change',
       'Shares stay in your own demat account',
     ],
@@ -74,11 +70,7 @@ const PRODUCTS = [
     name: 'MTF Baskets',
     comingSoon: true,
     brief: 'Short-term stock baskets using your broker’s margin.',
-    points: [
-      'A few stocks, held for weeks',
-      'Basket target and stop-loss set upfront',
-      'Exit alerts the moment a stop-loss is hit',
-    ],
+    points: [],
   },
   {
     id: 'futures',
@@ -86,41 +78,22 @@ const PRODUCTS = [
     name: 'Futures',
     comingSoon: true,
     brief: 'Index and stock futures trades with defined risk.',
-    points: [
-      'Entry, target and stop-loss for each trade',
-      'Margin, risk and reward per lot shown upfront',
-      'Live and past trades in one place',
-    ],
+    points: [],
   },
 ];
 
-const PORTFOLIOS = [
-  { name: 'Beginner', risk: 'Conservative', stocks: '5–10 stocks', min: '₹50,000' },
-  { name: 'Balanced', risk: 'Large-cap focus', stocks: '25–30 stocks', min: '₹2,50,000' },
-  { name: 'Flexicap', risk: 'All-weather', stocks: '25–30 stocks', min: '₹1,00,000' },
-  { name: 'Aggressive', risk: 'Mid & small cap', stocks: '25–30 stocks', min: '₹1,00,000' },
-];
-
 const SQGARP = [
-  { letter: 'S', title: 'Sustainable growth', body: 'Durable business models with long-term earning power, not short-term momentum.' },
-  { letter: 'Q', title: 'Quality first', body: 'Strong management, solid balance sheets and proven execution.' },
-  { letter: 'G', title: 'Growth', body: 'Companies that can compound value and scale over 3–5 years.' },
-  { letter: 'A', title: 'At reasonable price', body: 'Growth that isn’t overpriced. Valuation discipline protects capital in down markets.' },
-  { letter: 'R', title: 'Risk management', body: 'Every idea comes with a stop-loss, and timely exit alerts limit losses.' },
-  { letter: 'P', title: 'Patience & conviction', body: 'Buy with a margin of safety, then let compounding do the work.' },
+  { letter: 'S', title: 'Sustainable', body: 'Business model & earnings that compound, not a one-quarter story' },
+  { letter: 'Q', title: 'Quality', body: 'High return on capital, low debt, strong management' },
+  { letter: 'G', title: 'Growth', body: 'Clear, visible earnings growth ahead' },
+  { letter: 'ARP', title: 'At Reasonable Price', body: 'Enter only when valuation offers a margin of safety' },
 ];
 
 const STEPS = [
   { icon: Briefcase, title: 'Choose a product', body: 'Pick Single Stocks or a Model Portfolio, whichever fits your goal and risk.' },
   { icon: Wallet, title: 'Make the payment', body: 'Pay securely by UPI, card or net banking. Access starts as soon as it’s confirmed.' },
-  { icon: FileCheck2, title: 'KYC & eSign', body: 'Quick digital KYC with Aadhaar & PAN, and eSign your agreement in minutes.' },
-  { icon: Bell, title: 'Get your first idea', body: 'Receive your first idea with full rationale the same day. Act on it in your own broker account.' },
-];
-
-const PROMISES = [
-  { title: 'Every closed idea published', body: 'Including losses. No cherry-picking, no survivorship bias.' },
-  { title: 'Flat fee, no profit sharing', body: 'We earn from research, not from brokerage on your trades.' },
-  { title: 'Your money stays with you', body: 'Trade through your own broker: Zerodha, Groww, Angel One, Upstox and more.' },
+  { icon: FileCheck2, title: 'KYC & eSign', body: 'Quick 1-step digital KYC, then eSign the agreement.' },
+  { icon: Bell, title: 'Get your first idea', body: 'Receive your first idea with full rationale. Act on it in your own broker account.' },
 ];
 
 const FAQS = [
@@ -134,7 +107,7 @@ const FAQS = [
   },
   {
     q: 'How much capital do I need to start?',
-    a: 'Single Stocks can start with ₹10,000–₹25,000. Model Portfolios start at ₹50,000 for the Beginner portfolio, and ₹1,00,000 to ₹2,50,000 for the 25–30 stock portfolios.',
+    a: 'Single Stocks can start with ₹10,000–₹25,000. Model Portfolios start from ₹50,000, depending on the portfolio.',
   },
   {
     q: 'Do you charge profit sharing or commissions?',
@@ -194,14 +167,14 @@ export default function AdvisoryPage() {
             </div>
 
             {/* Trust row */}
-            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
+            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 max-w-xl">
               {[
-                { value: 'SEBI RA', label: 'INH000021818' },
+                { value: 'SEBI Registered', label: 'INH000021818' },
                 { value: 'BSE', label: 'Enlistment No. 6793' },
-                { value: '1 lakh+', label: 'Investors across India' },
+                { value: '1 Lakh+', label: 'Users Across India' },
               ].map((item, i) => (
-                <div key={item.value} className={i > 0 ? 'pl-4 border-l border-[#F5BA31]/40' : ''}>
-                  <div className="text-xl sm:text-2xl font-extrabold">{item.value}</div>
+                <div key={item.value} className={i > 0 ? 'pl-5 sm:pl-6 border-l border-[#F5BA31]/40' : ''}>
+                  <div className="text-lg sm:text-xl font-extrabold">{item.value}</div>
                   <div className="text-[11px] sm:text-xs text-white/60 mt-0.5 leading-snug">{item.label}</div>
                 </div>
               ))}
@@ -256,7 +229,7 @@ export default function AdvisoryPage() {
             dark
             eyebrow="Our advisory"
             title={<>One research team. <span className="text-[#F5BA31]">Every style of investing.</span></>}
-            subtitle="Pick the product that matches how you invest. Every idea comes with a clear plan."
+            subtitle="Pick the product that matches how you invest. Every idea comes with a clear entry and exit plan."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {PRODUCTS.map(({ id, icon: Icon, name, brief, points, comingSoon, cta }) => (
@@ -273,14 +246,18 @@ export default function AdvisoryPage() {
                 </div>
                 <h3 className="mt-5 text-2xl font-extrabold text-white">{name}</h3>
                 <p className="mt-1.5 text-base font-semibold text-[#F5BA31]">{brief}</p>
-                <ul className="mt-5 space-y-2.5 flex-1">
-                  {points.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5 text-sm text-white/75 leading-relaxed">
-                      <CheckCircle2 className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                {points.length > 0 ? (
+                  <ul className="mt-5 space-y-2.5 flex-1">
+                    {points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-sm text-white/75 leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-[#F5BA31] shrink-0 mt-0.5" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="flex-1" />
+                )}
                 <div className="mt-7">
                   {cta ? (
                     <a
@@ -304,36 +281,22 @@ export default function AdvisoryPage() {
               </div>
             ))}
           </div>
-
-          {/* Model portfolio line-up */}
-          <div className="mt-10 rounded-2xl border border-white/10 bg-[#0B1528] overflow-hidden">
-            <div className="px-6 py-4 border-b border-white/10 text-sm font-bold text-white">Model portfolio line-up</div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/10">
-              {PORTFOLIOS.map((p) => (
-                <div key={p.name} className="p-5">
-                  <div className="text-base font-extrabold text-white">{p.name}</div>
-                  <div className="text-xs text-[#F5BA31] font-semibold mt-0.5">{p.risk}</div>
-                  <div className="mt-3 text-xs text-white/60">{p.stocks}</div>
-                  <div className="text-xs text-white/60">Min. {p.min}</div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
       {/* 4. SQGARP framework */}
       <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <SectionHeading
-            eyebrow="Our research framework"
-            title="SQGARP™: one lens for every stock"
-            subtitle="Sustainable Quality Growth at Reasonable Price. Every stock idea and model portfolio passes the same six tests."
+            eyebrow="Our investment philosophy"
+            title="Every idea starts with SQGARP™"
+            subtitle="Sustainable Quality Growth at Reasonable Price. Every stock idea and model portfolio passes the same four tests."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SQGARP.map((item) => (
-              <div key={item.letter} className="flex gap-4 rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5">
-                <span className="w-12 h-12 shrink-0 rounded-xl bg-[#164198] text-white text-2xl font-black flex items-center justify-center">
+              <div key={item.letter} className="flex items-center gap-4 rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5">
+                {/* Fixed width so the three-letter ARP badge lines up with the single letters */}
+                <span className="w-14 h-12 shrink-0 rounded-xl bg-[#164198] text-white text-xl font-black flex items-center justify-center">
                   {item.letter}
                 </span>
                 <div>
@@ -353,7 +316,7 @@ export default function AdvisoryPage() {
             dark
             eyebrow="How it works"
             title={<>From sign-up to your first idea in <span className="text-[#F5BA31]">4 steps</span></>}
-            subtitle="Fully digital and paperless. Your first idea arrives the same day."
+            subtitle="Fully digital and paperless."
           />
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {STEPS.map(({ icon: Icon, title, body }, i) => (
@@ -412,23 +375,8 @@ export default function AdvisoryPage() {
         </div>
       </section>
 
-      {/* 7. Transparency promises */}
-      <section className="bg-[#FAF7EE] border-y border-[#EBE6D6] py-12 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PROMISES.map((p) => (
-            <div key={p.title} className="flex items-start gap-3">
-              <ShieldCheck className="w-6 h-6 text-[#B88714] shrink-0" />
-              <div>
-                <h3 className="text-base font-extrabold text-[#081026]">{p.title}</h3>
-                <p className="mt-1 text-sm text-neutral-600">{p.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 8. FAQs */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      {/* 7. FAQs */}
+      <section className="bg-white border-t border-neutral-200 py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <SectionHeading eyebrow="Got questions?" title="Advisory FAQs" />
           <div className="divide-y divide-neutral-200 border-y border-neutral-200">
@@ -453,7 +401,7 @@ export default function AdvisoryPage() {
         </div>
       </section>
 
-      {/* 9. Closing band with phone number box */}
+      {/* 8. Closing band with phone number box */}
       <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-16 lg:py-20 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>

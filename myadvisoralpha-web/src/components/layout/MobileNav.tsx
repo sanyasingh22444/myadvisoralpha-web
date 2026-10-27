@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { 
   X, 
   ChevronDown, 
   ArrowUpRight, 
   LogIn, 
-  TrendingUp, 
-  Briefcase, 
-  Layers, 
+  TrendingUp,
   PieChart,
   BookOpen, 
   HelpCircle, 
@@ -63,15 +62,16 @@ export default function MobileNav({
         <div>
           {/* Header row: Logo & Close Button */}
           <div className="flex items-center justify-between pb-5 border-b border-white/10">
-            <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-sm">
-                <svg className="w-3.5 h-3.5 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
-                </svg>
-              </div>
-              <span className="text-base font-extrabold text-white tracking-tight">
-                MyAdvisor<span className="text-[#F5BA31]">Alpha</span>
-              </span>
+            {/* Logo sits on a white chip because its wordmark is dark navy */}
+            <Link href="/" onClick={onClose} aria-label="MyAdvisorAlpha home" className="flex items-center bg-white rounded-xl px-2.5 py-1.5">
+              <Image
+                src="/assets/brand/myadvisoralpha-logo.svg"
+                alt="MyAdvisorAlpha by Renaissance"
+                width={171}
+                height={58}
+                unoptimized
+                className="h-8 w-auto"
+              />
             </Link>
             <button
               type="button"
@@ -104,76 +104,26 @@ export default function MobileNav({
               </button>
 
               {advisoryExpanded && (
-                <div className="pl-3 pr-1 py-1 space-y-2 mt-1 border-l-2 border-[#F5BA31]/40 ml-3">
-                  {/* Single Stocks Subsection */}
-                  <div>
-                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-[#F5BA31]">
-                      Single Stocks
-                    </div>
-                    <div className="space-y-1">
-                      {/* Futures */}
-                      <Link
-                        href="/#futures"
-                        onClick={onClose}
-                        className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
-                            Futures
-                          </span>
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31] text-[#081026]">
-                            Derivatives
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-neutral-400 mt-0.5 leading-tight">
-                          Derivatives trading strategies and momentum signals
-                        </p>
-                      </Link>
-
-                      {/* MTF Basket */}
-                      <Link
-                        href="/#mtf-basket"
-                        onClick={onClose}
-                        className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
-                            MTF Basket
-                          </span>
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F5BA31] text-[#081026]">
-                            Margin Trading
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-neutral-400 mt-0.5 leading-tight">
-                          Margin Trading Facility curated equity baskets with leverage and risk management
-                        </p>
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Portfolio Subsection */}
-                  <div className="pt-1 border-t border-white/10">
-                    <div className="px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
-                      Portfolio
-                    </div>
+                <div className="pl-3 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[#F5BA31]/40 ml-3">
+                  {/* Same order as the desktop Advisory menu */}
+                  {[
+                    { href: "/#single-stocks", label: "Single Stocks", description: "Stock ideas with entry, target & stop-loss" },
+                    { href: "/#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin" },
+                    { href: "/#futures", label: "Futures", description: "Futures trades with defined risk" },
+                    { href: "/#portfolios", label: "Portfolios", description: "Ready-made portfolios matched to your risk" },
+                  ].map((item) => (
                     <Link
-                      href="/#portfolios"
+                      key={item.href}
+                      href={item.href}
                       onClick={onClose}
                       className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                          Portfolio Advisory
-                        </span>
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-400 text-[#081026]">
-                          Full Advisory
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-neutral-400 mt-0.5 leading-tight">
-                        Full portfolio advisory, risk profiling, and periodic rebalancing
-                      </p>
+                      <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
+                        {item.label}
+                      </span>
+                      <p className="text-[11px] text-neutral-400 mt-0.5 leading-tight">{item.description}</p>
                     </Link>
-                  </div>
+                  ))}
                 </div>
               )}
             </div>

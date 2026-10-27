@@ -56,9 +56,9 @@ const SLIDES: Array<{
     title: "A SIP, month by month",
     sub: "Small amounts, invested automatically",
     foot: [
-      ["Goal-based baskets", "From first salary to retirement"],
+      ["Matched to your risk", "Conservative to aggressive"],
+      ["Start SIP from ₹500", "Invest monthly on autopay"],
       ["Set up in 2 minutes", "100% digital via ONDC"],
-      ["Direct to the AMC", "We never hold your money"],
     ],
   },
 ];

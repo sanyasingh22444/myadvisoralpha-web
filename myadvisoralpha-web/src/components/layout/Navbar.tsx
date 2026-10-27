@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ChevronDown,
@@ -8,6 +9,7 @@ import {
   TrendingUp,
   Briefcase,
   Layers,
+  BarChart3,
   Headset
 } from "lucide-react";
 import MobileNav from "./MobileNav";
@@ -16,6 +18,37 @@ interface NavbarProps {
   onOpenLeadModal?: () => void;
   onOpenConsultation?: () => void;
 }
+
+// Brand colours from the MyAdvisorAlpha logo
+const BRAND_BLUE = "#164198";
+
+// Advisory dropdown, in the order shown
+const ADVISORY_ITEMS = [
+  {
+    href: "/#single-stocks",
+    label: "Single Stocks",
+    description: "Stock ideas with entry, target & stop-loss",
+    icon: TrendingUp,
+  },
+  {
+    href: "/#mtf-basket",
+    label: "MTF Baskets",
+    description: "Short-term stock baskets using margin",
+    icon: Layers,
+  },
+  {
+    href: "/#futures",
+    label: "Futures",
+    description: "Futures trades with defined risk",
+    icon: BarChart3,
+  },
+  {
+    href: "/#portfolios",
+    label: "Portfolios",
+    description: "Ready-made portfolios matched to your risk",
+    icon: Briefcase,
+  },
+];
 
 export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -75,6 +108,9 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
     };
   }, []);
 
+  const navLinkClass =
+    "whitespace-nowrap px-3.5 py-1.5 rounded-full text-[#164198] hover:text-[#C99512] hover:bg-[#164198]/[0.06] transition-colors";
+
   return (
     <>
       <header
@@ -83,30 +119,30 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Floating Pill Container matching Artifact */}
+          {/* Floating white pill */}
           <nav
             aria-label="Main Navigation"
-            className="bg-[#0B1528]/95 backdrop-blur-md rounded-full border border-white/10 pl-3 pr-2 sm:px-6 py-2.5 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.4)]"
+            className="bg-white rounded-full border border-[#164198]/10 pl-4 pr-2 sm:px-6 py-2 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.35)]"
           >
-            {/* Logo Section matching Artifact: Warm Gold square + MyAdvisorAlpha */}
-            <div className="flex items-center gap-3 min-w-0">
-              <Link href="/" aria-label="MyAdvisorAlpha home" className="flex items-center gap-2 sm:gap-2.5 group">
-                <div className="w-8 h-8 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-md group-hover:scale-105 transition-transform font-black">
-                  <svg className="w-4 h-4 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
-                  </svg>
-                </div>
-                <div className="flex items-center text-base sm:text-lg font-extrabold tracking-tight text-white">
-                  <span>MyAdvisor</span>
-                  <span className="text-[#F5BA31]">Alpha</span>
-                </div>
+            {/* Logo (from myadvisoralpha.com) */}
+            <div className="flex items-center min-w-0">
+              <Link href="/" aria-label="MyAdvisorAlpha home" className="flex items-center">
+                <Image
+                  src="/assets/brand/myadvisoralpha-logo.svg"
+                  alt="MyAdvisorAlpha by Renaissance"
+                  width={171}
+                  height={58}
+                  priority
+                  unoptimized
+                  className="h-9 sm:h-11 w-auto"
+                />
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-sm font-medium text-white/90">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-sm font-semibold">
               {/* 1. Advisory Dropdown Menu */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -114,129 +150,68 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 <button
                   type="button"
                   aria-expanded={advisoryOpen}
+                  aria-haspopup="true"
                   onClick={() => setAdvisoryOpen(!advisoryOpen)}
                   className={`px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5 focus:outline-none ${
-                    advisoryOpen ? "bg-white/15 text-white" : "hover:text-white hover:bg-white/10"
+                    advisoryOpen
+                      ? "bg-[#164198]/[0.08] text-[#164198]"
+                      : "text-[#164198] hover:text-[#C99512] hover:bg-[#164198]/[0.06]"
                   }`}
                 >
                   <span>Advisory</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-white/80 transition-transform duration-200 ${
-                      advisoryOpen ? "rotate-180 text-[#F5BA31]" : ""
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      advisoryOpen ? "rotate-180 text-[#C99512]" : ""
                     }`}
                   />
                 </button>
 
                 {advisoryOpen && (
-                  <div 
+                  <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    style={{ backgroundColor: "#0D1A33", opacity: 1 }}
-                    className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0D1A33] border border-white/20 rounded-2xl p-4 shadow-[0_25px_60px_rgba(0,0,0,0.95)] z-[100] animate-in fade-in slide-in-from-top-2 duration-200 space-y-3 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                    className="absolute top-full left-0 mt-2 w-[440px] bg-white border border-[#164198]/10 rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                   >
-                    {/* Section 1: Single Stocks */}
-                    <div>
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-[#F5BA31]">
-                        <TrendingUp className="w-3.5 h-3.5 text-[#F5BA31]" />
-                        <span>Single Stocks</span>
-                      </div>
-                      <div className="space-y-1">
-                        {/* Futures Sub-Item */}
+                    {ADVISORY_ITEMS.map((item) => {
+                      const Icon = item.icon;
+                      return (
                         <Link
-                          href="/#futures"
+                          key={item.href}
+                          href={item.href}
                           onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
+                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#164198]/[0.05] transition-colors group"
                         >
-                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
-                            <TrendingUp className="w-4 h-4" />
+                          <div className="w-9 h-9 rounded-lg bg-[#164198]/10 text-[#164198] flex items-center justify-center shrink-0 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
+                            <Icon className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
-                                Futures
-                              </span>
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
-                                Derivatives
-                              </span>
+                            <div className="text-sm font-bold text-[#164198] group-hover:text-[#C99512] transition-colors">
+                              {item.label}
                             </div>
-                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                              Derivatives trading strategies and momentum signals with defined risk parameters
+                            <div className="text-xs text-neutral-600 mt-0.5 font-normal">
+                              {item.description}
                             </div>
                           </div>
                         </Link>
+                      );
+                    })}
 
-                        {/* MTF Basket Sub-Item */}
-                        <Link
-                          href="/#mtf-basket"
-                          onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                        >
-                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
-                            <Layers className="w-4 h-4" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
-                                MTF Basket
-                              </span>
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
-                                Margin Trading
-                              </span>
-                            </div>
-                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                              Margin Trading Facility curated equity baskets with leverage and institutional downside risk management
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Section 2: Portfolio */}
-                    <div className="pt-2.5 border-t border-white/15">
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                        <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Portfolio</span>
-                      </div>
-                      <Link
-                        href="/#portfolios"
-                        onClick={() => setAdvisoryOpen(false)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-400 group-hover:text-[#081026] transition-colors shadow-sm">
-                          <Briefcase className="w-4 h-4" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-                              Portfolio Advisory
-                            </span>
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-400 text-[#081026] shadow-sm">
-                              Full Advisory
-                            </span>
-                          </div>
-                          <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                            Full portfolio advisory, risk profiling, and periodic rebalancing
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-
-                    {/* Dropdown Quick Pedigree & Route Links */}
-                    <div className="pt-2.5 border-t border-white/15 flex items-center justify-between px-2 text-xs text-white/70">
+                    {/* Dropdown footer links */}
+                    <div className="mt-1 pt-2.5 pb-1.5 border-t border-neutral-200 flex items-center justify-between gap-3 px-3 text-xs text-neutral-600 whitespace-nowrap">
                       <span className="font-medium">Pankaj Murarka · 30+ Yrs Equity Pedigree</span>
                       <div className="flex items-center gap-2.5">
                         <Link
                           href="/about"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-[#F5BA31] hover:underline font-bold"
+                          className="text-[#C99512] hover:underline font-bold"
                         >
                           About Us
                         </Link>
-                        <span className="text-white/40">·</span>
+                        <span className="text-neutral-300">·</span>
                         <Link
                           href="/contact"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-white hover:text-[#F5BA31] transition-colors font-medium"
+                          className="text-[#164198] hover:text-[#C99512] transition-colors font-semibold"
                         >
                           Contact Desk
                         </Link>
@@ -247,38 +222,29 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               </div>
 
               {/* 2. Mutual Funds Link */}
-              <Link
-                href="/#mutual-funds"
-                className="whitespace-nowrap px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/#mutual-funds" className={navLinkClass}>
                 Mutual Funds
               </Link>
 
               {/* 3. Blog Link */}
-              <Link
-                href="/blogs"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/blogs" className={navLinkClass}>
                 Blog
               </Link>
 
               {/* 4. FAQs Link */}
-              <Link
-                href="/faqs"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/faqs" className={navLinkClass}>
                 FAQs
               </Link>
             </div>
 
-            {/* Right Action Trigger & Buttons matching Artifact */}
+            {/* Right Action Buttons */}
             <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-              {/* Web Login Button - Outlined style from Artifact (in the mobile drawer below sm) */}
+              {/* Web Login Button (in the mobile drawer below sm) */}
               <a
                 href="https://web.advisoralpha.in/#/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
+                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-xs lg:text-sm font-semibold text-[#164198] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#164198]/30 hover:border-[#164198] hover:bg-[#164198]/[0.05] transition-all active:scale-95"
               >
                 <span>Log in</span>
               </a>
@@ -288,13 +254,13 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-xs lg:text-sm font-semibold text-[#F5BA31] hover:text-[#081026] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#F5BA31]/60 hover:bg-[#F5BA31] transition-all active:scale-95"
+                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-xs lg:text-sm font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
               >
                 <Headset className="w-4 h-4" />
                 <span>Talk to expert</span>
               </button>
 
-              {/* "Get 2 free ideas" - Solid Warm Gold Pill/Button from Artifact */}
+              {/* "Get 2 free ideas" - solid gold button */}
               <button
                 type="button"
                 onClick={handleCtaClick}
@@ -309,7 +275,8 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 type="button"
                 aria-label="Open mobile menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 text-white hover:text-white/80 hover:bg-white/10 rounded-full focus:outline-none transition-colors"
+                className="lg:hidden p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
+                style={{ color: BRAND_BLUE }}
               >
                 <Menu className="w-5 h-5" />
               </button>

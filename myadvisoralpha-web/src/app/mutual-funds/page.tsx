@@ -345,7 +345,7 @@ export default function MutualFundsPage() {
               </div>
               <SipChart still={reduceMotion} />
               <ul className="mt-6 grid grid-cols-3 gap-3 text-center">
-                {['From ₹500', 'UPI Autopay', 'Pause anytime'].map((point) => (
+                {['From ₹500', 'UPI Autopay', 'Digital KYC'].map((point) => (
                   <li key={point} className="text-[11px] sm:text-xs font-semibold text-white/80 bg-white/5 border border-white/10 rounded-lg py-2 px-1">
                     {point}
                   </li>

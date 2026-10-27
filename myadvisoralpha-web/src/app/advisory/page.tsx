@@ -305,27 +305,27 @@ export default function AdvisoryPage() {
           <div className="flex justify-center items-end gap-2 sm:gap-3 mb-12 lg:mb-14" aria-hidden="true">
             {SQGARP.map((item, i) => (
               <React.Fragment key={item.letter}>
-                <span className="text-4xl sm:text-6xl font-black tracking-tight text-[#164198]">{item.letter}</span>
-                {i < SQGARP.length - 1 && <span className="mb-2 sm:mb-3 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#F5BA31]" />}
+                <span className="font-serif text-4xl sm:text-6xl font-normal tracking-[0.12em] text-[#164198]">{item.letter}</span>
+                {i < SQGARP.length - 1 && <span className="mb-2.5 sm:mb-4 w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#C99512]" />}
               </React.Fragment>
             ))}
           </div>
 
           <div className="relative">
             {/* Gold line joining the four letter tiles on desktop */}
-            <div aria-hidden="true" className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-[#F5BA31]/20 via-[#F5BA31] to-[#F5BA31]/20" />
+            <div aria-hidden="true" className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-[#C99512]/40" />
 
             <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-12 pt-8">
               {SQGARP.map((item, i) => (
                 <li
                   key={item.letter}
-                  className="group relative rounded-2xl bg-white border border-[#164198]/10 shadow-[0_10px_30px_rgba(22,65,152,0.08)] px-6 pt-12 pb-7 text-center hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(22,65,152,0.16)] transition-all duration-300"
+                  className="group relative rounded-2xl bg-white border border-[#164198]/50 shadow-[0_10px_30px_rgba(22,65,152,0.08)] px-6 pt-12 pb-7 text-center hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(22,65,152,0.16)] transition-all duration-300"
                 >
-                  {/* Letter tile sits on the card's top edge */}
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 min-w-[4rem] h-16 px-3 rounded-2xl bg-gradient-to-br from-[#1E4FB5] to-[#0E2A6B] text-[#F5BA31] text-2xl font-black flex items-center justify-center ring-4 ring-white shadow-lg group-hover:scale-105 transition-transform">
+                  {/* Thin outlined letter mark on the card's top edge */}
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-white border border-[#164198]/30 text-[#164198] font-serif text-xl font-normal tracking-wide flex items-center justify-center ring-4 ring-[#F6F8FC] group-hover:border-[#C99512] transition-colors">
                     {item.letter}
                   </span>
-                  <span className="text-[11px] font-bold tracking-[0.2em] text-[#C99512]">0{i + 1}</span>
+                  <span className="font-serif text-xl tracking-[0.15em] text-[#C99512]">0{i + 1}</span>
                   <h3 className="mt-1.5 text-lg font-extrabold text-[#081026]">{item.title}</h3>
                   <span aria-hidden="true" className="block mx-auto mt-3 w-8 h-0.5 rounded-full bg-[#F5BA31]" />
                   <p className="mt-3 text-sm text-neutral-600 leading-relaxed">{item.body}</p>

@@ -26,7 +26,7 @@ import { REGULATORY_INFO } from '@/data/legal';
 const MF_APP_URL = 'https://link.advisoralpha.in/nav?page=mutual_funds';
 const MF_GOAL = INVESTMENT_GOAL_OPTIONS.find((opt) => opt.value.startsWith('Curated Mutual Funds'))?.value;
 
-const HERO_ASSETS = ['Equity', 'Debt', 'Gold'];
+const HERO_ASSETS = ['Equity', 'Debt', 'Gold', 'Silver', 'International Stocks'];
 
 const HERO_POINTS = [
   'Handpicked mutual fund collection',
@@ -41,8 +41,7 @@ const FEATURES = [
     title: 'Handpicked fund collection',
     brief: 'From 1,000+ schemes to a short list worth owning.',
     points: [
-      'Shortlisted by a research team with 75+ years of combined experience',
-      'Equity, debt, hybrid and gold funds in one place',
+      'Equity, debt, gold, silver and international funds in one place',
       'Ready lists: Consistent Performers, Better than FD, Star Managers',
     ],
   },
@@ -94,8 +93,6 @@ const BASKETS = [
     url: 'https://link.advisoralpha.in/MD16l0NR92b',
   },
 ];
-
-const THEMATIC_LISTS = ['Consistent Performers', 'Better than FD', 'Star Managers'];
 
 const SELECTION_CHECKS = [
   {
@@ -280,15 +277,16 @@ export default function MutualFundsPage() {
         <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Mutual Funds</span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              <span className="sr-only">Invest in equity, debt and gold with mutual funds</span>
+            {/* Sized so the longest word, International Stocks, fits on one line at every width */}
+            <h1 className="mt-4 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
+              <span className="sr-only">Invest in equity, debt, gold, silver and international stocks with mutual funds</span>
               <span aria-hidden="true">
+                <span className="block">Invest in</span>
+                {/* The rotating word gets its own line so longer words never reflow the headline.
+                    Bottom padding leaves room for descenders (the y in Equity), and the matching
+                    negative margin keeps the line height unchanged */}
                 <span className="block">
-                  Invest in{' '}
-                  {/* Top-aligned box one line tall, so the word sits on the sentence's baseline. The
-                      bottom padding leaves room for descenders (the y in Equity), and the matching
-                      negative margin keeps the line height unchanged */}
-                  <span className="relative inline-block align-top overflow-hidden text-[#F5BA31] h-[1.1em] box-content pb-[0.2em] -mb-[0.2em]">
+                  <span className="relative block overflow-hidden text-[#F5BA31] h-[1.1em] box-content pb-[0.2em] -mb-[0.2em]">
                     <AnimatePresence mode="wait" initial={false}>
                       <motion.span
                         key={HERO_ASSETS[assetIndex]}
@@ -325,7 +323,7 @@ export default function MutualFundsPage() {
             <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
               {[
                 { value: 'AMFI', label: 'Registered MFD · ARN-350887' },
-                { value: 'ONDC', label: 'Powered by ONDC' },
+                { value: 'ONDC', label: 'Secured transactions, powered by ONDC' },
                 { value: '₹500', label: 'Start a SIP from' },
               ].map((item, i) => (
                 <div key={item.value} className={i > 0 ? 'pl-4 border-l border-[#F5BA31]/40' : ''}>
@@ -347,7 +345,7 @@ export default function MutualFundsPage() {
               </div>
               <SipChart still={reduceMotion} />
               <ul className="mt-6 grid grid-cols-3 gap-3 text-center">
-                {['From ₹500', 'UPI Autopay', 'Units in your name'].map((point) => (
+                {['From ₹500', 'UPI Autopay', 'Pause anytime'].map((point) => (
                   <li key={point} className="text-[11px] sm:text-xs font-semibold text-white/80 bg-white/5 border border-white/10 rounded-lg py-2 px-1">
                     {point}
                   </li>
@@ -436,15 +434,6 @@ export default function MutualFundsPage() {
                 Talk to expert <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm">
-            <span className="text-white/60 mr-1">Also in the app:</span>
-            {THEMATIC_LISTS.map((list) => (
-              <span key={list} className="text-white/85 font-semibold bg-white/5 border border-white/10 rounded-full px-3 py-1">
-                {list}
-              </span>
-            ))}
           </div>
         </div>
       </section>

@@ -98,7 +98,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
     features: [
       'ONDC Financial Services powered architecture',
       '100% digital, paperless onboarding completed in 2 minutes',
-      'Zero platform custody — direct bank-to-AMC settlement',
+      'Zero platform custody — bank-to-AMC settlement',
       'Goal-based baskets: First Salary, All-Weather, Retire Rich',
       'Thematic lists: Consistent Performers, Better than FD, Star Managers',
       'Automated mandate setup with UPI Autopay / Netbanking',

@@ -85,7 +85,7 @@ export const PORTFOLIO_SIZE_OPTIONS = [
 export const INVESTMENT_GOAL_OPTIONS = [
   { label: 'Stock Advisory (Entry, Target & Stop-Loss)', value: 'Stock Advisory (Short/Long term)' },
   { label: 'Equity Model Portfolios (Long-term Wealth)', value: 'Model Portfolios (Wealth Creation)' },
-  { label: 'Curated Mutual Funds (Direct SIP)', value: 'Curated Mutual Funds (SIP Growth)' },
+  { label: 'Curated Mutual Funds (SIP)', value: 'Curated Mutual Funds (SIP Growth)' },
   { label: 'Comprehensive Portfolio Review & Restructuring', value: 'Comprehensive Portfolio Review' },
 ];
 

@@ -85,7 +85,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     label: 'Mutual Funds',
     title: 'Goal-based mutual fund baskets',
     points: [
-      'Direct plans, invested via ONDC',
+      'Handpicked funds, powered by ONDC',
       'Start a SIP in 2 minutes',
       'Your money goes straight to the AMC',
     ],

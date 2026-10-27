@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   ArrowRight,
   BadgeCheck,
@@ -10,15 +10,14 @@ import {
   CheckCircle2,
   ChevronDown,
   ExternalLink,
-  Landmark,
   Layers,
+  LineChart,
   Percent,
   Scale,
   ShieldCheck,
   Target,
   UserCheck,
   Wallet,
-  XCircle,
 } from 'lucide-react';
 import { SipChart } from '@/components/sections/HeroPlacard';
 import LeadCaptureModal, { INVESTMENT_GOAL_OPTIONS, PHONE_REGEX } from '@/components/modals/LeadCaptureModal';
@@ -27,21 +26,45 @@ import { REGULATORY_INFO } from '@/data/legal';
 const MF_APP_URL = 'https://link.advisoralpha.in/nav?page=mutual_funds';
 const MF_GOAL = INVESTMENT_GOAL_OPTIONS.find((opt) => opt.value.startsWith('Curated Mutual Funds'))?.value;
 
+const HERO_ASSETS = ['Equity', 'Debt', 'Gold'];
+
+const HERO_POINTS = [
+  'Handpicked mutual fund collection',
+  'Goal-based investment baskets',
+  'Personalised mutual fund recommendations',
+  'Start SIP with ₹500',
+];
+
 const FEATURES = [
   {
     icon: Layers,
-    title: 'Handpicked funds',
-    body: 'Skip the clutter of 1,000+ schemes. Our research team shortlists the funds worth owning and groups them by goal.',
+    title: 'Handpicked fund collection',
+    brief: 'From 1,000+ schemes to a short list worth owning.',
+    points: [
+      'Shortlisted by a research team with 75+ years of combined experience',
+      'Equity, debt, hybrid and gold funds in one place',
+      'Ready lists: Consistent Performers, Better than FD, Star Managers',
+    ],
   },
   {
-    icon: Landmark,
-    title: 'Direct plans via ONDC',
-    body: 'Invest in direct plans with no distributor commission. Your money goes from your bank straight to the AMC.',
+    icon: Target,
+    title: 'Goal-based & personalised baskets',
+    brief: 'Invest for a goal, not in a random fund.',
+    points: [
+      'Ready baskets: First Salary, All-Weather, Retire Rich',
+      'Each basket matched to a timeline and risk level',
+      'Personalised basket built around your own goal and risk profile',
+    ],
   },
   {
     icon: BellRing,
-    title: 'Ongoing monitoring',
-    body: 'We track every fund and its fund manager, and tell you when a fund in your basket needs attention.',
+    title: 'Ongoing portfolio health monitoring',
+    brief: 'We keep watching after you invest.',
+    points: [
+      'Every fund and its fund manager tracked continuously',
+      'Alerts when a fund in your basket falls behind or needs a switch',
+      'All your SIPs tracked in one app, powered by ONDC',
+    ],
   },
 ];
 
@@ -75,11 +98,36 @@ const BASKETS = [
 const THEMATIC_LISTS = ['Consistent Performers', 'Better than FD', 'Star Managers'];
 
 const SELECTION_CHECKS = [
-  { icon: Target, title: 'Consistency', body: 'Steady performance against its benchmark and peers across market cycles, not one lucky year.' },
-  { icon: UserCheck, title: 'Fund manager', body: 'The track record and tenure of the person actually running the money.' },
-  { icon: BadgeCheck, title: 'Portfolio quality', body: 'What the fund owns: the quality of its holdings and how concentrated they are.' },
-  { icon: Percent, title: 'Cost', body: 'Expense ratio and exit load, because every rupee in fees comes out of your returns.' },
-  { icon: Scale, title: 'Risk fit', body: 'How much the fund falls in bad markets, and whether that suits the goal it is picked for.' },
+  {
+    icon: LineChart,
+    title: 'Consistency',
+    metric: '3Y & 5Y rolling returns',
+    body: 'Compared with its benchmark and category average over many periods, so one lucky year doesn’t count.',
+  },
+  {
+    icon: UserCheck,
+    title: 'Fund manager',
+    metric: 'Tenure & track record',
+    body: 'How long the manager has run this fund, and how their funds held up through past market falls.',
+  },
+  {
+    icon: BadgeCheck,
+    title: 'Portfolio quality',
+    metric: 'Holdings & concentration',
+    body: 'What the fund actually owns, how much sits in its top 10 stocks, and whether it sticks to its stated style.',
+  },
+  {
+    icon: Percent,
+    title: 'Cost',
+    metric: 'Expense ratio & exit load',
+    body: 'Checked against similar funds. A 1% yearly cost gap can add up to lakhs over a 20-year SIP.',
+  },
+  {
+    icon: Scale,
+    title: 'Risk fit',
+    metric: 'Falls & volatility',
+    body: 'How far the fund fell in bad markets and how bumpy the ride was, matched to the basket’s goal.',
+  },
 ];
 
 const STEPS = [
@@ -88,18 +136,10 @@ const STEPS = [
   { title: 'Start your SIP', body: 'Set up UPI Autopay or net banking. Invest monthly and track every fund in the app.' },
 ];
 
-const DIRECT_VS_REGULAR = [
-  { feature: 'Distributor commission', direct: 'None', regular: 'Paid out of your returns every year' },
-  { feature: 'Expense ratio', direct: 'Lower', regular: 'Higher, as it includes the commission' },
-  { feature: 'Returns you keep', direct: 'More of your money stays invested', regular: 'Lower by the extra cost each year' },
-  { feature: 'Fund selection', direct: 'Researched baskets for your goal', regular: 'Often whatever the seller pushes' },
-  { feature: 'Monitoring', direct: 'Alerts when a fund needs attention', regular: 'Usually none after you invest' },
-];
-
 const FAQS = [
   {
     q: 'Does it cost anything to invest through MyAdvisorAlpha?',
-    a: 'No. Browsing and investing in our mutual fund baskets is free. You pay only the fund’s own expense ratio, which is lower in direct plans.',
+    a: 'No. Browsing our baskets and getting fund recommendations is free. You pay only the fund’s own charges (its expense ratio), which are shown before you invest.',
   },
   {
     q: 'What is the minimum SIP amount?',
@@ -209,6 +249,14 @@ export default function MutualFundsPage() {
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
   const [prefillPhone, setPrefillPhone] = useState<string | undefined>(undefined);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [assetIndex, setAssetIndex] = useState(0);
+
+  // Rotating asset word in the headline
+  useEffect(() => {
+    if (reduceMotion) return;
+    const interval = setInterval(() => setAssetIndex((prev) => (prev + 1) % HERO_ASSETS.length), 2200);
+    return () => clearInterval(interval);
+  }, [reduceMotion]);
 
   // SIP calculator
   const [monthly, setMonthly] = useState(5000);
@@ -233,26 +281,48 @@ export default function MutualFundsPage() {
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Mutual Funds</span>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Grow your money
-              <br />
-              with <span className="text-[#F5BA31]">handpicked funds</span>
+              <span className="sr-only">Invest in equity, debt and gold with mutual funds</span>
+              <span aria-hidden="true">
+                <span className="flex items-end gap-x-3">
+                  <span>Invest in</span>
+                  <span className="relative block overflow-hidden text-[#F5BA31] h-[1.2em]">
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={HERO_ASSETS[assetIndex]}
+                        initial={{ y: 32, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -32, opacity: 0 }}
+                        transition={{ type: 'spring', stiffness: 320, damping: 26, opacity: { duration: 0.2 } }}
+                        className="inline-block"
+                      >
+                        {HERO_ASSETS[assetIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                </span>
+                <span className="block mt-1">with mutual funds</span>
+              </span>
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl">
-              Goal-based baskets of <span className="text-white font-semibold">direct mutual funds</span>, chosen by a research team led by Pankaj Murarka, former CIO of Axis Mutual Fund.
-            </p>
+
+            {/* Dividers trail each item so a wrapped line never starts with one */}
+            <ul className="mt-5 max-w-xl flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm sm:text-base text-white/75 leading-relaxed">
+              {HERO_POINTS.map((point, i) => (
+                <li key={point} className="flex items-center gap-3 whitespace-nowrap">
+                  <span>{point}</span>
+                  {i < HERO_POINTS.length - 1 && <span aria-hidden="true" className="h-4 w-px bg-[#F5BA31]/50" />}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-8">
-              <PhoneCapture
-                label={<>Invest in <span className="text-[#F5BA31]">direct</span> mutual funds</>}
-                onSubmit={openLeadModal}
-              />
+              <PhoneCapture label="Start investing in mutual funds" onSubmit={openLeadModal} />
             </div>
 
             {/* Trust row */}
             <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
               {[
                 { value: 'AMFI', label: 'Registered MFD · ARN-350887' },
-                { value: 'ONDC', label: 'Money goes straight to the AMC' },
+                { value: 'ONDC', label: 'Powered by ONDC' },
                 { value: '₹500', label: 'Start a SIP from' },
               ].map((item, i) => (
                 <div key={item.value} className={i > 0 ? 'pl-4 border-l border-[#F5BA31]/40' : ''}>
@@ -267,14 +337,14 @@ export default function MutualFundsPage() {
             <div className="w-full max-w-[480px] rounded-[28px] bg-[#0B1528] border border-white/10 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
               <div className="flex items-center justify-between mb-5">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">Your SIP</div>
-                  <div className="text-lg font-bold text-white mt-0.5">Small amounts, every month</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">Start SIP</div>
+                  <div className="text-lg font-bold text-white mt-0.5">Small amounts can create big wealth</div>
                 </div>
                 <span className="text-[10px] font-semibold text-white/50 border border-white/15 rounded-full px-2 py-0.5">Illustrative</span>
               </div>
               <SipChart still={reduceMotion} />
               <ul className="mt-6 grid grid-cols-3 gap-3 text-center">
-                {['Direct plans', 'UPI Autopay', 'Held in your name'].map((point) => (
+                {['From ₹500', 'UPI Autopay', 'Units in your name'].map((point) => (
                   <li key={point} className="text-[11px] sm:text-xs font-semibold text-white/80 bg-white/5 border border-white/10 rounded-lg py-2 px-1">
                     {point}
                   </li>
@@ -294,13 +364,21 @@ export default function MutualFundsPage() {
             subtitle="Skip hours of research. Invest in baskets our research team has already built."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {FEATURES.map(({ icon: Icon, title, body }) => (
+            {FEATURES.map(({ icon: Icon, title, brief, points }) => (
               <div key={title} className="rounded-2xl border border-neutral-200 p-6 lg:p-8 hover:border-[#164198]/30 hover:shadow-lg transition-all">
                 <div className="w-12 h-12 rounded-xl bg-[#164198]/10 text-[#164198] flex items-center justify-center">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-extrabold text-[#081026]">{title}</h3>
-                <p className="mt-2 text-sm sm:text-base text-neutral-600 leading-relaxed">{body}</p>
+                <p className="mt-1.5 text-base font-semibold text-[#C99512]">{brief}</p>
+                <ul className="mt-4 space-y-2.5">
+                  {points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5 text-sm text-neutral-600 leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-[#164198] shrink-0 mt-0.5" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -377,16 +455,21 @@ export default function MutualFundsPage() {
             subtitle="A fund makes it into a basket only after it clears five checks."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {SELECTION_CHECKS.map(({ icon: Icon, title, body }, i) => (
+            {SELECTION_CHECKS.map(({ icon: Icon, title, metric, body }, i) => (
               <div key={title} className="rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5">
                 <div className="flex items-center justify-between">
                   <div className="w-10 h-10 rounded-lg bg-white text-[#164198] border border-[#164198]/15 flex items-center justify-center">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-2xl font-black text-[#164198]/15">0{i + 1}</span>
+                  <span className="min-w-9 h-9 px-2 rounded-full bg-[#164198] text-white text-sm font-extrabold flex items-center justify-center">
+                    0{i + 1}
+                  </span>
                 </div>
                 <h3 className="mt-4 text-base font-extrabold text-[#081026]">{title}</h3>
-                <p className="mt-1.5 text-sm text-neutral-600 leading-relaxed">{body}</p>
+                <p className="mt-2 inline-block text-xs font-bold text-[#8A6D10] bg-[#F5BA31]/20 border border-[#F5BA31]/40 rounded-md px-2 py-1">
+                  {metric}
+                </p>
+                <p className="mt-2.5 text-sm text-neutral-600 leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
@@ -424,49 +507,8 @@ export default function MutualFundsPage() {
         </div>
       </section>
 
-      {/* 6. Direct vs regular plans */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
-          <SectionHeading
-            eyebrow="Direct vs regular"
-            title="Why direct plans leave you with more"
-            subtitle="The same fund comes in two versions. The difference is who gets paid."
-          />
-          <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
-            <table className="w-full text-left text-sm">
-              <thead>
-                <tr className="border-b border-neutral-200">
-                  <th scope="col" className="p-3 sm:p-5 text-xs font-bold uppercase tracking-wider text-neutral-500 w-[30%]">Feature</th>
-                  <th scope="col" className="p-3 sm:p-5 bg-[#F5BA31] text-[#081026] text-sm sm:text-base font-extrabold">Direct plans with us</th>
-                  <th scope="col" className="p-3 sm:p-5 text-sm sm:text-base font-bold text-neutral-800">Regular plans</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-200">
-                {DIRECT_VS_REGULAR.map((row) => (
-                  <tr key={row.feature}>
-                    <th scope="row" className="p-3 sm:p-5 font-semibold text-[#081026]">{row.feature}</th>
-                    <td className="p-3 sm:p-5 bg-[#FFF6DC] font-semibold text-[#081026]">
-                      <span className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        {row.direct}
-                      </span>
-                    </td>
-                    <td className="p-3 sm:p-5 text-neutral-700">
-                      <span className="flex items-start gap-2">
-                        <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                        {row.regular}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. SIP calculator */}
-      <section id="sip-calculator" className="bg-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      {/* 6. SIP calculator */}
+      <section id="sip-calculator" className="bg-[#081026] border-t border-white/10 py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             dark
@@ -529,7 +571,7 @@ export default function MutualFundsPage() {
         </div>
       </section>
 
-      {/* 8. FAQs */}
+      {/* 7. FAQs */}
       <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <SectionHeading eyebrow="Got questions?" title="Mutual fund FAQs" />
@@ -555,7 +597,7 @@ export default function MutualFundsPage() {
         </div>
       </section>
 
-      {/* 9. Closing band with phone number box */}
+      {/* 8. Closing band with phone number box */}
       <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-16 lg:py-20 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>

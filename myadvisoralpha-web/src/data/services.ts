@@ -132,7 +132,7 @@ export const CANONICAL_SERVICES: ServiceCategory[] = [
         badge: '16.12% 3Y',
         features: [
           'Balanced mix of large-cap stability and mid-cap alpha',
-          'Zero commission direct plans maximizing compounding growth',
+          'Handpicked funds built for long-term compounding',
           'Minimum SIP starts at ₹1,000/month',
         ],
         ctaText: 'Invest in Basket',

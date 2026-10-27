@@ -98,10 +98,20 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </h1>
 
               {/* Sub-Headline / Value Proposition */}
-              <p className="mt-5 text-base sm:text-lg text-white/75 max-w-xl font-normal leading-relaxed">
-                Curated by an experienced research team led by{" "}
-                <span className="text-white font-medium">{BRAND_INFO.founder.name}</span>.
-              </p>
+              {/* Dividers trail each item so a wrapped line never starts with one */}
+              <ul className="mt-5 max-w-xl flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm sm:text-base text-white/75 font-normal leading-relaxed">
+                {[
+                  <>Research led by <span className="text-white font-medium">{BRAND_INFO.founder.name}</span></>,
+                  "Former CIO, Axis AMC",
+                  "30+ years’ investing experience",
+                  "$5 billion managed",
+                ].map((item, i, all) => (
+                  <li key={i} className="flex items-center gap-3 whitespace-nowrap">
+                    <span>{item}</span>
+                    {i < all.length - 1 && <span aria-hidden="true" className="h-4 w-px bg-[#F5BA31]/50" />}
+                  </li>
+                ))}
+              </ul>
 
               {/* Free Lead Capture Form matching Artifact */}
               <div className="mt-8 w-full max-w-md">
@@ -163,28 +173,24 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                       <Link href="/legal/privacy-policy" className="text-white underline hover:text-[#F5BA31]">
                         Privacy Policy
                       </Link>
-                      , and allow MyAdvisorAlpha to contact me by call, SMS or WhatsApp, even if I&apos;m on DND.
                     </span>
                   </label>
                 </form>
               </div>
 
               {/* Stats Row with Gold Dividers matching Artifact */}
-              <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-10 pt-8 border-t border-white/10 text-left">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">1 lakh+</div>
-                  <div className="text-xs text-white/60 font-medium mt-0.5">investors</div>
-                </div>
-                <div className="h-8 w-px bg-[#F5BA31]/40 hidden sm:block" />
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">₹2,000 Cr</div>
-                  <div className="text-xs text-white/60 font-medium mt-0.5">assets guided</div>
-                </div>
-                <div className="h-8 w-px bg-[#F5BA31]/40 hidden sm:block" />
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">75+ years</div>
-                  <div className="text-xs text-white/60 font-medium mt-0.5">combined research experience</div>
-                </div>
+              <div className="grid grid-cols-2 gap-y-5 max-w-md mt-10 pt-8 border-t border-white/10 text-left">
+                {[
+                  { value: "1 lakh+", label: "investors" },
+                  { value: "₹2,000 Cr", label: "assets guided" },
+                  { value: "SEBI Registered", label: "Research Analyst" },
+                  { value: "AMFI Registered", label: "Mutual Fund Distributor" },
+                ].map((stat, i) => (
+                  <div key={stat.value} className={i % 2 === 1 ? "pl-5 sm:pl-6 border-l border-[#F5BA31]/40" : "pr-4"}>
+                    <div className="text-xl sm:text-2xl font-extrabold text-white tracking-tight whitespace-nowrap">{stat.value}</div>
+                    <div className="text-xs text-white/60 font-medium mt-0.5">{stat.label}</div>
+                  </div>
+                ))}
               </div>
 
             </div>

@@ -49,7 +49,7 @@ export default function HomePage() {
       {/* 3. "Stop Guessing. Start Growing." Comparison Matrix */}
       <ComparisonGrid onOpenConsultation={() => handleOpenConsultation()} />
 
-      {/* 4. 4.9 Star Verified Investor Testimonials */}
+      {/* 4. Verified Investor Testimonials */}
       <Testimonials onOpenConsultation={() => handleOpenConsultation()} />
 
       {/* 5. Expandable FAQ Accordion */}

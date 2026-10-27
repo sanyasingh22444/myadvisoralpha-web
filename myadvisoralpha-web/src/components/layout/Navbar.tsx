@@ -7,7 +7,8 @@ import {
   Menu,
   TrendingUp,
   Briefcase,
-  Layers
+  Layers,
+  Headset
 } from "lucide-react";
 import MobileNav from "./MobileNav";
 
@@ -248,7 +249,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               {/* 2. Mutual Funds Link */}
               <Link
                 href="/#mutual-funds"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
+                className="whitespace-nowrap px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
               >
                 Mutual Funds
               </Link>
@@ -281,6 +282,17 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               >
                 <span>Log in</span>
               </a>
+
+              {/* Talk to expert: opens the advisory consultation form. Hidden where the desktop
+                  links leave no room (lg) and on phones (the drawer has Contact Desk) */}
+              <button
+                type="button"
+                onClick={handleCtaClick}
+                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-xs lg:text-sm font-semibold text-[#F5BA31] hover:text-[#081026] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#F5BA31]/60 hover:bg-[#F5BA31] transition-all active:scale-95"
+              >
+                <Headset className="w-4 h-4" />
+                <span>Talk to expert</span>
+              </button>
 
               {/* "Get 2 free ideas" - Solid Warm Gold Pill/Button from Artifact */}
               <button

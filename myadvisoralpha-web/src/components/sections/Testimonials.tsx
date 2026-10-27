@@ -65,7 +65,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
             Feedback from investors who use MyAdvisorAlpha for stock ideas, portfolios and mutual funds.
           </p>
 
-          {/* AdvisorAlpha 4.9 Rating Proof Pill */}
+          {/* AdvisorAlpha Rating Proof Pill */}
           <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-[#0B1528] border border-white/10 shadow-lg">
             
             {/* Stars Cluster */}

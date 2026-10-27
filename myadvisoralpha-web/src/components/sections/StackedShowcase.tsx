@@ -13,6 +13,7 @@ interface ShowcaseCardData {
   title: string;
   points: string[];
   price?: string;
+  quote?: { text: string; by: string };
   ctaLabel: string;
   ctaUrl: string;
   isExternal: boolean;
@@ -33,7 +34,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Every closed idea published, including losses',
     ],
     price: '₹999 / month',
-    ctaLabel: 'Subscribe for ₹999/mo',
+    ctaLabel: 'Explore Single Stocks',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe',
     isExternal: true,
     visual: { src: '/assets/app/single-stocks.jpg', alt: 'MyAdvisorAlpha app showing the Single Stocks screen', bg: '#F3F7FE' },
@@ -47,7 +48,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Margin, risk & reward per lot shown upfront',
       'Live and past trades in one place',
     ],
-    ctaLabel: 'View in the app',
+    ctaLabel: 'Explore Futures',
     ctaUrl: WEB_APP_URL,
     isExternal: true,
     visual: { src: '/assets/app/futures.jpg', alt: 'MyAdvisorAlpha app showing a live Nifty futures trade', bg: '#F3F7FE' },
@@ -61,7 +62,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Basket target & stop-loss set upfront',
       'Exit alerts the moment a stop-loss is hit',
     ],
-    ctaLabel: 'View in the app',
+    ctaLabel: 'Explore MTF Baskets',
     ctaUrl: WEB_APP_URL,
     isExternal: true,
     visual: { src: '/assets/app/mtf-baskets.jpg', alt: 'MyAdvisorAlpha app showing an MTF basket', bg: '#F3F7FE' },
@@ -75,7 +76,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Matched to your risk profile',
       'Rebalancing alerts with the reason why',
     ],
-    ctaLabel: 'Explore portfolios',
+    ctaLabel: 'Explore Portfolios',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=payment&plan_id=0b6dbbe5-226a-4222-80fe-08f88532774b&plan_type=portfolio&action=subscribe',
     isExternal: true,
     visual: { src: '/assets/app/stock-portfolios.jpg', alt: 'MyAdvisorAlpha app showing the Stock Portfolios screen', bg: '#EAF1FD' },
@@ -90,7 +91,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Your money goes straight to the AMC',
     ],
     price: 'Free',
-    ctaLabel: 'Start a SIP',
+    ctaLabel: 'Explore Mutual Funds',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=mutual_funds',
     isExternal: true,
     visual: 'sip',
@@ -104,6 +105,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       '30+ years in equity research',
       'Creator of the SQGARP™ research framework',
     ],
+    quote: { text: 'I want every Indian to make money in stock market.', by: 'Pankaj Murarka, Founder & CIO' },
     ctaLabel: 'Read our story',
     ctaUrl: '/about',
     isExternal: false,
@@ -180,6 +182,15 @@ export default function StackedShowcase() {
                         </li>
                       ))}
                     </ul>
+
+                    {card.quote && (
+                      <figure className="mb-8 border-l-2 border-[#F5BA31] pl-4">
+                        <blockquote className="text-base sm:text-lg italic text-white">
+                          &ldquo;{card.quote.text}&rdquo;
+                        </blockquote>
+                        <figcaption className="mt-1 text-xs text-white/50">{card.quote.by}</figcaption>
+                      </figure>
+                    )}
 
                     <div>
                       {card.isExternal ? (

@@ -13,10 +13,10 @@ export interface Testimonial {
 }
 
 export const TESTIMONIALS_RATING_PROOF = {
-  averageRating: 4.9,
-  ratingDisplay: '4.9',
-  totalReviews: '1,000+ Verified Investors',
-  appStoreRating: '4.9 / 5.0 Rating',
+  averageRating: 4.8,
+  ratingDisplay: '4.8',
+  totalReviews: '800+ Verified Investors',
+  appStoreRating: '4.8 / 5.0 Rating',
 };
 
 export const TESTIMONIALS: Testimonial[] = [

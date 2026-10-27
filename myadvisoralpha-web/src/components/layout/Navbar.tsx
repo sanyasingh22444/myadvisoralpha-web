@@ -121,10 +121,10 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Floating white pill */}
+          {/* Floating off-white pill with a slight blue tint */}
           <nav
             aria-label="Main Navigation"
-            className="bg-white rounded-full border border-[#164198]/10 pl-4 pr-2 sm:px-6 py-2 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.35)]"
+            className="bg-[#EEF3FB] rounded-full border border-[#164198]/15 pl-4 pr-2 sm:px-6 py-2 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.35)]"
           >
             {/* Logo (from myadvisoralpha.com) */}
             <div className="flex items-center min-w-0">
@@ -174,7 +174,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="absolute top-full left-0 mt-2 w-[440px] bg-white border border-[#164198]/10 rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                    className="absolute top-full left-0 mt-2 w-[440px] bg-[#F5F8FD] border border-[#164198]/10 rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                   >
                     {ADVISORY_ITEMS.map((item) => {
                       const Icon = item.icon;

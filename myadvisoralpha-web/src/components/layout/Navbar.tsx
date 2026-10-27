@@ -233,7 +233,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               </div>
 
               {/* 2. Mutual Funds Link */}
-              <Link href="/#mutual-funds" className={navLinkClass}>
+              <Link href="/mutual-funds" className={navLinkClass}>
                 Mutual Funds
               </Link>
 

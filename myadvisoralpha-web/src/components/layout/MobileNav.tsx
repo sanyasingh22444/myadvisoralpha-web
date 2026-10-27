@@ -137,7 +137,7 @@ export default function MobileNav({
 
             {/* Mutual Funds */}
             <Link
-              href="/#mutual-funds"
+              href="/mutual-funds"
               onClick={onClose}
               className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >

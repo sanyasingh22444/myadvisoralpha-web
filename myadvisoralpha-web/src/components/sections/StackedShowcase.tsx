@@ -91,8 +91,8 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ],
     price: 'Free',
     ctaLabel: 'Explore Mutual Funds',
-    ctaUrl: 'https://link.advisoralpha.in/nav?page=mutual_funds',
-    isExternal: true,
+    ctaUrl: '/mutual-funds',
+    isExternal: false,
     visual: 'sip',
   },
   {

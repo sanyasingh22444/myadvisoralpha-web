@@ -408,7 +408,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#mutual-funds" className="hover:text-white transition-colors">
+                <Link href="/mutual-funds" className="hover:text-white transition-colors">
                   Curated Mutual Funds
                 </Link>
               </li>

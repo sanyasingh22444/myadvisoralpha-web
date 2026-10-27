@@ -17,7 +17,7 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     id: 'sebi-registration',
     feature: 'SEBI registered',
     advisorAlpha: 'Yes, RA INH000021818',
-    brokers: 'Broker licence only',
+    brokers: 'Broker licence',
     tips: 'Not registered',
   },
   {
@@ -31,14 +31,14 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     id: 'trade-plan',
     feature: 'Entry, target & stop-loss',
     advisorAlpha: 'On every call',
-    brokers: 'Vague ratings',
+    brokers: 'Unclear rating',
     tips: 'No exit plan',
   },
   {
     id: 'fees',
     feature: 'How they earn',
-    advisorAlpha: 'Flat fee, no commissions',
-    brokers: 'Per trade',
+    advisorAlpha: 'Flat fee',
+    brokers: 'Brokerage on every trade',
     tips: 'Paid promotions',
   },
   {

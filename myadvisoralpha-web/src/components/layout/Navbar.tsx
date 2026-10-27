@@ -189,18 +189,20 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                             <Icon className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
-                            <div className="text-sm font-bold text-[#164198] group-hover:text-[#C99512] transition-colors">
-                              {item.label}
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-bold text-[#164198] group-hover:text-[#C99512] transition-colors">
+                                {item.label}
+                              </span>
+                              {item.comingSoon && (
+                                <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#8A6D10] border border-[#F5BA31]/50">
+                                  Coming soon
+                                </span>
+                              )}
                             </div>
                             <div className="text-xs text-neutral-600 mt-0.5 font-normal">
                               {item.description}
                             </div>
                           </div>
-                          {item.comingSoon && (
-                            <span className="shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#8A6D10] border border-[#F5BA31]/50">
-                              Coming soon
-                            </span>
-                          )}
                         </Link>
                       );
                     })}

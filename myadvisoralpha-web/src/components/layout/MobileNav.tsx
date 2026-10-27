@@ -118,7 +118,7 @@ export default function MobileNav({
                       onClick={onClose}
                       className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
                     >
-                      <span className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-2">
                         <span className="text-xs font-semibold text-white group-hover:text-[#F5BA31] transition-colors">
                           {item.label}
                         </span>

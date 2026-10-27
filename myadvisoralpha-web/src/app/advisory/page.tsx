@@ -285,27 +285,61 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 4. SQGARP framework */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F6FC] to-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+        {/* Faint oversized wordmark behind the section */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-6 text-[22vw] lg:text-[240px] font-black tracking-tighter leading-none text-[#164198]/[0.03] whitespace-nowrap"
+        >
+          SQGARP
+        </span>
+
+        <div className="relative max-w-6xl mx-auto">
           <SectionHeading
             eyebrow="Our investment philosophy"
             title="Every idea starts with SQGARP™"
             subtitle="Sustainable Quality Growth at Reasonable Price. Every stock idea and model portfolio passes the same four tests."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {SQGARP.map((item) => (
-              <div key={item.letter} className="flex items-center gap-4 rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5">
-                {/* Fixed width so the three-letter ARP badge lines up with the single letters */}
-                <span className="w-14 h-12 shrink-0 rounded-xl bg-[#164198] text-white text-xl font-black flex items-center justify-center">
-                  {item.letter}
-                </span>
-                <div>
-                  <h3 className="text-base font-extrabold text-[#081026]">{item.title}</h3>
-                  <p className="mt-1 text-sm text-neutral-600 leading-relaxed">{item.body}</p>
-                </div>
-              </div>
+
+          {/* The acronym, spelt out by the four tests */}
+          <div className="flex justify-center items-end gap-2 sm:gap-3 mb-12 lg:mb-14" aria-hidden="true">
+            {SQGARP.map((item, i) => (
+              <React.Fragment key={item.letter}>
+                <span className="text-4xl sm:text-6xl font-black tracking-tight text-[#164198]">{item.letter}</span>
+                {i < SQGARP.length - 1 && <span className="mb-2 sm:mb-3 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#F5BA31]" />}
+              </React.Fragment>
             ))}
           </div>
+
+          <div className="relative">
+            {/* Gold line joining the four letter tiles on desktop */}
+            <div aria-hidden="true" className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-[#F5BA31]/20 via-[#F5BA31] to-[#F5BA31]/20" />
+
+            <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-12 pt-8">
+              {SQGARP.map((item, i) => (
+                <li
+                  key={item.letter}
+                  className="group relative rounded-2xl bg-white border border-[#164198]/10 shadow-[0_10px_30px_rgba(22,65,152,0.08)] px-6 pt-12 pb-7 text-center hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(22,65,152,0.16)] transition-all duration-300"
+                >
+                  {/* Letter tile sits on the card's top edge */}
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 min-w-[4rem] h-16 px-3 rounded-2xl bg-gradient-to-br from-[#1E4FB5] to-[#0E2A6B] text-[#F5BA31] text-2xl font-black flex items-center justify-center ring-4 ring-white shadow-lg group-hover:scale-105 transition-transform">
+                    {item.letter}
+                  </span>
+                  <span className="text-[11px] font-bold tracking-[0.2em] text-[#C99512]">0{i + 1}</span>
+                  <h3 className="mt-1.5 text-lg font-extrabold text-[#081026]">{item.title}</h3>
+                  <span aria-hidden="true" className="block mx-auto mt-3 w-8 h-0.5 rounded-full bg-[#F5BA31]" />
+                  <p className="mt-3 text-sm text-neutral-600 leading-relaxed">{item.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <p className="mt-12 text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#164198] bg-[#164198]/[0.06] border border-[#164198]/15 rounded-full px-4 py-2">
+              <ShieldCheck className="w-4 h-4 text-[#C99512]" />
+              Applied to every stock idea and model portfolio. No exceptions.
+            </span>
+          </p>
         </div>
       </section>
 

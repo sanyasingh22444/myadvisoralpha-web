@@ -25,27 +25,27 @@ const BRAND_BLUE = "#164198";
 // Advisory dropdown, in the order shown
 const ADVISORY_ITEMS = [
   {
-    href: "/#single-stocks",
+    href: "/advisory#single-stocks",
     label: "Single Stocks",
     description: "Stock ideas with entry, target & stop-loss",
     icon: TrendingUp,
   },
   {
-    href: "/#mtf-basket",
+    href: "/advisory#mtf-basket",
     label: "MTF Baskets",
     description: "Short-term stock baskets using margin",
     icon: Layers,
     comingSoon: true,
   },
   {
-    href: "/#futures",
+    href: "/advisory#futures",
     label: "Futures",
     description: "Futures trades with defined risk",
     icon: BarChart3,
     comingSoon: true,
   },
   {
-    href: "/#portfolios",
+    href: "/advisory#portfolios",
     label: "Portfolios",
     description: "Ready-made portfolios matched to your risk",
     icon: Briefcase,
@@ -151,7 +151,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               >
                 {/* One click jumps to the product cards; hover or focus opens the menu */}
                 <Link
-                  href="/#offerings"
+                  href="/advisory"
                   aria-expanded={advisoryOpen}
                   aria-haspopup="true"
                   onFocus={handleMouseEnter}

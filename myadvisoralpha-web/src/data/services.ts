@@ -59,7 +59,7 @@ export const CANONICAL_SERVICES: ServiceCategory[] = [
     tagline: 'SEBI-Registered Equity, Derivatives & Portfolio Advisory',
     description: 'Institutional-grade research led by Pankaj Murarka (Ex-CIO Axis AMC). High-conviction single stock picks, derivatives strategies, margin trading baskets, and full portfolio advisory.',
     ctaText: 'Explore Advisory',
-    ctaHref: '/#offerings',
+    ctaHref: '/advisory',
     subOfferings: [
       {
         id: 'futures',

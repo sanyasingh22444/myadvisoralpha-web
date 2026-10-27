@@ -107,10 +107,11 @@ export default function MobileNav({
                 <div className="pl-3 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[#F5BA31]/40 ml-3">
                   {/* Same order as the desktop Advisory menu */}
                   {[
-                    { href: "/#single-stocks", label: "Single Stocks", description: "Stock ideas with entry, target & stop-loss" },
-                    { href: "/#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin", comingSoon: true },
-                    { href: "/#futures", label: "Futures", description: "Futures trades with defined risk", comingSoon: true },
-                    { href: "/#portfolios", label: "Portfolios", description: "Ready-made portfolios matched to your risk" },
+                    { href: "/advisory", label: "All advisory products", description: "See every product on one page" },
+                    { href: "/advisory#single-stocks", label: "Single Stocks", description: "Stock ideas with entry, target & stop-loss" },
+                    { href: "/advisory#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin", comingSoon: true },
+                    { href: "/advisory#futures", label: "Futures", description: "Futures trades with defined risk", comingSoon: true },
+                    { href: "/advisory#portfolios", label: "Portfolios", description: "Ready-made portfolios matched to your risk" },
                   ].map((item) => (
                     <Link
                       key={item.href}

@@ -75,7 +75,7 @@ const TARGETS: Array<[number, string]> = [
   [170, "Target 1"],
 ];
 
-function StockChart({ still }: { still: boolean }) {
+export function StockChart({ still }: { still: boolean }) {
   const draw = still ? { duration: 0 } : { duration: 2.2, ease: EASE };
   // Each marker fades in as the line reaches it
   const marker = (at: number) =>

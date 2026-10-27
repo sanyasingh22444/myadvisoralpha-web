@@ -285,8 +285,10 @@ export default function MutualFundsPage() {
               <span aria-hidden="true">
                 <span className="block">
                   Invest in{' '}
-                  {/* Top-aligned box exactly one line tall, so the word sits on the sentence's baseline */}
-                  <span className="relative inline-block align-top overflow-hidden text-[#F5BA31] h-[1.1em]">
+                  {/* Top-aligned box one line tall, so the word sits on the sentence's baseline. The
+                      bottom padding leaves room for descenders (the y in Equity), and the matching
+                      negative margin keeps the line height unchanged */}
+                  <span className="relative inline-block align-top overflow-hidden text-[#F5BA31] h-[1.1em] box-content pb-[0.2em] -mb-[0.2em]">
                     <AnimatePresence mode="wait" initial={false}>
                       <motion.span
                         key={HERO_ASSETS[assetIndex]}

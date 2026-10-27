@@ -134,24 +134,26 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   height={58}
                   priority
                   unoptimized
-                  className="h-9 sm:h-11 w-auto"
+                  className="h-11 sm:h-14 w-auto"
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-sm font-semibold">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-base font-semibold">
               {/* 1. Advisory Dropdown Menu */}
               <div
                 className="relative"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
-                  type="button"
+                {/* One click jumps to the product cards; hover or focus opens the menu */}
+                <Link
+                  href="/#offerings"
                   aria-expanded={advisoryOpen}
                   aria-haspopup="true"
-                  onClick={() => setAdvisoryOpen(!advisoryOpen)}
+                  onFocus={handleMouseEnter}
+                  onClick={() => setAdvisoryOpen(false)}
                   className={`px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5 focus:outline-none ${
                     advisoryOpen
                       ? "bg-[#164198]/[0.08] text-[#164198]"
@@ -164,7 +166,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                       advisoryOpen ? "rotate-180 text-[#C99512]" : ""
                     }`}
                   />
-                </button>
+                </Link>
 
                 {advisoryOpen && (
                   <div
@@ -244,7 +246,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 href="https://web.advisoralpha.in/#/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-xs lg:text-sm font-semibold text-[#164198] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#164198]/30 hover:border-[#164198] hover:bg-[#164198]/[0.05] transition-all active:scale-95"
+                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-sm lg:text-base font-semibold text-[#164198] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#164198]/30 hover:border-[#164198] hover:bg-[#164198]/[0.05] transition-all active:scale-95"
               >
                 <span>Log in</span>
               </a>
@@ -254,7 +256,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-xs lg:text-sm font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
+                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
               >
                 <Headset className="w-4 h-4" />
                 <span>Talk to expert</span>
@@ -264,7 +266,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-sm lg:text-base font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
               >
                 <span className="sm:hidden">Free ideas</span>
                 <span className="hidden sm:inline">Get 2 free ideas</span>

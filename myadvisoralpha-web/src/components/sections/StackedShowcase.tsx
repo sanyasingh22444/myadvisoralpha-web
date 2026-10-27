@@ -33,7 +33,6 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Short, mid & long-term ideas',
       'Every closed idea published, including losses',
     ],
-    price: '₹999 / month',
     ctaLabel: 'Explore Single Stocks',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe',
     isExternal: true,
@@ -137,14 +136,15 @@ export default function StackedShowcase() {
       {/* Sequential Sticky Deck */}
       <div className="max-w-6xl mx-auto space-y-12 lg:space-y-16">
         {SHOWCASE_CARDS.map((card, index) => {
-          // Stacking top offsets: 120px, 140px, 160px ...
-          const topOffset = 120 + index * 20;
+          // Each stacked card sits 48px below the previous one, so the label row at the
+          // top of every card stays visible while later cards slide over it
+          const topOffset = 112 + index * 48;
 
           return (
             <div
               key={card.id}
               id={card.id}
-              className="sticky scroll-mt-28"
+              className="sticky scroll-mt-32"
               style={{ top: `${topOffset}px`, zIndex: 20 + index }}
             >
               {/* Navbar anchor for the Portfolio link */}
@@ -157,20 +157,20 @@ export default function StackedShowcase() {
               )}
 
               <div className="w-full rounded-[32px] border border-white/10 bg-[#0B1528] shadow-[0_12px_48px_rgba(0,0,0,0.85)] overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[480px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[410px]">
 
-                  {/* Copy */}
-                  <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                    <div className="flex items-center justify-between gap-3 mb-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 px-3 py-1 rounded-full border border-[#F5BA31]/20">
+                  {/* Copy, anchored to the top-left so the label shows while stacked */}
+                  <div className="px-6 sm:px-8 lg:px-12 pt-3 pb-8 lg:pb-10 flex flex-col justify-start">
+                    <div className="flex items-center justify-between gap-3 h-[34px]">
+                      <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 px-4 py-0.5 rounded-full border border-[#F5BA31]/30">
                         {card.label}
                       </span>
                       {card.price && (
-                        <span className="text-base font-extrabold text-white">{card.price}</span>
+                        <span className="text-base sm:text-lg font-extrabold text-white">{card.price}</span>
                       )}
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-6">
+                    <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] mb-6">
                       {card.title}
                     </h3>
 
@@ -209,14 +209,14 @@ export default function StackedShowcase() {
 
                   {/* Visual: app screenshot, photo or SIP chart */}
                   {card.visual === 'sip' ? (
-                    <div className="order-1 lg:order-2 bg-[#0E1A33] border-b lg:border-b-0 lg:border-l border-white/10 flex items-center justify-center p-6 sm:p-10">
+                    <div className="bg-[#0E1A33] border-t lg:border-t-0 lg:border-l border-white/10 flex items-center justify-center p-6 sm:p-10">
                       <div className="w-full max-w-[460px]">
                         <SipChart still={reduceMotion} />
                       </div>
                     </div>
                   ) : (
                     <div
-                      className="order-1 lg:order-2 relative h-[300px] sm:h-[380px] lg:h-auto"
+                      className="relative h-[300px] sm:h-[380px] lg:h-auto"
                       style={{ backgroundColor: card.visual.bg }}
                     >
                       <Image

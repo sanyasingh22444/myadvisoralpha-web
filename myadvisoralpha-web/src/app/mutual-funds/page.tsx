@@ -283,9 +283,10 @@ export default function MutualFundsPage() {
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
               <span className="sr-only">Invest in equity, debt and gold with mutual funds</span>
               <span aria-hidden="true">
-                <span className="flex items-end gap-x-3">
-                  <span>Invest in</span>
-                  <span className="relative block overflow-hidden text-[#F5BA31] h-[1.2em]">
+                <span className="block">
+                  Invest in{' '}
+                  {/* Top-aligned box exactly one line tall, so the word sits on the sentence's baseline */}
+                  <span className="relative inline-block align-top overflow-hidden text-[#F5BA31] h-[1.1em]">
                     <AnimatePresence mode="wait" initial={false}>
                       <motion.span
                         key={HERO_ASSETS[assetIndex]}
@@ -293,7 +294,7 @@ export default function MutualFundsPage() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -32, opacity: 0 }}
                         transition={{ type: 'spring', stiffness: 320, damping: 26, opacity: { duration: 0.2 } }}
-                        className="inline-block"
+                        className="block"
                       >
                         {HERO_ASSETS[assetIndex]}
                       </motion.span>

@@ -130,27 +130,27 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
 
         {/* Comparison Table */}
         <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
-          <table className="w-full text-left text-sm">
+          <table className="w-full text-left text-xs sm:text-sm [overflow-wrap:anywhere] sm:[overflow-wrap:normal]">
             <thead>
               <tr className="border-b border-neutral-200">
-                <th scope="col" className="p-3 sm:p-5 text-xs font-bold uppercase tracking-wider text-neutral-500 w-[34%] sm:w-[28%]">
+                <th scope="col" className="p-2 min-[360px]:p-2.5 sm:p-5 text-xs font-bold uppercase tracking-wider text-neutral-500 w-[30%] sm:w-[28%]">
                   Feature
                 </th>
-                <th scope="col" className="p-3 sm:p-5 bg-[#F5BA31] text-[#081026]">
+                <th scope="col" className="p-2 min-[360px]:p-2.5 sm:p-5 bg-[#F5BA31] text-[#081026]">
                   <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wide mb-1">
                     <ShieldCheck className="w-3 h-3" /> Recommended
                   </span>
-                  <span className="block text-sm sm:text-lg font-extrabold">MyAdvisorAlpha</span>
+                  <span className="block text-xs min-[360px]:text-[13px] sm:text-lg font-extrabold">MyAdvisorAlpha</span>
                 </th>
                 <th
                   scope="col"
-                  className={`p-3 sm:p-5 text-sm sm:text-base font-bold text-neutral-800 ${mobileTab === 'brokers' ? '' : 'hidden sm:table-cell'}`}
+                  className={`p-2 min-[360px]:p-2.5 sm:p-5 text-[13px] sm:text-base font-bold text-neutral-800 ${mobileTab === 'brokers' ? '' : 'hidden sm:table-cell'}`}
                 >
                   Brokers
                 </th>
                 <th
                   scope="col"
-                  className={`p-3 sm:p-5 text-sm sm:text-base font-bold text-neutral-800 ${mobileTab === 'tips' ? '' : 'hidden sm:table-cell'}`}
+                  className={`p-2 min-[360px]:p-2.5 sm:p-5 text-[13px] sm:text-base font-bold text-neutral-800 ${mobileTab === 'tips' ? '' : 'hidden sm:table-cell'}`}
                 >
                   Unverified Tips
                 </th>
@@ -159,23 +159,23 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
             <tbody className="divide-y divide-neutral-200">
               {COMPARISON_ROWS.map((row) => (
                 <tr key={row.id}>
-                  <th scope="row" className="p-3 sm:p-5 font-semibold text-[#081026]">
+                  <th scope="row" className="p-2 min-[360px]:p-2.5 sm:p-5 font-semibold text-[#081026]">
                     {row.feature}
                   </th>
-                  <td className="p-3 sm:p-5 bg-[#FFF6DC] font-semibold text-[#081026]">
-                    <span className="flex items-start gap-2">
+                  <td className="p-2 min-[360px]:p-2.5 sm:p-5 bg-[#FFF6DC] font-semibold text-[#081026]">
+                    <span className="flex items-start gap-1.5 sm:gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       {row.advisorAlpha}
                     </span>
                   </td>
-                  <td className={`p-3 sm:p-5 text-neutral-700 ${mobileTab === 'brokers' ? '' : 'hidden sm:table-cell'}`}>
-                    <span className="flex items-start gap-2">
+                  <td className={`p-2 min-[360px]:p-2.5 sm:p-5 text-neutral-700 ${mobileTab === 'brokers' ? '' : 'hidden sm:table-cell'}`}>
+                    <span className="flex items-start gap-1.5 sm:gap-2">
                       <MinusCircle className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
                       {row.brokers}
                     </span>
                   </td>
-                  <td className={`p-3 sm:p-5 text-neutral-700 ${mobileTab === 'tips' ? '' : 'hidden sm:table-cell'}`}>
-                    <span className="flex items-start gap-2">
+                  <td className={`p-2 min-[360px]:p-2.5 sm:p-5 text-neutral-700 ${mobileTab === 'tips' ? '' : 'hidden sm:table-cell'}`}>
+                    <span className="flex items-start gap-1.5 sm:gap-2">
                       <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                       {row.tips}
                     </span>

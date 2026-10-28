@@ -138,7 +138,7 @@ export default function ContactPage() {
   return (
     <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10 text-center">
@@ -352,8 +352,8 @@ export default function ContactPage() {
                       )}
                     </div>
 
-                    {/* 2-Column: Phone & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* 2-Column: Phone & Email, side by side only where the phone placeholder fits */}
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                       {/* Phone with +91 Prefix */}
                       <div>
                         <label className="block text-xs font-semibold text-neutral-300 mb-1.5">
@@ -377,7 +377,7 @@ export default function ContactPage() {
                               if (errors.phone) setErrors({ ...errors, phone: undefined });
                             }}
                             placeholder="Enter your 10 digit mobile number"
-                            className="w-full bg-transparent px-2.5 py-3 text-sm text-white placeholder-neutral-600 outline-none"
+                            className="w-full bg-transparent px-2.5 py-3 text-sm text-white placeholder-neutral-600 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm outline-none"
                           />
                         </div>
                         {errors.phone && (
@@ -556,7 +556,7 @@ export default function ContactPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-white">75% Historical Strike Rate:</strong> Disciplined multi-target profit
+                      <strong className="text-white">76.6% Historical Strike Rate:</strong> Disciplined multi-target profit
                       booking and pre-defined stop-losses.
                     </div>
                   </li>

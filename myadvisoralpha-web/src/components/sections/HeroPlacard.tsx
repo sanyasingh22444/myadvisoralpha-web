@@ -331,7 +331,7 @@ export default function HeroPlacard() {
               role="tab"
               aria-selected={active}
               onClick={() => handleTabClick(i)}
-              className={`relative flex-1 min-h-[42px] px-1.5 rounded-[9px] overflow-hidden text-center text-[12.5px] sm:text-sm font-bold transition-colors ${
+              className={`relative flex-1 min-h-[42px] px-1.5 rounded-[9px] overflow-hidden text-center leading-tight text-[11px] min-[400px]:text-[12.5px] sm:text-sm font-bold transition-colors ${
                 active ? "text-white" : "hover:bg-white/[0.04]"
               }`}
               style={active ? undefined : { color: C.onNavy2 }}

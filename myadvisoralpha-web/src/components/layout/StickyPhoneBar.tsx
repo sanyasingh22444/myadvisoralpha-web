@@ -56,7 +56,7 @@ export default function StickyPhoneBar() {
             transition={{ type: 'spring', stiffness: 300, damping: 32 }}
             className="fixed inset-x-0 bottom-0 z-40 bg-[#DCE7F8] border-t border-[#164198]/25 shadow-[0_-6px_24px_rgba(8,16,38,0.3)]"
           >
-            <div className="relative flex flex-col md:flex-row items-center justify-center gap-1 md:gap-5 pl-3 pr-10 py-1.5">
+            <div className="relative flex flex-col md:flex-row items-center justify-center gap-1 md:gap-5 pl-3 pr-9 min-[360px]:pr-10 py-1.5">
               <p className="hidden md:block text-sm lg:text-base text-[#081026] leading-none whitespace-nowrap">
                 Trusted by 1 Lakh+ Investors
                 <span className="mx-2 text-[#081026]/40">|</span>
@@ -84,13 +84,14 @@ export default function StickyPhoneBar() {
                     maxLength={10}
                     aria-label="10-digit mobile number"
                     aria-invalid={error ? true : undefined}
-                    className="bg-transparent text-[#081026] placeholder-neutral-400 placeholder:text-[11px] sm:placeholder:text-sm text-xs sm:text-sm flex-1 md:w-64 min-w-0 px-1.5 sm:px-2 py-1 outline-none font-medium"
+                    className="bg-transparent text-[#081026] placeholder-neutral-400 placeholder:text-[10px] min-[400px]:placeholder:text-[11px] sm:placeholder:text-xs lg:placeholder:text-sm text-xs sm:text-sm flex-1 md:w-[17rem] min-w-0 px-1.5 sm:px-2 py-1 outline-none font-medium"
                   />
                   <button
                     type="submit"
                     className="shrink-0 inline-flex items-center gap-1 rounded-md bg-[#164198] hover:bg-[#12357d] active:scale-95 text-white text-xs font-bold uppercase tracking-wide px-2.5 sm:px-3.5 py-1.5 transition-all"
                   >
-                    Start now <ArrowRight className="hidden sm:block w-3.5 h-3.5" />
+                    <span className="min-[360px]:hidden">Start</span>
+                    <span className="hidden min-[360px]:inline">Start now</span> <ArrowRight className="hidden sm:block w-3.5 h-3.5" />
                   </button>
                 </div>
                 {error && (

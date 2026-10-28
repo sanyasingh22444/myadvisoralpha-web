@@ -96,10 +96,10 @@ export const BRAND_INFO: BrandInfo = {
     { name: 'Rishabh Solanki', role: 'Head of Customer Care', email: 'support@renaissanceadvisors.in' },
   ],
   metrics: {
-    strikeRate: '75%',
+    strikeRate: '76.6%',
     activeInvestors: '1 Lakh+',
     aumGuided: '₹2,000 Cr+',
-    researchExperience: '75+ Years',
+    researchExperience: '30+ Years',
   },
   contact: {
     registeredAddress: 'Office No. 508, 5th Floor, B Wing, Mittal Commercial Premises CHS Ltd, Off M.V. Road, Near Mittal Estate, Marol, Andheri (East), Mumbai - 400059, Maharashtra, India',

@@ -97,7 +97,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g., SEBI, Demat, refund, minimum capital)..."
+              placeholder="Search questions"
               className="w-full pl-11 pr-10 py-3 bg-[#0B1528] border border-white/15 focus:border-[#F5BA31] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-lg shadow-black/40"
             />
             {searchQuery && (

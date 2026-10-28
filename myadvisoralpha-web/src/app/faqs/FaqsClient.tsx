@@ -35,7 +35,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'What products does MyAdvisorAlpha offer?',
     answer:
-      'MyAdvisorAlpha offers three core regulated products: (1) Single Stock Picks — high-conviction, research-backed ideas from a research team with 75+ years of combined market experience, featuring explicit entry range, strict stop-loss, and up to 2 profit targets (T1, T2) with derivatives & MTF support. (2) Equity Model Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
+      'MyAdvisorAlpha offers three core regulated products: (1) Single Stock Picks — high-conviction, research-backed ideas from a research team led by Pankaj Murarka, with 30+ years of market experience, featuring explicit entry range, strict stop-loss, and up to 2 profit targets (T1, T2) with derivatives & MTF support. (2) Equity Model Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
   },
   {
     id: 'faq-2',
@@ -123,7 +123,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Research Methodology',
     question: 'What is your historical strike rate and risk management policy?',
     answer:
-      'MyAdvisorAlpha maintains a verified 75% historical win rate on closed single stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
+      'MyAdvisorAlpha maintains a verified 76.6% historical win rate on closed single stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
   },
 ];
 
@@ -163,7 +163,7 @@ export default function FaqsClient() {
   return (
     <div className="flex-1 bg-[#081026] text-white">
       {/* Hero Section */}
-      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-white/10 overflow-hidden">
+      <section className="relative pt-8 pb-16 lg:pt-8 lg:pb-20 border-b border-white/10 overflow-hidden">
         {/* Ambient Glows */}
         <div 
           aria-hidden="true" 
@@ -204,7 +204,7 @@ export default function FaqsClient() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g., SEBI, Demat, SQGARP, free plan)..."
+              placeholder="Search questions"
               className="w-full pl-11 pr-10 py-3.5 bg-[#0B1528] border border-white/20 focus:border-[#F5BA31] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-xl"
             />
             {searchQuery && (

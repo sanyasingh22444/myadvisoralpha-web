@@ -32,7 +32,7 @@ export function PhoneCapture({ label, onSubmit }: { label: React.ReactNode; onSu
     <form onSubmit={handleSubmit} className="w-full max-w-md">
       <p className="text-sm font-semibold text-white/90 mb-2.5">{label}</p>
       <div className="flex items-center bg-[#0B1528] border border-white/25 focus-within:border-[#F5BA31] rounded-xl p-1.5 transition-all shadow-xl">
-        <span className="px-3 py-2 text-sm font-bold text-white/90 border-r border-white/15 select-none">+91</span>
+        <span className="px-2 sm:px-3 py-2 text-sm font-bold text-white/90 border-r border-white/15 select-none">+91</span>
         <input
           type="tel"
           inputMode="numeric"
@@ -44,12 +44,12 @@ export function PhoneCapture({ label, onSubmit }: { label: React.ReactNode; onSu
           placeholder="Enter your 10 digit mobile number"
           maxLength={10}
           aria-label="10-digit mobile number"
-          className="bg-transparent text-white placeholder-white/40 placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 min-w-0 px-3 py-2 outline-none font-medium"
+          className="bg-transparent text-white placeholder-white/40 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 min-w-0 px-2 sm:px-3 py-2 outline-none font-medium"
         />
         <button
           type="submit"
           aria-label="Submit mobile number"
-          className="shrink-0 w-11 h-11 rounded-lg bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] flex items-center justify-center transition-all shadow-md"
+          className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] flex items-center justify-center transition-all shadow-md"
         >
           <ArrowRight className="w-5 h-5 stroke-[2.5]" />
         </button>

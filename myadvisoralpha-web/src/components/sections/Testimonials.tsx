@@ -99,13 +99,13 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
         </div>
 
         {/* Category Tabs */}
-        <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {(['All', 'Stocks', 'Portfolios', 'Mutual Funds'] as const).map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
+              className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-[#F5BA31] text-[#081026] font-bold shadow-md shadow-black/40'
                   : 'bg-[#0B1528] text-white/70 hover:text-white border border-white/10 hover:border-white/20'

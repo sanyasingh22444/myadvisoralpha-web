@@ -72,7 +72,7 @@ export default function BlogsPage() {
   return (
     <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
@@ -102,7 +102,7 @@ export default function BlogsPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 11 real research articles by ticker, sector, or keyword (e.g. Power, OMC, Tata Steel, Small Cap)..."
+                placeholder="Search articles"
                 className="w-full bg-[#0B1528] border border-white/10 focus:border-[#F5BA31] rounded-full py-3.5 pl-12 pr-12 text-sm text-white placeholder-neutral-500 outline-none transition-colors shadow-lg"
               />
               {searchQuery && (

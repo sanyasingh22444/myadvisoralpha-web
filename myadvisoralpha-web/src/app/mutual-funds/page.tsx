@@ -182,13 +182,13 @@ export default function MutualFundsPage() {
   return (
     <div className="flex-1 flex flex-col w-full bg-[#081026]">
       {/* 1. Hero with phone number box */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-8 sm:pt-10 lg:pt-6 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Mutual Funds</span>
             {/* Sized so the longest word, International Stocks, fits on one line at every width */}
-            <h1 className="mt-4 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
+            <h1 className="mt-3 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
               <span className="sr-only">Invest in equity, debt, gold, silver and international stocks with mutual funds</span>
               <span aria-hidden="true">
                 <span className="block">Invest in</span>
@@ -209,12 +209,12 @@ export default function MutualFundsPage() {
               ))}
             </ul>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <PhoneCapture label="Start investing in mutual funds" onSubmit={openLeadModal} />
             </div>
 
             {/* Trust row */}
-            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
+            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
               {[
                 { value: 'AMFI', label: 'Registered MFD · ARN-350887' },
                 { value: 'ONDC', label: 'Secured transactions, powered by ONDC' },

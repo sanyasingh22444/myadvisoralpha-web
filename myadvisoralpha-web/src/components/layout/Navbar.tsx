@@ -275,10 +275,9 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-sm lg:text-base font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-[13px] sm:text-sm lg:text-base font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
               >
-                <span className="sm:hidden">Free ideas</span>
-                <span className="hidden sm:inline">Get 2 free ideas</span>
+                Get 2 free ideas
               </button>
 
               {/* Mobile Hamburger Toggle */}

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useReducedMotion } from 'framer-motion';
@@ -26,7 +26,7 @@ const WEB_APP_URL = 'https://web.advisoralpha.in/#/login';
 const SHOWCASE_CARDS: ShowcaseCardData[] = [
   {
     id: 'single-stocks',
-    label: 'Single Stocks',
+    label: 'Stocks',
     title: 'Stock ideas with a clear plan',
     points: [
       'Entry, target & stop-loss on every idea',
@@ -36,7 +36,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ctaLabel: 'Explore Single Stocks',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe',
     isExternal: true,
-    visual: { src: '/assets/app/single-stocks.jpg', alt: 'MyAdvisorAlpha app showing the Single Stocks screen', bg: '#F3F7FE' },
+    visual: { src: '/assets/app/single-stocks.webp', alt: 'MyAdvisorAlpha app showing the Single Stocks screen', bg: '#F3F7FE' },
   },
   {
     id: 'futures',
@@ -50,7 +50,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ctaLabel: 'Explore Futures',
     ctaUrl: WEB_APP_URL,
     isExternal: true,
-    visual: { src: '/assets/app/futures.jpg', alt: 'MyAdvisorAlpha app showing a live Nifty futures trade', bg: '#F3F7FE' },
+    visual: { src: '/assets/app/futures.webp', alt: 'MyAdvisorAlpha app showing a live Reliance futures trade', bg: '#F3F7FE' },
   },
   {
     id: 'mtf-basket',
@@ -64,11 +64,11 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ctaLabel: 'Explore MTF Baskets',
     ctaUrl: WEB_APP_URL,
     isExternal: true,
-    visual: { src: '/assets/app/mtf-baskets.jpg', alt: 'MyAdvisorAlpha app showing an MTF basket', bg: '#F3F7FE' },
+    visual: { src: '/assets/app/mtf-baskets.webp', alt: 'MyAdvisorAlpha app showing an MTF basket', bg: '#F3F7FE' },
   },
   {
     id: 'model-portfolios',
-    label: 'Model Portfolios',
+    label: 'Portfolios',
     title: 'Ready-made stock portfolios',
     points: [
       'From beginner to large-cap portfolios',
@@ -115,8 +115,41 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
 const CTA_CLASS =
   'w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg';
 
+// Room left at the bottom of a phone screen for the sticky phone bar
+const MOBILE_BAR_SPACE = 80;
+
 export default function StackedShowcase() {
   const reduceMotion = useReducedMotion() ?? false;
+  const deckRef = useRef<HTMLDivElement>(null);
+
+  // On phones a card is taller than the screen, so it sticks only once its
+  // bottom (the picture) clears the sticky phone bar, then the next card slides over it
+  useEffect(() => {
+    const deck = deckRef.current;
+    if (!deck) return;
+    const cards = Array.from(deck.children) as HTMLElement[];
+
+    const place = () => {
+      const mobile = window.innerWidth < 1024;
+      cards.forEach((card, i) => {
+        const stacked = 112 + i * 48;
+        const top = mobile
+          ? Math.min(96 + i * 12, window.innerHeight - card.offsetHeight - MOBILE_BAR_SPACE)
+          : stacked;
+        card.style.setProperty('--stack-top', `${top}px`);
+      });
+    };
+
+    place();
+    const observer = new ResizeObserver(place);
+    cards.forEach((card) => observer.observe(card));
+    window.addEventListener('resize', place);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', place);
+    };
+    // A re-render resets the inline --stack-top, so place again after it
+  }, [reduceMotion]);
 
   return (
     <section id="offerings" className="relative bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12 overflow-visible">
@@ -134,7 +167,7 @@ export default function StackedShowcase() {
       </div>
 
       {/* Sequential Sticky Deck */}
-      <div className="max-w-6xl mx-auto space-y-8 lg:space-y-10">
+      <div ref={deckRef} className="max-w-6xl mx-auto space-y-8 lg:space-y-10">
         {SHOWCASE_CARDS.map((card, index) => {
           // Each stacked card sits 48px below the previous one, so the label row at the
           // top of every card stays visible while later cards slide over it
@@ -144,8 +177,8 @@ export default function StackedShowcase() {
             <div
               key={card.id}
               id={card.id}
-              className="sticky scroll-mt-32"
-              style={{ top: `${topOffset}px`, zIndex: 20 + index }}
+              className="sticky top-[var(--stack-top)] scroll-mt-32"
+              style={{ '--stack-top': `${topOffset}px`, zIndex: 20 + index } as React.CSSProperties}
             >
               {/* Navbar anchor for the Portfolio link */}
               {card.id === 'model-portfolios' && (
@@ -216,7 +249,7 @@ export default function StackedShowcase() {
                     </div>
                   ) : (
                     <div
-                      className="relative h-[300px] sm:h-[380px] lg:h-auto"
+                      className="relative aspect-[3/2] lg:aspect-auto lg:h-auto"
                       style={{ backgroundColor: card.visual.bg }}
                     >
                       <Image

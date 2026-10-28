@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { StockChart } from '@/components/sections/HeroPlacard';
 import LeadCaptureModal from '@/components/modals/LeadCaptureModal';
+import StockTrackRecord from '@/components/sections/StockTrackRecord';
 import { PhoneCapture, RotatingWord, SectionHeading } from '@/components/sections/ProductPageParts';
 import { REGULATORY_INFO } from '@/data/legal';
 
@@ -31,10 +32,7 @@ const HERO_PRODUCTS = ['Stocks', 'Portfolios', 'MTF Baskets', 'Futures'];
 const HERO_POINTS = ['Entry, target & stop-loss on every idea'];
 
 const STATS = [
-  { value: '30+ yrs', label: 'Pankaj Murarka in Indian equities' },
-  { value: '$5B', label: 'Managed as CIO of Axis Mutual Fund' },
-  { value: '₹2,000 Cr', label: 'Assets guided' },
-  { value: '1 Lakh+', label: 'Users Across India' },
+  { value: '30+ years', label: 'of researched experience' },
 ];
 
 const PRODUCTS = [
@@ -137,12 +135,12 @@ export default function AdvisoryPage() {
   return (
     <div className="flex-1 flex flex-col w-full bg-[#081026]">
       {/* 1. Hero with phone number box */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-8 sm:pt-10 lg:pt-6 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Advisory</span>
-            <h1 className="mt-4 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
+            <h1 className="mt-3 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
               <span className="sr-only">SEBI-registered research across single stocks, model portfolios, MTF baskets and futures</span>
               <span aria-hidden="true">
                 <span className="block">SEBI-registered research across</span>
@@ -162,12 +160,12 @@ export default function AdvisoryPage() {
               ))}
             </ul>
 
-            <div className="mt-8">
+            <div className="mt-6">
               <PhoneCapture label={<>Get <span className="text-[#F5BA31]">2 free</span> trade ideas</>} onSubmit={openLeadModal} />
             </div>
 
             {/* Trust row */}
-            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 max-w-xl">
+            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 max-w-xl">
               {[
                 { value: 'SEBI Registered', label: 'INH000021818' },
                 { value: 'BSE', label: 'Enlistment No. 6793' },
@@ -211,9 +209,9 @@ export default function AdvisoryPage() {
             title="Institutional research, made for individual investors"
             subtitle="The same depth that powers India’s largest fund houses, at a fraction of the cost."
           />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex justify-center">
             {STATS.map((stat) => (
-              <div key={stat.value} className="rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5 sm:p-6 text-center">
+              <div key={stat.value} className="w-full max-w-sm rounded-2xl bg-[#FFFBEF] border-2 border-[#F5BA31] shadow-[0_8px_24px_rgba(245,186,49,0.18)] p-5 sm:p-6 text-center">
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#164198]">{stat.value}</div>
                 <div className="mt-2 text-xs sm:text-sm text-neutral-600 leading-snug">{stat.label}</div>
               </div>
@@ -283,6 +281,9 @@ export default function AdvisoryPage() {
           </div>
         </div>
       </section>
+
+      {/* Stocks performance track */}
+      <StockTrackRecord subscribeUrl={STOCKS_PLAN_URL} />
 
       {/* 4. SQGARP framework */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F6FC] to-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
@@ -391,7 +392,6 @@ export default function AdvisoryPage() {
                 'CIO of Axis Mutual Fund (2011–2016), managing $5B as India’s fastest-growing fund house',
                 'Senior roles at Rare Enterprises, UTI AMC, Motilal Oswal and Merrill Lynch',
                 '30+ years in Indian equities, across every market cycle',
-                'Backed by a research team with 75+ years of combined experience',
               ].map((point) => (
                 <li key={point} className="flex items-start gap-2.5 text-sm sm:text-base text-neutral-700">
                   <CheckCircle2 className="w-5 h-5 text-[#164198] shrink-0 mt-0.5" />

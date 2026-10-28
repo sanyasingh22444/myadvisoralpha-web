@@ -98,7 +98,7 @@ export default function AboutPage() {
       title: '10,000+ Investors & ₹1,500+ Cr Guided',
       period: 'Traction',
       description:
-        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 75% historical strike rate on closed stock ideas with transparent performance reporting.',
+        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 76.6% historical strike rate on closed stock ideas with transparent performance reporting.',
       tag: 'Validation',
     },
     {
@@ -122,7 +122,7 @@ export default function AboutPage() {
   return (
     <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8 pb-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         {/* Subtle Ambient Background Glows */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[250px] bg-[#3AA17E]/10 blur-[100px] rounded-full pointer-events-none" />
@@ -150,7 +150,7 @@ export default function AboutPage() {
           </p>
 
           {/* Live Metrics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
             <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#3AA17E] tracking-tight">{metrics.strikeRate}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Historical Win Rate</div>
@@ -167,12 +167,6 @@ export default function AboutPage() {
               <div className="text-3xl sm:text-4xl font-extrabold text-[#F5BA31] tracking-tight">{metrics.aumGuided}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Assets Guided</div>
               <div className="text-[11px] text-neutral-500 mt-1">Cumulative advisory capital</div>
-            </div>
-
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#FF8415] tracking-tight">{metrics.researchExperience}</div>
-              <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Research Pedigree</div>
-              <div className="text-[11px] text-neutral-500 mt-1">Combined fund management</div>
             </div>
           </div>
         </div>
@@ -422,7 +416,7 @@ export default function AboutPage() {
                 <div className="min-w-0">
                   <h3 className="text-base font-bold text-white truncate">{member.name}</h3>
                   <div className="text-xs text-[#F5BA31] font-medium mt-0.5">{member.role}</div>
-                  <div className="text-[11px] text-neutral-400 mt-2 truncate font-mono">
+                  <div className="text-[11px] text-neutral-400 mt-2 break-all font-mono">
                     {member.email}
                   </div>
                 </div>

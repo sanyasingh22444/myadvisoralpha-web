@@ -56,7 +56,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
   return (
     <div className="relative bg-[#081026] text-white">
       {/* Top Hero Section */}
-      <section className="relative pt-12 sm:pt-16 lg:pt-20 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden">
+      <section className="relative pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden">
         {/* Ambient Warm Gold & Deep Navy Glows */}
         <div 
           aria-hidden="true" 
@@ -128,9 +128,9 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                       type="tel"
                       value={phone}
                       onChange={handlePhoneChange}
-                      placeholder="10-digit mobile number"
+                      placeholder="Enter your 10 digit mobile number"
                       maxLength={10}
-                      className="bg-transparent text-white placeholder-white/40 text-sm flex-1 px-3 py-2 outline-none font-medium"
+                      className="bg-transparent text-white placeholder-white/40 placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 px-3 py-2 outline-none font-medium"
                       aria-label="10-digit mobile number"
                     />
                     <button
@@ -207,7 +207,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
       {/* Regulated and Registered Band matching Artifact (Soft Cream Background) */}
       <section className="bg-[#FAF7EE] text-[#081026] py-6 sm:py-8 border-y border-[#EBE6D6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-4 lg:gap-8">
             
             {/* Label */}
             <div className="shrink-0">
@@ -217,12 +217,12 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
             </div>
 
             {/* 3 White Registration Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 flex-1 lg:max-w-4xl">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full sm:max-w-2xl">
               
               {/* Card 1: SEBI */}
-              <div className="bg-white rounded-xl p-3.5 sm:p-4 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-[#B88714]" />
+              <div className="bg-white rounded-xl px-3 py-2.5 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#B88714]" />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-neutral-500 leading-tight">
@@ -235,9 +235,9 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </div>
 
               {/* Card 2: BSE */}
-              <div className="bg-white rounded-xl p-3.5 sm:p-4 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-[#B88714]" />
+              <div className="bg-white rounded-xl px-3 py-2.5 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#B88714]" />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-neutral-500 leading-tight">
@@ -250,9 +250,9 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </div>
 
               {/* Card 3: AMFI */}
-              <div className="bg-white rounded-xl p-3.5 sm:p-4 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-[#B88714]" />
+              <div className="bg-white rounded-xl px-3 py-2.5 border border-[#E5DFCC] shadow-sm flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#B88714]" />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-neutral-500 leading-tight">

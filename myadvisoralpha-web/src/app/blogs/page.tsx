@@ -447,7 +447,7 @@ export default function BlogsPage() {
       )}
 
       {/* NEWSLETTER & CIO MARKET MEMO SUBSCRIPTION CARD */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-4">
             <Sparkles className="w-3.5 h-3.5" />

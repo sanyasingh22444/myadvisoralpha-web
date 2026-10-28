@@ -41,10 +41,10 @@ export function PhoneCapture({ label, onSubmit }: { label: React.ReactNode; onSu
             setPhone(e.target.value.replace(/\D/g, '').slice(0, 10));
             if (error) setError('');
           }}
-          placeholder="Enter mobile number"
+          placeholder="Enter your 10 digit mobile number"
           maxLength={10}
           aria-label="10-digit mobile number"
-          className="bg-transparent text-white placeholder-white/40 text-sm flex-1 min-w-0 px-3 py-2 outline-none font-medium"
+          className="bg-transparent text-white placeholder-white/40 placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 min-w-0 px-3 py-2 outline-none font-medium"
         />
         <button
           type="submit"

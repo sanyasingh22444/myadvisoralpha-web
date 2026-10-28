@@ -49,7 +49,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
   return (
     <section 
       id="faq" 
-      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background ambient light */}
       <div 

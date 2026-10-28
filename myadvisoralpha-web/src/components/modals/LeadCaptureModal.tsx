@@ -389,7 +389,7 @@ export default function LeadCaptureModal({
                     value={phone}
                     disabled={modalState === 'SUBMITTING'}
                     onChange={handlePhoneChange}
-                    placeholder="10-digit mobile number"
+                    placeholder="Enter your 10 digit mobile number"
                     className="bg-transparent px-3 py-2.5 text-white placeholder-white/30 text-sm flex-1 outline-none font-medium"
                   />
                   <div className="pr-3 text-white/30">

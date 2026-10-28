@@ -182,7 +182,7 @@ export default function MutualFundsPage() {
   return (
     <div className="flex-1 flex flex-col w-full bg-[#081026]">
       {/* 1. Hero with phone number box */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-12 xl:px-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -251,7 +251,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 2. Everything you need */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             eyebrow="Invest smarter"
@@ -281,7 +281,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 3. Baskets */}
-      <section id="baskets" className="bg-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12 scroll-mt-24">
+      <section id="baskets" className="bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             dark
@@ -333,7 +333,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 4. How we pick funds */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             eyebrow="Our fund research"
@@ -363,7 +363,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 5. Three steps */}
-      <section className="bg-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             dark
@@ -394,7 +394,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 6. SIP calculator */}
-      <section id="sip-calculator" className="bg-[#081026] border-t border-white/10 py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section id="sip-calculator" className="bg-[#081026] border-t border-white/10 py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             dark
@@ -458,7 +458,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 7. FAQs */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <SectionHeading eyebrow="Got questions?" title="Mutual fund FAQs" />
           <div className="divide-y divide-neutral-200 border-y border-neutral-200">
@@ -484,7 +484,7 @@ export default function MutualFundsPage() {
       </section>
 
       {/* 8. Closing band with phone number box */}
-      <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-16 lg:py-20 px-4 sm:px-6 lg:px-12">
+      <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-12 lg:py-14 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">

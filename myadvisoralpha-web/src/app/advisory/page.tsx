@@ -137,7 +137,7 @@ export default function AdvisoryPage() {
   return (
     <div className="flex-1 flex flex-col w-full bg-[#081026]">
       {/* 1. Hero with phone number box */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-12 xl:px-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-12 sm:pt-16 lg:pt-20 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -204,7 +204,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 2. Why choose us */}
-      <section className="bg-white py-14 lg:py-20 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white py-10 lg:py-14 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             eyebrow="Why choose us"
@@ -223,7 +223,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 3. Products */}
-      <section id="products" className="bg-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12 scroll-mt-24">
+      <section id="products" className="bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             dark
@@ -285,7 +285,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 4. SQGARP framework */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F6FC] to-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F6FC] to-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         {/* Faint oversized wordmark behind the section */}
         <span
           aria-hidden="true"
@@ -344,7 +344,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 5. How it works */}
-      <section className="bg-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             dark
@@ -368,7 +368,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 6. Research team */}
-      <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[320px] sm:h-[420px] rounded-[28px] overflow-hidden bg-[#F6F8FC]">
             <Image
@@ -384,7 +384,7 @@ export default function AdvisoryPage() {
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-[#081026]">Led by Pankaj Murarka</h2>
             <figure className="mt-5 border-l-2 border-[#F5BA31] pl-4">
               <blockquote className="text-lg italic text-[#081026]">&ldquo;I want every Indian to make money in stock market.&rdquo;</blockquote>
-              <figcaption className="mt-1 text-xs text-neutral-500">Pankaj Murarka, Founder & CIO</figcaption>
+              <figcaption className="mt-1 text-xs text-neutral-500">Pankaj Murarka, Founder & CIO, MyAdvisorAlpha</figcaption>
             </figure>
             <ul className="mt-6 space-y-3">
               {[
@@ -410,7 +410,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 7. FAQs */}
-      <section className="bg-white border-t border-neutral-200 py-16 lg:py-24 px-4 sm:px-6 lg:px-12">
+      <section className="bg-white border-t border-neutral-200 py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <SectionHeading eyebrow="Got questions?" title="Advisory FAQs" />
           <div className="divide-y divide-neutral-200 border-y border-neutral-200">
@@ -436,7 +436,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* 8. Closing band with phone number box */}
-      <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-16 lg:py-20 px-4 sm:px-6 lg:px-12">
+      <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-12 lg:py-14 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">

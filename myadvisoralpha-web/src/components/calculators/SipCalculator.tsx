@@ -170,10 +170,10 @@ export default function SipCalculator({
   ];
 
   return (
-    <section id="calculator" className={`w-full py-16 lg:py-24 bg-[#081026] text-white ${className}`}>
+    <section id="calculator" className={`w-full py-12 lg:py-16 bg-[#081026] text-white ${className}`}>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-semibold tracking-widest uppercase mb-4">
             <TrendingUp className="w-4 h-4" />
             <span>Interactive Wealth Projection</span>
@@ -532,7 +532,7 @@ export default function SipCalculator({
         </div>
 
         {/* AdvisorAlpha Pro Advisory Alpha Comparison Banner */}
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-8 sm:mt-10">
           <AlphaComparisonBanner
             comparison={alphaComparison}
             mode={mode}

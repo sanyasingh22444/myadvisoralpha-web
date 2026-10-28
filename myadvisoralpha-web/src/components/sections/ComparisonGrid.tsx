@@ -95,7 +95,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
   return (
     <section
       id="comparison"
-      className="bg-white text-[#081026] py-16 lg:py-24 px-4 sm:px-6 lg:px-12 xl:px-20"
+      className="bg-white text-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12 xl:px-20"
     >
       <div className="max-w-5xl mx-auto">
 
@@ -188,10 +188,8 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
 
         {/* CTA Row */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/advisory#products"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-sm font-bold transition-all active:scale-95 shadow-md"
           >
             <span>Start for</span>
@@ -200,7 +198,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
             <span aria-hidden="true" className="text-base font-extrabold">₹1199</span>
             <span aria-hidden="true" className="-ml-1.5">/mo</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
           {onOpenConsultation ? (
             <button
               type="button"

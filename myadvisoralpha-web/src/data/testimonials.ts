@@ -15,7 +15,7 @@ export interface Testimonial {
 export const TESTIMONIALS_RATING_PROOF = {
   averageRating: 4.8,
   ratingDisplay: '4.8',
-  totalReviews: '800+ Verified Investors',
+  totalReviews: '800+ verified reviews',
   appStoreRating: '4.8 / 5.0 Rating',
 };
 

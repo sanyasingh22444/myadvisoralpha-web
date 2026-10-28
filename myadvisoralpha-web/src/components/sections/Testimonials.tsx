@@ -31,7 +31,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
   return (
     <section 
       id="testimonials" 
-      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background radial gradient accent */}
       <div 
@@ -46,7 +46,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-4">
             <Users className="w-3.5 h-3.5 text-[#F5BA31]" />
             <span className="text-xs font-bold tracking-widest uppercase text-[#F5BA31]">
@@ -225,10 +225,8 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
-            <a
-              href="https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/advisory#products"
               className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#F5BA31] text-[#081026] hover:bg-[#e5ab28] active:scale-95 font-bold text-sm transition-all shadow-lg shadow-black/40"
             >
               <span>Subscribe for</span>
@@ -237,7 +235,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
               <span aria-hidden="true" className="text-base font-extrabold">₹1199</span>
               <span aria-hidden="true" className="-ml-1.5">/mo</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
 
             {onOpenConsultation ? (
               <button

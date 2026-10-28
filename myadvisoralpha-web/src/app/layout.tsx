@@ -3,6 +3,7 @@ import './globals.css';
 import { BRAND_INFO } from '@/data/brand';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StickyPhoneBar from '@/components/layout/StickyPhoneBar';
 
 export const metadata: Metadata = {
   title: `${BRAND_INFO.name} | ${BRAND_INFO.subtagline}`,
@@ -79,6 +80,9 @@ export default function RootLayout({
 
         {/* Global Regulatory Footer */}
         <Footer />
+
+        {/* Phone number bar that slides up once the visitor scrolls */}
+        <StickyPhoneBar />
       </body>
     </html>
   );

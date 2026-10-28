@@ -104,7 +104,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       '30+ years in equity research',
       'Creator of the SQGARP™ research framework',
     ],
-    quote: { text: 'I want every Indian to make money in stock market.', by: 'Pankaj Murarka, Founder & CIO' },
+    quote: { text: 'I want every Indian to make money in stock market.', by: 'Pankaj Murarka, Founder & CIO, MyAdvisorAlpha' },
     ctaLabel: 'Read our story',
     ctaUrl: '/about',
     isExternal: false,
@@ -119,9 +119,9 @@ export default function StackedShowcase() {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
-    <section id="offerings" className="relative bg-[#081026] py-20 lg:py-28 px-4 sm:px-6 lg:px-12 overflow-visible">
+    <section id="offerings" className="relative bg-[#081026] py-12 lg:py-16 px-4 sm:px-6 lg:px-12 overflow-visible">
       {/* Section Header */}
-      <div className="max-w-3xl mx-auto text-center mb-14 lg:mb-20">
+      <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-12">
         <span className="text-xs font-bold tracking-widest text-[#F5BA31] uppercase bg-[#F5BA31]/10 border border-[#F5BA31]/20 px-3.5 py-1.5 rounded-full inline-block mb-3">
           Our Products
         </span>
@@ -134,7 +134,7 @@ export default function StackedShowcase() {
       </div>
 
       {/* Sequential Sticky Deck */}
-      <div className="max-w-6xl mx-auto space-y-12 lg:space-y-16">
+      <div className="max-w-6xl mx-auto space-y-8 lg:space-y-10">
         {SHOWCASE_CARDS.map((card, index) => {
           // Each stacked card sits 48px below the previous one, so the label row at the
           // top of every card stays visible while later cards slide over it
@@ -162,7 +162,7 @@ export default function StackedShowcase() {
                   {/* Copy, anchored to the top-left so the label shows while stacked */}
                   <div className="px-6 sm:px-8 lg:px-12 pt-3 pb-12 lg:pb-16 flex flex-col justify-start">
                     <div className="flex items-center justify-between gap-3 h-[34px]">
-                      <span className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 px-4 py-0.5 rounded-full border border-[#F5BA31]/30">
+                      <span className="text-sm sm:text-base font-extrabold tracking-wide text-[#F5BA31] bg-[#F5BA31]/10 px-4 py-0.5 rounded-full border border-[#F5BA31]/30">
                         {card.label}
                       </span>
                       {card.price && (

@@ -179,7 +179,7 @@ export default function AboutPage() {
       </section>
 
       {/* FOUNDER & CIO PROFILE (PANKAJ MURARKA) */}
-      <section id="cio-profile" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)] relative">
+      <section id="cio-profile" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)] relative">
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F5BA31]/20 via-transparent to-transparent pointer-events-none" />
@@ -270,7 +270,7 @@ export default function AboutPage() {
       </section>
 
       {/* SQGARP™ METHODOLOGY PILLARS */}
-      <section id="sqgarp" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section id="sqgarp" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-3">
@@ -315,7 +315,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6 CORE COMPANY VALUES */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3AA17E]/10 border border-[#3AA17E]/30 text-[#3AA17E] text-xs font-bold tracking-wider uppercase mb-3">
@@ -358,7 +358,7 @@ export default function AboutPage() {
       </section>
 
       {/* MILESTONES TIMELINE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF8415]/10 border border-[#FF8415]/30 text-[#FF8415] text-xs font-bold tracking-wider uppercase mb-3">
@@ -396,7 +396,7 @@ export default function AboutPage() {
       </section>
 
       {/* LEADERSHIP TEAM GRID */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-3">
@@ -433,7 +433,7 @@ export default function AboutPage() {
       </section>
 
       {/* REGULATORY STATUS & STATUTORY BADGE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto bg-[#0B1528] border border-[#3AA17E]/40 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
             <div className="flex items-center gap-4">
@@ -500,7 +500,7 @@ export default function AboutPage() {
       </section>
 
       {/* BOTTOM CALL TO ACTION */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-8 sm:p-14 text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Ready to Upgrade to Institutional-Grade Advisory?

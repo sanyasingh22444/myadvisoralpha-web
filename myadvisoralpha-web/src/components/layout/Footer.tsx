@@ -33,7 +33,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#081026] text-neutral-300 pt-16 pb-12 border-t border-white/10">
+    <footer className="bg-[#081026] text-neutral-300 pt-12 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SECTION 1: App Download Banner with QR Card */}
         <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -612,7 +612,6 @@ export default function Footer() {
               <div>
                 <strong className="text-neutral-300">Contact & Support:</strong>
                 <p className="mt-0.5">Support: <a href="mailto:support@myadvisoralpha.com" className="hover:text-white underline">support@myadvisoralpha.com</a></p>
-                <p>Grievance: <a href="mailto:support@renaissanceadvisors.in" className="hover:text-white underline">support@renaissanceadvisors.in</a></p>
                 <p>Telephone: <a href="tel:+918655387833" className="hover:text-white underline">+91 8655387833</a></p>
               </div>
             </div>

@@ -376,7 +376,7 @@ export default function ContactPage() {
                               setFormData({ ...formData, phone: val });
                               if (errors.phone) setErrors({ ...errors, phone: undefined });
                             }}
-                            placeholder="9820012345"
+                            placeholder="Enter your 10 digit mobile number"
                             className="w-full bg-transparent px-2.5 py-3 text-sm text-white placeholder-neutral-600 outline-none"
                           />
                         </div>

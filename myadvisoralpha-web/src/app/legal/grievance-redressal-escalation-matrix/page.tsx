@@ -83,21 +83,21 @@ export default function GrievanceRedressalPage() {
       <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">5 Tiers</div>
-              <div className="text-xs font-semibold text-white/85 mt-1">Structured Hierarchy</div>
+              <div className="text-xs text-neutral-400 mt-1">Structured Hierarchy</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">21 Days</div>
-              <div className="text-xs font-semibold text-white/85 mt-1">Maximum Statutory SLA</div>
+              <div className="text-xs text-neutral-400 mt-1">Maximum Statutory SLA</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
-              <div className="text-xs font-semibold text-white/85 mt-1">Resolved Complaints Rate</div>
+              <div className="text-xs text-neutral-400 mt-1">Resolved Complaints Rate</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#EC6446]">0 Pending</div>
-              <div className="text-xs font-semibold text-white/85 mt-1">Month Ending Sep 2026</div>
+              <div className="text-xs text-neutral-400 mt-1">Month Ending Sep 2026</div>
             </div>
           </div>
         </div>

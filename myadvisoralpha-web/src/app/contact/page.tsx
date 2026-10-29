@@ -361,7 +361,9 @@ export default function ContactPage() {
                         </label>
                         <div
                           className={`flex items-center bg-[#081026] rounded-xl px-3 border transition-colors ${
-                            errors.phone ? 'border-[#DD5240]' : 'border-white/15 focus-within:border-[#F5BA31]'
+                            errors.phone
+                              ? 'border-[#DD5240]'
+                              : 'border-[#F5BA31]/80 focus-within:border-[#F5BA31] shadow-[0_0_0_3px_rgba(245,186,49,0.12)]'
                           }`}
                         >
                           <span className="text-xs font-bold text-neutral-400 pr-2 border-r border-white/20">

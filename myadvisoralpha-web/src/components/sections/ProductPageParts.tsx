@@ -31,7 +31,7 @@ export function PhoneCapture({ label, onSubmit }: { label: React.ReactNode; onSu
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
       <p className="text-sm font-semibold text-white/90 mb-2.5">{label}</p>
-      <div className="flex items-center bg-[#0B1528] border border-white/25 focus-within:border-[#F5BA31] rounded-xl p-1.5 transition-all shadow-xl">
+      <div className="flex items-center bg-[#0E1A33] border border-[#F5BA31]/80 focus-within:border-[#F5BA31] rounded-xl p-1.5 transition-all shadow-[0_0_0_3px_rgba(245,186,49,0.12),0_8px_28px_rgba(245,186,49,0.18)]">
         <span className="px-2 sm:px-3 py-2 text-sm font-bold text-white/90 border-r border-white/15 select-none">+91</span>
         <input
           type="tel"

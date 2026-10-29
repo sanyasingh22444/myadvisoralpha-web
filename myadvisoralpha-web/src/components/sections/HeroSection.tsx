@@ -120,7 +120,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                 </p>
 
                 <form onSubmit={handleLeadSubmit} className="space-y-3">
-                  <div className="flex items-center bg-[#0B1528] border border-white/20 focus-within:border-[#F5BA31] rounded-xl p-1.5 transition-all shadow-xl">
+                  <div className="flex items-center bg-[#0E1A33] border border-[#F5BA31]/80 focus-within:border-[#F5BA31] rounded-xl p-1.5 transition-all shadow-[0_0_0_3px_rgba(245,186,49,0.12),0_8px_28px_rgba(245,186,49,0.18)]">
                     <div className="flex items-center gap-1 px-2 sm:px-3 py-2 text-white/90 font-semibold text-sm select-none border-r border-white/15">
                       <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-white/80">+91</span>
                     </div>
@@ -179,16 +179,16 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </div>
 
               {/* Stats Row with Gold Dividers matching Artifact */}
-              <div className="grid grid-cols-2 gap-y-4 max-w-md mt-7 rounded-2xl border border-[#F5BA31]/70 bg-white/[0.07] px-3 min-[400px]:px-4 py-4 sm:px-5 text-left shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+              <div className="grid grid-cols-2 gap-y-5 max-w-md mt-7 pt-6 border-t border-white/10 text-left">
                 {[
                   { value: "1 lakh+", label: "investors" },
                   { value: "₹2,000 Cr", label: "assets guided" },
                   { value: "SEBI Registered", label: "Research Analyst" },
                   { value: "AMFI Registered", label: "Mutual Fund Distributor" },
                 ].map((stat, i) => (
-                  <div key={stat.value} className={i % 2 === 1 ? "pl-3 min-[400px]:pl-5 sm:pl-6 border-l border-[#F5BA31]/40" : "pr-3 min-[400px]:pr-4"}>
-                    <div className="text-[15px] min-[360px]:text-lg min-[400px]:text-xl sm:text-2xl md:text-lg lg:text-2xl font-extrabold text-[#F5BA31] tracking-tight whitespace-nowrap">{stat.value}</div>
-                    <div className="text-xs text-white/85 font-medium mt-0.5">{stat.label}</div>
+                  <div key={stat.value} className={i % 2 === 1 ? "pl-5 sm:pl-6 border-l border-[#F5BA31]/40" : "pr-4"}>
+                    <div className="text-lg min-[400px]:text-xl sm:text-2xl md:text-lg lg:text-2xl font-extrabold text-white tracking-tight whitespace-nowrap">{stat.value}</div>
+                    <div className="text-xs text-white/60 font-medium mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </div>

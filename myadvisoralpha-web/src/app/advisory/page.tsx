@@ -165,15 +165,15 @@ export default function AdvisoryPage() {
             </div>
 
             {/* Trust row */}
-            <div className="mt-5 w-fit max-w-full rounded-2xl border border-[#F5BA31]/70 bg-white/[0.07] px-2.5 min-[400px]:px-3 py-3.5 sm:px-5 md:px-3 lg:px-5 grid grid-cols-[auto_auto_auto] justify-start gap-x-2.5 min-[400px]:gap-x-3 sm:gap-x-6 md:gap-x-3 lg:gap-x-6 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
+            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 md:gap-x-4 lg:gap-x-6 max-w-xl">
               {[
                 { value: 'SEBI Registered', label: 'INH000021818' },
                 { value: 'BSE', label: 'Enlistment No. 6793' },
                 { value: '1 Lakh+', label: 'Users Across India' },
               ].map((item, i) => (
-                <div key={item.value} className={i > 0 ? 'pl-2.5 min-[400px]:pl-3 sm:pl-6 md:pl-3 lg:pl-6 border-l border-[#F5BA31]/40' : ''}>
-                  <div className="text-[15px] min-[400px]:text-lg sm:text-xl md:text-base lg:text-xl font-extrabold text-[#F5BA31] whitespace-nowrap">{item.value}</div>
-                  <div className="text-[11px] sm:text-xs text-white/85 mt-0.5 leading-snug">{item.label}</div>
+                <div key={item.value} className={i > 0 ? 'pl-5 sm:pl-6 md:pl-4 lg:pl-6 border-l border-[#F5BA31]/40' : ''}>
+                  <div className="text-lg sm:text-xl md:text-base lg:text-xl font-extrabold whitespace-nowrap">{item.value}</div>
+                  <div className="text-[11px] sm:text-xs text-white/60 mt-0.5 leading-snug">{item.label}</div>
                 </div>
               ))}
             </div>

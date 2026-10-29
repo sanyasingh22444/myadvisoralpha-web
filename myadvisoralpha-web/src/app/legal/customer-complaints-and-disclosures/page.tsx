@@ -101,21 +101,21 @@ export default function CustomerComplaintsAndDisclosuresPage() {
       <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
+            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">0</div>
-              <div className="text-xs text-neutral-400 mt-1">Complaints Received (Sep 2026)</div>
+              <div className="text-xs font-semibold text-white/85 mt-1">Complaints Received (Sep 2026)</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
+            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">0</div>
-              <div className="text-xs text-neutral-400 mt-1">Pending at Month End</div>
+              <div className="text-xs font-semibold text-white/85 mt-1">Pending at Month End</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
+            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
               <div className="text-2xl sm:text-3xl font-extrabold text-white">0</div>
-              <div className="text-xs text-neutral-400 mt-1">Pending &gt; 3 Months</div>
+              <div className="text-xs font-semibold text-white/85 mt-1">Pending &gt; 3 Months</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
+            <div className="p-4 rounded-2xl bg-white/[0.07] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">0 Days</div>
-              <div className="text-xs text-neutral-400 mt-1">Avg. Resolution Time</div>
+              <div className="text-xs font-semibold text-white/85 mt-1">Avg. Resolution Time</div>
             </div>
           </div>
         </div>

@@ -136,7 +136,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   height={58}
                   priority
                   unoptimized
-                  className="h-11 sm:h-14 w-auto"
+                  className="h-10 min-[400px]:h-11 sm:h-14 w-auto object-contain object-left"
                 />
               </Link>
             </div>
@@ -249,7 +249,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
             </div>
 
             {/* Right Action Buttons */}
-            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-3 shrink-0">
               {/* Web Login Button (in the mobile drawer below sm) */}
               <a
                 href="https://web.advisoralpha.in/#/login"
@@ -271,11 +271,22 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 <span>Talk to expert</span>
               </button>
 
+              {/* Talk to expert on phones: a compact headset button so the bar keeps its size */}
+              <button
+                type="button"
+                onClick={handleCtaClick}
+                aria-label="Talk to expert"
+                title="Talk to expert"
+                className="md:hidden inline-flex items-center justify-center shrink-0 w-[30px] h-[30px] rounded-lg text-white bg-[#164198] hover:bg-[#123577] transition-all active:scale-95"
+              >
+                <Headset className="w-4 h-4" />
+              </button>
+
               {/* "Get 2 free ideas" - solid gold button */}
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-[13px] sm:text-sm lg:text-base font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs min-[375px]:text-[13px] sm:text-sm lg:text-base font-bold px-2 min-[375px]:px-2.5 min-[400px]:px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
               >
                 Get 2 free ideas
               </button>
@@ -285,7 +296,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 type="button"
                 aria-label="Open mobile menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="md:hidden p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
+                className="md:hidden p-1.5 min-[400px]:p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
                 style={{ color: BRAND_BLUE }}
               >
                 <Menu className="w-5 h-5" />

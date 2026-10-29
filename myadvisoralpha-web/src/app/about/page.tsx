@@ -153,20 +153,20 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
             <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#3AA17E] tracking-tight">{metrics.strikeRate}</div>
-              <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Historical Win Rate</div>
-              <div className="text-[11px] text-neutral-500 mt-1">On closed stock ideas</div>
+              <div className="text-xs sm:text-sm text-white/85 mt-1 font-semibold">Historical Win Rate</div>
+              <div className="text-[11px] text-white/60 mt-1">On closed stock ideas</div>
             </div>
 
             <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{metrics.activeInvestors}</div>
-              <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Active Investors</div>
-              <div className="text-[11px] text-neutral-500 mt-1">Across 100+ Indian cities</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#F5BA31] tracking-tight">{metrics.activeInvestors}</div>
+              <div className="text-xs sm:text-sm text-white/85 mt-1 font-semibold">Active Investors</div>
+              <div className="text-[11px] text-white/60 mt-1">Across 100+ Indian cities</div>
             </div>
 
             <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#F5BA31] tracking-tight">{metrics.aumGuided}</div>
-              <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Assets Guided</div>
-              <div className="text-[11px] text-neutral-500 mt-1">Cumulative advisory capital</div>
+              <div className="text-xs sm:text-sm text-white/85 mt-1 font-semibold">Assets Guided</div>
+              <div className="text-[11px] text-white/60 mt-1">Cumulative advisory capital</div>
             </div>
           </div>
         </div>

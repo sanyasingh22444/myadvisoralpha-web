@@ -214,15 +214,15 @@ export default function MutualFundsPage() {
             </div>
 
             {/* Trust row */}
-            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg">
+            <div className="mt-5 rounded-2xl border border-[#F5BA31]/70 bg-white/[0.07] px-3 py-3.5 sm:px-5 grid grid-cols-3 gap-3 sm:gap-4 max-w-lg shadow-[0_8px_28px_rgba(245,186,49,0.12)]">
               {[
                 { value: 'AMFI', label: 'Registered MFD · ARN-350887' },
                 { value: 'ONDC', label: 'Secured transactions, powered by ONDC' },
                 { value: '₹500', label: 'Start a SIP from' },
               ].map((item, i) => (
-                <div key={item.value} className={i > 0 ? 'pl-4 border-l border-[#F5BA31]/40' : ''}>
-                  <div className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-extrabold">{item.value}</div>
-                  <div className="text-[11px] sm:text-xs text-white/60 mt-0.5 leading-snug">{item.label}</div>
+                <div key={item.value} className={i > 0 ? 'pl-3 sm:pl-4 border-l border-[#F5BA31]/40' : ''}>
+                  <div className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-extrabold text-[#F5BA31]">{item.value}</div>
+                  <div className="text-[11px] sm:text-xs text-white/85 mt-0.5 leading-snug">{item.label}</div>
                 </div>
               ))}
             </div>

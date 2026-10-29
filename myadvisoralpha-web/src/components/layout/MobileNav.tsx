@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { openContactPage } from "./contactLinks";
 import { 
   X, 
   ChevronDown, 
@@ -41,7 +42,7 @@ export default function MobileNav({
       if (window.location.pathname === "/") {
         window.dispatchEvent(new CustomEvent("open-consultation-modal"));
       } else {
-        window.location.href = "/contact";
+        openContactPage();
       }
     }
   };

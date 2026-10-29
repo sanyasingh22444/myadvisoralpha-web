@@ -184,7 +184,9 @@ export default function StackedShowcase() {
       {/* Sequential Sticky Deck */}
       {/* The gap between cards is a pause: a card stays fully in view for about a
           third of a screen of scrolling before the next one slides over it */}
-      <div ref={deckRef} className="max-w-6xl mx-auto space-y-[35vh]">
+      {/* The scroll gap between cards follows the screen height, capped so tall screens
+          (a phone in desktop-site mode) don't leave a long empty stretch */}
+      <div ref={deckRef} className="max-w-6xl mx-auto space-y-[min(35vh,200px)]">
         {SHOWCASE_CARDS.map((card, index) => {
           return (
             <div

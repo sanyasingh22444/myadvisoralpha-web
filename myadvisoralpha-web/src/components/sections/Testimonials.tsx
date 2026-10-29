@@ -66,7 +66,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           </p>
 
           {/* AdvisorAlpha Rating Proof Pill */}
-          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-[#0B1528] border border-white/10 shadow-lg">
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70 shadow-lg">
             
             {/* Stars Cluster */}
             <div className="flex items-center gap-2">
@@ -124,7 +124,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
           {filteredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="group relative rounded-2xl border border-white/10 bg-[#0B1528] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#F5BA31]/40 hover:-translate-y-1 hover:shadow-[0px_8px_32px_0px_rgba(245,186,49,0.12)]"
+              className="group relative rounded-2xl border border-[#F5BA31]/70 bg-[#0B1528] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#F5BA31] hover:-translate-y-1 hover:shadow-[0px_8px_32px_0px_rgba(245,186,49,0.12)]"
             >
               {/* Watermark Quote Icon */}
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/[0.04] group-hover:text-[#F5BA31]/10 transition-colors pointer-events-none" />
@@ -209,7 +209,7 @@ export default function Testimonials({ onOpenConsultation }: TestimonialsProps) 
         </div>
 
         {/* Bottom Social Proof & CTA Banner */}
-        <div className="mt-14 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-14 rounded-3xl border border-[#F5BA31]/70 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="text-left max-w-xl">
             <span className="text-xs uppercase font-bold tracking-wider text-[#3AA17E] flex items-center gap-1.5 mb-1.5">
               <ShieldCheck className="w-4 h-4" />

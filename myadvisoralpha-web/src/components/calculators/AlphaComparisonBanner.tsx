@@ -83,7 +83,7 @@ export default function AlphaComparisonBanner({
         </div>
 
         {/* Extra Wealth Highlight Badge */}
-        <div className="shrink-0 flex flex-col items-start sm:items-end bg-black/40 border border-white/10 rounded-2xl px-4 py-3">
+        <div className="shrink-0 flex flex-col items-start sm:items-end bg-black/40 border border-[#F5BA31]/70 rounded-2xl px-4 py-3">
           <span className="text-[11px] text-gray-400 font-medium uppercase tracking-wider">
             Extra Wealth Generated (Alpha)
           </span>

@@ -49,7 +49,7 @@ export default function MobileNav({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] lg:hidden">
+    <div className="fixed inset-0 z-[60] md:hidden">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300"
@@ -108,7 +108,7 @@ export default function MobileNav({
                   {/* Same order as the desktop Advisory menu */}
                   {[
                     { href: "/advisory", label: "All advisory products", description: "See every product on one page" },
-                    { href: "/advisory#single-stocks", label: "Single Stocks", description: "Stock ideas with entry, target & stop-loss" },
+                    { href: "/advisory#single-stocks", label: "Stocks", description: "Stock ideas with entry, target & stop-loss" },
                     { href: "/advisory#mtf-basket", label: "MTF Baskets", description: "Short-term stock baskets using margin", comingSoon: true },
                     { href: "/advisory#futures", label: "Futures", description: "Futures trades with defined risk", comingSoon: true },
                     { href: "/advisory#portfolios", label: "Portfolios", description: "Ready-made portfolios matched to your risk" },

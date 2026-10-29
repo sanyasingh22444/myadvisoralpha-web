@@ -184,7 +184,7 @@ export default function MutualFundsPage() {
       {/* 1. Hero with phone number box */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-8 sm:pt-10 lg:pt-6 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Mutual Funds</span>
             {/* Sized so the longest word, International Stocks, fits on one line at every width */}
@@ -221,7 +221,7 @@ export default function MutualFundsPage() {
                 { value: '₹500', label: 'Start a SIP from' },
               ].map((item, i) => (
                 <div key={item.value} className={i > 0 ? 'pl-4 border-l border-[#F5BA31]/40' : ''}>
-                  <div className="text-xl sm:text-2xl font-extrabold">{item.value}</div>
+                  <div className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-extrabold">{item.value}</div>
                   <div className="text-[11px] sm:text-xs text-white/60 mt-0.5 leading-snug">{item.label}</div>
                 </div>
               ))}
@@ -229,7 +229,7 @@ export default function MutualFundsPage() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-[480px] rounded-[28px] bg-[#0B1528] border border-white/10 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+            <div className="w-full max-w-[480px] rounded-[28px] bg-[#0B1528] border border-[#F5BA31]/70 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
               <div className="flex items-center justify-between mb-5">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">Start SIP</div>
@@ -260,7 +260,7 @@ export default function MutualFundsPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {FEATURES.map(({ icon: Icon, title, brief, points }) => (
-              <div key={title} className="rounded-2xl border border-neutral-200 p-6 lg:p-8 hover:border-[#164198]/30 hover:shadow-lg transition-all">
+              <div key={title} className="rounded-2xl border border-[#93C5FD] p-6 lg:p-8 hover:border-[#60A5FA] hover:shadow-lg transition-all">
                 <div className="w-12 h-12 rounded-xl bg-[#164198]/10 text-[#164198] flex items-center justify-center">
                   <Icon className="w-6 h-6" />
                 </div>
@@ -291,7 +291,7 @@ export default function MutualFundsPage() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BASKETS.map((basket) => (
-              <div key={basket.id} className="flex flex-col rounded-2xl bg-[#0B1528] border border-white/10 p-6 hover:border-[#F5BA31]/50 transition-colors">
+              <div key={basket.id} className="flex flex-col rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70 p-6 hover:border-[#F5BA31] transition-colors">
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#F5BA31] bg-[#F5BA31]/10 border border-[#F5BA31]/30 rounded-full px-2.5 py-0.5">
                     {basket.risk}
@@ -342,7 +342,7 @@ export default function MutualFundsPage() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {SELECTION_CHECKS.map(({ icon: Icon, title, metric, body }, i) => (
-              <div key={title} className="rounded-2xl bg-[#F6F8FC] border border-[#164198]/10 p-5">
+              <div key={title} className="rounded-2xl bg-[#F6F8FC] border border-[#93C5FD] p-5">
                 <div className="flex items-center justify-between">
                   <div className="w-10 h-10 rounded-lg bg-white text-[#164198] border border-[#164198]/15 flex items-center justify-center">
                     <Icon className="w-5 h-5" />
@@ -373,7 +373,7 @@ export default function MutualFundsPage() {
           />
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {STEPS.map((step, i) => (
-              <li key={step.title} className="relative rounded-2xl bg-[#0B1528] border border-white/10 p-6 lg:p-8">
+              <li key={step.title} className="relative rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70 shadow-[0_8px_28px_rgba(245,186,49,0.14)] p-6 lg:p-8">
                 <span className="w-10 h-10 rounded-full bg-[#F5BA31] text-[#081026] font-black flex items-center justify-center">{i + 1}</span>
                 <h3 className="mt-5 text-lg font-extrabold text-white">{step.title}</h3>
                 <p className="mt-2 text-sm text-white/65 leading-relaxed">{step.body}</p>
@@ -402,7 +402,7 @@ export default function MutualFundsPage() {
             title="See what a monthly SIP can grow to"
             subtitle="Move the sliders to estimate the value of your SIP."
           />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 rounded-[28px] bg-[#0B1528] border border-white/10 p-6 sm:p-8 lg:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 rounded-[28px] bg-[#0B1528] border border-[#F5BA31]/70 shadow-[0_10px_36px_rgba(245,186,49,0.16)] p-6 sm:p-8 lg:p-10">
             <div className="space-y-7">
               {[
                 { label: 'Monthly investment', value: monthly, display: formatRupees(monthly), min: 500, max: 100000, step: 500, set: setMonthly },
@@ -427,7 +427,7 @@ export default function MutualFundsPage() {
               ))}
             </div>
 
-            <div className="rounded-2xl bg-[#081026] border border-white/10 p-6 flex flex-col justify-center">
+            <div className="rounded-2xl bg-[#081026] border border-[#F5BA31]/70 p-6 flex flex-col justify-center">
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-white/60">Invested amount</span>
@@ -485,7 +485,7 @@ export default function MutualFundsPage() {
 
       {/* 8. Closing band with phone number box */}
       <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-12 lg:py-14 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
               Not sure which basket fits you?

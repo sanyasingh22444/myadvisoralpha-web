@@ -68,13 +68,13 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
         />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-6 lg:gap-8 items-center">
             
             {/* Left Column: Heading, Subhead, WhatsApp Lead Capture, Stats */}
-            <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
+            <div className="md:col-span-6 xl:col-span-7 flex flex-col items-start text-left">
               
               {/* Main Headline with Dynamic Rotating Words (Clean, NO pill badge above it) */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white">
+              <h1 className="text-4xl sm:text-5xl md:text-[2.5rem] lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white">
                 <div>Find your Alpha in</div>
                 <div className="text-[#F5BA31] min-h-[1.2em] relative overflow-hidden mt-1">
                   <AnimatePresence mode="wait" initial={false}>
@@ -130,7 +130,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                       onChange={handlePhoneChange}
                       placeholder="Enter your 10 digit mobile number"
                       maxLength={10}
-                      className="bg-transparent text-white placeholder-white/40 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 min-w-0 px-2 sm:px-3 py-2 outline-none font-medium"
+                      className="bg-transparent text-white placeholder-white/40 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm md:placeholder:text-xs lg:placeholder:text-sm text-sm flex-1 min-w-0 px-2 sm:px-3 py-2 outline-none font-medium"
                       aria-label="10-digit mobile number"
                     />
                     <button
@@ -187,7 +187,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
                   { value: "AMFI Registered", label: "Mutual Fund Distributor" },
                 ].map((stat, i) => (
                   <div key={stat.value} className={i % 2 === 1 ? "pl-5 sm:pl-6 border-l border-[#F5BA31]/40" : "pr-4"}>
-                    <div className="text-lg min-[400px]:text-xl sm:text-2xl font-extrabold text-white tracking-tight whitespace-nowrap">{stat.value}</div>
+                    <div className="text-lg min-[400px]:text-xl sm:text-2xl md:text-lg lg:text-2xl font-extrabold text-white tracking-tight whitespace-nowrap">{stat.value}</div>
                     <div className="text-xs text-white/60 font-medium mt-0.5">{stat.label}</div>
                   </div>
                 ))}
@@ -195,8 +195,8 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
 
             </div>
 
-            {/* Right Column: Illustrated product placard (stock idea, model portfolio, SIP) */}
-            <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
+            {/* Right Column: Illustrated product placard (stock idea, portfolio, SIP) */}
+            <div className="md:col-span-6 xl:col-span-5 flex justify-center md:justify-end">
               <HeroPlacard />
             </div>
 
@@ -206,21 +206,21 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
 
       {/* Regulated and Registered Band matching Artifact (Soft Cream Background) */}
       <section className="bg-[#FAF7EE] text-[#081026] py-6 sm:py-8 border-y border-[#EBE6D6]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-4 lg:gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-3 lg:px-12 xl:px-20">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 md:gap-5 lg:gap-8">
             
             {/* Label */}
-            <div className="shrink-0">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#5A5040]">
+            <div className="shrink-0 text-center md:text-left">
+              <span className="block md:max-w-[9rem] lg:max-w-none text-xs sm:text-sm md:text-xs lg:text-sm font-extrabold uppercase tracking-wider leading-snug text-[#5A5040]">
                 Regulated and registered
               </span>
             </div>
 
             {/* 3 White Registration Cards */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-2.5">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap sm:justify-center gap-2.5 md:gap-2 lg:gap-2.5">
               
               {/* Card 1: SEBI */}
-              <div className="bg-white rounded-xl px-3 py-2 border border-[#E5DFCC] shadow-sm flex items-center gap-2.5">
+              <div className="bg-white rounded-xl px-3 py-2 border border-[#93C5FD] shadow-sm flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B88714]" />
                 </div>
@@ -235,7 +235,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </div>
 
               {/* Card 2: BSE */}
-              <div className="bg-white rounded-xl px-3 py-2 border border-[#E5DFCC] shadow-sm flex items-center gap-2.5">
+              <div className="bg-white rounded-xl px-3 py-2 border border-[#93C5FD] shadow-sm flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B88714]" />
                 </div>
@@ -250,7 +250,7 @@ export default function HeroSection({ onOpenConsultation, onOpenLeadModal }: Her
               </div>
 
               {/* Card 3: AMFI */}
-              <div className="bg-white rounded-xl px-3 py-2 border border-[#E5DFCC] shadow-sm flex items-center gap-2.5">
+              <div className="bg-white rounded-xl px-3 py-2 border border-[#93C5FD] shadow-sm flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-[#FAF3DE] text-[#B88714] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B88714]" />
                 </div>

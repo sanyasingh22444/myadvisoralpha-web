@@ -144,11 +144,11 @@ export default function BlogsPage() {
       {selectedCategory === 'All' && !searchQuery && (
         <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-80 h-80 bg-[#F5BA31]/10 blur-[90px] rounded-full pointer-events-none" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-8 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-8 space-y-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="bg-[#F5BA31] text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
                       Featured Research Report
@@ -190,8 +190,8 @@ export default function BlogsPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 flex flex-col justify-center items-start lg:items-end gap-4">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 w-full space-y-3">
+                <div className="md:col-span-4 flex flex-col justify-center items-start md:items-end gap-4">
+                  <div className="bg-white/5 border border-[#F5BA31]/70 rounded-2xl p-5 w-full space-y-3">
                     <div className="text-xs font-bold uppercase tracking-wider text-[#3AA17E]">
                       Key Research Takeaways
                     </div>
@@ -241,7 +241,7 @@ export default function BlogsPage() {
 
           {/* Empty State */}
           {filteredPosts.length === 0 ? (
-            <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-12 text-center max-w-md mx-auto my-12">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-12 text-center max-w-md mx-auto my-12">
               <BookOpen className="w-12 h-12 text-neutral-500 mx-auto mb-4" />
               <h3 className="text-lg font-bold text-white">No articles matched your criteria</h3>
               <p className="text-xs text-neutral-400 mt-2">
@@ -266,7 +266,7 @@ export default function BlogsPage() {
                 return (
                   <article
                     key={post.slug}
-                    className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/50 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group relative shadow-lg"
+                    className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group relative shadow-lg"
                   >
                     <div>
                       {/* Top Metadata Strip */}
@@ -345,7 +345,7 @@ export default function BlogsPage() {
           onClick={() => setActiveModalPost(null)}
         >
           <div
-            className="bg-[#0B1528] border border-white/20 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+            className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -374,7 +374,7 @@ export default function BlogsPage() {
             </h2>
 
             {/* Author Banner */}
-            <div className="flex items-center gap-3 my-6 p-4 rounded-xl bg-white/5 border border-white/10">
+            <div className="flex items-center gap-3 my-6 p-4 rounded-xl bg-white/5 border border-[#F5BA31]/70">
               <div className="w-10 h-10 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-sm">
                 {activeModalPost.author === 'Pankaj Murarka' ? 'PM' : 'RD'}
               </div>
@@ -448,7 +448,7 @@ export default function BlogsPage() {
 
       {/* NEWSLETTER & CIO MARKET MEMO SUBSCRIPTION CARD */}
       <section className="pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Free Institutional Research</span>

@@ -36,7 +36,7 @@ export default function Footer() {
     <footer className="bg-[#081026] text-neutral-300 pt-12 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SECTION 1: App Download Banner with QR Card */}
-        <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase">
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -46,7 +46,7 @@ export default function Footer() {
               Join 1,00,000+ Smart Investors Today
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-              Experience institutional-grade equity research, curated model portfolios, and disciplined wealth advisory right from your mobile device.
+              Experience institutional-grade equity research, curated portfolios, and disciplined wealth advisory right from your mobile device.
             </p>
 
             {/* Checklist */}
@@ -300,7 +300,7 @@ export default function Footer() {
         </div>
 
         {/* SECTION 4: 9 Official Google Drive Regulatory Disclosure Links */}
-        <div className="mb-12 bg-[#0B0E14] border border-white/5 rounded-2xl p-6">
+        <div className="mb-12 bg-[#0B0E14] border border-[#F5BA31]/70 rounded-2xl p-6">
           <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31] mb-3">
             Official Regulatory Filings & Mandated Document Disclosures
           </div>
@@ -399,12 +399,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm text-neutral-400">
               <li>
                 <Link href="/advisory#single-stocks" className="hover:text-white transition-colors">
-                  Single Stock Advisory
+                  Stock Advisory
                 </Link>
               </li>
               <li>
                 <Link href="/advisory#portfolios" className="hover:text-white transition-colors">
-                  Equity Model Portfolios
+                  Equity Portfolios
                 </Link>
               </li>
               <li>
@@ -577,7 +577,7 @@ export default function Footer() {
         </div>
 
         {/* SECTION 6: Registered Entity & Office Details Card */}
-        <div className="bg-[#0B0E14] border border-white/10 rounded-2xl p-6 mb-8 text-xs text-neutral-400 space-y-3">
+        <div className="bg-[#0B0E14] border border-[#F5BA31]/70 rounded-2xl p-6 mb-8 text-xs text-neutral-400 space-y-3">
           <div className="flex flex-col md:flex-row md:items-center justify-between pb-3 border-b border-white/10 gap-2">
             <div>
               <span className="font-bold text-white text-sm">Renaissance Smart Tech Private Limited</span>

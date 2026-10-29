@@ -96,7 +96,7 @@ export default function TermsAndConditionsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* TABLE OF CONTENTS - STICKY SIDEBAR */}
             <aside className="lg:col-span-1 hidden lg:block">
-              <div className="sticky top-28 bg-[#0B1528] border border-white/10 rounded-2xl p-4 shadow-lg text-xs space-y-2">
+              <div className="sticky top-28 bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-4 shadow-lg text-xs space-y-2">
                 <div className="font-bold text-white text-xs uppercase tracking-wider pb-2 border-b border-white/10 flex items-center gap-1.5">
                   <FileText className="w-3.5 h-3.5 text-[#F5BA31]" />
                   <span>Table of Contents</span>
@@ -139,7 +139,7 @@ export default function TermsAndConditionsPage() {
             <div className="lg:col-span-3 space-y-10 text-neutral-300 text-sm sm:text-base leading-relaxed">
               
               {/* SECTION 1 */}
-              <article id="section-1" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-1" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">1</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -149,7 +149,7 @@ export default function TermsAndConditionsPage() {
                 <p>
                   <strong className="text-white">{BRAND_INFO.legalEntity}</strong> (CIN: <span className="font-mono text-neutral-200">{BRAND_INFO.cin}</span>) is a private limited company incorporated under the Companies Act, 2013, with its Registered Corporate Office situated at:
                 </p>
-                <div className="bg-black/40 border border-white/5 rounded-xl p-4 text-xs font-mono text-neutral-300 space-y-1">
+                <div className="bg-black/40 border border-[#F5BA31]/70 rounded-xl p-4 text-xs font-mono text-neutral-300 space-y-1">
                   <div className="font-bold text-white">{BRAND_INFO.contact.registeredAddress}</div>
                   <div className="text-neutral-400">Branch: {BRAND_INFO.contact.branchAddress}</div>
                 </div>
@@ -173,7 +173,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 2 */}
-              <article id="section-2" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-2" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">2</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -184,14 +184,14 @@ export default function TermsAndConditionsPage() {
                   By registering, subscribing to, or accessing services provided by {BRAND_INFO.brandDisplayName}, you affirmatively declare, warrant, and represent that:
                 </p>
                 <div className="space-y-3">
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white text-sm">A. Legal Majority & Contractual Capacity</h3>
                     <p className="text-xs sm:text-sm text-neutral-300">
                       You are at least 18 years of age (or the age of majority applicable in your jurisdiction) and legally competent to enter into a binding and enforceable contract under the Indian Contract Act, 1872. If you are accessing the services on behalf of an entity, Hindu Undivided Family (HUF), or trust, you warrant that you possess full corporate authorization.
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white text-sm">B. Jurisdiction & FEMA Compliance</h3>
                     <p className="text-xs sm:text-sm text-neutral-300">
                       You are either a resident Indian citizen or a Non-Resident Indian (NRI) / Person of Indian Origin (PIO) permitted under the Foreign Exchange Management Act, 1999 (FEMA) and applicable RBI guidelines to transact in Indian securities markets through an authorized NRE/NRO or PIS brokerage account.
@@ -211,7 +211,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 3 */}
-              <article id="section-3" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-3" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">3</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -219,11 +219,11 @@ export default function TermsAndConditionsPage() {
                   </h2>
                 </div>
                 <p>
-                  {BRAND_INFO.brandDisplayName} provides independent, non-exclusive research reports, equity ideas, and curated model portfolios strictly under its SEBI Research Analyst registration. Advisory recommendations are formulated utilizing the proprietary <strong className="text-white">SQGARP™</strong> (Sustainable Quality Growth at Reasonable Price) screening framework:
+                  {BRAND_INFO.brandDisplayName} provides independent, non-exclusive research reports, equity ideas, and curated portfolios strictly under its SEBI Research Analyst registration. Advisory recommendations are formulated utilizing the proprietary <strong className="text-white">SQGARP™</strong> (Sustainable Quality Growth at Reasonable Price) screening framework:
                 </p>
                 <ul className="space-y-2 list-disc list-inside text-xs sm:text-sm pl-2">
-                  <li><strong className="text-white">Single Stock Advisory:</strong> Research recommendations with defined entry price ranges, up to 2 progressive targets (T1, T2), risk-defined stop-loss levels, and comprehensive institutional rationale.</li>
-                  <li><strong className="text-white">Equity Model Portfolios:</strong> Curated thematic baskets of 5 to 30 equities rebalanced periodically according to risk-adjusted criteria.</li>
+                  <li><strong className="text-white">Stock Advisory:</strong> Research recommendations with defined entry price ranges, up to 2 progressive targets (T1, T2), risk-defined stop-loss levels, and comprehensive institutional rationale.</li>
+                  <li><strong className="text-white">Equity Portfolios:</strong> Curated thematic baskets of 5 to 30 equities rebalanced periodically according to risk-adjusted criteria.</li>
                   <li><strong className="text-white">Curated Mutual Funds:</strong> Goal-based mutual fund portfolios distributed pursuant to AMFI ARN-{BRAND_INFO.amfiArn}.</li>
                 </ul>
                 <p className="text-xs sm:text-sm text-neutral-400">
@@ -232,7 +232,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 4 */}
-              <article id="section-4" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-4" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">4</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -243,7 +243,7 @@ export default function TermsAndConditionsPage() {
                   The Company adheres to a strict <strong className="text-white">Non-Discretionary & Zero Custody Architecture</strong> in accordance with SEBI guidelines:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <Lock className="w-4 h-4 text-[#3AA17E]" />
                       <span>Zero Custody of Funds</span>
@@ -253,7 +253,7 @@ export default function TermsAndConditionsPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <Scale className="w-4 h-4 text-[#F5BA31]" />
                       <span>Sole Execution Discretion</span>
@@ -269,7 +269,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 5 */}
-              <article id="section-5" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-5" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">5</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -279,7 +279,7 @@ export default function TermsAndConditionsPage() {
                 <p>
                   In compliance with SEBI master circulars, UIDAI guidelines, and PMLA requirements, the client must undergo Know Your Customer (KYC) verification prior to accessing research recommendations.
                 </p>
-                <div className="p-4 bg-white/5 border border-[#F5BA31]/20 rounded-xl space-y-2 text-xs sm:text-sm">
+                <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2 text-xs sm:text-sm">
                   <h3 className="font-bold text-[#F5BA31]">Express KRA & CKYCR Fetch Authorization</h3>
                   <p className="text-neutral-300">
                     You hereby provide explicit affirmative authorization to {BRAND_INFO.legalEntity} and its verified technology partners to use your Permanent Account Number (PAN), Date of Birth, and Aadhaar verification token to query, fetch, download, verify, and store your KYC status and records from registered KYC Registration Agencies (KRAs) including <strong>CVL KRA, NDML KRA, DotEx KRA, CAMS KRA, and Karvy KRA</strong>, as well as the Central KYC Registry (CKYCR) managed by CERSAI.
@@ -291,7 +291,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 6 */}
-              <article id="section-6" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-6" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">6</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -300,7 +300,7 @@ export default function TermsAndConditionsPage() {
                 </div>
                 <div className="space-y-3 text-xs sm:text-sm">
                   <p>
-                    <strong>A. Transparent Fee Schedule:</strong> All subscription plans (Single Stock Advisory from ₹999/month, Equity Model Portfolios from ₹299/month) are published openly on the platform. All stated prices are subject to statutory Goods and Services Tax (GST @ 18%), which will be charged and itemized on the tax invoice.
+                    <strong>A. Transparent Fee Schedule:</strong> All subscription plans (Stock Advisory from ₹999/month, Equity Portfolios from ₹299/month) are published openly on the platform. All stated prices are subject to statutory Goods and Services Tax (GST @ 18%), which will be charged and itemized on the tax invoice.
                   </p>
                   <p>
                     <strong>B. Authorized Payment Channel Notice:</strong> All payments must be processed solely through official secure payment links on our domain (<span className="font-mono text-[#F5BA31]">link.advisoralpha.in</span> / <span className="font-mono text-[#F5BA31]">web.advisoralpha.in</span>) via RBI-authorized payment aggregators (Razorpay / Cashfree) directly to the bank account of <strong className="text-white">{BRAND_INFO.legalEntity}</strong>.
@@ -315,7 +315,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 7 */}
-              <article id="section-7" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-7" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">7</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -328,7 +328,7 @@ export default function TermsAndConditionsPage() {
                       No Assured or Guaranteed Returns
                     </div>
                     <p className="text-neutral-200">
-                      {BRAND_INFO.brandDisplayName} and {BRAND_INFO.legalEntity} explicitly DO NOT guarantee, assure, or promise any specific financial return, capital appreciation, minimum percentage return, or preservation of capital on any recommendation, model portfolio, or mutual fund selection. Registration granted by SEBI, enlistment as RA with BSE, and certification from NISM in no way guarantee performance of the intermediary.
+                      {BRAND_INFO.brandDisplayName} and {BRAND_INFO.legalEntity} explicitly DO NOT guarantee, assure, or promise any specific financial return, capital appreciation, minimum percentage return, or preservation of capital on any recommendation, portfolio, or mutual fund selection. Registration granted by SEBI, enlistment as RA with BSE, and certification from NISM in no way guarantee performance of the intermediary.
                     </p>
                   </div>
 
@@ -343,7 +343,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 8 */}
-              <article id="section-8" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-8" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">8</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -353,7 +353,7 @@ export default function TermsAndConditionsPage() {
                 <p>
                   All research reports, stock recommendation summaries, target prices, rationale notes, screening algorithms, the <strong className="text-white">SQGARP™</strong> methodology, website layout, graphics, text, software, and brand marks are the exclusive intellectual property of <strong className="text-white">{BRAND_INFO.legalEntity}</strong>, protected under the Copyright Act, 1957, Trade Marks Act, 1999, and applicable international intellectual property treaties.
                 </p>
-                <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2 text-xs sm:text-sm">
+                <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2 text-xs sm:text-sm">
                   <h3 className="font-bold text-white">Single-User Personal License & Prohibition of Sharing</h3>
                   <p className="text-neutral-300">
                     Subscribers are granted a limited, personal, revocable, non-transferable, and non-exclusive license to consume research reports solely for their own individual investment decision-making. <strong>You are strictly prohibited from copying, distributing, republishing, reselling, sublicensing, broadcasting, screenshotting, or sharing research notes on Telegram channels, WhatsApp groups, Discord servers, social media handles, or any online or offline forum.</strong>
@@ -365,7 +365,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 9 */}
-              <article id="section-9" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-9" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">9</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -381,7 +381,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 10 */}
-              <article id="section-10" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-10" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">10</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -402,7 +402,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 11 */}
-              <article id="section-11" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-11" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">11</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -422,7 +422,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* SECTION 12 */}
-              <article id="section-12" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="section-12" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">12</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -432,7 +432,7 @@ export default function TermsAndConditionsPage() {
                 <p>
                   These Terms and Conditions, all rights and obligations hereunder, and any dispute or controversy arising out of or in connection with the services provided by {BRAND_INFO.brandDisplayName} shall be governed exclusively by and construed in accordance with the substantive laws of the <strong className="text-white">Republic of India</strong>, without regard to conflict of law principles.
                 </p>
-                <div className="p-4 bg-white/5 border border-[#F5BA31]/30 rounded-xl space-y-2 text-xs sm:text-sm">
+                <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2 text-xs sm:text-sm">
                   <div className="font-bold text-white flex items-center gap-2">
                     <Scale className="w-4 h-4 text-[#F5BA31]" />
                     <span>Exclusive Jurisdiction of Mumbai Courts</span>
@@ -450,7 +450,7 @@ export default function TermsAndConditionsPage() {
               </article>
 
               {/* CONTACT & REGULATORY DISCLOSURE CARD */}
-              <div className="bg-gradient-to-r from-[#0B1528] to-[#121620] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <div className="bg-gradient-to-r from-[#0B1528] to-[#121620] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#3AA17E]">
                   <Building2 className="w-4 h-4" />
                   <span>Compliance & Grievance Contact</span>

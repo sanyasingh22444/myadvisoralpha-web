@@ -106,7 +106,7 @@ export default function AboutPage() {
       title: '20,000+ Customers & ₹11,500+ Cr Cumulative Advisory',
       period: 'Scale',
       description:
-        'Expanded advisory coverage into thematic Equity Model Portfolios and ONDC-powered zero-commission mutual fund baskets, surpassing ₹11,500+ Cr cumulative volume.',
+        'Expanded advisory coverage into thematic Equity Portfolios and ONDC-powered zero-commission mutual fund baskets, surpassing ₹11,500+ Cr cumulative volume.',
       tag: 'Multi-Product',
     },
     {
@@ -151,19 +151,19 @@ export default function AboutPage() {
 
           {/* Live Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#3AA17E] tracking-tight">{metrics.strikeRate}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Historical Win Rate</div>
               <div className="text-[11px] text-neutral-500 mt-1">On closed stock ideas</div>
             </div>
 
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{metrics.activeInvestors}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Active Investors</div>
               <div className="text-[11px] text-neutral-500 mt-1">Across 100+ Indian cities</div>
             </div>
 
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#F5BA31] tracking-tight">{metrics.aumGuided}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Assets Guided</div>
               <div className="text-[11px] text-neutral-500 mt-1">Cumulative advisory capital</div>
@@ -175,12 +175,12 @@ export default function AboutPage() {
       {/* FOUNDER & CIO PROFILE (PANKAJ MURARKA) */}
       <section id="cio-profile" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)] relative">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F5BA31]/20 via-transparent to-transparent pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-10 items-center">
               {/* Left Column: CIO Credentials Card */}
-              <div className="lg:col-span-5 flex flex-col items-center text-center">
+              <div className="md:col-span-5 flex flex-col items-center text-center">
                 <div className="relative">
                   <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full p-1 bg-gradient-to-tr from-[#F5BA31] via-[#3AA17E] to-[#FF8415] shadow-xl">
                     <div className="w-full h-full rounded-full bg-[#101D38] flex items-center justify-center overflow-hidden border-2 border-[#0B1528]">
@@ -218,7 +218,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right Column: Founder Narrative & Thesis */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="md:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#F5BA31]">
                   <Sparkles className="w-4 h-4" />
                   <span>CIO Letter & Philosophy</span>
@@ -284,7 +284,7 @@ export default function AboutPage() {
             {sqgarpPillars.map((pillar) => (
               <div
                 key={pillar.letter}
-                className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/50 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
+                className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
               >
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-xl bg-[#F5BA31]/15 border border-[#F5BA31]/30 flex items-center justify-center text-[#F5BA31] font-black text-2xl group-hover:bg-[#F5BA31] group-hover:text-white transition-colors">
@@ -329,7 +329,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={val.num}
-                  className="bg-[#0B1528] border border-white/10 rounded-2xl p-7 hover:border-white/20 transition-all"
+                  className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-7 hover:border-[#F5BA31] transition-all"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-mono text-[#3AA17E] font-bold">{val.num}</span>
@@ -372,7 +372,7 @@ export default function AboutPage() {
                 {/* Timeline Dot */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#081026] border-2 border-[#F5BA31] group-hover:bg-[#F5BA31] transition-colors" />
 
-                <div className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/40 rounded-2xl p-6 sm:p-7 transition-all">
+                <div className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-6 sm:p-7 transition-all">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">{m.phase}</div>
                     <span className="text-[11px] font-semibold text-neutral-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">
@@ -408,7 +408,7 @@ export default function AboutPage() {
             {leadershipTeam.map((member, idx) => (
               <div
                 key={idx}
-                className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 flex items-start gap-4 hover:border-white/20 transition-colors"
+                className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 flex items-start gap-4 hover:border-[#F5BA31] transition-colors"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#F5BA31]/20 to-[#3AA17E]/20 text-white flex items-center justify-center shrink-0 border border-white/10 font-bold text-lg">
                   {member.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
@@ -495,7 +495,7 @@ export default function AboutPage() {
 
       {/* BOTTOM CALL TO ACTION */}
       <section className="pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-8 sm:p-14 text-center">
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-8 sm:p-14 text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Ready to Upgrade to Institutional-Grade Advisory?
           </h2>

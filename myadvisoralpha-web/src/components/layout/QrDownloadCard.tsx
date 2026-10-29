@@ -3,7 +3,7 @@ import { Smartphone } from "lucide-react";
 
 export default function QrDownloadCard() {
   return (
-    <div className="bg-white rounded-3xl p-5 text-black flex flex-col items-center justify-center shadow-2xl border border-neutral-200 w-full sm:w-[260px] mx-auto lg:mx-0">
+    <div className="bg-white rounded-3xl p-5 text-black flex flex-col items-center justify-center shadow-2xl border border-[#93C5FD] w-full sm:w-[260px] mx-auto lg:mx-0">
       <div className="w-full flex items-center justify-between pb-3 mb-3 border-b border-neutral-100">
         <span className="text-xs font-bold uppercase tracking-wider text-neutral-800 flex items-center gap-1.5">
           <Smartphone className="w-3.5 h-3.5 text-[#F5BA31]" />

@@ -41,8 +41,8 @@ const SLIDES: Array<{
   },
   {
     key: "port",
-    tab: "Model Portfolios",
-    title: "Inside a model portfolio",
+    tab: "Portfolios",
+    title: "Inside a portfolio",
     sub: "A ready-made mix, kept on plan",
     foot: [
       ["Matched to your risk", "Conservative to aggressive"],
@@ -56,7 +56,7 @@ const SLIDES: Array<{
     title: "A SIP, month by month",
     sub: "Small amounts, invested automatically",
     foot: [
-      ["Matched to your risk", "Conservative to aggressive"],
+      ["Goal-based baskets", "From first salary to retirement"],
       ["Start SIP from ₹500", "Invest monthly on autopay"],
       ["Set up in 2 minutes", "100% digital via ONDC"],
     ],
@@ -140,7 +140,7 @@ export function StockChart({ still }: { still: boolean }) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Model portfolio: market-cap mix donut                              */
+/* Portfolio: market-cap mix donut                              */
 /* ------------------------------------------------------------------ */
 
 const MIX = [
@@ -316,7 +316,7 @@ export default function HeroPlacard() {
       onMouseLeave={() => resumeAfter(800)}
       onTouchStart={pause}
       onTouchEnd={() => resumeAfter(800)}
-      className="w-full max-w-[520px] rounded-[20px] border border-white/[0.12] pt-3.5 px-5 overflow-hidden shadow-[0_24px_40px_rgba(0,0,0,0.5)]"
+      className="w-full max-w-[520px] rounded-[20px] border border-[#F5BA31]/70 pt-3.5 px-5 overflow-hidden shadow-[0_24px_40px_rgba(0,0,0,0.5)]"
       style={{ backgroundColor: C.card }}
       aria-label="How each product works, illustrated"
     >

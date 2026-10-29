@@ -80,7 +80,7 @@ export const PORTFOLIO_SIZE_OPTIONS = [
 
 export const INVESTMENT_GOAL_OPTIONS = [
   { label: 'Stock Advisory (Entry, Target & Stop-Loss)', value: 'Stock Advisory (Short/Long term)' },
-  { label: 'Equity Model Portfolios (Long-term Wealth)', value: 'Model Portfolios (Wealth Creation)' },
+  { label: 'Equity Portfolios (Long-term Wealth)', value: 'Model Portfolios (Wealth Creation)' },
   { label: 'Curated Mutual Funds (SIP)', value: 'Curated Mutual Funds (SIP Growth)' },
   { label: 'Comprehensive Portfolio Review & Restructuring', value: 'Comprehensive Portfolio Review' },
 ];
@@ -274,7 +274,7 @@ export default function LeadCaptureModal({
       {/* Modal Surface Container */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-lg bg-[#0B1528] border border-white/15 rounded-3xl p-6 sm:p-8 text-white shadow-[0px_8px_48px_0px_rgba(35,127,251,0.25)] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-lg bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 text-white shadow-[0px_8px_48px_0px_rgba(35,127,251,0.25)] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Subtle Radial Blue Top Ambient Glow */}
         <div
@@ -613,7 +613,7 @@ export default function LeadCaptureModal({
             </div>
 
             {/* Next Steps Checklist */}
-            <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 text-left space-y-2.5 max-w-md mx-auto text-xs text-white/80 mb-6">
+            <div className="bg-white/[0.03] border border-[#F5BA31]/70 rounded-2xl p-4 text-left space-y-2.5 max-w-md mx-auto text-xs text-white/80 mb-6">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
                 <span>

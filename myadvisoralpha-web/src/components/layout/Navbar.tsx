@@ -26,7 +26,7 @@ const BRAND_BLUE = "#164198";
 const ADVISORY_ITEMS = [
   {
     href: "/advisory#single-stocks",
-    label: "Single Stocks",
+    label: "Stocks",
     description: "Stock ideas with entry, target & stop-loss",
     icon: TrendingUp,
   },
@@ -142,7 +142,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-base font-semibold">
+            <div className="hidden md:flex items-center gap-0 lg:gap-1 xl:gap-3 text-sm lg:text-base font-semibold">
               {/* 1. Advisory Dropdown Menu */}
               <div
                 className="relative"
@@ -174,7 +174,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                   <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="absolute top-full left-0 mt-2 w-[440px] bg-[#F5F8FD] border border-[#164198]/10 rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                    className="absolute top-full left-0 mt-2 w-[440px] bg-[#F5F8FD] border border-[#93C5FD] rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                   >
                     {ADVISORY_ITEMS.map((item) => {
                       const Icon = item.icon;
@@ -265,7 +265,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="hidden md:inline-flex lg:hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
+                className="hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
               >
                 <Headset className="w-4 h-4" />
                 <span>Talk to expert</span>
@@ -285,7 +285,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 type="button"
                 aria-label="Open mobile menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
+                className="md:hidden p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
                 style={{ color: BRAND_BLUE }}
               >
                 <Menu className="w-5 h-5" />

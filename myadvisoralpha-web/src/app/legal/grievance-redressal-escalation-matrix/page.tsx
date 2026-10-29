@@ -83,19 +83,19 @@ export default function GrievanceRedressalPage() {
       <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">5 Tiers</div>
               <div className="text-xs text-neutral-400 mt-1">Structured Hierarchy</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">21 Days</div>
               <div className="text-xs text-neutral-400 mt-1">Maximum Statutory SLA</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
               <div className="text-xs text-neutral-400 mt-1">Resolved Complaints Rate</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#EC6446]">0 Pending</div>
               <div className="text-xs text-neutral-400 mt-1">Month Ending Sep 2026</div>
             </div>
@@ -125,7 +125,7 @@ export default function GrievanceRedressalPage() {
             </div>
 
             {/* Responsive Table Container */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
@@ -238,7 +238,7 @@ export default function GrievanceRedressalPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#F5BA31]/50 transition-all">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-[#F5BA31] transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">
                     1
@@ -298,7 +298,7 @@ export default function GrievanceRedressalPage() {
                 </div>
               </div>
 
-              <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-purple-500/50 transition-all">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-3 relative group hover:border-purple-500/50 transition-all">
                 <div className="space-y-2">
                   <div className="w-7 h-7 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs">
                     5
@@ -316,7 +316,7 @@ export default function GrievanceRedressalPage() {
           </div>
 
           {/* SECTION 3: REGULATORY ESCALATION BEYOND 21 DAYS (SCORES & SMART ODR) */}
-          <div className="bg-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
               <Scale className="w-6 h-6 text-[#F5BA31]" />
               <div>
@@ -331,7 +331,7 @@ export default function GrievanceRedressalPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* SCORES CARD */}
-              <div className="bg-black/40 border border-white/10 rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#F5BA31] transition-colors">
+              <div className="bg-black/40 border border-[#F5BA31]/70 rounded-2xl p-6 space-y-4 flex flex-col justify-between hover:border-[#F5BA31] transition-colors">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] text-xs font-bold uppercase tracking-wider">
                     SEBI SCORES 2.0
@@ -388,7 +388,7 @@ export default function GrievanceRedressalPage() {
             </div>
 
             {/* SEBI Regional Office Box */}
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-neutral-300 space-y-1">
+            <div className="p-4 rounded-xl bg-white/5 border border-[#F5BA31]/70 text-xs text-neutral-300 space-y-1">
               <div className="font-bold text-white flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-neutral-400" />
                 <span>SEBI Regional Office (Headquarters & Western Regional Office):</span>
@@ -403,7 +403,7 @@ export default function GrievanceRedressalPage() {
           </div>
 
           {/* SECTION 4: INSTRUCTIONS FOR FILING GRIEVANCES */}
-          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
             <h3 className="text-xl font-bold text-white flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-[#F5BA31]" />
               <span>Guidelines for Filing an Effective Grievance</span>

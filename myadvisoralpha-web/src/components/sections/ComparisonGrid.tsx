@@ -129,7 +129,7 @@ export default function ComparisonGrid({ onOpenConsultation }: ComparisonGridPro
         </div>
 
         {/* Comparison Table */}
-        <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
+        <div className="overflow-hidden rounded-2xl border border-[#93C5FD] shadow-sm">
           <table className="w-full text-left text-xs sm:text-sm [overflow-wrap:anywhere] sm:[overflow-wrap:normal]">
             <thead>
               <tr className="border-b border-neutral-200">

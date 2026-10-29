@@ -32,14 +32,14 @@ const HERO_PRODUCTS = ['Stocks', 'Portfolios', 'MTF Baskets', 'Futures'];
 const HERO_POINTS = ['Entry, target & stop-loss on every idea'];
 
 const STATS = [
-  { value: '30+ years', label: 'of researched experience' },
+  { value: '30+ years', label: 'of research experience' },
 ];
 
 const PRODUCTS = [
   {
     id: 'single-stocks',
     icon: TrendingUp,
-    name: 'Single Stocks',
+    name: 'Stocks',
     brief: 'High-conviction stock ideas with a clear plan.',
     points: [
       'Entry range, up to 2 targets and a stop-loss on every idea',
@@ -47,12 +47,12 @@ const PRODUCTS = [
       'Full research rationale and SQGARP™ screening behind each pick',
       'Entry, stop-loss and exit alerts on the app, WhatsApp and email',
     ],
-    cta: { label: 'Explore Single Stocks', href: STOCKS_PLAN_URL },
+    cta: { label: 'Explore Stocks', href: STOCKS_PLAN_URL },
   },
   {
     id: 'portfolios',
     icon: Briefcase,
-    name: 'Model Portfolios',
+    name: 'Portfolios',
     brief: 'Ready-made stock portfolios matched to your risk.',
     points: [
       'Large cap, mid cap and small cap portfolios',
@@ -88,7 +88,7 @@ const SQGARP = [
 ];
 
 const STEPS = [
-  { icon: Briefcase, title: 'Choose a product', body: 'Pick Single Stocks or a Model Portfolio, whichever fits your goal and risk.' },
+  { icon: Briefcase, title: 'Choose a product', body: 'Pick Stocks or a Portfolio, whichever fits your goal and risk.' },
   { icon: Wallet, title: 'Make the payment', body: 'Pay securely by UPI, card or net banking. Access starts as soon as it’s confirmed.' },
   { icon: FileCheck2, title: 'KYC & eSign', body: 'Quick 1-step digital KYC, then eSign the agreement.' },
   { icon: Bell, title: 'Get your first idea', body: 'Receive your first idea with full rationale. Act on it in your own broker account.' },
@@ -105,7 +105,7 @@ const FAQS = [
   },
   {
     q: 'How much capital do I need to start?',
-    a: 'Single Stocks can start with ₹10,000–₹25,000. Model Portfolios start from ₹50,000, depending on the portfolio.',
+    a: 'Stocks can start with ₹10,000–₹25,000. Portfolios start from ₹50,000, depending on the portfolio.',
   },
   {
     q: 'Do you charge profit sharing or commissions?',
@@ -113,7 +113,7 @@ const FAQS = [
   },
   {
     q: 'What is SQGARP™?',
-    a: 'Sustainable Quality Growth at Reasonable Price. It is the research framework Pankaj Murarka built over 30+ years of institutional fund management, and it is applied to every stock idea and model portfolio.',
+    a: 'Sustainable Quality Growth at Reasonable Price. It is the research framework Pankaj Murarka built over 30+ years of institutional fund management, and it is applied to every stock idea and portfolio.',
   },
   {
     q: 'Can I cancel my subscription?',
@@ -137,11 +137,11 @@ export default function AdvisoryPage() {
       {/* 1. Hero with phone number box */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#081026] via-[#0B1A3A] to-[#0E2350] text-white pt-8 sm:pt-10 lg:pt-6 pb-12 lg:pb-16 px-4 sm:px-6 lg:px-12 xl:px-20">
         <div aria-hidden="true" className="absolute -top-20 right-0 w-[520px] h-[520px] bg-[#F5BA31]/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">Advisory</span>
             <h1 className="mt-3 text-[2rem] sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
-              <span className="sr-only">SEBI-registered research across single stocks, model portfolios, MTF baskets and futures</span>
+              <span className="sr-only">SEBI-registered research across stocks, portfolios, MTF baskets and futures</span>
               <span aria-hidden="true">
                 <span className="block">SEBI-registered research across</span>
                 <span className="block mt-1">
@@ -165,14 +165,14 @@ export default function AdvisoryPage() {
             </div>
 
             {/* Trust row */}
-            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 max-w-xl">
+            <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-[auto_auto_auto] justify-start gap-x-5 sm:gap-x-6 md:gap-x-4 lg:gap-x-6 max-w-xl">
               {[
                 { value: 'SEBI Registered', label: 'INH000021818' },
                 { value: 'BSE', label: 'Enlistment No. 6793' },
                 { value: '1 Lakh+', label: 'Users Across India' },
               ].map((item, i) => (
-                <div key={item.value} className={i > 0 ? 'pl-5 sm:pl-6 border-l border-[#F5BA31]/40' : ''}>
-                  <div className="text-lg sm:text-xl font-extrabold">{item.value}</div>
+                <div key={item.value} className={i > 0 ? 'pl-5 sm:pl-6 md:pl-4 lg:pl-6 border-l border-[#F5BA31]/40' : ''}>
+                  <div className="text-lg sm:text-xl md:text-base lg:text-xl font-extrabold whitespace-nowrap">{item.value}</div>
                   <div className="text-[11px] sm:text-xs text-white/60 mt-0.5 leading-snug">{item.label}</div>
                 </div>
               ))}
@@ -180,7 +180,7 @@ export default function AdvisoryPage() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-[480px] rounded-[28px] bg-[#0B1528] border border-white/10 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+            <div className="w-full max-w-[480px] rounded-[28px] bg-[#0B1528] border border-[#F5BA31]/70 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">Stock idea</div>
@@ -211,7 +211,7 @@ export default function AdvisoryPage() {
           />
           <div className="flex justify-center">
             {STATS.map((stat) => (
-              <div key={stat.value} className="w-full max-w-sm rounded-2xl bg-[#FFFBEF] border-2 border-[#F5BA31] shadow-[0_8px_24px_rgba(245,186,49,0.18)] p-5 sm:p-6 text-center">
+              <div key={stat.value} className="w-full max-w-sm rounded-2xl bg-[#FFFBEF] border border-[#F5BA31] shadow-[0_8px_24px_rgba(245,186,49,0.18)] p-5 sm:p-6 text-center">
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#164198]">{stat.value}</div>
                 <div className="mt-2 text-xs sm:text-sm text-neutral-600 leading-snug">{stat.label}</div>
               </div>
@@ -231,7 +231,7 @@ export default function AdvisoryPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {PRODUCTS.map(({ id, icon: Icon, name, brief, points, comingSoon, cta }) => (
-              <div key={id} id={id} className="scroll-mt-28 flex flex-col rounded-2xl bg-[#0B1528] border border-white/10 p-6 lg:p-8 hover:border-[#F5BA31]/40 transition-colors">
+              <div key={id} id={id} className="scroll-mt-28 flex flex-col rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70 p-6 lg:p-8 hover:border-[#F5BA31] transition-colors">
                 <div className="flex items-center justify-between gap-3">
                   <div className="w-12 h-12 rounded-xl bg-[#F5BA31]/10 text-[#F5BA31] flex items-center justify-center">
                     <Icon className="w-6 h-6" />
@@ -283,7 +283,7 @@ export default function AdvisoryPage() {
       </section>
 
       {/* Stocks performance track */}
-      <StockTrackRecord subscribeUrl={STOCKS_PLAN_URL} />
+      <StockTrackRecord />
 
       {/* 4. SQGARP framework */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#F3F6FC] to-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
@@ -299,7 +299,7 @@ export default function AdvisoryPage() {
           <SectionHeading
             eyebrow="Our investment philosophy"
             title="Every idea starts with SQGARP™"
-            subtitle="Sustainable Quality Growth at Reasonable Price. Every stock idea and model portfolio passes the same four tests."
+            subtitle="Sustainable Quality Growth at Reasonable Price. Every stock idea and portfolio passes the same four tests."
           />
 
           {/* The acronym, spelt out by the four tests */}
@@ -320,7 +320,7 @@ export default function AdvisoryPage() {
               {SQGARP.map((item, i) => (
                 <li
                   key={item.letter}
-                  className="group relative rounded-2xl bg-white border border-[#164198]/50 shadow-[0_10px_30px_rgba(22,65,152,0.08)] px-6 pt-12 pb-7 text-center hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(22,65,152,0.16)] transition-all duration-300"
+                  className="group relative rounded-2xl bg-white border border-[#93C5FD] shadow-[0_10px_30px_rgba(22,65,152,0.08)] px-6 pt-12 pb-7 text-center hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(22,65,152,0.16)] transition-all duration-300"
                 >
                   {/* Thin outlined letter mark on the card's top edge */}
                   <span className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-white border border-[#164198]/30 text-[#164198] font-serif text-xl font-normal tracking-wide flex items-center justify-center ring-4 ring-[#F6F8FC] group-hover:border-[#C99512] transition-colors">
@@ -338,7 +338,7 @@ export default function AdvisoryPage() {
           <p className="mt-12 text-center">
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#164198] bg-[#164198]/[0.06] border border-[#164198]/15 rounded-full px-4 py-2">
               <ShieldCheck className="w-4 h-4 text-[#C99512]" />
-              Applied to every stock idea and model portfolio. No exceptions.
+              Applied to every stock idea and portfolio. No exceptions.
             </span>
           </p>
         </div>
@@ -355,7 +355,7 @@ export default function AdvisoryPage() {
           />
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {STEPS.map(({ icon: Icon, title, body }, i) => (
-              <li key={title} className="rounded-2xl bg-[#0B1528] border border-white/10 p-6">
+              <li key={title} className="rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70 p-6">
                 <div className="flex items-center justify-between">
                   <span className="w-10 h-10 rounded-full bg-[#F5BA31] text-[#081026] font-black flex items-center justify-center">{i + 1}</span>
                   <Icon className="w-5 h-5 text-white/40" />
@@ -370,7 +370,7 @@ export default function AdvisoryPage() {
 
       {/* 6. Research team */}
       <section className="bg-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="relative h-[320px] sm:h-[420px] rounded-[28px] overflow-hidden bg-[#F6F8FC]">
             <Image
               src="/assets/app/pankaj-murarka.jpg"
@@ -437,7 +437,7 @@ export default function AdvisoryPage() {
 
       {/* 8. Closing band with phone number box */}
       <section className="bg-gradient-to-br from-[#0E2350] to-[#081026] py-12 lg:py-14 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
               Try our research before you subscribe

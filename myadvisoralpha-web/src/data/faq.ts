@@ -10,7 +10,7 @@ export const FAQS: FaqItem[] = [
     id: 'faq-1',
     category: 'offerings',
     question: 'What services does MyAdvisorAlpha offer?',
-    answer: 'MyAdvisorAlpha offers three primary regulated solutions: (1) Single Stock Advisory featuring high-conviction ideas across short, mid, and long horizons with explicit entry, stop-loss, and up to 2 profit targets; (2) Curated Model Portfolios aligned to conservative, balanced, all-weather, and aggressive goals; and (3) Goal-based Mutual Fund Baskets distributed via our registered AMFI MFD license (ARN-350887).',
+    answer: 'MyAdvisorAlpha offers three primary regulated solutions: (1) Stock Advisory featuring high-conviction ideas across short, mid, and long horizons with explicit entry, stop-loss, and up to 2 profit targets; (2) Curated Portfolios aligned to conservative, balanced, all-weather, and aggressive goals; and (3) Goal-based Mutual Fund Baskets distributed via our registered AMFI MFD license (ARN-350887).',
   },
   {
     id: 'faq-2',
@@ -46,7 +46,7 @@ export const FAQS: FaqItem[] = [
     id: 'faq-7',
     category: 'pricing',
     question: 'What is the minimum capital required to get started?',
-    answer: 'For Single Stock Advisory, you can start with as little as ₹10,000–₹25,000. For Equity Model Portfolios, the Beginner Portfolio requires a minimum capital of ₹50,000, while the Balanced and Flexicap portfolios recommend ₹1,00,000 to ₹2,50,000 for optimal diversification across 25–30 stocks. For Mutual Funds, SIPs start at just ₹2,000/month.',
+    answer: 'For Stock Advisory, you can start with as little as ₹10,000–₹25,000. For Equity Portfolios, the Beginner Portfolio requires a minimum capital of ₹50,000, while the Balanced and Flexicap portfolios recommend ₹1,00,000 to ₹2,50,000 for optimal diversification across 25–30 stocks. For Mutual Funds, SIPs start at just ₹2,000/month.',
   },
   {
     id: 'faq-8',

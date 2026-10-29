@@ -4,7 +4,7 @@
  *
  * Defines the authoritative hierarchy:
  *   - Advisory Category
- *     - Single Stocks
+ *     - Stocks
  *       - Futures: "Derivatives trading strategies and momentum signals"
  *       - MTF Basket: "Margin Trading Facility curated equity baskets with leverage and risk management"
  *     - Portfolio: "Full portfolio advisory, risk profiling, and periodic rebalancing"
@@ -57,7 +57,7 @@ export const CANONICAL_SERVICES: ServiceCategory[] = [
     name: 'Advisory',
     slug: 'advisory',
     tagline: 'SEBI-Registered Equity, Derivatives & Portfolio Advisory',
-    description: 'Institutional-grade research led by Pankaj Murarka (Ex-CIO Axis AMC). High-conviction single stock picks, derivatives strategies, margin trading baskets, and full portfolio advisory.',
+    description: 'Institutional-grade research led by Pankaj Murarka (Ex-CIO Axis AMC). High-conviction stock picks, derivatives strategies, margin trading baskets, and full portfolio advisory.',
     ctaText: 'Explore Advisory',
     ctaHref: '/advisory',
     subOfferings: [
@@ -108,7 +108,7 @@ export const CANONICAL_SERVICES: ServiceCategory[] = [
           '100% custody in client Demat account (Zerodha, Groww, AngelOne)',
           'Flat subscription fee with zero profit-sharing or hidden commissions',
         ],
-        ctaText: 'Explore Model Portfolios',
+        ctaText: 'Explore Portfolios',
         ctaHref: '/#portfolios',
         iconName: 'Briefcase',
       },
@@ -178,7 +178,7 @@ export const CANONICAL_SERVICES: ServiceCategory[] = [
 export const ADVISORY_SERVICES: AdvisorySection[] = [
   {
     id: 'single-stocks',
-    title: 'Single Stocks',
+    title: 'Stocks',
     description: 'High-conviction stock research screened via SQGARP™ framework with clear entry, target, and stop-loss.',
     items: [
       {
@@ -206,7 +206,7 @@ export const ADVISORY_SERVICES: AdvisorySection[] = [
     items: [
       {
         id: 'model-portfolios',
-        name: 'Model Portfolios',
+        name: 'Portfolios',
         badge: '18.1% Target CAGR',
         description: 'Full portfolio advisory, risk profiling, and periodic rebalancing',
         href: '/#portfolios',

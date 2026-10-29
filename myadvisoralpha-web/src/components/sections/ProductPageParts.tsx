@@ -44,7 +44,7 @@ export function PhoneCapture({ label, onSubmit }: { label: React.ReactNode; onSu
           placeholder="Enter your 10 digit mobile number"
           maxLength={10}
           aria-label="10-digit mobile number"
-          className="bg-transparent text-white placeholder-white/40 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm text-sm flex-1 min-w-0 px-2 sm:px-3 py-2 outline-none font-medium"
+          className="bg-transparent text-white placeholder-white/40 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm md:placeholder:text-xs lg:placeholder:text-sm text-sm flex-1 min-w-0 px-2 sm:px-3 py-2 outline-none font-medium"
         />
         <button
           type="submit"

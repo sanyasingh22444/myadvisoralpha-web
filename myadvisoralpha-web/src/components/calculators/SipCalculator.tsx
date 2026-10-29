@@ -213,11 +213,11 @@ export default function SipCalculator({
         </div>
 
         {/* 2-Column Calculator Canvas */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 lg:gap-10 items-start">
           {/* Left Column: Sliders & Parameter Controls (7 Cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="md:col-span-7 space-y-6">
             {/* Input 1: Investment Amount */}
-            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
                   <DollarSign className="w-4 h-4 text-[#F5BA31]" />
@@ -281,7 +281,7 @@ export default function SipCalculator({
             </div>
 
             {/* Input 2: Expected Return Rate (CAGR) */}
-            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-emerald-400" />
@@ -344,7 +344,7 @@ export default function SipCalculator({
             </div>
 
             {/* Input 3: Investment Tenure (Years) */}
-            <div className="bg-[#0B1528] border border-[#2A2A2A] hover:border-white/20 rounded-2xl p-5 sm:p-6 transition-all shadow-md">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-5 sm:p-6 transition-all shadow-md">
               <div className="flex items-center justify-between gap-4 mb-3">
                 <label className="text-xs sm:text-sm font-bold text-gray-200 flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-purple-400" />
@@ -407,8 +407,8 @@ export default function SipCalculator({
           </div>
 
           {/* Right Column: Visual Donut & Wealth Breakdown (5 Cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="bg-[#0B1528] border border-[#2A2A2A] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+          <div className="md:col-span-5 flex flex-col gap-6">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
               <div className="border-b border-white/10 pb-5">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   Total Wealth Projected in {tenureYears} Years
@@ -499,13 +499,13 @@ export default function SipCalculator({
 
               {/* Breakdown Metric Tiles */}
               <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
-                <div className="bg-[#0D1A33] border border-white/5 rounded-2xl p-3.5">
+                <div className="bg-[#0D1A33] border border-[#F5BA31]/70 rounded-2xl p-3.5">
                   <span className="text-[11px] text-gray-400 block font-medium">Invested Capital</span>
                   <span className="text-base sm:text-lg font-extrabold text-gray-200 tabular-nums block mt-1">
                     {formatINR(calculation.investedAmount)}
                   </span>
                 </div>
-                <div className="bg-[#0D1A33] border border-white/5 rounded-2xl p-3.5">
+                <div className="bg-[#0D1A33] border border-[#F5BA31]/70 rounded-2xl p-3.5">
                   <span className="text-[11px] text-emerald-400 block font-medium">Est. Returns</span>
                   <span className="text-base sm:text-lg font-extrabold text-emerald-400 tabular-nums block mt-1">
                     +{formatINR(calculation.estimatedReturn)}

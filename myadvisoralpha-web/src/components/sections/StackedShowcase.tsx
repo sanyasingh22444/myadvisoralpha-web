@@ -33,10 +33,10 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Short, mid & long-term ideas',
       'Every closed idea published, including losses',
     ],
-    ctaLabel: 'Explore Single Stocks',
+    ctaLabel: 'Explore Stocks',
     ctaUrl: 'https://link.advisoralpha.in/nav?page=payment&plan_id=77113212-0cd3-4810-af83-1dd07409ca49&plan_type=stocks&action=subscribe',
     isExternal: true,
-    visual: { src: '/assets/app/single-stocks.webp', alt: 'MyAdvisorAlpha app showing the Single Stocks screen', bg: '#F3F7FE' },
+    visual: { src: '/assets/app/single-stocks.webp', alt: 'MyAdvisorAlpha app showing the Stocks screen', bg: '#F3F7FE' },
   },
   {
     id: 'futures',
@@ -115,37 +115,51 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
 const CTA_CLASS =
   'w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F5BA31] hover:bg-[#e5ab28] active:scale-95 text-[#081026] font-bold text-sm sm:text-base px-6 py-3 rounded-xl transition-all shadow-lg';
 
-// Room left at the bottom of a phone screen for the sticky phone bar
-const MOBILE_BAR_SPACE = 80;
+// Room left at the bottom of the screen for the sticky phone bar, which is taller
+// on tablets, where it wraps onto two rows
+function barSpace(width: number) {
+  if (width < 768) return 80;
+  if (width < 1024) return 130;
+  return 64;
+}
 
 export default function StackedShowcase() {
   const reduceMotion = useReducedMotion() ?? false;
   const deckRef = useRef<HTMLDivElement>(null);
 
-  // On phones a card is taller than the screen, so it sticks only once its
-  // bottom (the picture) clears the sticky phone bar, then the next card slides over it
+  // Cards stack like a deck: every card sticks at the same spot, so each one fully
+  // covers the card before it. All cards share the tallest card's height so no edge
+  // of an earlier card shows, and on short screens they sit higher so the top card
+  // shows in full above the phone bar instead of being cut off at the bottom
   useEffect(() => {
     const deck = deckRef.current;
     if (!deck) return;
     const cards = Array.from(deck.children) as HTMLElement[];
+    const grids = cards.map((card) => card.querySelector<HTMLElement>('[data-card-body]'));
 
     const place = () => {
-      const mobile = window.innerWidth < 1024;
+      const width = window.innerWidth;
+      grids.forEach((grid) => grid && (grid.style.minHeight = ''));
+      const tallest = Math.max(...cards.map((card) => card.offsetHeight));
       cards.forEach((card, i) => {
-        const stacked = 112 + i * 48;
-        const top = mobile
-          ? Math.min(96 + i * 12, window.innerHeight - card.offsetHeight - MOBILE_BAR_SPACE)
-          : stacked;
-        card.style.setProperty('--stack-top', `${top}px`);
+        const grid = grids[i];
+        if (grid) grid.style.minHeight = `${tallest - (card.offsetHeight - grid.offsetHeight)}px`;
       });
+      const base = width < 768 ? 88 : 104;
+      const lowest = window.innerHeight - barSpace(width) - tallest;
+      const top = Math.min(base, lowest);
+      cards.forEach((card) => card.style.setProperty('--stack-top', `${top}px`));
     };
 
     place();
-    const observer = new ResizeObserver(place);
-    cards.forEach((card) => observer.observe(card));
+    // Heights settle once fonts and pictures load
+    const settle = window.setTimeout(place, 800);
+    document.fonts?.ready.then(place);
+    window.addEventListener('load', place);
     window.addEventListener('resize', place);
     return () => {
-      observer.disconnect();
+      window.clearTimeout(settle);
+      window.removeEventListener('load', place);
       window.removeEventListener('resize', place);
     };
     // A re-render resets the inline --stack-top, so place again after it
@@ -159,26 +173,25 @@ export default function StackedShowcase() {
           Our Products
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mt-2">
-          Invest with <span className="text-[#F5BA31]">conviction.</span>
+          Invest with <span className="text-[#F5BA31]">conviction</span>
         </h2>
-        <p className="mt-4 text-base sm:text-lg text-white/60">
-          Stock ideas, futures, MTF baskets, model portfolios and mutual funds, all in the MyAdvisorAlpha app.
+        <p className="mt-5 text-lg sm:text-xl font-medium leading-relaxed text-white/85">
+          Stock ideas, futures, MTF baskets, portfolios and mutual funds,{' '}
+          <span className="whitespace-nowrap rounded-md bg-[#F5BA31]/15 px-2 py-0.5 font-extrabold text-[#F5BA31]">all in one app</span>
         </p>
       </div>
 
       {/* Sequential Sticky Deck */}
-      <div ref={deckRef} className="max-w-6xl mx-auto space-y-8 lg:space-y-10">
+      {/* The gap between cards is a pause: a card stays fully in view for about a
+          third of a screen of scrolling before the next one slides over it */}
+      <div ref={deckRef} className="max-w-6xl mx-auto space-y-[35vh]">
         {SHOWCASE_CARDS.map((card, index) => {
-          // Each stacked card sits 48px below the previous one, so the label row at the
-          // top of every card stays visible while later cards slide over it
-          const topOffset = 112 + index * 48;
-
           return (
             <div
               key={card.id}
               id={card.id}
               className="sticky top-[var(--stack-top)] scroll-mt-32"
-              style={{ '--stack-top': `${topOffset}px`, zIndex: 20 + index } as React.CSSProperties}
+              style={{ '--stack-top': '112px', zIndex: 20 + index } as React.CSSProperties}
             >
               {/* Navbar anchor for the Portfolio link */}
               {card.id === 'model-portfolios' && (
@@ -189,11 +202,11 @@ export default function StackedShowcase() {
                 <div id="mutual-funds" className="relative -top-28 pointer-events-none" />
               )}
 
-              <div className="w-full rounded-[32px] border border-white/10 bg-[#0B1528] shadow-[0_12px_48px_rgba(0,0,0,0.85)] overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[410px]">
+              <div className="w-full rounded-[32px] border border-[#F5BA31]/70 bg-[#0B1528] shadow-[0_12px_48px_rgba(0,0,0,0.85)] overflow-hidden">
+                <div data-card-body className="grid grid-cols-1 md:grid-cols-2 md:min-h-[300px] lg:min-h-[340px]">
 
-                  {/* Copy, anchored to the top-left so the label shows while stacked */}
-                  <div className="px-6 sm:px-8 lg:px-12 pt-3 pb-12 lg:pb-16 flex flex-col justify-start">
+                  {/* Copy */}
+                  <div className="px-5 sm:px-8 lg:px-12 pt-2.5 pb-8 md:pb-12 lg:pb-14 flex flex-col justify-start">
                     <div className="flex items-center justify-between gap-3 h-[34px]">
                       <span className="text-sm sm:text-base font-extrabold tracking-wide text-[#F5BA31] bg-[#F5BA31]/10 px-4 py-0.5 rounded-full border border-[#F5BA31]/30">
                         {card.label}
@@ -203,11 +216,11 @@ export default function StackedShowcase() {
                       )}
                     </div>
 
-                    <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] mb-6">
+                    <h3 className="mt-3 md:mt-4 text-[1.5rem] sm:text-[2rem] lg:text-[2.6rem] font-extrabold text-white leading-[1.1] mb-3 md:mb-4">
                       {card.title}
                     </h3>
 
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                       {card.points.map((point) => (
                         <li key={point} className="flex items-start gap-3 text-sm sm:text-base text-white/80">
                           <CheckCircle2 className="w-5 h-5 text-[#F5BA31] shrink-0 mt-0.5" />
@@ -217,7 +230,7 @@ export default function StackedShowcase() {
                     </ul>
 
                     {card.quote && (
-                      <figure className="mb-8 border-l-2 border-[#F5BA31] pl-4">
+                      <figure className="mb-4 md:mb-5 border-l-2 border-[#F5BA31] pl-4">
                         <blockquote className="text-base sm:text-lg italic text-white">
                           &ldquo;{card.quote.text}&rdquo;
                         </blockquote>
@@ -242,21 +255,21 @@ export default function StackedShowcase() {
 
                   {/* Visual: app screenshot, photo or SIP chart */}
                   {card.visual === 'sip' ? (
-                    <div className="bg-[#0E1A33] border-t lg:border-t-0 lg:border-l border-white/10 flex items-center justify-center p-6 sm:p-10">
+                    <div className="bg-[#0E1A33] border-t lg:border-t-0 lg:border-l border-white/10 flex items-center justify-center p-4 sm:p-8">
                       <div className="w-full max-w-[460px]">
                         <SipChart still={reduceMotion} />
                       </div>
                     </div>
                   ) : (
                     <div
-                      className="relative aspect-[3/2] lg:aspect-auto lg:h-auto"
+                      className="relative aspect-[16/9] md:aspect-auto md:h-auto"
                       style={{ backgroundColor: card.visual.bg }}
                     >
                       <Image
                         src={card.visual.src}
                         alt={card.visual.alt}
                         fill
-                        sizes="(min-width: 1024px) 576px, 100vw"
+                        sizes="(min-width: 768px) 576px, 100vw"
                         className="object-contain"
                         priority={index === 0}
                       />

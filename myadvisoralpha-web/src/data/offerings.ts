@@ -39,7 +39,7 @@ export interface MutualFundBasket {
 export const OFFERING_PLANS: OfferingPlan[] = [
   {
     id: 'stock-advisory-pro',
-    title: 'Single Stock Advisory',
+    title: 'Stock Advisory',
     category: 'stocks',
     subtitle: 'High-conviction stock ideas across short, mid, and long horizons.',
     badge: '76.6% Historical Win Rate',
@@ -63,7 +63,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
   },
   {
     id: 'equity-model-portfolios',
-    title: 'Equity Model Portfolios',
+    title: 'Equity Portfolios',
     category: 'portfolio',
     subtitle: 'Curated baskets of 5–30 screened stocks rebalanced periodically.',
     badge: 'Top Pick for Long-Term Wealth',

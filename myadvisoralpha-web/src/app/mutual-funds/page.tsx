@@ -22,7 +22,7 @@ import { SipChart } from '@/components/sections/HeroPlacard';
 import LeadCaptureModal, { INVESTMENT_GOAL_OPTIONS } from '@/components/modals/LeadCaptureModal';
 import { PhoneCapture, RotatingWord, SectionHeading } from '@/components/sections/ProductPageParts';
 import { REGULATORY_INFO } from '@/data/legal';
-import { EXPERT_PHONE_HREF } from '@/components/layout/contactLinks';
+import TalkToExpert from '@/components/layout/TalkToExpert';
 
 const MF_APP_URL = 'https://link.advisoralpha.in/nav?page=mutual_funds';
 const MF_GOAL = INVESTMENT_GOAL_OPTIONS.find((opt) => opt.value.startsWith('Curated Mutual Funds'))?.value;
@@ -321,12 +321,9 @@ export default function MutualFundsPage() {
               <p className="mt-2 text-sm text-[#081026]/80 leading-relaxed flex-1">
                 Tell us your goal, timeline and risk comfort. We will suggest a basket matched to you.
               </p>
-              <a
-                href={EXPERT_PHONE_HREF}
-                className="mt-6 inline-flex items-center justify-center gap-1.5 text-sm font-bold bg-[#081026] text-white rounded-lg px-4 py-2.5 hover:bg-[#164198] transition-colors"
-              >
+              <TalkToExpert className="mt-6 inline-flex items-center justify-center gap-1.5 text-sm font-bold bg-[#081026] text-white rounded-lg px-4 py-2.5 hover:bg-[#164198] transition-colors">
                 Talk to expert <ArrowRight className="w-4 h-4" />
-              </a>
+              </TalkToExpert>
             </div>
           </div>
         </div>

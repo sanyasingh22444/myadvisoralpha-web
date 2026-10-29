@@ -13,7 +13,8 @@ import {
   Headset
 } from "lucide-react";
 import MobileNav from "./MobileNav";
-import { EXPERT_PHONE_HREF, openContactPage } from "./contactLinks";
+import { openContactPage } from "./contactLinks";
+import TalkToExpert from "./TalkToExpert";
 
 interface NavbarProps {
   onOpenLeadModal?: () => void;
@@ -261,25 +262,20 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 <span>Log in</span>
               </a>
 
-              {/* Talk to expert: calls the advisory desk. Hidden where the desktop links
-                  leave no room (md to lg); phones get the compact button below */}
-              <a
-                href={EXPERT_PHONE_HREF}
-                className="hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95"
-              >
+              {/* Talk to expert: shows the advisory desk number to call. Hidden where the
+                  desktop links leave no room (md to lg); phones get the compact button below */}
+              <TalkToExpert className="hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95">
                 <Headset className="w-4 h-4" />
                 <span>Talk to expert</span>
-              </a>
+              </TalkToExpert>
 
               {/* Talk to expert on phones: a compact headset button so the bar keeps its size */}
-              <a
-                href={EXPERT_PHONE_HREF}
-                aria-label="Talk to expert"
-                title="Talk to expert"
+              <TalkToExpert
+                ariaLabel="Talk to expert"
                 className="md:hidden inline-flex items-center justify-center shrink-0 w-[30px] h-[30px] rounded-lg text-white bg-[#164198] hover:bg-[#123577] transition-all active:scale-95"
               >
                 <Headset className="w-4 h-4" />
-              </a>
+              </TalkToExpert>
 
               {/* "Get 2 free ideas" - solid gold button */}
               <button

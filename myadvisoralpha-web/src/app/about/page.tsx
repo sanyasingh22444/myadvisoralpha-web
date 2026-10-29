@@ -199,11 +199,6 @@ export default function AboutPage() {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-6">{founder.name}</h3>
                 <p className="text-sm text-[#F5BA31] font-semibold mt-1">{founder.role}</p>
 
-                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-neutral-300">
-                  <Award className="w-4 h-4 text-[#FFCA3F]" />
-                  <span>Peak AUM: <strong className="text-white">{founder.peakAum}</strong></span>
-                </div>
-
                 {/* Prior Institutional Roles Pills */}
                 <div className="flex flex-wrap justify-center gap-2 mt-6">
                   {founder.priorRoles.map((role, idx) => (

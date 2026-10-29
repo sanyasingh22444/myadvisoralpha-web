@@ -82,7 +82,7 @@ export const BRAND_INFO: BrandInfo = {
     peakAum: '$5 Billion (₹40,000+ Cr)',
     bio: 'Pankaj Murarka brings over 30 years of equity market experience. As the former CIO of Axis Mutual Fund, he spearheaded the fastest-growing fund house in India managing $5B AUM. His distinguished career spans leadership and fund management roles at Rare Enterprises (Rakesh Jhunjhunwala’s firm), UTI AMC, Motilal Oswal, and Merrill Lynch.',
     priorRoles: [
-      'CIO – Axis Mutual Fund ($5B AUM, 2011–2016)',
+      'CIO – Axis Mutual Fund (managed $5B AUM, 2011–2016)',
       'Senior Portfolio Manager – Rare Enterprises',
       'Fund Manager – UTI AMC',
       'Head of Research – Motilal Oswal Financial Services',

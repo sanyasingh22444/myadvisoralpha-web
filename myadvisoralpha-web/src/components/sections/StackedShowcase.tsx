@@ -88,7 +88,6 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
       'Start a SIP in 2 minutes',
       'Your money goes straight to the AMC',
     ],
-    price: 'Free',
     ctaLabel: 'Explore Mutual Funds',
     ctaUrl: '/mutual-funds',
     isExternal: false,

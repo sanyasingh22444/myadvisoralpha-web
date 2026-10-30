@@ -1,5 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import { Smartphone } from "lucide-react";
+
+// Opens https://link.advisoralpha.in/JUfSaCf5k6b, the app download link
+const DOWNLOAD_QR_SRC = "/assets/app/download-qr.png";
 
 export default function QrDownloadCard() {
   return (
@@ -14,81 +18,15 @@ export default function QrDownloadCard() {
         </span>
       </div>
 
-      {/* Pure High-Fidelity SVG QR Matrix */}
-      <div className="relative p-2 bg-neutral-50 rounded-2xl border border-neutral-200 shadow-inner flex items-center justify-center">
-        <svg
-          viewBox="0 0 160 160"
-          className="w-36 h-36"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* QR Corner Square Top-Left */}
-          <rect x="10" y="10" width="40" height="40" rx="6" fill="#081026" />
-          <rect x="16" y="16" width="28" height="28" rx="3" fill="#FFFFFF" />
-          <rect x="22" y="22" width="16" height="16" rx="2" fill="#081026" />
-
-          {/* QR Corner Square Top-Right */}
-          <rect x="110" y="10" width="40" height="40" rx="6" fill="#081026" />
-          <rect x="116" y="16" width="28" height="28" rx="3" fill="#FFFFFF" />
-          <rect x="122" y="22" width="16" height="16" rx="2" fill="#081026" />
-
-          {/* QR Corner Square Bottom-Left */}
-          <rect x="10" y="110" width="40" height="40" rx="6" fill="#081026" />
-          <rect x="16" y="116" width="28" height="28" rx="3" fill="#FFFFFF" />
-          <rect x="22" y="122" width="16" height="16" rx="2" fill="#081026" />
-
-          {/* Data Pattern Modules */}
-          <rect x="60" y="15" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="75" y="15" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="90" y="15" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="60" y="30" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="90" y="30" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="15" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="30" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="45" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="60" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="75" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="105" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="120" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="135" y="60" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="15" y="75" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="45" y="75" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="105" y="75" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="135" y="75" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="15" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="30" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="60" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="75" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="90" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="120" y="90" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="60" y="105" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="75" y="105" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="105" y="105" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="135" y="105" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="60" y="120" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="90" y="120" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="105" y="120" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="120" y="120" width="8" height="8" rx="1.5" fill="#081026" />
-
-          <rect x="75" y="135" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="90" y="135" width="8" height="8" rx="1.5" fill="#081026" />
-          <rect x="135" y="135" width="8" height="8" rx="1.5" fill="#081026" />
-
-          {/* Center Brand Badge */}
-          <circle cx="80" cy="80" r="16" fill="#F5BA31" />
-          <path
-            d="M74 83L78 75L82 83M76 81H80M85 76L87 83M83 80H88"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+      <div className="relative p-2 bg-white rounded-2xl border border-neutral-200 flex items-center justify-center">
+        <Image
+          src={DOWNLOAD_QR_SRC}
+          alt="QR code to download the MyAdvisorAlpha app"
+          width={160}
+          height={160}
+          unoptimized
+          className="w-40 h-40"
+        />
       </div>
 
       <p className="text-[11px] text-neutral-600 text-center font-medium mt-3 leading-tight">

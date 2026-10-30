@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
-import { SipChart } from './HeroPlacard';
 
 interface ShowcaseCardData {
   id: string;
@@ -17,8 +16,8 @@ interface ShowcaseCardData {
   ctaLabel: string;
   ctaUrl: string;
   isExternal: boolean;
-  // Phone screenshot or photo shown beside the copy; 'sip' renders the SIP chart
-  visual: { src: string; alt: string; bg: string } | 'sip';
+  // Phone screenshot or photo shown beside the copy
+  visual: { src: string; alt: string; bg: string };
 }
 
 const WEB_APP_URL = 'https://web.advisoralpha.in/#/login';
@@ -50,7 +49,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ctaLabel: 'Explore Futures',
     ctaUrl: WEB_APP_URL,
     isExternal: true,
-    visual: { src: '/assets/app/futures.webp', alt: 'MyAdvisorAlpha app showing a live Reliance futures trade', bg: '#F3F7FE' },
+    visual: { src: '/assets/app/futures.webp', alt: 'MyAdvisorAlpha app showing a live futures trade', bg: '#F3F7FE' },
   },
   {
     id: 'mtf-basket',
@@ -93,7 +92,7 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     ctaLabel: 'Explore Mutual Funds',
     ctaUrl: '/mutual-funds',
     isExternal: false,
-    visual: 'sip',
+    visual: { src: '/assets/app/mutual-funds.webp', alt: 'MyAdvisorAlpha app showing popular mutual funds', bg: '#E6EFFD' },
   },
   {
     id: 'cio-edge',
@@ -255,28 +254,20 @@ export default function StackedShowcase() {
                     </div>
                   </div>
 
-                  {/* Visual: app screenshot, photo or SIP chart */}
-                  {card.visual === 'sip' ? (
-                    <div className="bg-[#0E1A33] border-t lg:border-t-0 lg:border-l border-white/10 flex items-center justify-center p-4 sm:p-8">
-                      <div className="w-full max-w-[460px]">
-                        <SipChart still={reduceMotion} />
-                      </div>
-                    </div>
-                  ) : (
-                    <div
-                      className="relative aspect-[16/9] md:aspect-auto md:h-auto"
-                      style={{ backgroundColor: card.visual.bg }}
-                    >
-                      <Image
-                        src={card.visual.src}
-                        alt={card.visual.alt}
-                        fill
-                        sizes="(min-width: 768px) 576px, 100vw"
-                        className="object-contain"
-                        priority={index === 0}
-                      />
-                    </div>
-                  )}
+                  {/* Visual: app screenshot or photo */}
+                  <div
+                    className="relative aspect-[16/9] md:aspect-auto md:h-auto"
+                    style={{ backgroundColor: card.visual.bg }}
+                  >
+                    <Image
+                      src={card.visual.src}
+                      alt={card.visual.alt}
+                      fill
+                      sizes="(min-width: 768px) 576px, 100vw"
+                      className="object-contain"
+                      priority={index === 0}
+                    />
+                  </div>
 
                 </div>
               </div>

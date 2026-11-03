@@ -123,7 +123,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Research Methodology',
     question: 'What is your historical strike rate and risk management policy?',
     answer:
-      'MyAdvisorAlpha maintains a verified 76.6% historical win rate on closed stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
+      'MyAdvisorAlpha maintains a verified 77.1% historical win rate on closed stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
   },
 ];
 

@@ -96,7 +96,7 @@ export const BRAND_INFO: BrandInfo = {
     { name: 'Rishabh Solanki', role: 'Head of Customer Care', email: 'support@renaissanceadvisors.in' },
   ],
   metrics: {
-    strikeRate: '76.6%',
+    strikeRate: '77.1%',
     activeInvestors: '1 Lakh+',
     aumGuided: '₹2,000 Cr+',
     researchExperience: '30+ Years',

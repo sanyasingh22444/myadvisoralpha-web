@@ -53,7 +53,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-300">
                 <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0" />
-                <span>76.6% Strike Rate on Stock Recommendations</span>
+                <span>77.1% Strike Rate on Stock Recommendations</span>
               </div>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-300">
                 <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0" />

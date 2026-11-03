@@ -42,7 +42,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
     title: 'Stock Advisory',
     category: 'stocks',
     subtitle: 'High-conviction stock ideas across short, mid, and long horizons.',
-    badge: '76.6% Historical Win Rate',
+    badge: '77.1% Historical Win Rate',
     priceDisplay: '₹1199',
     originalPrice: '₹2123',
     billingCycle: '/ month',

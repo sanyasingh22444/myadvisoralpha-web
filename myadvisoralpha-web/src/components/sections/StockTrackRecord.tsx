@@ -4,9 +4,9 @@ import React from 'react';
 import { CheckCircle2, ExternalLink } from 'lucide-react';
 
 const PERFORMANCE = [
-  { label: 'Hit Rate', value: '76.6%' },
-  { label: 'Avg Upside', value: '9.6%' },
-  { label: 'Avg Duration', value: '79 days' },
+  { label: 'Hit Rate', value: '77.1%' },
+  { label: 'Avg Upside', value: '9.7%' },
+  { label: 'Avg Duration', value: '80 days' },
 ];
 
 // Past ideas screen of the web app; signed-out visitors see its sign-in first

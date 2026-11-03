@@ -41,7 +41,7 @@ export default function StockTrackRecord() {
             ))}
           </div>
           <div className="mt-4 flex flex-col sm:flex-row items-center sm:justify-between gap-3">
-            <p className="text-xs sm:text-sm text-white/75 text-center sm:text-left">Returns based on all positive & negative closed trades.</p>
+            <p className="text-xs sm:text-sm text-white/75 text-center sm:text-left">Returns based on all positive & negative closed trades, as of 3rd Nov 2026.</p>
             <a
               href={CLOSED_IDEAS_URL}
               target="_blank"

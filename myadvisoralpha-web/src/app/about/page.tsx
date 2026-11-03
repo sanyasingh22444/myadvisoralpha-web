@@ -98,7 +98,7 @@ export default function AboutPage() {
       title: '10,000+ Investors & ₹1,500+ Cr Guided',
       period: 'Traction',
       description:
-        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 76.6% historical strike rate on closed stock ideas with transparent performance reporting.',
+        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 77.1% historical strike rate on closed stock ideas with transparent performance reporting.',
       tag: 'Validation',
     },
     {

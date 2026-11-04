@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
       <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70 space-y-2">
               <div className="w-8 h-8 rounded-lg bg-[#3AA17E]/20 text-[#3AA17E] flex items-center justify-center font-bold">
                 <EyeOff className="w-4 h-4" />
               </div>
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70 space-y-2">
               <div className="w-8 h-8 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold">
                 <Server className="w-4 h-4" />
               </div>
@@ -105,7 +105,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70 space-y-2">
               <div className="w-8 h-8 rounded-lg bg-[#EC6446]/20 text-[#EC6446] flex items-center justify-center font-bold">
                 <FileLock className="w-4 h-4" />
               </div>
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70 space-y-2">
               <div className="w-8 h-8 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] flex items-center justify-center font-bold">
                 <Clock className="w-4 h-4" />
               </div>
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* STICKY TOC */}
             <aside className="lg:col-span-1 hidden lg:block">
-              <div className="sticky top-28 bg-[#0B1528] border border-white/10 rounded-2xl p-4 shadow-lg text-xs space-y-2">
+              <div className="sticky top-28 bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-4 shadow-lg text-xs space-y-2">
                 <div className="font-bold text-white text-xs uppercase tracking-wider pb-2 border-b border-white/10 flex items-center gap-1.5">
                   <FileText className="w-3.5 h-3.5 text-[#F5BA31]" />
                   <span>Policy Sections</span>
@@ -167,7 +167,7 @@ export default function PrivacyPolicyPage() {
             <div className="lg:col-span-3 space-y-10 text-neutral-300 text-sm sm:text-base leading-relaxed">
               
               {/* SECTION 1 */}
-              <article id="privacy-1" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-1" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">1</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -183,7 +183,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 2 */}
-              <article id="privacy-2" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-2" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">2</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
                   We collect only the personal information strictly necessary to fulfill our statutory obligations as a SEBI-registered Research Analyst and to deliver advisory services:
                 </p>
                 <div className="space-y-3 text-xs sm:text-sm">
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white flex items-center gap-2">
                       <UserCheck className="w-4 h-4 text-[#F5BA31]" />
                       <span>A. Mandatory Regulatory Identity & KYC Data</span>
@@ -204,7 +204,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white flex items-center gap-2">
                       <Phone className="w-4 h-4 text-[#3AA17E]" />
                       <span>B. Contact & Communication Details</span>
@@ -214,7 +214,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white flex items-center gap-2">
                       <KeyRound className="w-4 h-4 text-[#F59E0B]" />
                       <span>C. Financial Profile & Billing Records</span>
@@ -224,7 +224,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-2">
                     <h3 className="font-bold text-white flex items-center gap-2">
                       <Database className="w-4 h-4 text-[#EC6446]" />
                       <span>D. Technical & Device Telemetry</span>
@@ -237,7 +237,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 3 */}
-              <article id="privacy-3" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-3" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">3</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -254,7 +254,7 @@ export default function PrivacyPolicyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
-                    <span><strong>Service Delivery:</strong> Dispatching real-time stock recommendations, multi-target profit alerts, trailing stop-losses, and model portfolio rebalancing advisories via SMS, WhatsApp, and push notifications.</span>
+                    <span><strong>Service Delivery:</strong> Dispatching real-time stock recommendations, multi-target profit alerts, trailing stop-losses, and portfolio rebalancing advisories via SMS, WhatsApp, and push notifications.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
@@ -268,7 +268,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 4 */}
-              <article id="privacy-4" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-4" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">4</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -279,20 +279,20 @@ export default function PrivacyPolicyPage() {
                   {BRAND_INFO.legalEntity} guarantees that your personal data is never sold, rented, or leased to third parties. We disclose your information only to authorized regulatory bodies and certified technology intermediaries:
                 </p>
                 <div className="space-y-2 text-xs sm:text-sm">
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">1. KYC Registration Agencies (KRAs) & CKYCR:</strong> We query and exchange KYC status with CVL KRA, NDML KRA, DotEx KRA, CAMS KRA, Karvy KRA, and the Central KYC Registry (CERSAI) to validate client identification.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">2. Regulatory & Judicial Authorities:</strong> Data is disclosed to SEBI, Bombay Stock Exchange (BSE), National Stock Exchange (NSE), Financial Intelligence Unit (FIU-IND), Income Tax Department, or law enforcement agencies when mandated by statutory summons or valid legal process.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">3. RBI-Authorized Payment Gateways:</strong> Transaction identifiers and payment amounts are shared with Razorpay / Cashfree under secure, tokenized SSL channels to fulfill subscription billing.
                   </div>
                 </div>
               </article>
 
               {/* SECTION 5 */}
-              <article id="privacy-5" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-5" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">5</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -313,7 +313,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 6 */}
-              <article id="privacy-6" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-6" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">6</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -324,7 +324,7 @@ export default function PrivacyPolicyPage() {
                   We deploy defense-in-depth technical, cryptographic, and operational safeguards to protect your personal and financial data against loss, misuse, or unauthorized access:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <Lock className="w-4 h-4 text-[#F5BA31]" />
                       <span>Data in Transit</span>
@@ -334,7 +334,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <Server className="w-4 h-4 text-[#3AA17E]" />
                       <span>Data at Rest</span>
@@ -344,7 +344,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <KeyRound className="w-4 h-4 text-[#EC6446]" />
                       <span>Access Governance</span>
@@ -354,7 +354,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+                  <div className="p-4 bg-white/5 border border-[#F5BA31]/70 rounded-xl space-y-1.5">
                     <div className="font-bold text-white flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-[#F59E0B]" />
                       <span>Vulnerability Audits</span>
@@ -367,7 +367,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 7 */}
-              <article id="privacy-7" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-7" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">7</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -383,7 +383,7 @@ export default function PrivacyPolicyPage() {
               </article>
 
               {/* SECTION 8 */}
-              <article id="privacy-8" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-8" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">8</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -394,26 +394,26 @@ export default function PrivacyPolicyPage() {
                   As an individual whose personal data is processed by {BRAND_INFO.brandDisplayName}, you possess the following statutory rights under Chapter III of the DPDP Act, 2023:
                 </p>
                 <div className="space-y-2.5 text-xs sm:text-sm">
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">Right to Access Information:</strong> You may request a summary of your personal data processed, details of third parties with whom data has been shared, and any other relevant processing details.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">Right to Correction & Updating:</strong> You have the right to correct inaccurate or misleading personal data and update outdated KYC information.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">Right to Erasure:</strong> You may request deletion of your personal data when it is no longer necessary for the purpose collected, subject always to our statutory SEBI/PMLA 5-year retention obligation.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">Right of Grievance Redressal:</strong> You may lodge a data privacy grievance with our designated Data Protection Officer, detailed below.
                   </div>
-                  <div className="p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="p-3 bg-white/5 border border-[#F5BA31]/70 rounded-xl">
                     <strong className="text-white">Right to Nominate:</strong> You have the right to nominate any individual to exercise your privacy rights in the unfortunate event of death or incapacity.
                   </div>
                 </div>
               </article>
 
               {/* SECTION 9 */}
-              <article id="privacy-9" className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <article id="privacy-9" className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="w-7 h-7 rounded-full bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center font-bold text-xs">9</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -424,7 +424,7 @@ export default function PrivacyPolicyPage() {
                   If you have any questions, wish to exercise your statutory rights as a Data Principal under the DPDP Act, or have a grievance concerning data privacy, please contact our designated Grievance & Compliance Officer:
                 </p>
                 
-                <div className="bg-gradient-to-r from-black/60 to-black/30 border border-[#F5BA31]/30 rounded-2xl p-6 space-y-4 text-xs sm:text-sm">
+                <div className="bg-gradient-to-r from-black/60 to-black/30 border border-[#F5BA31]/70 rounded-2xl p-6 space-y-4 text-xs sm:text-sm">
                   <div className="flex items-center justify-between pb-3 border-b border-white/10">
                     <div>
                       <div className="text-base font-bold text-white">Ms. Nidhi Kamani</div>

@@ -39,12 +39,12 @@ export interface MutualFundBasket {
 export const OFFERING_PLANS: OfferingPlan[] = [
   {
     id: 'stock-advisory-pro',
-    title: 'Single Stock Advisory',
+    title: 'Stock Advisory',
     category: 'stocks',
     subtitle: 'High-conviction stock ideas across short, mid, and long horizons.',
-    badge: '75% Historical Win Rate',
-    priceDisplay: '₹999',
-    originalPrice: '₹1,499',
+    badge: '77.1% Historical Win Rate',
+    priceDisplay: '₹1199',
+    originalPrice: '₹2123',
     billingCycle: '/ month',
     minInvestment: 'Flexible (₹10,000+)',
     expectedAlpha: '+5% to +8% over Nifty 50',
@@ -53,7 +53,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
     features: [
       '20+ research-backed stock ideas per month',
       'Short-term (1–4 wks), Mid-term (1–6 mos) & Long-term compounders',
-      'Progressive profit booking targets (Target 1, Target 2, Target 3)',
+      'Up to 2 profit booking targets (Target 1, Target 2)',
       'Strict stop-loss levels on every recommendation',
       'Instant entry, trail stop-loss & exit alerts via App & WhatsApp',
       'Institutional research reports & SQGARP™ valuation thesis',
@@ -63,7 +63,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
   },
   {
     id: 'equity-model-portfolios',
-    title: 'Equity Model Portfolios',
+    title: 'Equity Portfolios',
     category: 'portfolio',
     subtitle: 'Curated baskets of 5–30 screened stocks rebalanced periodically.',
     badge: 'Top Pick for Long-Term Wealth',
@@ -98,7 +98,7 @@ export const OFFERING_PLANS: OfferingPlan[] = [
     features: [
       'ONDC Financial Services powered architecture',
       '100% digital, paperless onboarding completed in 2 minutes',
-      'Zero platform custody — direct bank-to-AMC settlement',
+      'Zero platform custody — bank-to-AMC settlement',
       'Goal-based baskets: First Salary, All-Weather, Retire Rich',
       'Thematic lists: Consistent Performers, Better than FD, Star Managers',
       'Automated mandate setup with UPI Autopay / Netbanking',

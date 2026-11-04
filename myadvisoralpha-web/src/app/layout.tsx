@@ -3,6 +3,9 @@ import './globals.css';
 import { BRAND_INFO } from '@/data/brand';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StickyPhoneBar from '@/components/layout/StickyPhoneBar';
+import ScrollToTop from '@/components/layout/ScrollToTop';
+import SiteChrome from '@/components/layout/SiteChrome';
 
 export const metadata: Metadata = {
   title: `${BRAND_INFO.name} | ${BRAND_INFO.subtagline}`,
@@ -13,7 +16,7 @@ export const metadata: Metadata = {
     'Pankaj Murarka',
     'SEBI Registered Research Analyst',
     'Stock Advisory India',
-    'Model Portfolios',
+    'Portfolios',
     'Mutual Funds SIP',
     'Institutional Advisory',
     'INH000021818',
@@ -44,9 +47,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export const viewport: Viewport = {
@@ -72,16 +72,23 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        {/* Global Sticky Navbar Shell */}
-        <Navbar />
+        {/* Global Sticky Navbar Shell (hidden inside the signed-in app at /app) */}
+        <SiteChrome>
+          <Navbar />
+        </SiteChrome>
 
         {/* Dynamic Page Views */}
         <main id="main-content" className="flex-1 flex flex-col">
           {children}
         </main>
 
-        {/* Global Regulatory Footer */}
-        <Footer />
+        {/* Global Regulatory Footer and phone bar (site only) */}
+        <SiteChrome>
+          <Footer />
+          <StickyPhoneBar />
+        </SiteChrome>
+
+        <ScrollToTop />
       </body>
     </html>
   );

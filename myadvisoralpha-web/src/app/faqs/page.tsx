@@ -5,7 +5,7 @@ import FaqsClient from './FaqsClient';
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions (FAQs) | MyAdvisorAlpha',
   description:
-    'Comprehensive answers regarding MyAdvisorAlpha SEBI Research Analyst registration (INH000021818), SQGARP™ framework, stock picks, model portfolios, ONDC mutual funds, broker execution, and pricing.',
+    'Comprehensive answers regarding MyAdvisorAlpha SEBI Research Analyst registration (INH000021818), SQGARP™ framework, stock picks, portfolios, ONDC mutual funds, broker execution, and pricing.',
   alternates: {
     canonical: '/faqs',
   },

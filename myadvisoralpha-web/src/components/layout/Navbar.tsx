@@ -1,23 +1,58 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { 
-  ChevronDown, 
-  ArrowUpRight, 
-  Search, 
-  Menu, 
-  TrendingUp, 
-  Briefcase, 
-  Layers, 
-  LogIn
+import {
+  ChevronDown,
+  Menu,
+  TrendingUp,
+  Briefcase,
+  Layers,
+  BarChart3,
+  Headset
 } from "lucide-react";
 import MobileNav from "./MobileNav";
+import { openContactPage } from "./contactLinks";
+import TalkToExpert from "./TalkToExpert";
 
 interface NavbarProps {
   onOpenLeadModal?: () => void;
   onOpenConsultation?: () => void;
 }
+
+// Brand colours from the MyAdvisorAlpha logo
+const BRAND_BLUE = "#164198";
+
+// Advisory dropdown, in the order shown
+const ADVISORY_ITEMS = [
+  {
+    href: "/advisory#single-stocks",
+    label: "Stocks",
+    description: "Stock ideas with entry, target & stop-loss",
+    icon: TrendingUp,
+  },
+  {
+    href: "/advisory#mtf-basket",
+    label: "MTF Baskets",
+    description: "Short-term stock baskets using margin",
+    icon: Layers,
+    comingSoon: true,
+  },
+  {
+    href: "/advisory#futures",
+    label: "Futures",
+    description: "Futures trades with defined risk",
+    icon: BarChart3,
+    comingSoon: true,
+  },
+  {
+    href: "/advisory#portfolios",
+    label: "Portfolios",
+    description: "Ready-made portfolios matched to your risk",
+    icon: Briefcase,
+  },
+];
 
 export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +69,7 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
       if (window.location.pathname === "/") {
         window.dispatchEvent(new CustomEvent("open-consultation-modal"));
       } else {
-        window.location.href = "/contact";
+        openContactPage();
       }
     }
   };
@@ -56,6 +91,16 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
     }, 250); // 250ms grace period prevents abrupt dropdown closure
   };
 
+  // Close the Advisory dropdown on Escape
+  useEffect(() => {
+    if (!advisoryOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setAdvisoryOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [advisoryOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -67,168 +112,119 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
     };
   }, []);
 
+  const navLinkClass =
+    "whitespace-nowrap px-3.5 py-1.5 rounded-full text-[#164198] hover:text-[#C99512] hover:bg-[#164198]/[0.06] transition-colors";
+
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 px-4 sm:px-6 lg:px-8 ${
+        className={`sticky top-0 z-50 w-full transition-all duration-300 px-3 sm:px-6 lg:px-8 ${
           isScrolled ? "pt-2 pb-2" : "pt-4 pb-2"
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Floating Pill Container matching Artifact */}
+          {/* Floating off-white pill with a slight blue tint */}
           <nav
             aria-label="Main Navigation"
-            className="bg-[#0B1528]/95 backdrop-blur-md rounded-full border border-white/10 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0px_8px_32px_0px_rgba(0,0,0,0.4)]"
+            className="bg-[#EEF3FB] rounded-full border border-[#164198]/15 pl-4 pr-2 sm:px-6 py-2 flex items-center justify-between gap-2 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.35)]"
           >
-            {/* Logo Section matching Artifact: Warm Gold square + MyAdvisorAlpha */}
-            <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-2.5 group">
-                <div className="w-8 h-8 rounded-lg bg-[#F5BA31] flex items-center justify-center text-[#081026] shadow-md group-hover:scale-105 transition-transform font-black">
-                  <svg className="w-4 h-4 text-[#081026] stroke-[2.75]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 19L20 5M20 5H10M20 5V15" />
-                  </svg>
-                </div>
-                <div className="flex items-center text-lg font-extrabold tracking-tight text-white">
-                  <span>MyAdvisor</span>
-                  <span className="text-[#F5BA31]">Alpha</span>
-                </div>
+            {/* Logo (from myadvisoralpha.com) */}
+            <div className="flex items-center min-w-0">
+              <Link href="/" aria-label="MyAdvisorAlpha home" className="flex items-center">
+                <Image
+                  src="/assets/brand/myadvisoralpha-logo.svg"
+                  alt="MyAdvisorAlpha by Renaissance"
+                  width={171}
+                  height={58}
+                  priority
+                  unoptimized
+                  className="h-10 min-[400px]:h-11 sm:h-14 w-auto object-contain object-left"
+                />
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-3 text-sm font-medium text-white/90">
+            <div className="hidden md:flex items-center gap-0 lg:gap-1 xl:gap-3 text-sm lg:text-base font-semibold">
               {/* 1. Advisory Dropdown Menu */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
-                  type="button"
+                {/* One click jumps to the product cards; hover or focus opens the menu */}
+                <Link
+                  href="/advisory"
                   aria-expanded={advisoryOpen}
-                  onClick={() => setAdvisoryOpen(!advisoryOpen)}
+                  aria-haspopup="true"
+                  onFocus={handleMouseEnter}
+                  onClick={() => setAdvisoryOpen(false)}
                   className={`px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5 focus:outline-none ${
-                    advisoryOpen ? "bg-white/15 text-white" : "hover:text-white hover:bg-white/10"
+                    advisoryOpen
+                      ? "bg-[#164198]/[0.08] text-[#164198]"
+                      : "text-[#164198] hover:text-[#C99512] hover:bg-[#164198]/[0.06]"
                   }`}
                 >
                   <span>Advisory</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-white/80 transition-transform duration-200 ${
-                      advisoryOpen ? "rotate-180 text-[#F5BA31]" : ""
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      advisoryOpen ? "rotate-180 text-[#C99512]" : ""
                     }`}
                   />
-                </button>
+                </Link>
 
                 {advisoryOpen && (
-                  <div 
+                  <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    style={{ backgroundColor: "#0D1A33", opacity: 1 }}
-                    className="absolute top-full left-0 mt-2 w-[480px] sm:w-[520px] bg-[#0D1A33] border border-white/20 rounded-2xl p-4 shadow-[0_25px_60px_rgba(0,0,0,0.95)] z-[100] animate-in fade-in slide-in-from-top-2 duration-200 space-y-3 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                    className="absolute top-full left-0 mt-2 w-[440px] bg-[#F5F8FD] border border-[#93C5FD] rounded-2xl p-2 shadow-[0_25px_60px_rgba(0,0,0,0.35)] z-[100] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                   >
-                    {/* Section 1: Single Stocks */}
-                    <div>
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-[#F5BA31]">
-                        <TrendingUp className="w-3.5 h-3.5 text-[#F5BA31]" />
-                        <span>Single Stocks</span>
-                      </div>
-                      <div className="space-y-1">
-                        {/* Futures Sub-Item */}
+                    {ADVISORY_ITEMS.map((item) => {
+                      const Icon = item.icon;
+                      return (
                         <Link
-                          href="/#futures"
+                          key={item.href}
+                          href={item.href}
                           onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
+                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#164198]/[0.05] transition-colors group"
                         >
-                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
-                            <TrendingUp className="w-4 h-4" />
+                          <div className="w-9 h-9 rounded-lg bg-[#164198]/10 text-[#164198] flex items-center justify-center shrink-0 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors">
+                            <Icon className="w-4 h-4" />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
-                                Futures
+                              <span className="text-sm font-bold text-[#164198] group-hover:text-[#C99512] transition-colors">
+                                {item.label}
                               </span>
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
-                                Derivatives
-                              </span>
+                              {item.comingSoon && (
+                                <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#F5BA31]/20 text-[#8A6D10] border border-[#F5BA31]/50">
+                                  Coming soon
+                                </span>
+                              )}
                             </div>
-                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                              Derivatives trading strategies and momentum signals with defined risk parameters
-                            </div>
-                          </div>
-                        </Link>
-
-                        {/* MTF Basket Sub-Item */}
-                        <Link
-                          href="/#mtf-basket"
-                          onClick={() => setAdvisoryOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                        >
-                          <div className="w-9 h-9 rounded-lg bg-[#F5BA31]/20 text-[#F5BA31] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#F5BA31] group-hover:text-[#081026] transition-colors shadow-sm">
-                            <Layers className="w-4 h-4" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold text-white group-hover:text-[#F5BA31] transition-colors">
-                                MTF Basket
-                              </span>
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F5BA31] text-[#081026] shadow-sm">
-                                Margin Trading
-                              </span>
-                            </div>
-                            <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                              Margin Trading Facility curated equity baskets with leverage and institutional downside risk management
+                            <div className="text-xs text-neutral-600 mt-0.5 font-normal">
+                              {item.description}
                             </div>
                           </div>
                         </Link>
-                      </div>
-                    </div>
+                      );
+                    })}
 
-                    {/* Section 2: Portfolio */}
-                    <div className="pt-2.5 border-t border-white/15">
-                      <div className="flex items-center gap-1.5 px-2 pb-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                        <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Portfolio</span>
-                      </div>
-                      <Link
-                        href="/#portfolios"
-                        onClick={() => setAdvisoryOpen(false)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors group"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-emerald-500/25 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-400 group-hover:text-[#081026] transition-colors shadow-sm">
-                          <Briefcase className="w-4 h-4" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-                              Portfolio Advisory
-                            </span>
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-400 text-[#081026] shadow-sm">
-                              Full Advisory
-                            </span>
-                          </div>
-                          <div className="text-xs text-white/80 mt-1 leading-relaxed font-normal">
-                            Full portfolio advisory, risk profiling, and periodic rebalancing
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-
-                    {/* Dropdown Quick Pedigree & Route Links */}
-                    <div className="pt-2.5 border-t border-white/15 flex items-center justify-between px-2 text-xs text-white/70">
+                    {/* Dropdown footer links */}
+                    <div className="mt-1 pt-2.5 pb-1.5 border-t border-neutral-200 flex items-center justify-between gap-3 px-3 text-xs text-neutral-600 whitespace-nowrap">
                       <span className="font-medium">Pankaj Murarka · 30+ Yrs Equity Pedigree</span>
                       <div className="flex items-center gap-2.5">
                         <Link
                           href="/about"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-[#F5BA31] hover:underline font-bold"
+                          className="text-[#C99512] hover:underline font-bold"
                         >
                           About Us
                         </Link>
-                        <span className="text-white/40">·</span>
+                        <span className="text-neutral-300">·</span>
                         <Link
                           href="/contact"
                           onClick={() => setAdvisoryOpen(false)}
-                          className="text-white hover:text-[#F5BA31] transition-colors font-medium"
+                          className="text-[#164198] hover:text-[#C99512] transition-colors font-semibold"
                         >
                           Contact Desk
                         </Link>
@@ -239,49 +235,55 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
               </div>
 
               {/* 2. Mutual Funds Link */}
-              <Link
-                href="/#mutual-funds"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/mutual-funds" className={navLinkClass}>
                 Mutual Funds
               </Link>
 
               {/* 3. Blog Link */}
-              <Link
-                href="/blogs"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/blogs" className={navLinkClass}>
                 Blog
               </Link>
 
               {/* 4. FAQs Link */}
-              <Link
-                href="/faqs"
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-colors"
-              >
+              <Link href="/faqs" className={navLinkClass}>
                 FAQs
               </Link>
             </div>
 
-            {/* Right Action Trigger & Buttons matching Artifact */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Web Login Button - Outlined style from Artifact */}
+            {/* Right Action Buttons */}
+            <div className="flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-3 shrink-0">
+              {/* Web Login Button (in the mobile drawer below sm) */}
               <a
                 href="https://web.advisoralpha.in/#/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-xs lg:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all active:scale-95"
+                className="hidden sm:inline-flex items-center whitespace-nowrap justify-center text-sm lg:text-base font-semibold text-[#164198] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[#164198]/30 hover:border-[#164198] hover:bg-[#164198]/[0.05] transition-all active:scale-95"
               >
                 <span>Log in</span>
               </a>
 
-              {/* "Get 2 free ideas" - Solid Warm Gold Pill/Button from Artifact */}
+              {/* Talk to expert: shows the advisory desk number to call. Hidden where the
+                  desktop links leave no room (md to lg); phones get the compact button below */}
+              <TalkToExpert className="hidden xl:inline-flex items-center justify-center gap-1.5 whitespace-nowrap text-sm lg:text-base font-semibold text-white bg-[#164198] hover:bg-[#123577] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg transition-all active:scale-95">
+                <Headset className="w-4 h-4" />
+                <span>Talk to expert</span>
+              </TalkToExpert>
+
+              {/* Talk to expert on phones: a compact headset button so the bar keeps its size */}
+              <TalkToExpert
+                ariaLabel="Talk to expert"
+                className="md:hidden inline-flex items-center justify-center shrink-0 w-[30px] h-[30px] rounded-lg text-white bg-[#164198] hover:bg-[#123577] transition-all active:scale-95"
+              >
+                <Headset className="w-4 h-4" />
+              </TalkToExpert>
+
+              {/* "Get 2 free ideas" - solid gold button */}
               <button
                 type="button"
                 onClick={handleCtaClick}
-                className="inline-flex items-center justify-center gap-1.5 bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs lg:text-sm font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap bg-[#F5BA31] hover:bg-[#e5ab28] text-[#081026] text-xs min-[375px]:text-[13px] sm:text-sm lg:text-base font-bold px-2 min-[375px]:px-2.5 min-[400px]:px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md active:scale-95 transition-all"
               >
-                <span>Get 2 free ideas</span>
+                Get 2 free ideas
               </button>
 
               {/* Mobile Hamburger Toggle */}
@@ -289,7 +291,8 @@ export default function Navbar({ onOpenLeadModal, onOpenConsultation }: NavbarPr
                 type="button"
                 aria-label="Open mobile menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 text-white hover:text-white/80 hover:bg-white/10 rounded-full focus:outline-none transition-colors"
+                className="md:hidden p-1.5 min-[400px]:p-2 rounded-full focus:outline-none transition-colors hover:bg-[#164198]/[0.06]"
+                style={{ color: BRAND_BLUE }}
               >
                 <Menu className="w-5 h-5" />
               </button>

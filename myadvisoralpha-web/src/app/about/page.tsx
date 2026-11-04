@@ -38,7 +38,7 @@ export default function AboutPage() {
       num: '02',
       title: 'No Secrets, Total Transparency',
       description:
-        'Every stock recommendation and portfolio change is accompanied by an exhaustive investment thesis, entry price range, target stages (T1–T3), and strict stop-loss.',
+        'Every stock recommendation and portfolio change is accompanied by an exhaustive investment thesis, entry price range, up to 2 targets (T1–T2), and strict stop-loss.',
       icon: Layers,
       badge: 'Full Disclosure',
     },
@@ -98,7 +98,7 @@ export default function AboutPage() {
       title: '10,000+ Investors & ₹1,500+ Cr Guided',
       period: 'Traction',
       description:
-        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 75% historical strike rate on closed stock ideas with transparent performance reporting.',
+        'Crossed landmark 10,000 active investor milestone while establishing a verifiable 77.1% historical strike rate on closed stock ideas with transparent performance reporting.',
       tag: 'Validation',
     },
     {
@@ -106,7 +106,7 @@ export default function AboutPage() {
       title: '20,000+ Customers & ₹11,500+ Cr Cumulative Advisory',
       period: 'Scale',
       description:
-        'Expanded advisory coverage into thematic Equity Model Portfolios and ONDC-powered zero-commission mutual fund baskets, surpassing ₹11,500+ Cr cumulative volume.',
+        'Expanded advisory coverage into thematic Equity Portfolios and ONDC-powered zero-commission mutual fund baskets, surpassing ₹11,500+ Cr cumulative volume.',
       tag: 'Multi-Product',
     },
     {
@@ -122,7 +122,7 @@ export default function AboutPage() {
   return (
     <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8 pb-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         {/* Subtle Ambient Background Glows */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-1/3 right-10 w-[400px] h-[250px] bg-[#3AA17E]/10 blur-[100px] rounded-full pointer-events-none" />
@@ -150,43 +150,37 @@ export default function AboutPage() {
           </p>
 
           {/* Live Metrics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-12">
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#3AA17E] tracking-tight">{metrics.strikeRate}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Historical Win Rate</div>
               <div className="text-[11px] text-neutral-500 mt-1">On closed stock ideas</div>
             </div>
 
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{metrics.activeInvestors}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Active Investors</div>
               <div className="text-[11px] text-neutral-500 mt-1">Across 100+ Indian cities</div>
             </div>
 
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 text-center hover:border-[#F5BA31] transition-colors">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#F5BA31] tracking-tight">{metrics.aumGuided}</div>
               <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Assets Guided</div>
               <div className="text-[11px] text-neutral-500 mt-1">Cumulative advisory capital</div>
-            </div>
-
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 text-center hover:border-[#F5BA31]/50 transition-colors">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#FF8415] tracking-tight">{metrics.researchExperience}</div>
-              <div className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">Research Pedigree</div>
-              <div className="text-[11px] text-neutral-500 mt-1">Combined fund management</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FOUNDER & CIO PROFILE (PANKAJ MURARKA) */}
-      <section id="cio-profile" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)] relative">
+      <section id="cio-profile" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)] relative">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F5BA31]/20 via-transparent to-transparent pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-10 items-center">
               {/* Left Column: CIO Credentials Card */}
-              <div className="lg:col-span-5 flex flex-col items-center text-center">
+              <div className="md:col-span-5 flex flex-col items-center text-center">
                 <div className="relative">
                   <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full p-1 bg-gradient-to-tr from-[#F5BA31] via-[#3AA17E] to-[#FF8415] shadow-xl">
                     <div className="w-full h-full rounded-full bg-[#101D38] flex items-center justify-center overflow-hidden border-2 border-[#0B1528]">
@@ -205,11 +199,6 @@ export default function AboutPage() {
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-6">{founder.name}</h3>
                 <p className="text-sm text-[#F5BA31] font-semibold mt-1">{founder.role}</p>
 
-                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-neutral-300">
-                  <Award className="w-4 h-4 text-[#FFCA3F]" />
-                  <span>Peak AUM: <strong className="text-white">{founder.peakAum}</strong></span>
-                </div>
-
                 {/* Prior Institutional Roles Pills */}
                 <div className="flex flex-wrap justify-center gap-2 mt-6">
                   {founder.priorRoles.map((role, idx) => (
@@ -224,7 +213,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right Column: Founder Narrative & Thesis */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="md:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#F5BA31]">
                   <Sparkles className="w-4 h-4" />
                   <span>CIO Letter & Philosophy</span>
@@ -270,7 +259,7 @@ export default function AboutPage() {
       </section>
 
       {/* SQGARP™ METHODOLOGY PILLARS */}
-      <section id="sqgarp" className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section id="sqgarp" className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-3">
@@ -290,7 +279,7 @@ export default function AboutPage() {
             {sqgarpPillars.map((pillar) => (
               <div
                 key={pillar.letter}
-                className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/50 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
+                className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
               >
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-xl bg-[#F5BA31]/15 border border-[#F5BA31]/30 flex items-center justify-center text-[#F5BA31] font-black text-2xl group-hover:bg-[#F5BA31] group-hover:text-white transition-colors">
@@ -315,7 +304,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6 CORE COMPANY VALUES */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3AA17E]/10 border border-[#3AA17E]/30 text-[#3AA17E] text-xs font-bold tracking-wider uppercase mb-3">
@@ -335,7 +324,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={val.num}
-                  className="bg-[#0B1528] border border-white/10 rounded-2xl p-7 hover:border-white/20 transition-all"
+                  className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-7 hover:border-[#F5BA31] transition-all"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-mono text-[#3AA17E] font-bold">{val.num}</span>
@@ -358,7 +347,7 @@ export default function AboutPage() {
       </section>
 
       {/* MILESTONES TIMELINE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF8415]/10 border border-[#FF8415]/30 text-[#FF8415] text-xs font-bold tracking-wider uppercase mb-3">
@@ -378,7 +367,7 @@ export default function AboutPage() {
                 {/* Timeline Dot */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#081026] border-2 border-[#F5BA31] group-hover:bg-[#F5BA31] transition-colors" />
 
-                <div className="bg-[#0B1528] border border-white/10 hover:border-[#F5BA31]/40 rounded-2xl p-6 sm:p-7 transition-all">
+                <div className="bg-[#0B1528] border border-[#F5BA31]/70 hover:border-[#F5BA31] rounded-2xl p-6 sm:p-7 transition-all">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <div className="text-xs font-bold uppercase tracking-wider text-[#F5BA31]">{m.phase}</div>
                     <span className="text-[11px] font-semibold text-neutral-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">
@@ -396,7 +385,7 @@ export default function AboutPage() {
       </section>
 
       {/* LEADERSHIP TEAM GRID */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5BA31]/10 border border-[#F5BA31]/30 text-[#F5BA31] text-xs font-bold tracking-wider uppercase mb-3">
@@ -414,7 +403,7 @@ export default function AboutPage() {
             {leadershipTeam.map((member, idx) => (
               <div
                 key={idx}
-                className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 flex items-start gap-4 hover:border-white/20 transition-colors"
+                className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 flex items-start gap-4 hover:border-[#F5BA31] transition-colors"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#F5BA31]/20 to-[#3AA17E]/20 text-white flex items-center justify-center shrink-0 border border-white/10 font-bold text-lg">
                   {member.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
@@ -422,7 +411,7 @@ export default function AboutPage() {
                 <div className="min-w-0">
                   <h3 className="text-base font-bold text-white truncate">{member.name}</h3>
                   <div className="text-xs text-[#F5BA31] font-medium mt-0.5">{member.role}</div>
-                  <div className="text-[11px] text-neutral-400 mt-2 truncate font-mono">
+                  <div className="text-[11px] text-neutral-400 mt-2 break-all font-mono">
                     {member.email}
                   </div>
                 </div>
@@ -433,7 +422,7 @@ export default function AboutPage() {
       </section>
 
       {/* REGULATORY STATUS & STATUTORY BADGE */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto bg-[#0B1528] border border-[#3AA17E]/40 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
             <div className="flex items-center gap-4">
@@ -500,8 +489,8 @@ export default function AboutPage() {
       </section>
 
       {/* BOTTOM CALL TO ACTION */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/30 rounded-3xl p-8 sm:p-14 text-center">
+      <section className="pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#0B1528] via-[#101D38] to-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-8 sm:p-14 text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Ready to Upgrade to Institutional-Grade Advisory?
           </h2>

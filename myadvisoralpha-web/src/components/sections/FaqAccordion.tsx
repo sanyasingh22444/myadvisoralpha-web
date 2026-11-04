@@ -49,7 +49,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
   return (
     <section 
       id="faq" 
-      className="relative bg-[#081026] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
+      className="relative bg-[#081026] text-white py-12 lg:py-16 px-4 sm:px-6 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background ambient light */}
       <div 
@@ -97,7 +97,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g., SEBI, Demat, refund, minimum capital)..."
+              placeholder="Search questions"
               className="w-full pl-11 pr-10 py-3 bg-[#0B1528] border border-white/15 focus:border-[#F5BA31] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-lg shadow-black/40"
             />
             {searchQuery && (
@@ -138,7 +138,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
         {/* Accordion List */}
         <div className="space-y-3">
           {filteredFaqs.length === 0 ? (
-            <div className="text-center py-12 px-4 rounded-2xl bg-[#0B1528] border border-white/10">
+            <div className="text-center py-12 px-4 rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70">
               <HelpCircle className="w-8 h-8 text-white/30 mx-auto mb-3" />
               <p className="text-sm font-semibold text-white/80">
                 No matching questions found for &ldquo;{searchQuery}&rdquo;
@@ -162,8 +162,8 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
                   key={faq.id}
                   className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? 'border-[#F5BA31]/40 bg-[#0D1A33] shadow-[0px_4px_24px_0px_rgba(245,186,49,0.1)]'
-                      : 'border-white/10 bg-[#0B1528]/90 hover:border-white/20'
+                      ? 'border-[#F5BA31]/70 bg-[#0D1A33] shadow-[0px_4px_24px_0px_rgba(245,186,49,0.1)]'
+                      : 'border-[#F5BA31]/70 bg-[#0B1528]/90 hover:border-[#F5BA31]'
                   }`}
                 >
                   <button
@@ -223,7 +223,7 @@ export default function FaqAccordion({ onOpenConsultation }: FaqAccordionProps) 
         </div>
 
         {/* Still Have Questions Box */}
-        <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-10 rounded-3xl border border-[#F5BA31]/70 bg-gradient-to-r from-[#0B1528] via-[#0D1A33] to-[#0B1528] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="text-left">
             <span className="text-xs uppercase font-bold tracking-wider text-[#F5BA31] flex items-center gap-1.5 mb-1">
               <HelpCircle className="w-4 h-4 text-[#F5BA31]" />

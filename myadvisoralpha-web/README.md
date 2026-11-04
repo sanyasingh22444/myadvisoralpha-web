@@ -240,7 +240,7 @@ All 8 primary routes are fully implemented, statically prerendered, and return H
   zIndex = 20 + index;          // 20, 21, 22, 23, 24
   ```
 - **Showcase Offerings**:
-  1. **Single Stock Advisory**: 20+ monthly SQGARP™ picks, 3 profit targets, stop-loss, ₹999/mo checkout link.
+  1. **Single Stock Advisory**: 20+ monthly SQGARP™ picks, up to 2 profit targets, stop-loss, ₹999/mo checkout link.
   2. **Model Portfolios**: 4 risk baskets (Beginner ₹50k, Balanced ₹2.5L, Flexicap, Aggressive) with direct Demat custody.
   3. **Curated Mutual Funds**: ONDC-powered goal baskets (First Salary, All-Weather, Retire Rich) with zero commission conflict.
   4. **Execution Tools**: 1-tap broker execution gateway (Zerodha, Groww, AngelOne, Upstox) and portfolio health audit.

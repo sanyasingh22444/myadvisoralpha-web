@@ -101,19 +101,19 @@ export default function CustomerComplaintsAndDisclosuresPage() {
       <section className="bg-[#0B1528] border-b border-[rgba(255,255,255,0.1)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">0</div>
               <div className="text-xs text-neutral-400 mt-1">Complaints Received (Sep 2026)</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#F5BA31]">0</div>
               <div className="text-xs text-neutral-400 mt-1">Pending at Month End</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-white">0</div>
               <div className="text-xs text-neutral-400 mt-1">Pending &gt; 3 Months</div>
             </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-[#F5BA31]/70">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#3AA17E]">0 Days</div>
               <div className="text-xs text-neutral-400 mt-1">Avg. Resolution Time</div>
             </div>
@@ -143,7 +143,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
             </div>
 
             {/* Responsive Table */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
@@ -225,7 +225,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* TABLE: Monthly Disposal Trend */}
-              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h3 className="font-bold text-white text-base">
                     Monthly Disposal Trend (Last 6 Months)
@@ -262,7 +262,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               </div>
 
               {/* TABLE: Annual Disposal Trend */}
-              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xl">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h3 className="font-bold text-white text-base">
                     Annual Disposal Trend (Since Inception)
@@ -329,7 +329,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
               {DISCLOSURE_DOCS.map((doc, idx) => (
                 <div
                   key={doc.title}
-                  className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 flex flex-col justify-between space-y-4 hover:border-[#F5BA31]/50 hover:bg-[#121620] transition-all group shadow-lg"
+                  className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 flex flex-col justify-between space-y-4 hover:border-[#F5BA31] hover:bg-[#121620] transition-all group shadow-lg"
                 >
                   <div className="space-y-3">
                     {/* Category Badge & Doc Number */}
@@ -374,7 +374,7 @@ export default function CustomerComplaintsAndDisclosuresPage() {
           </div>
 
           {/* SECTION 4: INVESTOR CHARTER DO'S & DON'TS */}
-          <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
               <Scale className="w-6 h-6 text-[#3AA17E]" />
               <div>

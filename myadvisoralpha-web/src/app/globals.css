@@ -54,6 +54,23 @@ body {
   }
 }
 
+/* Hero placard tab progress bar; its animationend advances the slide */
+.placard-progress {
+  width: 0;
+  animation-name: placard-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes placard-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 /* Custom Financial Slider Track & Thumb */
 input[type="range"] {
   -webkit-appearance: none;

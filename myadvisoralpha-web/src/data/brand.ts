@@ -82,7 +82,7 @@ export const BRAND_INFO: BrandInfo = {
     peakAum: '$5 Billion (₹40,000+ Cr)',
     bio: 'Pankaj Murarka brings over 30 years of equity market experience. As the former CIO of Axis Mutual Fund, he spearheaded the fastest-growing fund house in India managing $5B AUM. His distinguished career spans leadership and fund management roles at Rare Enterprises (Rakesh Jhunjhunwala’s firm), UTI AMC, Motilal Oswal, and Merrill Lynch.',
     priorRoles: [
-      'CIO – Axis Mutual Fund ($5B AUM, 2011–2016)',
+      'CIO – Axis Mutual Fund (managed $5B AUM, 2011–2016)',
       'Senior Portfolio Manager – Rare Enterprises',
       'Fund Manager – UTI AMC',
       'Head of Research – Motilal Oswal Financial Services',
@@ -96,10 +96,10 @@ export const BRAND_INFO: BrandInfo = {
     { name: 'Rishabh Solanki', role: 'Head of Customer Care', email: 'support@renaissanceadvisors.in' },
   ],
   metrics: {
-    strikeRate: '75%',
+    strikeRate: '77.1%',
     activeInvestors: '1 Lakh+',
     aumGuided: '₹2,000 Cr+',
-    researchExperience: '75+ Years',
+    researchExperience: '30+ Years',
   },
   contact: {
     registeredAddress: 'Office No. 508, 5th Floor, B Wing, Mittal Commercial Premises CHS Ltd, Off M.V. Road, Near Mittal Estate, Marol, Andheri (East), Mumbai - 400059, Maharashtra, India',

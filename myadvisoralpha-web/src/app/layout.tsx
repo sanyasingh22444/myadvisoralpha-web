@@ -3,6 +3,8 @@ import './globals.css';
 import { BRAND_INFO } from '@/data/brand';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StickyPhoneBar from '@/components/layout/StickyPhoneBar';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 
 export const metadata: Metadata = {
   title: `${BRAND_INFO.name} | ${BRAND_INFO.subtagline}`,
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
     'Pankaj Murarka',
     'SEBI Registered Research Analyst',
     'Stock Advisory India',
-    'Model Portfolios',
+    'Portfolios',
     'Mutual Funds SIP',
     'Institutional Advisory',
     'INH000021818',
@@ -43,9 +45,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  icons: {
-    icon: '/favicon.ico',
   },
 };
 
@@ -82,6 +81,11 @@ export default function RootLayout({
 
         {/* Global Regulatory Footer */}
         <Footer />
+
+        {/* Phone number bar that slides up once the visitor scrolls */}
+        <StickyPhoneBar />
+
+        <ScrollToTop />
       </body>
     </html>
   );

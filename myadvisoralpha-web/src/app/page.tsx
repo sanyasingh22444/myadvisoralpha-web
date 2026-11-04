@@ -6,7 +6,6 @@ import StackedShowcase from '@/components/sections/StackedShowcase';
 import ComparisonGrid from '@/components/sections/ComparisonGrid';
 import Testimonials from '@/components/sections/Testimonials';
 import FaqAccordion from '@/components/sections/FaqAccordion';
-import SipCalculator from '@/components/calculators/SipCalculator';
 import LeadCaptureModal from '@/components/modals/LeadCaptureModal';
 
 export default function HomePage() {
@@ -50,13 +49,10 @@ export default function HomePage() {
       {/* 3. "Stop Guessing. Start Growing." Comparison Matrix */}
       <ComparisonGrid onOpenConsultation={() => handleOpenConsultation()} />
 
-      {/* 4. Interactive SIP & Wealth Growth Calculator with Alpha Pro Banner */}
-      <SipCalculator onOpenConsultation={(portfolio) => handleOpenConsultation(undefined, portfolio)} />
-
-      {/* 5. 4.9 Star Verified Investor Testimonials */}
+      {/* 4. Verified Investor Testimonials */}
       <Testimonials onOpenConsultation={() => handleOpenConsultation()} />
 
-      {/* 6. Expandable FAQ Accordion */}
+      {/* 5. Expandable FAQ Accordion */}
       <FaqAccordion onOpenConsultation={() => handleOpenConsultation()} />
 
       {/* Global Interactive Consultation Booking Modal */}

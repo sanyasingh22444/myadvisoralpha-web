@@ -138,7 +138,7 @@ export default function ContactPage() {
   return (
     <div className="flex-1 flex flex-col w-full selection:bg-[#F5BA31] selection:text-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
+      <section className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.1)]">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#F5BA31]/15 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10 text-center">
@@ -155,7 +155,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-            Have questions about our single stock ideas, model portfolios, or curated mutual funds? Visit our Mumbai office or
+            Have questions about our stock ideas, portfolios, or curated mutual funds? Visit our Mumbai office or
             schedule a consultation with our research team.
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1: Registered Office Address */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 hover:border-[#F5BA31] transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#F5BA31]/15 text-[#F5BA31] flex items-center justify-center mb-4">
                   <MapPin className="w-5 h-5" />
@@ -186,7 +186,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Phone Helpline */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 hover:border-[#F5BA31] transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#3AA17E]/15 text-[#3AA17E] flex items-center justify-center mb-4">
                   <Phone className="w-5 h-5" />
@@ -209,7 +209,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Email Contacts */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 hover:border-[#F5BA31] transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#FF8415]/15 text-[#FF8415] flex items-center justify-center mb-4">
                   <Mail className="w-5 h-5" />
@@ -236,7 +236,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 4: Operating Hours */}
-            <div className="bg-[#0B1528] border border-white/10 rounded-2xl p-6 hover:border-[#F5BA31]/50 transition-colors flex flex-col justify-between">
+            <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-2xl p-6 hover:border-[#F5BA31] transition-colors flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#3DA2F1]/15 text-[#3DA2F1] flex items-center justify-center mb-4">
                   <Clock className="w-5 h-5" />
@@ -261,10 +261,10 @@ export default function ContactPage() {
       {/* INTERACTIVE FORM & OFFICE TRANSIT SPLIT SECTION */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 lg:gap-10">
             {/* LEFT COLUMN: INTERACTIVE CONSULTATION INQUIRY FORM */}
-            <div className="lg:col-span-7">
-              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div className="md:col-span-7">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-10 shadow-2xl">
                 {isSuccess ? (
                   /* SUCCESS STATE */
                   <div className="text-center py-10 space-y-5 animate-in fade-in duration-300">
@@ -286,7 +286,7 @@ export default function ContactPage() {
                       </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5 max-w-md mx-auto text-left text-xs text-neutral-300 space-y-2">
+                    <div className="bg-white/5 border border-[#F5BA31]/70 rounded-2xl p-5 max-w-md mx-auto text-left text-xs text-neutral-300 space-y-2">
                       <div className="flex justify-between">
                         <span className="text-neutral-500">Service Interest:</span>
                         <strong className="text-white">{formData.service}</strong>
@@ -352,8 +352,8 @@ export default function ContactPage() {
                       )}
                     </div>
 
-                    {/* 2-Column: Phone & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* 2-Column: Phone & Email, side by side only where the phone placeholder fits */}
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                       {/* Phone with +91 Prefix */}
                       <div>
                         <label className="block text-xs font-semibold text-neutral-300 mb-1.5">
@@ -361,7 +361,9 @@ export default function ContactPage() {
                         </label>
                         <div
                           className={`flex items-center bg-[#081026] rounded-xl px-3 border transition-colors ${
-                            errors.phone ? 'border-[#DD5240]' : 'border-white/15 focus-within:border-[#F5BA31]'
+                            errors.phone
+                              ? 'border-[#DD5240]'
+                              : 'border-[#F5BA31]/80 focus-within:border-[#F5BA31] shadow-[0_0_0_3px_rgba(245,186,49,0.12)]'
                           }`}
                         >
                           <span className="text-xs font-bold text-neutral-400 pr-2 border-r border-white/20">
@@ -376,8 +378,8 @@ export default function ContactPage() {
                               setFormData({ ...formData, phone: val });
                               if (errors.phone) setErrors({ ...errors, phone: undefined });
                             }}
-                            placeholder="9820012345"
-                            className="w-full bg-transparent px-2.5 py-3 text-sm text-white placeholder-neutral-600 outline-none"
+                            placeholder="Enter your 10 digit mobile number"
+                            className="w-full bg-transparent px-2.5 py-3 text-sm text-white placeholder-neutral-600 placeholder:text-[10px] min-[360px]:placeholder:text-xs sm:placeholder:text-sm outline-none"
                           />
                         </div>
                         {errors.phone && (
@@ -426,8 +428,8 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                           className="w-full bg-[#081026] border border-white/15 focus:border-[#F5BA31] rounded-xl px-3 py-3 text-sm text-white outline-none"
                         >
-                          <option value="Single Stock Advisory">Single Stock Advisory (₹999/mo)</option>
-                          <option value="Equity Model Portfolios">Equity Model Portfolios (₹299/mo)</option>
+                          <option value="Single Stock Advisory">Stock Advisory (₹1199/mo, was ₹2123)</option>
+                          <option value="Equity Model Portfolios">Equity Portfolios (₹299/mo)</option>
                           <option value="Curated Mutual Funds">Curated Mutual Funds (Zero Fee)</option>
                           <option value="Comprehensive Portfolio Review">Comprehensive Portfolio Review</option>
                         </select>
@@ -537,9 +539,9 @@ export default function ContactPage() {
             </div>
 
             {/* RIGHT COLUMN: WHY CONSULT MYADVISORALPHA & LOCATION CARD */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="md:col-span-5 space-y-6">
               {/* Trust Highlights */}
-              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-5">
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
                   <ShieldCheck className="w-5 h-5 text-[#3AA17E]" />
                   <span>Why Consult MyAdvisorAlpha?</span>
@@ -556,7 +558,7 @@ export default function ContactPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#3AA17E] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-white">75% Historical Strike Rate:</strong> Disciplined multi-target profit
+                      <strong className="text-white">77.1% Historical Strike Rate:</strong> Disciplined multi-target profit
                       booking and pre-defined stop-losses.
                     </div>
                   </li>
@@ -578,7 +580,7 @@ export default function ContactPage() {
               </div>
 
               {/* Transit & Office Directions Card */}
-              <div className="bg-[#0B1528] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+              <div className="bg-[#0B1528] border border-[#F5BA31]/70 rounded-3xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-base font-bold text-white flex items-center gap-2">
                     <Building className="w-4 h-4 text-[#F5BA31]" />
@@ -593,7 +595,7 @@ export default function ContactPage() {
                   Located conveniently in the commercial business corridor of Andheri East, right off Andheri-Kurla Road.
                 </p>
 
-                <div className="bg-white/5 rounded-xl p-3.5 text-xs text-neutral-300 space-y-1.5 border border-white/5">
+                <div className="bg-white/5 rounded-xl p-3.5 text-xs text-neutral-300 space-y-1.5 border border-[#F5BA31]/70">
                   <div className="flex items-center gap-2 text-white font-semibold">
                     <MapPin className="w-3.5 h-3.5 text-[#F5BA31]" />
                     <span>Mittal Commercial Premises CHS Ltd</span>
@@ -622,7 +624,7 @@ export default function ContactPage() {
               </div>
 
               {/* Grievance Redressal Direct Link Box */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-xs text-neutral-400 space-y-2">
+              <div className="bg-white/5 border border-[#F5BA31]/70 rounded-2xl p-5 text-xs text-neutral-400 space-y-2">
                 <div className="font-semibold text-white">Investor Grievance Redressal:</div>
                 <p>
                   For escalation to compliance or principal officer, please review our official 5-tier escalation matrix.

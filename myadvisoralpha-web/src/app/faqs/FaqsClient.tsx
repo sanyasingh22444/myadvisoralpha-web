@@ -35,7 +35,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'What products does MyAdvisorAlpha offer?',
     answer:
-      'MyAdvisorAlpha offers three core regulated products: (1) Single Stock Picks — high-conviction, research-backed ideas from a research team with 75+ years of combined market experience, featuring explicit entry range, strict stop-loss, and multi-tier profit targets (T1, T2, T3) with derivatives & MTF support. (2) Equity Model Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
+      'MyAdvisorAlpha offers three core regulated products: (1) Stock Picks — high-conviction, research-backed ideas from a research team led by Pankaj Murarka, with 30+ years of market experience, featuring explicit entry range, strict stop-loss, and up to 2 profit targets (T1, T2) with derivatives & MTF support. (2) Equity Portfolios — curated baskets of 5–30 stocks across conservative, balanced, all-weather, and aggressive risk profiles with ongoing monitoring and 1-tap rebalancing. (3) Curated Mutual Funds — a handpicked fund collection with goal-based investment baskets (first salary to retirement) distributed directly to the AMC via ONDC. Fixed Income, Bonds & FDs are coming soon.',
   },
   {
     id: 'faq-2',
@@ -43,7 +43,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'How often are ideas and portfolios updated?',
     answer:
-      'Stock ideas are issued regularly with full research rationale whenever market opportunities meet our strict SQGARP™ quality filters. Model Portfolios are reviewed continuously, and subscribers receive instant rebalancing alerts whenever constituent adjustments are warranted. Mutual fund selections are monitored on an ongoing basis with quarterly reviews and real-time updates as macro and market conditions evolve.',
+      'Stock ideas are issued regularly with full research rationale whenever market opportunities meet our strict SQGARP™ quality filters. Portfolios are reviewed continuously, and subscribers receive instant rebalancing alerts whenever constituent adjustments are warranted. Mutual fund selections are monitored on an ongoing basis with quarterly reviews and real-time updates as macro and market conditions evolve.',
   },
   {
     id: 'faq-3',
@@ -91,7 +91,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Pricing & Execution',
     question: 'What is the minimum capital required to get started?',
     answer:
-      'For Single Stock Advisory, you can begin with as little as ₹10,000–₹25,000. For Equity Model Portfolios, the Beginner Basket starts with ₹50,000, while the Balanced and Flexicap Portfolios recommend ₹1,00,000 to ₹2,50,000 for proper risk diversification across 20–25 holdings. For Mutual Funds, monthly SIPs start from just ₹2,000/month.',
+      'For Stock Advisory, you can begin with as little as ₹10,000–₹25,000. For Equity Portfolios, the Beginner Basket starts with ₹50,000, while the Balanced and Flexicap Portfolios recommend ₹1,00,000 to ₹2,50,000 for proper risk diversification across 20–25 holdings. For Mutual Funds, monthly SIPs start from just ₹2,000/month.',
   },
   {
     id: 'faq-9',
@@ -99,7 +99,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Advisory Offerings',
     question: 'How are stock ideas and alerts delivered to subscribers?',
     answer:
-      'Every research call is published instantly to the web portal (web.advisoralpha.in) and mobile app (iOS & Android) with real-time push notifications and WhatsApp alerts. Each alert includes the company overview, investment thesis, SQGARP™ rating, exact buying range, Target 1, Target 2, Target 3, and strict trailing stop-loss guidelines.',
+      'Every research call is published instantly to the web portal (web.advisoralpha.in) and mobile app (iOS & Android) with real-time push notifications and WhatsApp alerts. Each alert includes the company overview, investment thesis, SQGARP™ rating, exact buying range, up to 2 targets (Target 1 and Target 2), and strict trailing stop-loss guidelines.',
   },
   {
     id: 'faq-10',
@@ -123,7 +123,7 @@ const EXTENDED_FAQS: Faq[] = [
     categoryLabel: 'Research Methodology',
     question: 'What is your historical strike rate and risk management policy?',
     answer:
-      'MyAdvisorAlpha maintains a verified 75% historical win rate on closed single stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
+      'MyAdvisorAlpha maintains a verified 77.1% historical win rate on closed stock ideas. Every idea is published with a pre-defined risk-reward ratio (typically 1:2.5 or better) and strict stop-loss orders. If an adverse macroeconomic or corporate event breaks our thesis, an immediate exit alert is broadcast to safeguard subscriber capital.',
   },
 ];
 
@@ -163,7 +163,7 @@ export default function FaqsClient() {
   return (
     <div className="flex-1 bg-[#081026] text-white">
       {/* Hero Section */}
-      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-white/10 overflow-hidden">
+      <section className="relative pt-8 pb-16 lg:pt-8 lg:pb-20 border-b border-white/10 overflow-hidden">
         {/* Ambient Glows */}
         <div 
           aria-hidden="true" 
@@ -204,7 +204,7 @@ export default function FaqsClient() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g., SEBI, Demat, SQGARP, free plan)..."
+              placeholder="Search questions"
               className="w-full pl-11 pr-10 py-3.5 bg-[#0B1528] border border-white/20 focus:border-[#F5BA31] rounded-2xl text-sm text-white placeholder-white/40 outline-none transition-colors shadow-xl"
             />
             {searchQuery && (
@@ -246,7 +246,7 @@ export default function FaqsClient() {
       <section className="py-12 lg:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4">
           {filteredFaqs.length === 0 ? (
-            <div className="text-center py-16 px-4 rounded-2xl bg-[#0B1528] border border-white/10">
+            <div className="text-center py-16 px-4 rounded-2xl bg-[#0B1528] border border-[#F5BA31]/70">
               <HelpCircle className="w-10 h-10 text-white/30 mx-auto mb-3" />
               <h3 className="text-base font-bold text-white">No matching questions found</h3>
               <p className="text-xs text-white/60 mt-1">
@@ -271,8 +271,8 @@ export default function FaqsClient() {
                   key={faq.id}
                   className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? 'border-[#F5BA31]/40 bg-[#0D1A33] shadow-[0px_8px_30px_rgba(0,0,0,0.5)]'
-                      : 'border-white/10 bg-[#0B1528] hover:border-white/20'
+                      ? 'border-[#F5BA31]/70 bg-[#0D1A33] shadow-[0px_8px_30px_rgba(0,0,0,0.5)]'
+                      : 'border-[#F5BA31]/70 bg-[#0B1528] hover:border-[#F5BA31]'
                   }`}
                 >
                   <button
@@ -315,7 +315,7 @@ export default function FaqsClient() {
         </div>
 
         {/* Contact & Support Help Box */}
-        <div className="mt-14 rounded-3xl border border-white/15 bg-gradient-to-br from-[#0B1528] to-[#101D36] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-14 rounded-3xl border border-[#F5BA31]/70 bg-gradient-to-br from-[#0B1528] to-[#101D36] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="text-left">
             <span className="text-xs uppercase font-extrabold tracking-wider text-[#F5BA31] flex items-center gap-1.5 mb-1">
               <HelpCircle className="w-4 h-4 text-[#F5BA31]" />
@@ -357,7 +357,7 @@ export default function FaqsClient() {
         </div>
 
         {/* Regulatory Disclosures & Escalation Strip */}
-        <div className="mt-8 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-center text-xs text-white/50 space-y-2">
+        <div className="mt-8 p-4 rounded-2xl bg-white/[0.03] border border-[#F5BA31]/70 text-center text-xs text-white/50 space-y-2">
           <p>
             Renaissance Smart Tech Private Limited · SEBI Reg: <span className="text-white/80 font-mono">INH000021818</span> · BSE Enlistment: <span className="text-white/80 font-mono">6793</span> · AMFI ARN: <span className="text-white/80 font-mono">ARN-350887</span>
           </p>

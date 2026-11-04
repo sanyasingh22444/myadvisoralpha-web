@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import StickyPhoneBar from '@/components/layout/StickyPhoneBar';
 import ScrollToTop from '@/components/layout/ScrollToTop';
+import SiteChrome from '@/components/layout/SiteChrome';
 
 export const metadata: Metadata = {
   title: `${BRAND_INFO.name} | ${BRAND_INFO.subtagline}`,
@@ -71,19 +72,21 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        {/* Global Sticky Navbar Shell */}
-        <Navbar />
+        {/* Global Sticky Navbar Shell (hidden inside the signed-in app at /app) */}
+        <SiteChrome>
+          <Navbar />
+        </SiteChrome>
 
         {/* Dynamic Page Views */}
         <main id="main-content" className="flex-1 flex flex-col">
           {children}
         </main>
 
-        {/* Global Regulatory Footer */}
-        <Footer />
-
-        {/* Phone number bar that slides up once the visitor scrolls */}
-        <StickyPhoneBar />
+        {/* Global Regulatory Footer and phone bar (site only) */}
+        <SiteChrome>
+          <Footer />
+          <StickyPhoneBar />
+        </SiteChrome>
 
         <ScrollToTop />
       </body>

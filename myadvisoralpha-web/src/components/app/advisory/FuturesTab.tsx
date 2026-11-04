@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { CalendarClock, Activity, ChevronLeft, ArrowRight, ShieldCheck, TriangleAlert, TrendingUp, TrendingDown, ShoppingCart } from 'lucide-react';
+import { CalendarClock, Activity, TriangleAlert, TrendingUp, TrendingDown } from 'lucide-react';
 import { FUTURES, CLOSED_FUTURES, futuresReturn, price, rupees, shortDate, type FuturesCall } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
 import { cn } from '@/lib/utils';
-import { Card, Change, LogoTile, Segmented, Sheet, StatStrip, Disclaimer, SampleChip, goldBtn, ghostBtn, blueBtn, mono, GAIN, LOSS } from '../ui';
+import { Card, LogoTile, Segmented, Sheet, StatStrip, Disclaimer, SampleChip, blueBtn, mono, GAIN, LOSS } from '../ui';
 
 type Chip = 'Index' | 'Stock' | 'LONG' | 'SHORT';
 const CHIPS: { id: Chip; label: string }[] = [
@@ -142,16 +142,16 @@ function SideBadge({ side }: { side: 'LONG' | 'SHORT' }) {
   const long = side === 'LONG';
   const Icon = long ? TrendingUp : TrendingDown;
   return (
-    <span className={cn('inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[12.5px] font-extrabold border', long ? 'bg-[#E7F6EE] border-[#BFE6D4] text-[#0E7F58]' : 'bg-[#FDECEC] border-[#F3C2BC] text-[#B42318]')}>
+    <span className={cn('flex-none inline-flex items-center gap-1.5 h-[30px] rounded-lg px-3 text-[13px] font-extrabold border', long ? 'bg-[#E7F6EE] border-[#BFE6D4] text-[#0E7F58]' : 'bg-[#FDECEC] border-[#F3C2C2] text-[#B02121]')}>
       <Icon className="w-3.5 h-3.5" />{side}
     </span>
   );
 }
 
+/** Live futures call, laid out per the updated Advisory tab design (AdvisoryTabDesign(1).html). */
 function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy: () => void }) {
-  const [flipped, setFlipped] = useState(false);
-  const [lots, setLots] = useState(1);
   const since = futuresReturn(f, f.ltp);
+  const up = since >= 0;
   const potential = Math.abs((f.target - f.ltp) / f.ltp) * 100;
   const riskLot = Math.abs(f.entry - f.stopLoss) * f.lot;
   const rewardLot = Math.abs(f.target - f.entry) * f.lot;
@@ -171,96 +171,61 @@ function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy: () => void }) {
   const entryAt = Math.min(72, Math.max(28, at(f.entry)));
   const posOf = (v: number) => (v === f.entry ? entryAt : at(v));
 
-  if (flipped) {
-    return (
-      <Card className="overflow-hidden">
-        <div className={cn('px-3.5 py-3 flex items-center gap-2.5 text-white', long ? 'bg-[linear-gradient(120deg,#2D4CD2_0%,#1D3296_100%)]' : 'bg-[linear-gradient(120deg,#C4382F_0%,#8A1C12_100%)]')}>
-          <button aria-label="Back to call" onClick={() => setFlipped(false)} className="w-[30px] h-[30px] rounded-lg border border-white/20 flex items-center justify-center"><ChevronLeft className="w-4 h-4" /></button>
-          <div className="flex-1 min-w-0">
-            <div className="text-[10.5px] font-bold tracking-[0.14em] uppercase text-[#E9CB66]">{long ? 'Buy' : 'Sell'} futures</div>
-            <div className="text-base font-extrabold truncate">{f.contract}</div>
-          </div>
-          <div className={cn(mono, 'text-sm font-semibold')}>{fp(f.ltp)}</div>
-        </div>
-        <div className="p-4 flex flex-col gap-3.5">
-          <div>
-            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#8D95A3] text-center">Lots</div>
-            <div className="mt-2.5 flex items-center justify-center gap-4">
-              <button aria-label="Fewer lots" disabled={lots <= 1} onClick={() => setLots((n) => Math.max(1, n - 1))} className="w-[46px] h-[46px] rounded-xl border border-[#DFE4EC] text-2xl font-bold disabled:opacity-40">−</button>
-              <input aria-label="Number of lots" type="number" min={1} value={lots} onChange={(e) => setLots(Math.max(1, Number(e.target.value) || 1))} className={cn(mono, 'w-24 h-[46px] rounded-xl border border-[#DFE4EC] text-[30px] font-semibold text-center outline-none focus:border-[#154198]')} />
-              <button aria-label="More lots" onClick={() => setLots((n) => n + 1)} className="w-[46px] h-[46px] rounded-xl border border-[#DFE4EC] text-2xl font-bold">+</button>
-            </div>
-            <div className="mt-2 text-center text-xs font-semibold text-[#6B7381]">1 lot = {f.lot} qty · Total <span className={cn(mono, 'text-[#14171C]')}>{(f.lot * lots).toLocaleString('en-IN')}</span> qty</div>
-          </div>
-          <div className="flex gap-2">
-            <span className="flex-1 h-[34px] rounded-[10px] border border-[#154198] bg-[#EEF3FE] text-[#154198] flex items-center justify-center text-[12.5px] font-extrabold">✓ Carry forward (NRML)</span>
-            <span className="flex-1 h-[34px] rounded-[10px] border border-[#DFE4EC] text-[#4C5462] flex items-center justify-center text-[12.5px] font-bold">Market order</span>
-          </div>
-          <div className="border border-[#E8EBF0] rounded-[14px] p-3.5 flex flex-col gap-2">
-            <div className="flex justify-between text-[13px]"><span className="font-semibold text-[#6B7381]">Contract value</span><span className={cn(mono, 'font-semibold text-[#4C5462]')}>{rupees(Math.round(f.ltp * f.lot * lots))}</span></div>
-            <div className="flex justify-between text-[13px]"><span className="font-semibold text-[#6B7381]">Risk at stop loss</span><span className={cn(mono, 'font-semibold text-[#D93A32]')}>−{rupees(Math.round(riskLot * lots))}</span></div>
-            <div className="flex justify-between items-baseline border-t border-[#E8EBF0] pt-2"><span className="text-[13px] font-bold">Margin required</span><span className={cn(mono, 'text-[19px] font-semibold')}>{rupees(Math.round(marginLot * lots))}</span></div>
-          </div>
-          <p className="text-xs font-semibold text-[#D93A32] text-center">Futures are leveraged. Losses can exceed the margin blocked. Margin shown is indicative; your broker sets the final amount.</p>
-          <a href={BRAND_INFO.deepLinks.webLogin} target="_blank" rel="noopener noreferrer" className={cn(goldBtn, 'h-12 text-[15.5px]')}>{long ? 'Confirm buy' : 'Confirm sell'}<ArrowRight className="w-4 h-4" /></a>
-          <div className="flex items-center justify-center gap-1.5 text-[11.5px] font-semibold text-[#8D95A3]"><ShieldCheck className="w-3.5 h-3.5" />Executed via smallcase gateway · SEBI Reg. {BRAND_INFO.sebiRegNo}</div>
-        </div>
-      </Card>
-    );
-  }
+  const tile = 'rounded-[10px] px-2.5 py-2 flex flex-col gap-0.5 border';
 
   return (
-    <Card className="overflow-hidden">
-      <div className="bg-[#E9EEF9] px-3.5 pt-2.5 pb-3 flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-semibold text-[#6B7381]">Posted: {shortDate(f.posted)}</span>
-          <span className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#8A6A12] bg-[#FBF3DE] border border-[#EFD9A0] rounded-full px-2.5 py-[3px]"><CalendarClock className="w-3 h-3" />Exp {f.expiry}</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="text-[11px] font-semibold text-[#6B7381]">Since entry</span>
-          <span className={cn(mono, 'text-[11.5px] font-semibold rounded-md px-1.5 py-0.5')} style={{ color: since >= 0 ? GAIN : LOSS, background: since >= 0 ? '#E3F5E7' : '#FDECEC' }}>{since >= 0 ? '+' : ''}{since.toFixed(2)}%</span>
-          <span className="w-px h-3.5 bg-[#CDD6E6] ml-auto mr-1" />
-          <span className="text-[11px] font-semibold text-[#6B7381]">Potential left</span>
-          <span className={cn(mono, 'text-[11.5px] font-semibold bg-white border border-[#DFE4EC] rounded-md px-1.5 py-0.5')}>{potential.toFixed(2)}%</span>
-        </div>
+    <article className="bg-white border border-[#DCE2F2] rounded-2xl p-4 flex flex-col gap-3.5 text-[#13235B]">
+      <div className="flex justify-between items-center gap-2">
+        <span className="text-xs text-[#5B6478]">Posted: {shortDate(f.posted)}</span>
+        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6B4300] bg-[#FCEBC5] px-2.5 py-1 rounded-md whitespace-nowrap"><CalendarClock className="w-3 h-3" />Exp {f.expiry}</span>
       </div>
-      <div className="px-3.5 pt-3 pb-3.5 flex flex-col gap-2.5">
-        <div className="flex gap-3 items-start">
-          <LogoTile label={f.name.toUpperCase()} />
-          <div className="flex-1 min-w-0">
-            <div className="text-[19px] font-extrabold tracking-[-0.02em] truncate">{f.name}</div>
-            <div className={cn(mono, 'text-[11.5px] font-semibold text-[#6B7381]')}>{f.contract}</div>
-            <div className="flex items-baseline gap-1.5 mt-0.5"><span className={cn(mono, 'text-[13px] font-semibold')}>{fp(f.ltp)}</span><Change value={f.chgPct} /></div>
+
+      <div className="flex items-start gap-3">
+        <span className="w-11 h-11 rounded-xl bg-[#F3F5FB] border border-[#DCE2F2] flex items-center justify-center flex-none text-[8.5px] font-extrabold tracking-[0.04em] text-[#1E3A8A] text-center leading-[1.15] p-0.5 overflow-hidden">{f.name.toUpperCase()}</span>
+        <div className="flex-1 min-w-0 flex flex-col gap-0.5">
+          <h2 className="text-[19px] font-bold truncate">{f.name}</h2>
+          <span className="text-[12.5px] text-[#5B6478] truncate">{f.contract}</span>
+          <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+            <span className="text-sm font-bold">{fp(f.ltp)}</span>
+            <span className="text-[12.5px] font-semibold" style={{ color: f.chgPct >= 0 ? '#157F3D' : '#B42318' }}>{f.chgPct >= 0 ? '▲' : '▼'} {Math.abs(f.chgPct).toFixed(2)}%</span>
           </div>
-          <SideBadge side={f.side} />
         </div>
+        <SideBadge side={f.side} />
+      </div>
 
-        <div className="relative h-[92px] mt-1 mx-9">
-          <span className="absolute top-[13px] h-1.5 rounded-l-full bg-[#F6D4D0]" style={{ left: 0, width: `${entryAt}%` }} />
-          <span className="absolute top-[13px] h-1.5 rounded-r-full bg-[#CFEBD8]" style={{ left: `${entryAt}%`, right: 0 }} />
-          {ordered.map((p) => (
-            <div key={p.badge} className="absolute top-0 flex flex-col items-center -translate-x-1/2" style={{ left: `${posOf(p.value)}%` }}>
-              <span className="w-8 h-8 rounded-full text-[11px] font-extrabold text-white flex items-center justify-center ring-4 ring-white" style={{ background: p.color }}>{p.badge}</span>
-              <span className="text-xs font-semibold text-[#6B7381] mt-2 whitespace-nowrap">{p.label}</span>
-              <span className={cn(mono, 'text-sm font-semibold whitespace-nowrap')}>{fp(p.value)}</span>
-            </div>
-          ))}
+      <div className="flex justify-between items-end gap-3 px-3.5 py-3 bg-[#F3F5FB] rounded-xl">
+        <div className="flex flex-col gap-0.5">
+          <span className="text-xs text-[#5B6478]">Since entry</span>
+          <span className="text-[26px] leading-8 font-extrabold tracking-[-0.02em]" style={{ color: up ? '#157F3D' : '#B42318' }}>{up ? '▲' : '▼'} {Math.abs(since).toFixed(2)}%</span>
         </div>
-
-        <div className="border-t border-[#E8EBF0] pt-2.5 grid grid-cols-2 gap-2">
-          <div><div className="text-[11.5px] text-[#8D95A3] font-semibold">Lot size</div><div className={cn(mono, 'text-sm font-semibold mt-0.5')}>{f.lot.toLocaleString('en-IN')} qty</div></div>
-          <div className="text-right"><div className="text-[11.5px] text-[#8D95A3] font-semibold">Holding</div><div className="text-sm font-bold mt-0.5">{f.duration}</div></div>
-        </div>
-        <div className="border-t border-[#E8EBF0] pt-2.5 grid grid-cols-3 gap-2">
-          <div><div className="text-[11.5px] text-[#8D95A3] font-semibold">Margin / lot</div><div className={cn(mono, 'text-sm font-semibold mt-0.5')}>{rupees(Math.round(marginLot))}</div></div>
-          <div className="text-center"><div className="text-[11.5px] text-[#8D95A3] font-semibold">Risk / lot</div><div className={cn(mono, 'text-sm font-semibold mt-0.5 text-[#D93A32]')}>{rupees(Math.round(riskLot))}</div></div>
-          <div className="text-right"><div className="text-[11.5px] text-[#8D95A3] font-semibold">Reward / lot</div><div className={cn(mono, 'text-sm font-semibold mt-0.5 text-[#0E9F6E]')}>{rupees(Math.round(rewardLot))}</div></div>
-        </div>
-        <div className="border-t border-[#E8EBF0] pt-2.5 flex gap-2.5">
-          <button onClick={onWhy} className={cn(ghostBtn, 'h-11 flex-1 text-sm')}><Activity className="w-4 h-4" />Why this trade?</button>
-          <button onClick={() => setFlipped(true)} className={cn(goldBtn, 'h-11 flex-1 text-[14.5px]')}><ShoppingCart className="w-4 h-4" />Place order</button>
+        <div className="flex flex-col items-end gap-0.5">
+          <span className="text-xs text-[#5B6478]">Potential left</span>
+          <span className="text-lg font-bold text-[#1E3A8A]">{potential.toFixed(2)}%</span>
         </div>
       </div>
-    </Card>
+
+      <div className="relative h-[88px] mx-9">
+        <span className="absolute top-[13px] h-1.5 rounded-l-full bg-[#F6D4D0]" style={{ left: 0, width: `${entryAt}%` }} />
+        <span className="absolute top-[13px] h-1.5 rounded-r-full bg-[#CFEBD8]" style={{ left: `${entryAt}%`, right: 0 }} />
+        {ordered.map((p) => (
+          <div key={p.badge} className="absolute top-0 flex flex-col items-center -translate-x-1/2" style={{ left: `${posOf(p.value)}%` }}>
+            <span className="w-8 h-8 rounded-full text-[11px] font-extrabold text-white flex items-center justify-center ring-4 ring-white" style={{ background: p.color }}>{p.badge}</span>
+            <span className="text-xs text-[#5B6478] mt-2 whitespace-nowrap">{p.label}</span>
+            <span className="text-sm font-bold whitespace-nowrap">{fp(p.value)}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        <div className={cn(tile, 'border-[#DCE2F2]')}><span className="text-xs text-[#5B6478]">Lot size</span><span className="text-sm font-bold">{f.lot.toLocaleString('en-IN')} qty</span></div>
+        <div className={cn(tile, 'border-[#DCE2F2]')}><span className="text-xs text-[#5B6478]">Margin / lot</span><span className="text-sm font-bold">{rupees(Math.round(marginLot))}</span></div>
+        <div className={cn(tile, 'border-[#F3C2BC] bg-[#FEF4F3]')}><span className="text-xs text-[#5B6478]">Risk / lot</span><span className="text-sm font-bold text-[#B42318]">{rupees(Math.round(riskLot))}</span></div>
+        <div className={cn(tile, 'border-[#B7E0C4] bg-[#F1FAF4]')}><span className="text-xs text-[#5B6478]">Reward / lot</span><span className="text-sm font-bold text-[#157F3D]">{rupees(Math.round(rewardLot))}</span></div>
+      </div>
+
+      <button onClick={onWhy} className="h-[46px] rounded-xl bg-[#1E3A8A] hover:bg-[#13235B] text-white text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[.985] transition-all">
+        <Activity className="w-4 h-4" />Why this trade?
+      </button>
+    </article>
   );
 }

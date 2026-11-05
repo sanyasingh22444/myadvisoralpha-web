@@ -42,9 +42,10 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     label: 'Futures',
     title: 'Futures trades with defined risk',
     points: [
-      'Entry, target & stop-loss for each trade',
-      'Margin, risk & reward per lot shown upfront',
-      'Live and past trades in one place',
+      'Trade Nifty, Bank Nifty and stock futures',
+      'Small margin, full market exposure',
+      'Profit from both rising and falling markets',
+      'Entry, target, stop-loss and alerts on every trade',
     ],
     ctaLabel: 'Explore Futures',
     ctaUrl: WEB_APP_URL,
@@ -56,9 +57,10 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     label: 'MTF Baskets',
     title: 'Short-term baskets with margin',
     points: [
-      'A few stocks, held for weeks',
-      'Basket target & stop-loss set upfront',
-      'Exit alerts the moment a stop-loss is hit',
+      '3 handpicked stocks in every basket',
+      'Pay part, your broker funds the rest',
+      'Interest applies only while you hold',
+      'Bigger upside, with clear exit levels',
     ],
     ctaLabel: 'Explore MTF Baskets',
     ctaUrl: WEB_APP_URL,
@@ -220,7 +222,14 @@ export default function StackedShowcase() {
                       {card.title}
                     </h3>
 
-                    <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
+                    {/* Four-point cards sit a little tighter so every card stays the same size */}
+                    <ul
+                      className={
+                        card.points.length > 3
+                          ? 'space-y-1 md:space-y-1 mb-3 md:mb-4'
+                          : 'space-y-1.5 md:space-y-2 mb-4 md:mb-6'
+                      }
+                    >
                       {card.points.map((point) => (
                         <li key={point} className="flex items-start gap-3 text-sm sm:text-base text-white/80">
                           <CheckCircle2 className="w-5 h-5 text-[#F5BA31] shrink-0 mt-0.5" />

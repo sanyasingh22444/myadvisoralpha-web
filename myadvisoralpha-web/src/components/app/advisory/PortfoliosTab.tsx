@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Info, ShieldCheck, Sprout, Gem, Rocket, Check, ArrowUpRight, ChevronDown, ChevronRight, RefreshCw, Target, Quote, FileText } from 'lucide-react';
 import { PORTFOLIOS, PORTFOLIO_PLANS, APP_LINKS, APP_USER, APP_REVIEWS, GST_PERCENT, rupees, monthsLabel, type Portfolio } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
@@ -33,7 +34,6 @@ const FAQS: { q: string; a: string }[] = [
 ];
 
 export default function PortfoliosTab() {
-  const [detail, setDetail] = useState<Portfolio | null>(null);
   const [amountInfo, setAmountInfo] = useState(false);
   const [faq, setFaq] = useState<number | null>(0);
 
@@ -71,7 +71,7 @@ export default function PortfoliosTab() {
                     <div className={cn(mono, 'text-sm font-semibold')} style={{ color: h.value >= 0 ? GAIN : LOSS }}>{h.value > 0 ? '+' : ''}{h.value.toFixed(2)}%</div>
                   </div>
                 </div>
-                <button onClick={() => setDetail(p)} className="mt-auto h-10 rounded-[10px] border-[1.5px] border-[#1E3A8A] text-[#1E3A8A] text-sm font-extrabold hover:bg-[#1E3A8A] hover:text-white transition-colors">View</button>
+                <Link href={`/app/portfolios/${p.slug}`} className="mt-auto h-10 rounded-[10px] border-[1.5px] border-[#1E3A8A] text-[#1E3A8A] text-sm font-extrabold hover:bg-[#1E3A8A] hover:text-white transition-colors flex items-center justify-center">View</Link>
               </article>
             );
           })}
@@ -103,8 +103,8 @@ export default function PortfoliosTab() {
               </thead>
               <tbody className="divide-y divide-[#E8EBF0]">
                 {PORTFOLIOS.map((p) => (
-                  <tr key={p.id} className="hover:bg-[#FAFBFE] cursor-pointer" onClick={() => setDetail(p)}>
-                    <td className="px-4 py-3"><div className="font-extrabold">{p.name}</div><div className="text-[11.5px] text-[#8D95A3]">{p.tagline}</div></td>
+                  <tr key={p.id} className="hover:bg-[#FAFBFE]">
+                    <td className="px-4 py-3"><Link href={`/app/portfolios/${p.slug}`} className="font-extrabold text-[#154198] hover:underline">{p.name}</Link><div className="text-[11.5px] text-[#8D95A3]">{p.tagline}</div></td>
                     <td className="px-3 py-3 whitespace-nowrap text-[#4A525F]">{p.launchDate}</td>
                     <td className={cn(mono, 'px-3 py-3 text-right')}>{p.stockCount}</td>
                     <td className={cn(mono, 'px-3 py-3 text-right')}>{rupees(p.minInvestment)}</td>
@@ -211,30 +211,6 @@ export default function PortfoliosTab() {
         <p className="text-sm leading-relaxed text-[#2C3550]">The smallest amount that lets you buy every stock in the model portfolio at its recommended weight. Investing less can leave some stocks out or skew the weights.</p>
       </Sheet>
 
-      <Sheet open={!!detail} onClose={() => setDetail(null)} eyebrow={detail ? VOL[detail.riskLevel].label : undefined} title={detail?.name ?? ''}>
-        {detail && (
-          <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-3 gap-2 bg-[#F3F5FB] rounded-xl p-3">
-              <div><div className="text-xs text-[#5B6478]">Min. amount</div><div className="text-[15px] font-bold">{rupees(detail.minInvestment)}</div></div>
-              <div><div className="text-xs text-[#5B6478]">Stocks</div><div className="text-[15px] font-bold">{detail.stockCount}</div></div>
-              <div><div className="text-xs text-[#5B6478]">{headline(detail).label}</div><div className="text-[15px] font-bold" style={{ color: headline(detail).value >= 0 ? GAIN : LOSS }}>{headline(detail).value.toFixed(2)}%</div></div>
-            </div>
-            <div><h3 className="text-sm font-extrabold mb-1">Investment strategy</h3><p className="text-sm leading-relaxed text-[#2C3550]">{detail.strategy}</p></div>
-            <div><h3 className="text-sm font-extrabold mb-1">Ideal for</h3><p className="text-sm leading-relaxed text-[#2C3550]">{detail.idealFor}</p></div>
-            <div>
-              <h3 className="text-sm font-extrabold mb-2">Included in</h3>
-              <div className="flex flex-col gap-2">
-                {PORTFOLIO_PLANS.filter((pl) => detail.planIds.includes(pl.id)).map((pl) => (
-                  <a key={pl.id} href={APP_LINKS.portfolioCheckout(pl.id)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-xl border border-[#DCE2F2] px-3.5 py-3 hover:border-[#154198]">
-                    <span><span className="block text-sm font-bold">{pl.name}</span><span className="text-xs text-[#6B7381]">from {rupees(Math.min(...pl.durations.map((d) => d.price)))}</span></span>
-                    <ArrowUpRight className="w-4 h-4 text-[#154198]" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </Sheet>
     </div>
   );
 }

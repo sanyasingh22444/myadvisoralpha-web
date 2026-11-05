@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
   Home, LineChart, PieChart, Newspaper, UserRound, Headset, Bell, ChevronRight,
-  TrendingUp, Briefcase, Activity, Layers, BarChart3,
+  TrendingUp, Briefcase, Activity, Layers, BarChart3, Flame,
 } from 'lucide-react';
 import { APP_LINKS, APP_USER } from '@/data/app';
 import { cn } from '@/lib/utils';
@@ -18,11 +18,12 @@ const ADVISORY = [
 ];
 
 const NAV = [
-  { href: '/app', label: 'Home', icon: Home, match: (p: string) => p === '/app' },
-  { href: '/app/advisory/stocks', label: 'Advisory', icon: LineChart, match: (p: string) => p.startsWith('/app/advisory') },
-  { href: '/app/mutual-funds', label: 'Mutual Funds', icon: PieChart, match: (p: string) => p.startsWith('/app/mutual-funds') },
-  { href: '/app/research', label: 'Research', icon: Newspaper, match: (p: string) => p.startsWith('/app/research') },
-  { href: '/app/profile', label: 'Profile', icon: UserRound, match: (p: string) => p.startsWith('/app/profile') || p.startsWith('/app/plans') },
+  { href: '/app', label: 'Home', icon: Home, match: (p: string) => p === '/app', mobile: true },
+  { href: '/app/markets', label: 'Markets', icon: Flame, match: (p: string) => p.startsWith('/app/markets'), mobile: true },
+  { href: '/app/advisory/stocks', label: 'Advisory', icon: LineChart, match: (p: string) => p.startsWith('/app/advisory'), mobile: true },
+  { href: '/app/mutual-funds', label: 'Mutual Funds', icon: PieChart, match: (p: string) => p.startsWith('/app/mutual-funds'), mobile: true },
+  { href: '/app/research', label: 'Research', icon: Newspaper, match: (p: string) => p.startsWith('/app/research'), mobile: false },
+  { href: '/app/profile', label: 'Profile', icon: UserRound, match: (p: string) => p.startsWith('/app/profile') || p.startsWith('/app/plans'), mobile: true },
 ];
 
 function LogoPill({ compact = false }: { compact?: boolean }) {
@@ -133,7 +134,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* Mobile bottom tab bar */}
       <nav aria-label="App" className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-[#D7DDE8] pb-[env(safe-area-inset-bottom)]">
         <div className="grid grid-cols-5">
-          {NAV.map((item) => {
+          {NAV.filter((item) => item.mobile).map((item) => {
             const active = item.match(pathname);
             const Icon = item.icon;
             return (

@@ -7,6 +7,8 @@
  * screens can switch from this snapshot to live data without changing shape.
  */
 
+import closedRaw from './closed-ideas.json';
+
 export const SNAPSHOT_AS_OF = '08:08 AM, 4 Nov 2026';
 export const GST_PERCENT = 18;
 
@@ -390,29 +392,38 @@ export interface ClosedIdea {
   category: IdeaCategory;
   sector: string;
   logoUrl: string | null;
+  tag: string | null;
+  /** Price when the idea was published. */
+  launchedPrice: number;
+  /** Average entry, including any buy-more. */
   buyPrice: number;
+  launchedAt: string; // ISO with IST offset, e.g. 2026-09-18T08:58:00+05:30
+  buyMore: { price: number; at: string | null; percent: number | null } | null;
   closedPrice: number;
+  closedAt: string;
+  gainPercentage: number;
+  /** Upside to target the research team expected at launch, %. */
+  targetUpside: number | null;
+  reportUrl: string | null;
+  why: string | null;
+  // Date-only forms for shortDate().
   launchedDate: string;
   closedDate: string;
-  gainPercentage: number;
-  tag: string | null;
-  reportUrl: string | null;
 }
 
-export const CLOSED_IDEAS: ClosedIdea[] = [
-  { id: '6cdf9903', name: 'Birlasoft', symbol: 'BSOFT', category: 'Long Term', sector: 'Computers - Software - Medium / Small', logoUrl: LOGO + 'KPITTech_21635141983_16541.png', buyPrice: 292.5, closedPrice: 343.7, launchedDate: '2026-07-13', closedDate: '2026-10-29', gainPercentage: 17.5, tag: null, reportUrl: null },
-  { id: 'aee5e30b', name: 'Indian Hotels Co', symbol: 'INDHOTEL', category: 'Short Term', sector: 'Hotels', logoUrl: LOGO + 'IndianHotels_18642202460_282.png', buyPrice: 735, closedPrice: 804, launchedDate: '2026-09-18', closedDate: '2026-10-27', gainPercentage: 9.39, tag: 'Featured', reportUrl: S3 + 'ed33c8c0-5a44-49ba-a084-ca98f1b137e0.pdf' },
-  { id: '91954221', name: 'IDFC First Bank', symbol: 'IDFCFIRSTB', category: 'Mid Term', sector: 'Banks - Private Sector', logoUrl: LOGO + 'IDFCBank_27126132357_54759.png', buyPrice: 87.9, closedPrice: 74.7, launchedDate: '2026-09-23', closedDate: '2026-10-23', gainPercentage: -15.02, tag: null, reportUrl: null },
-  { id: 'f021015a', name: 'Tech Mahindra', symbol: 'TECHM', category: 'Mid Term', sector: 'Computers - Software - Large', logoUrl: LOGO + 'TechMahindra_28047796713_17215.png', buyPrice: 1570, closedPrice: 1774, launchedDate: '2026-07-17', closedDate: '2026-10-16', gainPercentage: 12.99, tag: null, reportUrl: S3 + 'ef7df915-5876-4a3a-8a05-038c9aaec135.pdf' },
-  { id: 'e96c4b66', name: 'TCS', symbol: 'TCS', category: 'Short Term', sector: 'Computers - Software - Large', logoUrl: LOGO + 'TCS_22749879_5400.png', buyPrice: 2180, closedPrice: 2428, launchedDate: '2026-07-13', closedDate: '2026-10-16', gainPercentage: 11.38, tag: null, reportUrl: S3 + '208f3b44-ec47-4cc8-ac5b-56b5c4db13ab.pdf' },
-  { id: 'b22b6858', name: 'Nippon Nifty IT ETF', symbol: 'ITBEES', category: 'Short Term', sector: 'ETF', logoUrl: null, buyPrice: 31.8, closedPrice: 34.25, launchedDate: '2026-10-09', closedDate: '2026-10-15', gainPercentage: 7.7, tag: 'Featured', reportUrl: S3 + '2d6a574e-080d-47e7-b710-26817d841ba8.pdf' },
-  { id: '493baeb4', name: 'One 97 (Paytm)', symbol: 'PAYTM', category: 'Long Term', sector: 'Miscellaneous', logoUrl: LOGO + 'One97-Communications-Ltd_42949010_40147.png', buyPrice: 1372, closedPrice: 1718.1, launchedDate: '2026-08-03', closedDate: '2026-10-15', gainPercentage: 25.23, tag: 'Multibagger', reportUrl: S3 + '9e039a3f-4851-443c-97ac-2d7f779b4ff0.pdf' },
-  { id: '54f83d1b', name: 'Caplin Point Lab', symbol: 'CAPLIPOINT', category: 'Short Term', sector: 'Pharmaceuticals - Indian - Formulations', logoUrl: LOGO + 'CaplinPointLab_88809258160_4464.png', buyPrice: 2763, closedPrice: 2484, launchedDate: '2026-09-04', closedDate: '2026-10-15', gainPercentage: -10.1, tag: null, reportUrl: S3 + '05790cbe-498a-419d-b23e-ed4718a727bd.pdf' },
-  { id: '8ed3d99d', name: 'Max Healthcare', symbol: 'MAXHEALTH', category: 'Mid Term', sector: 'Healthcare', logoUrl: LOGO + 'MaxHealthcareInstituteLtd._69725583_22865.png', buyPrice: 1113, closedPrice: 884, launchedDate: '2026-07-29', closedDate: '2026-10-08', gainPercentage: -20.58, tag: null, reportUrl: S3 + '897ab493-acc6-431d-9677-6e6f4f936406.pdf' },
-  { id: '8e9aeb13', name: 'FSN E-Commerce (Nykaa)', symbol: 'NYKAA', category: 'Short Term', sector: 'Trading', logoUrl: LOGO + 'FSNE-CommerceVenturesLtd_51987676_75803.png', buyPrice: 313.65, closedPrice: 341, launchedDate: '2026-07-03', closedDate: '2026-10-06', gainPercentage: 8.72, tag: null, reportUrl: S3 + '8b02fe8e-34d5-499b-9ca8-bedc789820fa.pdf' },
-  { id: 'f6e5df17', name: 'Finolex Cables', symbol: 'FINCABLES', category: 'Long Term', sector: 'Cables - Power', logoUrl: LOGO + 'FinolexCables_4887540546_171.png', buyPrice: 1145, closedPrice: 1421, launchedDate: '2026-05-08', closedDate: '2026-09-28', gainPercentage: 24.1, tag: null, reportUrl: S3 + '5635654b-3080-42f6-8cbc-a31b5e60c576.pdf' },
-  { id: 'cacfbe35', name: 'ACME Solar Holdings', symbol: 'ACMESOLAR', category: 'Short Term', sector: 'Engineering - Turnkey Services', logoUrl: null, buyPrice: 404, closedPrice: 455, launchedDate: '2026-08-21', closedDate: '2026-09-21', gainPercentage: 12.62, tag: null, reportUrl: S3 + 'a1f76a4c-bc14-4ed6-a545-a88416a7f8b7.pdf' },
-];
+/** All 48 closed ideas, newest first (snapshot of the past-ideas endpoint, 5 Nov 2026). */
+export const CLOSED_IDEAS: ClosedIdea[] = (closedRaw as { ideas: Omit<ClosedIdea, 'launchedDate' | 'closedDate'>[] }).ideas.map((i) => ({
+  ...i,
+  launchedDate: i.launchedAt.slice(0, 10),
+  closedDate: i.closedAt.slice(0, 10),
+}));
+
+/** Same rule as the official track record: a close at or above entry counts as a hit. */
+export const isHit = (i: ClosedIdea) => i.gainPercentage >= 0;
+export const holdingDays = (i: ClosedIdea) =>
+  Math.max(1, Math.round((+new Date(i.closedAt) - +new Date(i.launchedAt)) / 86400000));
+export const dateTime = (iso: string) =>
+  new Date(iso).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: '2-digit', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true });
 
 /* ---------- plans (v2/single-stock/stock-plans/available, subscriptions/plans) ---------- */
 

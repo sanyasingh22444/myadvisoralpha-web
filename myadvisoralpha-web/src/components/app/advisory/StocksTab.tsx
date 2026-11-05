@@ -7,6 +7,7 @@ import {
   type StockIdea, type IdeaCategory,
 } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
+import ClosedIdeas from './ClosedIdeas';
 import { cn } from '@/lib/utils';
 import {
   Card, Change, FeaturedChip, LevelTrack, LogoTile, Segmented, Sheet, StatStrip, TermChip, Disclaimer,
@@ -97,13 +98,15 @@ export default function StocksTab() {
         </div>
       </Card>
 
-      <StatStrip
-        items={[
-          { label: 'Hit rate', value: `${TRACK_RECORD.hitRatePercentage.toFixed(1)}%` },
-          { label: 'Avg. return', value: `+${TRACK_RECORD.averageProfitPercentage.toFixed(1)}%`, tone: 'gain' },
-          { label: 'Avg. holding', value: `${Math.round(TRACK_RECORD.averageDurationDays)} days` },
-        ]}
-      />
+      {live === 'live' && (
+        <StatStrip
+          items={[
+            { label: 'Hit rate', value: `${TRACK_RECORD.hitRatePercentage.toFixed(1)}%` },
+            { label: 'Avg. return', value: `+${TRACK_RECORD.averageProfitPercentage.toFixed(1)}%`, tone: 'gain' },
+            { label: 'Avg. holding', value: `${Math.round(TRACK_RECORD.averageDurationDays)} days` },
+          ]}
+        />
+      )}
 
       {live === 'live' ? (
         ideas.length ? (
@@ -116,57 +119,15 @@ export default function StocksTab() {
           <Empty query={query} />
         )
       ) : closed.length ? (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 items-start">
-          {closed.map((c) => {
-            const profit = c.gainPercentage >= 0;
-            return (
-              <div key={c.id} className="bg-[#EEF3FE] border border-[#D9E5FF] rounded-[14px] p-[7px]">
-                <Card className="rounded-[10px] p-3.5 flex flex-col gap-3">
-                  <div className="flex items-start gap-3">
-                    <LogoTile src={c.logoUrl} label={c.symbol} size={40} />
-                    <div className="flex-1 min-w-0">
-                      <div className="text-base font-extrabold tracking-[-0.01em] truncate">{c.name}</div>
-                      <div className={cn(mono, 'text-xs text-[#8D95A3]')}>{c.symbol}</div>
-                    </div>
-                    <div className="flex flex-col items-end gap-1.5">
-                      <span className="text-[11.5px] font-bold text-[#8A5A00] bg-[#FFF4D6] rounded-md px-2 py-[3px]">{c.category}</span>
-                      {profit && <span className="text-[12.5px] font-bold text-[#1E7F3B]">Profit booked</span>}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="grid grid-cols-[1fr_1.5fr_1fr] pb-2 border-b border-[#E8EBF0] text-[11px] font-bold tracking-[0.06em] uppercase text-[#8D95A3]">
-                      <span>Action</span><span className="text-center">Date</span><span className="text-right">Price</span>
-                    </div>
-                    <div className="grid grid-cols-[1fr_1.5fr_1fr] items-center pt-2.5">
-                      <span className="text-sm font-semibold">Buy</span>
-                      <span className={cn(mono, 'text-[11.5px] text-[#6B7381] text-center')}>{shortDate(c.launchedDate)}</span>
-                      <span className={cn(mono, 'text-[15px] font-semibold text-right')}>{price(c.buyPrice)}</span>
-                    </div>
-                    <div className="grid grid-cols-[1fr_1.5fr_1fr] items-center pt-2">
-                      <span className="text-sm font-semibold">Sell</span>
-                      <span className={cn(mono, 'text-[11.5px] text-[#6B7381] text-center')}>{shortDate(c.closedDate)}</span>
-                      <span className={cn(mono, 'text-[15px] font-semibold text-right')}>{price(c.closedPrice)}</span>
-                    </div>
-                  </div>
-                  <div className={cn('rounded-[10px] py-2 text-center text-sm font-extrabold', profit ? 'bg-[#E3F5E7]' : 'bg-[#FDECEC]')} style={{ color: profit ? GAIN : LOSS }}>
-                    {profit ? '+' : ''}{c.gainPercentage.toFixed(2)}% in {daysBetween(c.launchedDate, c.closedDate)} days
-                  </div>
-                  {c.reportUrl ? (
-                    <a href={c.reportUrl} target="_blank" rel="noopener noreferrer" className={cn(blueBtn, 'h-10 text-sm')}><Eye className="w-4 h-4" />View report</a>
-                  ) : (
-                    <span className="h-10 flex items-center justify-center text-xs font-semibold text-[#8D95A3]">Report not published for this idea</span>
-                  )}
-                </Card>
-              </div>
-            );
-          })}
-        </div>
+        <ClosedIdeas ideas={closed} />
       ) : (
         <Empty query={query} />
       )}
 
       <Disclaimer>
-        Showing the latest {live === 'live' ? LIVE_IDEAS.length : CLOSED_IDEAS.length} of {live === 'live' ? TRACK_RECORD.totalLive : TRACK_RECORD.totalClosed} {live} ideas. Prices as of {SNAPSHOT_AS_OF}. Track record: {TRACK_RECORD.totalWinning} of {TRACK_RECORD.totalClosed} closed ideas profitable. Investment in securities market are subject to market risks. Read all related documents carefully before investing. Past performance may or may not be sustained in the future.
+        {live === 'live'
+          ? <>Showing the latest {LIVE_IDEAS.length} of {TRACK_RECORD.totalLive} live ideas. Prices as of {SNAPSHOT_AS_OF}.</>
+          : <>All {CLOSED_IDEAS.length} closed ideas as of 5 Nov 2026. A close at or above the entry price counts as a hit.</>}{' '}Track record: {TRACK_RECORD.totalWinning} of {TRACK_RECORD.totalClosed} closed ideas hit. Investment in securities market are subject to market risks. Read all related documents carefully before investing. Past performance may or may not be sustained in the future.
       </Disclaimer>
 
       <Sheet open={!!why} onClose={() => setWhy(null)} eyebrow="Why this stock" title={why?.name ?? ''}>

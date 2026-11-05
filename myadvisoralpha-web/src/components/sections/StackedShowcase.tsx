@@ -42,9 +42,10 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     label: 'Futures',
     title: 'Futures trades with defined risk',
     points: [
-      'Entry, target & stop-loss for each trade',
-      'Margin, risk & reward per lot shown upfront',
-      'Live and past trades in one place',
+      'A contract to buy or sell a stock or index (like Nifty) at a fixed price on a future date',
+      'You put up only a margin, a small part of the full value, to take the trade',
+      'You profit if the price moves in your favour and lose if it moves against you',
+      'Every trade comes with entry, target, stop-loss and timely alerts, so you never miss a move before expiry',
     ],
     ctaLabel: 'Explore Futures',
     ctaUrl: WEB_APP_URL,
@@ -56,9 +57,10 @@ const SHOWCASE_CARDS: ShowcaseCardData[] = [
     label: 'MTF Baskets',
     title: 'Short-term baskets with margin',
     points: [
-      'A few stocks, held for weeks',
-      'Basket target & stop-loss set upfront',
-      'Exit alerts the moment a stop-loss is hit',
+      'A ready-made basket of 3 stocks you buy together, picked for short-term gains',
+      'You pay only part of the amount, and your broker lends you the rest (Margin Trading Facility)',
+      'You pay interest on the borrowed money for as long as you hold the stocks',
+      'Gains and losses are both bigger because you’re trading with more money than you put in',
     ],
     ctaLabel: 'Explore MTF Baskets',
     ctaUrl: WEB_APP_URL,
@@ -121,6 +123,9 @@ function barSpace(width: number) {
   return 64;
 }
 
+// How far a stacked card may tuck up into the gap below the navbar before it would slide under it
+const NAV_CLEARANCE = 14;
+
 export default function StackedShowcase() {
   const reduceMotion = useReducedMotion() ?? false;
   const deckRef = useRef<HTMLDivElement>(null);
@@ -128,7 +133,9 @@ export default function StackedShowcase() {
   // Cards stack like a deck: every card sticks at the same spot, so each one fully
   // covers the card before it. All cards share the tallest card's height so no edge
   // of an earlier card shows, and on short screens they sit higher so the top card
-  // shows in full above the phone bar instead of being cut off at the bottom
+  // shows in full above the phone bar instead of being cut off at the bottom. Where a
+  // card can't fit between the navbar and the phone bar at all, the cards scroll as a
+  // plain list instead, so no part of a card is ever hidden
   useEffect(() => {
     const deck = deckRef.current;
     if (!deck) return;
@@ -146,7 +153,12 @@ export default function StackedShowcase() {
       const base = width < 768 ? 88 : 104;
       const lowest = window.innerHeight - barSpace(width) - tallest;
       const top = Math.min(base, lowest);
-      cards.forEach((card) => card.style.setProperty('--stack-top', `${top}px`));
+      const stack = top >= base - NAV_CLEARANCE;
+      cards.forEach((card, i) => {
+        card.style.setProperty('--stack-top', `${top}px`);
+        card.style.position = stack ? '' : 'relative';
+        card.style.marginTop = stack || i === 0 ? '' : '24px';
+      });
     };
 
     place();

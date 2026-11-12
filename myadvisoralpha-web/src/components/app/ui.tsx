@@ -9,7 +9,7 @@ import { GAIN, LOSS, mono } from './styles';
 export { GAIN, LOSS, goldBtn, blueBtn, ghostBtn, mono } from './styles';
 
 export function Card({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cn('bg-white border border-[#E4E8EF] rounded-[14px] shadow-[0_2px_10px_-2px_rgba(30,34,42,.10)]', className)}>{children}</div>;
+  return <div className={cn('bg-white border border-[#93C5FD] rounded-[14px] shadow-[0_2px_10px_-2px_rgba(30,34,42,.10)]', className)}>{children}</div>;
 }
 
 export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {

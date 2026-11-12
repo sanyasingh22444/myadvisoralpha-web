@@ -82,7 +82,7 @@ export default function HomeView() {
             const Icon = e.icon;
             return (
               <Link key={e.label} href={e.href} className="group flex flex-col items-center text-center gap-1.5 sm:rounded-2xl sm:bg-white sm:border sm:border-[#93C5FD] sm:py-4 sm:px-2 sm:hover:border-[#3B82F6] sm:hover:shadow-[0_10px_24px_-14px_rgba(19,35,91,.35)] transition-all">
-                <span className="relative w-14 h-14 rounded-2xl bg-[#EEF3FE] sm:bg-[#081026] text-[#154198] sm:text-[#F5BA31] border border-[#93C5FD] sm:border-0 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span className="relative w-14 h-14 rounded-2xl bg-[#081026] text-[#F5BA31] flex items-center justify-center group-hover:scale-105 transition-transform">
                   <Icon className="w-6 h-6" />
                   {e.isNew && <span className="absolute -top-1.5 -right-2 text-[8.5px] font-extrabold tracking-wider uppercase text-[#081026] bg-[#F5BA31] rounded-full px-1.5 py-px">New</span>}
                 </span>

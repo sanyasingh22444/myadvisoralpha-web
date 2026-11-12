@@ -8,6 +8,8 @@ import {
 } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
 import ClosedIdeas from './ClosedIdeas';
+import { StockCompact } from '../productCards';
+import { useWatchlist } from '../watchlist';
 import { cn } from '@/lib/utils';
 import {
   Card, Change, FeaturedChip, LevelTrack, LogoTile, Segmented, Sheet, StatStrip, TermChip, Disclaimer,
@@ -31,8 +33,7 @@ export default function StocksTab() {
   const [term, setTerm] = useState<Term>('All');
   const [chips, setChips] = useState<Chip[]>([]);
   const [query, setQuery] = useState('');
-  const [why, setWhy] = useState<StockIdea | null>(null);
-  const [saved, setSaved] = useState<string[]>([]);
+  const [detail, setDetail] = useState<{ idea: StockIdea; order: boolean } | null>(null);
 
   const q = query.trim().toLowerCase();
   const match = (s: { name: string; symbol: string; sector: string }) =>
@@ -110,9 +111,9 @@ export default function StocksTab() {
 
       {live === 'live' ? (
         ideas.length ? (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 items-start">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 items-stretch">
             {ideas.map((idea) => (
-              <IdeaCard key={idea.id} idea={idea} saved={saved.includes(idea.id)} onSave={() => setSaved((s) => (s.includes(idea.id) ? s.filter((x) => x !== idea.id) : [...s, idea.id]))} onWhy={() => setWhy(idea)} />
+              <StockCompact key={idea.id} idea={idea} onAbout={() => setDetail({ idea, order: false })} onOrder={() => setDetail({ idea, order: true })} />
             ))}
           </div>
         ) : (
@@ -130,25 +131,36 @@ export default function StocksTab() {
           : <>All {CLOSED_IDEAS.length} closed ideas as of 5 Nov 2026. A close at or above the entry price counts as a hit.</>}{' '}Track record: {TRACK_RECORD.totalWinning} of {TRACK_RECORD.totalClosed} closed ideas hit. Investment in securities market are subject to market risks. Read all related documents carefully before investing. Past performance may or may not be sustained in the future.
       </Disclaimer>
 
-      <Sheet open={!!why} onClose={() => setWhy(null)} eyebrow="Why this stock" title={why?.name ?? ''}>
-        {why && (
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-wrap gap-2"><TermChip>{why.category}</TermChip><span className="text-xs font-semibold text-[#6B7381] self-center">{why.sector}</span></div>
-            <p className="text-sm leading-[1.6] text-[#2C3550]">{why.why}</p>
-            <div className="grid grid-cols-3 gap-2 bg-[#F3F5FB] rounded-xl p-3">
-              <Fact label="Horizon" value={why.horizon} />
-              <Fact label="Upside left" value={`${why.upsidePotential.toFixed(1)}%`} />
-              <Fact label="Stop loss" value={price(why.stopLoss)} />
-            </div>
-            {why.reportUrl && (
-              <a href={why.reportUrl} target="_blank" rel="noopener noreferrer" className={cn(ghostBtn, 'h-12 text-[15px]')}><FileText className="w-4 h-4" />Read the research report</a>
-            )}
-            <p className="text-[11px] leading-4 text-[#5B6478]">Research for information only. SEBI RA Reg. No. {BRAND_INFO.sebiRegNo}. Investments in the securities market are subject to market risks.</p>
-            <button onClick={() => setWhy(null)} className={cn(blueBtn, 'h-12 text-[15px] bg-[#1E3A8A]')}>Got it</button>
-          </div>
-        )}
-      </Sheet>
+      <StockSheet detail={detail} onClose={() => setDetail(null)} />
     </div>
+  );
+}
+
+/** "About idea" panel: the full card (or its order screen), the rationale and the report. Reused by Home and search. */
+export function StockSheet({ detail, onClose }: { detail: { idea: StockIdea; order: boolean } | null; onClose: () => void }) {
+  const wl = useWatchlist();
+  const idea = detail?.idea;
+  return (
+    <Sheet open={!!idea} onClose={onClose} wide eyebrow={detail?.order ? 'Place order' : 'About idea'} title={idea ? `${idea.name} · ${idea.symbol}` : ''}>
+      {idea && (
+        <div className="flex flex-col gap-4">
+          <IdeaCard key={`${idea.id}-${detail.order}`} idea={idea} saved={wl.has(idea.id)} onSave={() => wl.toggle(idea.id)} initialFlipped={detail.order} />
+          <div>
+            <h3 className="text-sm font-extrabold mb-1">Why we like it</h3>
+            <p className="text-sm leading-[1.6] text-[#2C3550]">{idea.why}</p>
+          </div>
+          <div className="grid grid-cols-3 gap-2 bg-[#F3F5FB] rounded-xl p-3">
+            <Fact label="Horizon" value={idea.horizon} />
+            <Fact label="Sector" value={idea.sector} />
+            <Fact label="Upside left" value={`${idea.upsidePotential.toFixed(1)}%`} />
+          </div>
+          {idea.reportUrl && (
+            <a href={idea.reportUrl} target="_blank" rel="noopener noreferrer" className={cn(ghostBtn, 'h-12 text-[15px]')}><FileText className="w-4 h-4" />Read the research report</a>
+          )}
+          <p className="text-[11px] leading-4 text-[#5B6478]">Research for information only. SEBI RA Reg. No. {BRAND_INFO.sebiRegNo}. Investments in the securities market are subject to market risks.</p>
+        </div>
+      )}
+    </Sheet>
   );
 }
 
@@ -170,8 +182,9 @@ function Empty({ query }: { query: string }) {
   );
 }
 
-function IdeaCard({ idea, saved, onSave, onWhy }: { idea: StockIdea; saved: boolean; onSave: () => void; onWhy: () => void }) {
-  const [flipped, setFlipped] = useState(false);
+/** Full stock idea card from the Advisory tab design (levels, buy range, order screen). Shown inside the About panel. */
+export function IdeaCard({ idea, saved, onSave, onWhy, initialFlipped = false }: { idea: StockIdea; saved: boolean; onSave: () => void; onWhy?: () => void; initialFlipped?: boolean }) {
+  const [flipped, setFlipped] = useState(initialFlipped);
   const [qty, setQty] = useState(1);
   const since = idea.returnPercentage;
 
@@ -268,7 +281,7 @@ function IdeaCard({ idea, saved, onSave, onWhy }: { idea: StockIdea; saved: bool
         </div>
 
         <div className="border-t border-[#E8EBF0] pt-2.5 flex gap-2.5">
-          <button onClick={onWhy} className={cn(ghostBtn, 'h-11 flex-1 text-sm')}><Activity className="w-4 h-4" />Why this stock?</button>
+          {onWhy && <button onClick={onWhy} className={cn(ghostBtn, 'h-11 flex-1 text-sm')}><Activity className="w-4 h-4" />Why this stock?</button>}
           <button onClick={() => setFlipped(true)} className={cn(goldBtn, 'h-11 flex-1 text-[14.5px]')}><ShoppingCart className="w-4 h-4" />Place order</button>
         </div>
       </div>

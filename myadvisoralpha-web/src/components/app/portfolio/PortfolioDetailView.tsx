@@ -177,7 +177,7 @@ export default function PortfolioDetailView({ slug }: { slug: string }) {
       <Disclaimer>Portfolio data from MyAdvisorAlpha as of {new Date(PORTFOLIO_DETAILS_AS_OF).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}. Performance is of the model portfolio and its benchmark, rebased to 10 at the start of each period. Past performance may or may not be sustained in the future. Investment in securities market are subject to market risks.</Disclaimer>
 
       {/* Sticky subscribe bar */}
-      <div className="fixed bottom-[68px] lg:bottom-0 inset-x-0 lg:left-[264px] z-30 bg-white/95 backdrop-blur border-t border-[#D7DDE8] px-4 sm:px-6 lg:px-8 py-3">
+      <div className="fixed bottom-[68px] lg:bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur border-t border-[#D7DDE8] px-4 sm:px-6 lg:px-8 py-3">
         <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-3">
           <div>
             <div className="text-xs text-[#6B7381]">Get access from</div>

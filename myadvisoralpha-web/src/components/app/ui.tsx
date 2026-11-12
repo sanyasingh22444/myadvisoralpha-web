@@ -114,7 +114,7 @@ export function LevelTrack({ levels, current }: { levels: { label: string; value
 }
 
 /** Bottom sheet on phones, centred dialog on larger screens. */
-export function Sheet({ open, onClose, eyebrow, title, children }: { open: boolean; onClose: () => void; eyebrow?: string; title: string; children: React.ReactNode }) {
+export function Sheet({ open, onClose, eyebrow, title, children, wide = false }: { open: boolean; onClose: () => void; eyebrow?: string; title: string; children: React.ReactNode; wide?: boolean }) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
@@ -127,7 +127,7 @@ export function Sheet({ open, onClose, eyebrow, title, children }: { open: boole
   return (
     <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center">
       <button aria-label="Close" onClick={onClose} className="absolute inset-0 bg-[rgba(11,19,32,.56)] cursor-default" />
-      <div role="dialog" aria-modal="true" aria-label={title} className="relative w-full sm:max-w-lg bg-white text-[#14171C] rounded-t-[20px] sm:rounded-[20px] px-5 pt-2.5 pb-6 max-h-[88vh] overflow-y-auto shadow-[0_20px_48px_-12px_rgba(11,19,32,.22)]">
+      <div role="dialog" aria-modal="true" aria-label={title} className={`relative w-full ${wide ? 'sm:max-w-xl' : 'sm:max-w-lg'} bg-white text-[#14171C] rounded-t-[20px] sm:rounded-[20px] px-5 pt-2.5 pb-6 max-h-[88vh] overflow-y-auto shadow-[0_20px_48px_-12px_rgba(11,19,32,.22)]`}>
         <div className="sm:hidden mx-auto w-10 h-1 rounded bg-[#C6D0EC] mb-3" />
         <div className="flex items-start justify-between gap-3 mb-3 sm:pt-3">
           <div className="flex flex-col gap-1">

@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { PortfolioCompact } from '../productCards';
 import { Info, ShieldCheck, Sprout, Gem, Rocket, Check, ArrowUpRight, ChevronDown, ChevronRight, RefreshCw, Target, Quote, FileText } from 'lucide-react';
 import { PORTFOLIOS, PORTFOLIO_PLANS, APP_LINKS, APP_USER, APP_REVIEWS, GST_PERCENT, rupees, monthsLabel, type Portfolio } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
 import { cn } from '@/lib/utils';
 import { Card, Eyebrow, Sheet, Disclaimer, goldBtn, mono, GAIN, LOSS } from '../ui';
 
-const ICONS: Record<string, typeof Sprout> = {
+export const ICONS: Record<string, typeof Sprout> = {
   'alpha-beginner': Sprout,
   'alpha-prime': ShieldCheck,
   'alpha-allrounder': Gem,
@@ -47,35 +48,13 @@ export default function PortfoliosTab() {
             <p className="text-[13px] text-[#6B7381]">Built and tracked by our SEBI-registered research team</p>
           </div>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 items-stretch">
           {PORTFOLIOS.map((p) => {
             const Icon = ICONS[p.slug] ?? Gem;
-            const h = headline(p);
-            return (
-              <article key={p.id} className="group bg-white border border-[#E4E8EF] rounded-2xl p-4 flex flex-col gap-3 hover:border-[#154198] hover:shadow-[0_8px_24px_-8px_rgba(11,19,32,.18)] transition-all">
-                <div className="flex items-start justify-between gap-2">
-                  <span className={cn('text-[11px] font-extrabold rounded-md px-2 py-[3px]', VOL[p.riskLevel].cls)}>{VOL[p.riskLevel].label}</span>
-                  <span className="w-10 h-10 rounded-xl bg-[#EEF3FE] text-[#154198] flex items-center justify-center group-hover:bg-[#154198] group-hover:text-[#F5BA31] transition-colors"><Icon className="w-5 h-5" /></span>
-                </div>
-                <div>
-                  <h3 className="text-[17px] font-extrabold tracking-[-0.01em]">{p.name}</h3>
-                  <p className="text-[12.5px] text-[#6B7381]">{p.tagline}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-2 rounded-xl bg-[#F5F7FC] p-2.5">
-                  <div>
-                    <button onClick={() => setAmountInfo(true)} className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#6B7381]">Min. amount<Info className="w-3 h-3" /></button>
-                    <div className={cn(mono, 'text-sm font-semibold')}>{rupees(p.minInvestment)}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[11px] font-semibold text-[#6B7381]">{h.label}</div>
-                    <div className={cn(mono, 'text-sm font-semibold')} style={{ color: h.value >= 0 ? GAIN : LOSS }}>{h.value > 0 ? '+' : ''}{h.value.toFixed(2)}%</div>
-                  </div>
-                </div>
-                <Link href={`/app/portfolios/${p.slug}`} className="mt-auto h-10 rounded-[10px] border-[1.5px] border-[#1E3A8A] text-[#1E3A8A] text-sm font-extrabold hover:bg-[#1E3A8A] hover:text-white transition-colors flex items-center justify-center">View</Link>
-              </article>
-            );
+            return <PortfolioCompact key={p.id} p={p} icon={<Icon className="w-5 h-5" />} />;
           })}
         </div>
+        <button onClick={() => setAmountInfo(true)} className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#6B7381] hover:text-[#154198]"><Info className="w-3.5 h-3.5" />What is the minimum amount?</button>
       </section>
 
       {/* Portfolio report */}

@@ -5,6 +5,7 @@ import { CalendarClock, Activity, TriangleAlert, TrendingUp, TrendingDown } from
 import { FUTURES, CLOSED_FUTURES, futuresReturn, price, rupees, shortDate, type FuturesCall } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
 import { cn } from '@/lib/utils';
+import { FuturesCompact } from '../productCards';
 import { Card, LogoTile, Segmented, Sheet, StatStrip, Disclaimer, SampleChip, blueBtn, mono, GAIN, LOSS } from '../ui';
 
 type Chip = 'Index' | 'Stock' | 'LONG' | 'SHORT';
@@ -65,8 +66,8 @@ export default function FuturesTab() {
       ]} />
 
       {live === 'live' ? (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 items-start">
-          {calls.map((f) => <FuturesCard key={f.id} f={f} onWhy={() => setWhy(f)} />)}
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 items-stretch">
+          {calls.map((f) => <FuturesCompact key={f.id} f={f} onAbout={() => setWhy(f)} />)}
           {!calls.length && <p className="py-10 text-center text-sm font-bold md:col-span-2 xl:col-span-3">No calls match these filters.</p>}
         </div>
       ) : (
@@ -105,26 +106,34 @@ export default function FuturesTab() {
 
       <Disclaimer>Futures calls shown are sample data from the Advisory tab design while the Futures product is being launched; they are not live recommendations. Open futures positions are marked to market daily by your broker. Positions not exited by expiry are settled per exchange rules. Investment in securities market are subject to market risks.</Disclaimer>
 
-      <Sheet open={!!why} onClose={() => setWhy(null)} eyebrow="Why this trade" title={why?.contract ?? ''}>
-        {why && (
-          <div className="flex flex-col gap-4">
-            <p className="text-sm leading-[1.6] text-[#2C3550]">{why.thesis}</p>
-            <ul className="flex flex-col gap-2.5">
-              {why.points.map((p) => (
-                <li key={p} className="flex gap-2.5 text-sm text-[#13235B]"><span className="text-[#1E3A8A] font-black">✓</span>{p}</li>
-              ))}
-            </ul>
-            <div className="grid grid-cols-3 gap-2 bg-[#F3F5FB] rounded-xl p-3">
-              <div><div className="text-xs text-[#5B6478]">Holding</div><div className="text-[15px] font-bold">{why.duration}</div></div>
-              <div><div className="text-xs text-[#5B6478]">Lot size</div><div className="text-[15px] font-bold">{why.lot}</div></div>
-              <div><div className="text-xs text-[#5B6478]">Expiry</div><div className="text-[15px] font-bold">{why.expiry}</div></div>
-            </div>
-            <p className="text-[11px] leading-4 text-[#5B6478]">Research for information only. Futures are leveraged; losses can exceed the margin blocked. SEBI RA Reg. No. {BRAND_INFO.sebiRegNo}.</p>
-            <button onClick={() => setWhy(null)} className={cn(blueBtn, 'h-12 text-[15px] bg-[#1E3A8A]')}>Got it</button>
-          </div>
-        )}
-      </Sheet>
+      <FuturesWhySheet f={why} onClose={() => setWhy(null)} />
     </div>
+  );
+}
+
+/** "Why this trade?" panel: the full futures card from the design, then the thesis. Reused on Home. */
+export function FuturesWhySheet({ f, onClose }: { f: FuturesCall | null; onClose: () => void }) {
+  return (
+    <Sheet open={!!f} onClose={onClose} wide eyebrow="Why this trade" title={f?.contract ?? ''}>
+      {f && (
+        <div className="flex flex-col gap-4">
+          <FuturesCard f={f} />
+          <p className="text-sm leading-[1.6] text-[#2C3550]">{f.thesis}</p>
+          <ul className="flex flex-col gap-2.5">
+            {f.points.map((p) => (
+              <li key={p} className="flex gap-2.5 text-sm text-[#13235B]"><span className="text-[#1E3A8A] font-black">✓</span>{p}</li>
+            ))}
+          </ul>
+          <div className="grid grid-cols-3 gap-2 bg-[#F3F5FB] rounded-xl p-3">
+            <div><div className="text-xs text-[#5B6478]">Holding</div><div className="text-[15px] font-bold">{f.duration}</div></div>
+            <div><div className="text-xs text-[#5B6478]">Lot size</div><div className="text-[15px] font-bold">{f.lot}</div></div>
+            <div><div className="text-xs text-[#5B6478]">Expiry</div><div className="text-[15px] font-bold">{f.expiry}</div></div>
+          </div>
+          <p className="text-[11px] leading-4 text-[#5B6478]">Sample call from the Advisory tab design, not a live recommendation. Futures are leveraged; losses can exceed the margin blocked. SEBI RA Reg. No. {BRAND_INFO.sebiRegNo}.</p>
+          <button onClick={onClose} className={cn(blueBtn, 'h-12 text-[15px] bg-[#1E3A8A]')}>Got it</button>
+        </div>
+      )}
+    </Sheet>
   );
 }
 
@@ -149,7 +158,7 @@ function SideBadge({ side }: { side: 'LONG' | 'SHORT' }) {
 }
 
 /** Live futures call, laid out per the updated Advisory tab design (AdvisoryTabDesign(1).html). */
-function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy: () => void }) {
+export function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy?: () => void }) {
   const since = futuresReturn(f, f.ltp);
   const up = since >= 0;
   const potential = Math.abs((f.target - f.ltp) / f.ltp) * 100;
@@ -223,9 +232,9 @@ function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy: () => void }) {
         <div className={cn(tile, 'border-[#B7E0C4] bg-[#F1FAF4]')}><span className="text-xs text-[#5B6478]">Reward / lot</span><span className="text-sm font-bold text-[#157F3D]">{rupees(Math.round(rewardLot))}</span></div>
       </div>
 
-      <button onClick={onWhy} className="h-[46px] rounded-xl bg-[#1E3A8A] hover:bg-[#13235B] text-white text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[.985] transition-all">
+      {onWhy && <button onClick={onWhy} className="h-[46px] rounded-xl bg-[#1E3A8A] hover:bg-[#13235B] text-white text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[.985] transition-all">
         <Activity className="w-4 h-4" />Why this trade?
-      </button>
+      </button>}
     </article>
   );
 }

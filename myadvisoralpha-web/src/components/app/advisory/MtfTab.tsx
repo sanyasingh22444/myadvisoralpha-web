@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp, CircleCheck, TriangleAlert } from 'lucide-react
 import { MTF_BASKETS, CLOSED_MTF_BASKETS, MTF_LEVERAGE as X, price, rupees, shortDate, type MtfBasket, type MtfStock } from '@/data/app';
 import { BRAND_INFO } from '@/data/brand';
 import { cn } from '@/lib/utils';
+import { MtfCompact } from '../productCards';
 import { Card, FeaturedChip, Segmented, Sheet, Disclaimer, SampleChip, ghostBtn, mono, GAIN, LOSS } from '../ui';
 
 type Chip = 'featured' | 'exit' | 'profit';
@@ -72,9 +73,9 @@ export default function MtfTab() {
 
       {tab === 'live' ? (
         baskets.length ? (
-          <div className="grid gap-4 lg:grid-cols-2 items-start">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 items-stretch">
             {baskets.map((b) => (
-              <BasketCard key={b.id} b={b} expanded={open === b.id} onToggle={() => setOpen(open === b.id ? null : b.id)} onAbout={() => setAbout(b)} />
+              <MtfCompact key={b.id} b={b} onPositions={() => setOpen(b.id)} onAbout={() => setAbout(b)} />
             ))}
           </div>
         ) : (
@@ -126,6 +127,8 @@ export default function MtfTab() {
 
       <Disclaimer>MTF baskets shown are sample data from the Advisory tab design while the product is being launched; they are not live recommendations. Returns on actual investment are leveraged values ({X}x MTF) and exclude MTF interest and charges, which differ from broker to broker. Leverage magnifies losses as well as gains.</Disclaimer>
 
+      <MtfPositionsSheet basket={MTF_BASKETS.find((b) => b.id === open) ?? null} onClose={() => setOpen(null)} onAbout={(b) => { setOpen(null); setAbout(b); }} />
+
       <Sheet open={!!about} onClose={() => setAbout(null)} eyebrow="Why this basket" title={about?.name ?? ''}>
         {about && (
           <div className="flex flex-col gap-4">
@@ -144,6 +147,15 @@ export default function MtfTab() {
         )}
       </Sheet>
     </div>
+  );
+}
+
+/** Positions panel: the full basket card from the design, opened with its positions table showing. */
+export function MtfPositionsSheet({ basket, onClose, onAbout }: { basket: MtfBasket | null; onClose: () => void; onAbout: (b: MtfBasket) => void }) {
+  return (
+    <Sheet open={!!basket} onClose={onClose} wide eyebrow="Positions" title={basket?.name ?? ''}>
+      {basket && <BasketCard b={basket} expanded onToggle={onClose} onAbout={() => onAbout(basket)} />}
+    </Sheet>
   );
 }
 

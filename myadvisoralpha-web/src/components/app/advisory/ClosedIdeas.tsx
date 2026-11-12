@@ -150,6 +150,15 @@ export default function ClosedIdeas({ ideas }: { ideas: ClosedIdea[] }) {
   );
 }
 
+/** The closed-idea About panel on its own, for Home. */
+export function ClosedAboutSheet({ idea, onClose }: { idea: ClosedIdea | null; onClose: () => void }) {
+  return (
+    <Sheet open={!!idea} onClose={onClose} eyebrow="About idea" title={idea ? `${idea.symbol} · ${idea.name}` : ''}>
+      {idea && <AboutIdea idea={idea} />}
+    </Sheet>
+  );
+}
+
 function AboutIdea({ idea }: { idea: ClosedIdea }) {
   const targeted = idea.targetUpside;
   // Gain on launch price vs the upside targeted at launch.

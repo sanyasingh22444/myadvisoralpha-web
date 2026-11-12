@@ -13,6 +13,13 @@ import MtfTab from './MtfTab';
 
 import { PRODUCTS, type Product } from './products';
 
+const HEADINGS: Record<Product, { title: string; sub: string }> = {
+  stocks: { title: 'Stock ideas', sub: 'Researched buy calls with entry, two targets and a stop loss, plus every closed idea.' },
+  portfolios: { title: 'Model portfolios', sub: 'Ready-made portfolios built and rebalanced by our research team.' },
+  futures: { title: 'Futures', sub: 'Index and stock futures calls with risk and reward sized per lot.' },
+  mtf: { title: 'MTF Baskets', sub: 'Short-term 3-stock baskets for margin trading, with one target and stop loss.' },
+};
+
 const CTA: Record<Product, string> = {
   stocks: 'What you get with Stocks',
   portfolios: 'What you get with Portfolios',
@@ -26,24 +33,23 @@ export default function AdvisoryView({ product }: { product: Product }) {
 
   return (
     <div>
-      <div className="flex items-center gap-2 mb-3">
-        <h1 className="text-[27px] sm:text-[30px] font-extrabold tracking-[-0.03em]">Advisory</h1>
-        <button onClick={() => setFeatures(product)} aria-label="About this product" className="w-[26px] h-[26px] rounded-full border border-[#DFE4EC] bg-white text-[#4C5462] flex items-center justify-center hover:bg-[#F4F6F9]"><Info className="w-3.5 h-3.5" /></button>
-      </div>
-
-      <div role="tablist" aria-label="Advisory products" className="flex gap-4 sm:gap-5 overflow-x-auto border-b border-[#DFE4EC] mb-4 [scrollbar-width:none]">
-        {PRODUCTS.map((p) => {
-          const on = p.id === product;
-          return (
-            <Link key={p.id} role="tab" aria-selected={on} href={`/app/advisory/${p.id}`} scroll={false}
-              className={cn('relative flex-none pb-2.5 text-[15px] whitespace-nowrap transition-colors', on ? 'font-extrabold text-[#154198]' : 'font-semibold text-[#6B7381] hover:text-[#14171C]')}>
-              {p.label}
-              {p.isNew && !on && <span className="absolute -right-2 top-0 w-1.5 h-1.5 rounded-full bg-[#E03131]" aria-label="New" />}
-              {p.isNew && on && <span className="hidden sm:inline ml-1.5 align-middle text-[9.5px] font-extrabold tracking-wider uppercase text-[#081026] bg-[#F5BA31] rounded-full px-1.5 py-px">New</span>}
-              {on && <span className="absolute left-0 right-0 -bottom-px h-[3px] rounded-t bg-[#154198]" />}
-            </Link>
-          );
-        })}
+      <div className="mb-4 flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <h1 className="text-[26px] sm:text-[30px] font-extrabold tracking-[-0.03em]">{HEADINGS[product].title}</h1>
+          {PRODUCTS.find((p) => p.id === product)?.isNew && <span className="text-[10px] font-extrabold tracking-wider uppercase text-[#081026] bg-[#F5BA31] rounded-full px-2 py-0.5">New</span>}
+          <button onClick={() => setFeatures(product)} aria-label="About this product" className="w-[26px] h-[26px] rounded-full border border-[#DFE4EC] bg-white text-[#4C5462] flex items-center justify-center hover:bg-[#F4F6F9]"><Info className="w-3.5 h-3.5" /></button>
+        </div>
+        <p className="-mt-2 text-sm text-[#4A525F]">{HEADINGS[product].sub}</p>
+        <div className="-mx-4 sm:mx-0 px-4 sm:px-0 flex gap-2 overflow-x-auto [scrollbar-width:none]">
+          {PRODUCT_FEATURES[product].map((f, i) => {
+            const Icon = featureIcons[i % featureIcons.length];
+            return (
+              <span key={f.title} className="flex-none inline-flex items-center gap-2 rounded-full bg-white border border-[#DCE2F2] pl-1.5 pr-3 py-1 text-[12.5px] font-bold text-[#13235B]">
+                <span className="w-6 h-6 rounded-full bg-[#081026] text-[#F5BA31] flex items-center justify-center"><Icon className="w-3.5 h-3.5" /></span>{f.title}
+              </span>
+            );
+          })}
+        </div>
       </div>
 
       {product === 'stocks' && <StocksTab />}

@@ -99,7 +99,7 @@ export default function HomeView() {
               {HEADLINE_INDICES.slice(0, 6).map((i) => {
                 const c = pctChange(i.ltp, i.prevClose);
                 return (
-                  <Link key={i.name} href="/app/markets" className="flex-none w-[150px] rounded-xl bg-white border border-[#DCE2F2] px-3 py-2.5 hover:border-[#9FB2E0]">
+                  <Link key={i.name} href="/app/markets" className="flex-none w-[150px] rounded-xl bg-white border border-[#93C5FD] px-3 py-2.5 hover:border-[#3B82F6]">
                     <div className="text-xs font-bold text-[#6B7381]">{i.short}</div>
                     <div className={cn(mono, 'text-[15px] font-semibold')}>{i.ltp.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</div>
                     <div className={cn(mono, 'text-[11.5px] font-semibold')} style={{ color: c >= 0 ? GAIN : LOSS }}>{c >= 0 ? '▲' : '▼'} {Math.abs(c).toFixed(2)}%</div>
@@ -166,7 +166,7 @@ export default function HomeView() {
                 const yt = r.videoUrl?.match(/[?&]v=([^&]+)/)?.[1];
                 const src = r.imageUrl ?? (yt ? `https://img.youtube.com/vi/${yt}/hqdefault.jpg` : null);
                 return (
-                  <Link key={r.id} href="/app/research" className="group rounded-2xl bg-white border border-[#DCE2F2] overflow-hidden hover:border-[#9FB2E0]">
+                  <Link key={r.id} href="/app/research" className="group rounded-2xl bg-white border border-[#93C5FD] overflow-hidden hover:border-[#3B82F6]">
                     <div className="relative aspect-[16/9] bg-[#EEF3FE]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       {src && <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />}
@@ -215,7 +215,7 @@ export default function HomeView() {
         <Eyebrow>Our partners</Eyebrow>
         <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
           {PARTNERS.map((p) => (
-            <div key={p.name} className="h-16 rounded-xl bg-white border border-[#DCE2F2] flex items-center justify-center px-4">
+            <div key={p.name} className="h-16 rounded-xl bg-white border border-[#93C5FD] flex items-center justify-center px-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={p.logo} alt={p.name} className="max-h-9 max-w-full object-contain" loading="lazy" />
             </div>

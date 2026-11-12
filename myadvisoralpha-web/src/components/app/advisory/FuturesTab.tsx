@@ -183,7 +183,7 @@ export function FuturesCard({ f, onWhy }: { f: FuturesCall; onWhy?: () => void }
   const tile = 'rounded-[10px] px-2.5 py-2 flex flex-col gap-0.5 border';
 
   return (
-    <article className="bg-white border border-[#DCE2F2] rounded-2xl p-4 flex flex-col gap-3.5 text-[#13235B]">
+    <article className="bg-white border border-[#93C5FD] rounded-2xl p-4 flex flex-col gap-3.5 text-[#13235B]">
       <div className="flex justify-between items-center gap-2">
         <span className="text-xs text-[#5B6478]">Posted: {shortDate(f.posted)}</span>
         <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6B4300] bg-[#FCEBC5] px-2.5 py-1 rounded-md whitespace-nowrap"><CalendarClock className="w-3 h-3" />Exp {f.expiry}</span>

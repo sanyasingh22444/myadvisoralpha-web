@@ -51,12 +51,12 @@ export default function GlobalSearch({ dark = true, autoFocus = false, onDone }:
         aria-label="Search the app"
         className={cn('w-full h-10 rounded-xl pl-9 pr-9 text-[13.5px] font-semibold outline-none transition-colors',
           dark ? 'bg-white/[0.08] border border-white/15 text-white placeholder:text-white/45 focus:bg-white/[0.12] focus:border-[#F5BA31]/70'
-            : 'bg-[#F7F9FC] border border-[#DFE4EC] text-[#14171C] focus:border-[#154198]')}
+            : 'bg-[#F7F9FC] border border-[#93C5FD] text-[#14171C] focus:border-[#154198]')}
       />
       {q && <button aria-label="Clear search" onClick={() => setQ('')} className={cn('absolute right-2.5 top-1/2 -translate-y-1/2', dark ? 'text-white/60' : 'text-[#8D95A3]')}><X className="w-4 h-4" /></button>}
 
       {open && q.trim() && (
-        <div className="absolute left-0 right-0 top-12 z-50 bg-white text-[#14171C] rounded-2xl border border-[#DCE2F2] shadow-[0_20px_48px_-12px_rgba(11,19,32,.35)] overflow-hidden">
+        <div className="absolute left-0 right-0 top-12 z-50 bg-white text-[#14171C] rounded-2xl border border-[#93C5FD] shadow-[0_20px_48px_-12px_rgba(11,19,32,.35)] overflow-hidden">
           {hits.length ? (
             <ul className="max-h-[60vh] overflow-y-auto py-1.5">
               {hits.map((h) => {

@@ -159,7 +159,7 @@ export default function PortfoliosTab() {
         <h2 className="mb-3 text-lg font-extrabold tracking-[-0.02em]">What our investors say</h2>
         <div className="flex gap-3 overflow-x-auto snap-x pb-1 [scrollbar-width:none]">
           {APP_REVIEWS.map((r) => (
-            <figure key={r.name} className="snap-start flex-none w-[260px] sm:w-[300px] rounded-2xl bg-white border border-[#E4E8EF] p-4 flex flex-col gap-3">
+            <figure key={r.name} className="snap-start flex-none w-[260px] sm:w-[300px] rounded-2xl bg-white border border-[#93C5FD] p-4 flex flex-col gap-3">
               <Quote className="w-5 h-5 text-[#C98F1E]" />
               <blockquote className="text-[13.5px] leading-relaxed text-[#2C3550]">{r.text}</blockquote>
               <figcaption className="mt-auto text-xs font-extrabold">{r.name}{r.role && <span className="block font-medium text-[#8D95A3]">{r.role}</span>}</figcaption>

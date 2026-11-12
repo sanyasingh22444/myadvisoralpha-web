@@ -40,7 +40,7 @@ export default function AdvisoryView({ product }: { product: Product }) {
           return (
             <Link key={p.id} role="tab" aria-selected={on} href={`/app/advisory/${p.id}`} scroll={false}
               className={cn('flex-none inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-[13.5px] whitespace-nowrap border transition-colors',
-                on ? 'bg-[#081026] border-[#081026] text-white font-extrabold' : 'bg-white border-[#DCE2F2] text-[#13235B] font-semibold')}>
+                on ? 'bg-[#081026] border-[#081026] text-white font-extrabold' : 'bg-white border-[#93C5FD] text-[#13235B] font-semibold')}>
               {p.label}
               {p.isNew && <span className={cn('text-[9px] font-extrabold tracking-wider uppercase rounded-full px-1.5 py-px', on ? 'bg-[#F5BA31] text-[#081026]' : 'bg-[#FFEDC4] text-[#6E4C0B]')}>New</span>}
             </Link>
@@ -52,14 +52,14 @@ export default function AdvisoryView({ product }: { product: Product }) {
         <div className="flex items-center gap-2">
           <h1 className="text-[26px] sm:text-[30px] font-extrabold tracking-[-0.03em]">{HEADINGS[product].title}</h1>
           {PRODUCTS.find((p) => p.id === product)?.isNew && <span className="text-[10px] font-extrabold tracking-wider uppercase text-[#081026] bg-[#F5BA31] rounded-full px-2 py-0.5">New</span>}
-          <button onClick={() => setFeatures(product)} aria-label="About this product" className="w-[26px] h-[26px] rounded-full border border-[#DFE4EC] bg-white text-[#4C5462] flex items-center justify-center hover:bg-[#F4F6F9]"><Info className="w-3.5 h-3.5" /></button>
+          <button onClick={() => setFeatures(product)} aria-label="About this product" className="w-[26px] h-[26px] rounded-full border border-[#93C5FD] bg-white text-[#4C5462] flex items-center justify-center hover:bg-[#F4F6F9]"><Info className="w-3.5 h-3.5" /></button>
         </div>
         <p className="-mt-2 text-sm text-[#4A525F]">{HEADINGS[product].sub}</p>
         <div className="-mx-4 sm:mx-0 px-4 sm:px-0 flex gap-2 overflow-x-auto [scrollbar-width:none]">
           {PRODUCT_FEATURES[product].map((f, i) => {
             const Icon = featureIcons[i % featureIcons.length];
             return (
-              <span key={f.title} className="flex-none inline-flex items-center gap-2 rounded-full bg-white border border-[#DCE2F2] pl-1.5 pr-3 py-1 text-[12.5px] font-bold text-[#13235B]">
+              <span key={f.title} className="flex-none inline-flex items-center gap-2 rounded-full bg-white border border-[#93C5FD] pl-1.5 pr-3 py-1 text-[12.5px] font-bold text-[#13235B]">
                 <span className="w-6 h-6 rounded-full bg-[#081026] text-[#F5BA31] flex items-center justify-center"><Icon className="w-3.5 h-3.5" /></span>{f.title}
               </span>
             );

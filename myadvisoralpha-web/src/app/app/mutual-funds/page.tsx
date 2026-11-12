@@ -49,7 +49,7 @@ export default function MutualFundsPage() {
         })}
       </div>
 
-      <div className="flex items-center gap-3 rounded-[14px] bg-white border border-[#E4E8EF] p-4 text-[11.5px] text-[#6B7381]">
+      <div className="flex items-center gap-3 rounded-[14px] bg-white border border-[#93C5FD] p-4 text-[11.5px] text-[#6B7381]">
         <ShieldCheck className="w-5 h-5 text-[#154198] flex-none" />
         <p>AMFI Registered Mutual Fund Distributor {BRAND_INFO.amfiArn}. Mutual fund investments are subject to market risks; read all scheme-related documents carefully.</p>
       </div>

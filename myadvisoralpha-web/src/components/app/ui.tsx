@@ -61,7 +61,7 @@ export function Change({ value, className }: { value: number; className?: string
 export function LogoTile({ src, label, size = 44 }: { src?: string | null; label: string; size?: number }) {
   const [failed, setFailed] = useState(false);
   return (
-    <span className="rounded-[10px] border border-[#E8EBF0] bg-white flex items-center justify-center flex-none overflow-hidden" style={{ width: size, height: size }}>
+    <span className="rounded-[10px] border border-[#93C5FD] bg-white flex items-center justify-center flex-none overflow-hidden" style={{ width: size, height: size }}>
       {src && !failed ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt="" className="w-full h-full object-contain p-1" onError={() => setFailed(true)} />
@@ -144,7 +144,7 @@ export function Sheet({ open, onClose, eyebrow, title, children, wide = false }:
 
 export function Segmented<T extends string>({ options, value, onChange, className }: { options: { id: T; label: React.ReactNode }[]; value: T; onChange: (v: T) => void; className?: string }) {
   return (
-    <div role="tablist" className={cn('flex gap-[3px] p-[3px] bg-white border border-[#DCE2F2] rounded-full', className)}>
+    <div role="tablist" className={cn('flex gap-[3px] p-[3px] bg-white border border-[#93C5FD] rounded-full', className)}>
       {options.map((o) => (
         <button key={o.id} role="tab" aria-selected={value === o.id} onClick={() => onChange(o.id)}
           className={cn('flex-1 h-[34px] px-3 rounded-full text-[13.5px] whitespace-nowrap transition-colors', value === o.id ? 'bg-[#1E3A8A] text-white font-bold' : 'text-[#13235B] font-semibold hover:bg-[#EEF3FE]')}>

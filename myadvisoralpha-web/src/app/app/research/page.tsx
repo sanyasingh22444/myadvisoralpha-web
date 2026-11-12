@@ -23,7 +23,7 @@ function ResearchCard({ post, lead = false }: { post: (typeof RESEARCH)[number];
   return (
     <Wrapper
       {...(href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className={`group block rounded-[14px] bg-white border border-[#E4E8EF] overflow-hidden hover:border-[#154198] transition-colors ${lead ? 'md:grid md:grid-cols-[1.2fr_1fr]' : ''}`}
+      className={`group block rounded-[14px] bg-white border border-[#93C5FD] overflow-hidden hover:border-[#154198] transition-colors ${lead ? 'md:grid md:grid-cols-[1.2fr_1fr]' : ''}`}
     >
       <div className="relative aspect-[16/9] bg-[#EEF3FE]">
         {/* eslint-disable-next-line @next/next/no-img-element */}

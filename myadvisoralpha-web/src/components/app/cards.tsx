@@ -36,7 +36,7 @@ export function CompactCard({
   className?: string;
 }) {
   return (
-    <article className={cn('w-full bg-white border border-[#DCE2F2] rounded-2xl p-4 flex flex-col gap-3 text-[#13235B] hover:border-[#9FB2E0] hover:shadow-[0_10px_28px_-12px_rgba(19,35,91,.28)] transition-all', className)}>
+    <article className={cn('w-full bg-white border border-[#93C5FD] rounded-2xl p-4 flex flex-col gap-3 text-[#13235B] hover:border-[#3B82F6] hover:shadow-[0_10px_28px_-12px_rgba(19,35,91,.28)] transition-all', className)}>
       {(chips || chipsRight) && (
         <div className="flex items-center justify-between gap-2 min-h-[24px]">
           <div className="flex items-center gap-1.5 flex-wrap">{chips}</div>

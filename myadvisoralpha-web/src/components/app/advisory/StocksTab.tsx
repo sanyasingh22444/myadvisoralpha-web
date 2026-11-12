@@ -72,7 +72,7 @@ export default function StocksTab() {
             <input
               type="search" value={query} onChange={(e) => setQuery(e.target.value)}
               placeholder="Search company, ticker or sector"
-              className="w-full h-10 rounded-[10px] border border-[#DFE4EC] bg-[#F7F9FC] pl-9 pr-9 text-[13.5px] font-semibold outline-none focus:border-[#154198] focus:bg-white focus:shadow-[0_0_0_3px_rgba(21,65,152,.28)]"
+              className="w-full h-10 rounded-[10px] border border-[#93C5FD] bg-[#F7F9FC] pl-9 pr-9 text-[13.5px] font-semibold outline-none focus:border-[#154198] focus:bg-white focus:shadow-[0_0_0_3px_rgba(21,65,152,.28)]"
             />
             {query && <button aria-label="Clear search" onClick={() => setQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-[#8D95A3]"><X className="w-4 h-4" /></button>}
           </div>
@@ -232,7 +232,7 @@ export function IdeaCard({ idea, saved, onSave, onWhy, initialFlipped = false }:
           <span className={cn(mono, 'text-[11.5px] font-semibold rounded-md px-1.5 py-0.5')} style={{ color: since >= 0 ? GAIN : LOSS, background: since >= 0 ? '#E3F5E7' : '#FDECEC' }}>{since >= 0 ? '+' : ''}{since.toFixed(2)}%</span>
           <span className="w-px h-3.5 bg-[#CDD6E6] ml-auto mr-1" />
           <span className="text-[11px] font-semibold text-[#6B7381]">Potential left</span>
-          <span className={cn(mono, 'text-[11.5px] font-semibold bg-white border border-[#DFE4EC] rounded-md px-1.5 py-0.5')}>{idea.upsidePotential.toFixed(1)}%</span>
+          <span className={cn(mono, 'text-[11.5px] font-semibold bg-white border border-[#93C5FD] rounded-md px-1.5 py-0.5')}>{idea.upsidePotential.toFixed(1)}%</span>
         </div>
       </div>
 

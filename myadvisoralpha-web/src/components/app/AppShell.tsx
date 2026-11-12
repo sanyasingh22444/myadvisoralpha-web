@@ -66,7 +66,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           {mobileSearch && <div className="md:hidden pb-3"><GlobalSearch autoFocus onDone={() => setMobileSearch(false)} /></div>}
 
           {/* Row 2: product tabs */}
-          <nav aria-label="Products" className="-mx-4 sm:mx-0 px-4 sm:px-0 flex gap-1 overflow-x-auto [scrollbar-width:none]">
+          {/* Desktop only: smaller screens use the bottom bar instead, so there is one menu at a time */}
+          <nav aria-label="Products" className="hidden lg:flex gap-1 overflow-x-auto [scrollbar-width:none]">
             {TABS.map((t) => {
               const on = t.match(pathname);
               return (

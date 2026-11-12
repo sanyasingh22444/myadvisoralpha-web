@@ -33,6 +33,21 @@ export default function AdvisoryView({ product }: { product: Product }) {
 
   return (
     <div>
+      {/* Product switcher for phones and tablets (desktop uses the top product tabs) */}
+      <div role="tablist" aria-label="Advisory products" className="lg:hidden -mx-4 sm:mx-0 px-4 sm:px-0 mb-4 flex gap-2 overflow-x-auto [scrollbar-width:none]">
+        {PRODUCTS.map((p) => {
+          const on = p.id === product;
+          return (
+            <Link key={p.id} role="tab" aria-selected={on} href={`/app/advisory/${p.id}`} scroll={false}
+              className={cn('flex-none inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-[13.5px] whitespace-nowrap border transition-colors',
+                on ? 'bg-[#081026] border-[#081026] text-white font-extrabold' : 'bg-white border-[#DCE2F2] text-[#13235B] font-semibold')}>
+              {p.label}
+              {p.isNew && <span className={cn('text-[9px] font-extrabold tracking-wider uppercase rounded-full px-1.5 py-px', on ? 'bg-[#F5BA31] text-[#081026]' : 'bg-[#FFEDC4] text-[#6E4C0B]')}>New</span>}
+            </Link>
+          );
+        })}
+      </div>
+
       <div className="mb-4 flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <h1 className="text-[26px] sm:text-[30px] font-extrabold tracking-[-0.03em]">{HEADINGS[product].title}</h1>

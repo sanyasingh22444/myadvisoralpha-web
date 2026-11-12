@@ -42,8 +42,7 @@ export default function HomeView() {
 
       {!APP_USER.kycComplete && <KycBanner />}
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px] items-start">
-        {/* Main column */}
+      <div className="flex flex-col gap-6 min-w-0">
         <div className="flex flex-col gap-6 min-w-0">
           {/* Plan + accuracy */}
           <div className="grid gap-4 md:grid-cols-[1.25fr_1fr]">
@@ -111,6 +110,25 @@ export default function HomeView() {
             <p className="text-[11px] text-[#8D95A3]">NSE snapshot, {MARKET_AS_OF}</p>
           </section>
 
+          {/* Watchlist, offer and expert help: one row of their own so they never cover the card rows */}
+          <section className="grid gap-4 md:grid-cols-3 items-stretch">
+            <Watchlist onOpen={(idea) => setStock({ idea, order: false })} />
+            <Link href="/app/plans" className="group relative overflow-hidden rounded-2xl bg-[#081026] text-white p-4 border border-[#F5BA31]/60 flex flex-col">
+              <div aria-hidden className="absolute -bottom-12 -left-8 w-40 h-40 rounded-full bg-[#F5BA31]/20 blur-[60px]" />
+              <div className="relative flex items-center gap-2 text-[#F5BA31] text-[11px] font-extrabold tracking-[0.14em] uppercase"><Sparkles className="w-3.5 h-3.5" />Offer</div>
+              <div className="relative mt-1 text-lg font-extrabold leading-tight">Pay for 6 months, get 6 months free</div>
+              <div className="relative mt-1 text-xs text-white/65">12 months of {STOCK_PLAN.name} for {rupees(twelve.price)} <s className="text-white/40">{rupees(twelve.originalPrice)}</s></div>
+              <span className="relative mt-auto pt-3 inline-flex items-center gap-1 text-sm font-bold text-[#F5BA31]">See plans<ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" /></span>
+            </Link>
+            <Card className="p-4 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-xl bg-[#EEF3FE] text-[#154198] flex items-center justify-center flex-none"><Headset className="w-5 h-5" /></span>
+                <div className="min-w-0"><div className="text-sm font-extrabold">Talk to an expert</div><div className="text-xs text-[#6B7381]">{BRAND_INFO.contact.workingHours}</div></div>
+              </div>
+              <a href={APP_LINKS.helpSupport} target="_blank" rel="noopener noreferrer" className="mt-auto h-10 rounded-[10px] border border-[#C6D0EC] text-[#13235B] text-sm font-bold flex items-center justify-center hover:bg-[#F4F6F9]">Ask a question</a>
+            </Card>
+          </section>
+
           <Rail title="Live stock ideas" count={TRACK_RECORD.totalLive} href="/app/advisory/stocks" note={`Prices as of ${SNAPSHOT_AS_OF}`}>
             {live.map((idea) => (
               <RailItem key={idea.id}><StockCompact idea={idea} onAbout={() => setStock({ idea, order: false })} onOrder={() => setStock({ idea, order: true })} /></RailItem>
@@ -165,22 +183,6 @@ export default function HomeView() {
           </section>
         </div>
 
-        {/* Side column */}
-        <aside className="flex flex-col gap-4 xl:sticky xl:top-[132px]">
-          <Watchlist onOpen={(idea) => setStock({ idea, order: false })} />
-          <Link href="/app/plans" className="group relative overflow-hidden rounded-2xl bg-[#081026] text-white p-4 border border-[#F5BA31]/60">
-            <div aria-hidden className="absolute -bottom-12 -left-8 w-40 h-40 rounded-full bg-[#F5BA31]/20 blur-[60px]" />
-            <div className="relative flex items-center gap-2 text-[#F5BA31] text-[11px] font-extrabold tracking-[0.14em] uppercase"><Sparkles className="w-3.5 h-3.5" />Offer</div>
-            <div className="relative mt-1 text-lg font-extrabold leading-tight">Pay for 6 months, get 6 months free</div>
-            <div className="relative mt-1 text-xs text-white/65">12 months of {STOCK_PLAN.name} for {rupees(twelve.price)} <s className="text-white/40">{rupees(twelve.originalPrice)}</s></div>
-            <span className="relative mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#F5BA31]">See plans<ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" /></span>
-          </Link>
-          <Card className="p-4 flex items-center gap-3">
-            <span className="w-10 h-10 rounded-xl bg-[#EEF3FE] text-[#154198] flex items-center justify-center flex-none"><Headset className="w-5 h-5" /></span>
-            <div className="flex-1 min-w-0"><div className="text-sm font-extrabold">Talk to an expert</div><div className="text-xs text-[#6B7381]">{BRAND_INFO.contact.workingHours}</div></div>
-            <a href={APP_LINKS.helpSupport} target="_blank" rel="noopener noreferrer" className="text-sm font-extrabold text-[#154198]">Ask</a>
-          </Card>
-        </aside>
       </div>
 
       {/* Trust */}

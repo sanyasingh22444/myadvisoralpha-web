@@ -111,7 +111,7 @@ export function Rail({ title, count, href, note, children }: { title: string; co
         </div>
         {href && <Link href={href} className="flex-none inline-flex items-center gap-0.5 text-sm font-extrabold text-[#154198] hover:underline">View all<ChevronRight className="w-4 h-4" /></Link>}
       </div>
-      <div className="-mx-4 sm:mx-0 px-4 sm:px-0 flex gap-3 overflow-x-auto snap-x pb-2 [scrollbar-width:thin]">
+      <div className="-mx-4 sm:mx-0 px-4 sm:px-0 scroll-px-4 sm:scroll-px-0 flex gap-3 overflow-x-auto snap-x pb-2 [scrollbar-width:thin]">
         {children}
       </div>
     </section>
